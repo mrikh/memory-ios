@@ -21,8 +21,6 @@ class FlowManager{
     static func createNavigationController(_ viewController : UIViewController) -> UINavigationController{
 
         let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.extendedLayoutIncludesOpaqueBars = true
-        navigationController.automaticallyAdjustsScrollViewInsets = false
         navigationController.setNavigationBarHidden(true, animated: false)
         return navigationController
     }

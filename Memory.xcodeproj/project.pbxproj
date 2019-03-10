@@ -40,6 +40,8 @@
 		46BCE3D222357A3100CEC9C1 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3B922357A3100CEC9C1 /* Defaults.swift */; };
 		46BCE3D422357A3100CEC9C1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3BE22357A3100CEC9C1 /* Colors.swift */; };
 		46BCE3E622357A9A00CEC9C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE3E522357A9A00CEC9C1 /* Localizable.strings */; };
+		46BCE3E9223580F600CEC9C1 /* Binder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3E8223580F600CEC9C1 /* Binder.swift */; };
+		46BCE3F12235816D00CEC9C1 /* MRActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3F02235816D00CEC9C1 /* MRActivityIndicator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,10 @@
 		46BCE3B922357A3100CEC9C1 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		46BCE3BE22357A3100CEC9C1 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		46BCE3E522357A9A00CEC9C1 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		46BCE3E8223580F600CEC9C1 /* Binder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binder.swift; sourceTree = "<group>"; };
+		46BCE3EE2235816C00CEC9C1 /* Memory-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Memory-Bridging-Header.h"; sourceTree = "<group>"; };
+		46BCE3EF2235816C00CEC9C1 /* MRActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRActivityIndicator.h; sourceTree = "<group>"; };
+		46BCE3F02235816D00CEC9C1 /* MRActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRActivityIndicator.m; sourceTree = "<group>"; };
 		C7938299BEE333E1DB6C2E75 /* Pods_Memory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -218,6 +224,8 @@
 		46BCE3BA22357A3100CEC9C1 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				46BCE3EA2235815F00CEC9C1 /* Activity Indicator */,
+				46BCE3E7223580F600CEC9C1 /* Data Binder */,
 			);
 			path = "Custom Classes";
 			sourceTree = "<group>";
@@ -234,11 +242,29 @@
 		46BCE3E422357A7000CEC9C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				46BCE3EE2235816C00CEC9C1 /* Memory-Bridging-Header.h */,
 				46BCE38F22356D2400CEC9C1 /* Info.plist */,
 				46BCE38A22356D2400CEC9C1 /* Assets.xcassets */,
 				46BCE3E522357A9A00CEC9C1 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		46BCE3E7223580F600CEC9C1 /* Data Binder */ = {
+			isa = PBXGroup;
+			children = (
+				46BCE3E8223580F600CEC9C1 /* Binder.swift */,
+			);
+			path = "Data Binder";
+			sourceTree = "<group>";
+		};
+		46BCE3EA2235815F00CEC9C1 /* Activity Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				46BCE3EF2235816C00CEC9C1 /* MRActivityIndicator.h */,
+				46BCE3F02235816D00CEC9C1 /* MRActivityIndicator.m */,
+			);
+			path = "Activity Indicator";
 			sourceTree = "<group>";
 		};
 		5C435BCFBB900C1FCE65FB32 /* Frameworks */ = {
@@ -283,6 +309,7 @@
 				TargetAttributes = {
 					46BCE37F22356D2100CEC9C1 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -391,11 +418,13 @@
 				46BCE3C022357A3100CEC9C1 /* ImagePickerProtocol.swift in Sources */,
 				46BCE39C22357A0D00CEC9C1 /* UserModel.swift in Sources */,
 				46BCE3C922357A3100CEC9C1 /* APIManager.swift in Sources */,
+				46BCE3F12235816D00CEC9C1 /* MRActivityIndicator.m in Sources */,
 				46BCE3CF22357A3100CEC9C1 /* String+General.swift in Sources */,
 				46BCE3BF22357A3100CEC9C1 /* ActionSheetProtocol.swift in Sources */,
 				46BCE3D422357A3100CEC9C1 /* Colors.swift in Sources */,
 				46BCE3CE22357A3100CEC9C1 /* View+GeneralEnhancements.swift in Sources */,
 				46BCE3CD22357A3100CEC9C1 /* UITextField + General.swift in Sources */,
+				46BCE3E9223580F600CEC9C1 /* Binder.swift in Sources */,
 				46BCE3C422357A3100CEC9C1 /* AuthorizationProtocol.swift in Sources */,
 				46BCE3C522357A3100CEC9C1 /* Constants.swift in Sources */,
 				46BCE3D122357A3100CEC9C1 /* Storyboards.swift in Sources */,
@@ -548,9 +577,10 @@
 			baseConfigurationReference = 437BFD79EFB89FEB73BDBD6B /* Pods-Memory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Memory/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Memory/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -559,6 +589,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mr.Memory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Memory/Resources/Memory-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -569,9 +601,10 @@
 			baseConfigurationReference = 378FA50C051AFC5CB5C9D58A /* Pods-Memory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Memory/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Memory/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -580,6 +613,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mr.Memory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Memory/Resources/Memory-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

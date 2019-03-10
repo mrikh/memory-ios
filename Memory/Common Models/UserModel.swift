@@ -10,7 +10,7 @@ import Foundation
 
 struct UserModel{
     
-    static var current = UserModel(Defaults.value(forKey: .userInfo))
+    static var current = UserModel(Defaults.value(forKey: .userInfo) as? [String : Any])
     
     let user_id: Int
     var full_name: String
@@ -18,9 +18,9 @@ struct UserModel{
     
     init (_ dict: [String : Any]? = [String : Any]()) {
         
-        user_id = dict["user_id"] as? Int ?? 0
-        full_name = dict["full_name"] as? String ?? ""
-        email = dict["email"] as? String ?? ""
+        user_id = dict?["user_id"] as? Int ?? 0
+        full_name = dict?["full_name"] as? String ?? ""
+        email = dict?["email"] as? String ?? ""
     }
     
     func saveToUserDefaults() {

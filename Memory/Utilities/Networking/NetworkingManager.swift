@@ -19,32 +19,32 @@ class NetworkingManager {
         return Alamofire.SessionManager(configuration: configuration)
     }()
     
-    static func POST(endPoint : APIManager.EndPoint, parameters : [String : Any] = [:], headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping (JSON) -> Void, failure : @escaping (Error) -> Void) {
+    static func POST(endPoint : APIManager.EndPoint, parameters : [String : Any] = [:], headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping ([String : Any]) -> Void, failure : @escaping (Error) -> Void) {
         
         request(URLString: endPoint.path, httpMethod: .post, parameters: parameters, headers: headers, loader: loader, success: success, failure: failure)
     }
     
-    static func GET(endPoint : APIManager.EndPoint, parameters : [String : Any] = [:], headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping (JSON) -> Void, failure : @escaping (Error) -> Void) {
+    static func GET(endPoint : APIManager.EndPoint, parameters : [String : Any] = [:], headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping ([String : Any]) -> Void, failure : @escaping (Error) -> Void) {
         
         request(URLString: endPoint.path, httpMethod: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: headers, loader: loader, success: success, failure: failure)
     }
     
-    static func PUT(endPoint : APIManager.EndPoint, parameters : [String : Any] = [:], headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping (JSON) -> Void, failure : @escaping (Error) -> Void) {
+    static func PUT(endPoint : APIManager.EndPoint, parameters : [String : Any] = [:], headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping ([String : Any]) -> Void, failure : @escaping (Error) -> Void) {
         
         request(URLString: endPoint.path, httpMethod: .put, parameters: parameters, headers: headers, loader: loader, success: success, failure: failure)
     }
     
-    static func DELETE(endPoint : APIManager.EndPoint, parameters : [String : Any] = [:], headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping (JSON) -> Void, failure : @escaping (Error) -> Void) {
+    static func DELETE(endPoint : APIManager.EndPoint, parameters : [String : Any] = [:], headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping ([String : Any]) -> Void, failure : @escaping (Error) -> Void) {
         
         request(URLString: endPoint.path, httpMethod: .delete, parameters: parameters, headers: headers, loader: loader, success: success, failure: failure)
     }
     
-    static func PATCH(endPoint : APIManager.EndPoint, parameters : [String : Any] = [:], headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping (JSON) -> Void, failure : @escaping (Error) -> Void) {
+    static func PATCH(endPoint : APIManager.EndPoint, parameters : [String : Any] = [:], headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping ([String : Any]) -> Void, failure : @escaping (Error) -> Void) {
         
         request(URLString: endPoint.path, httpMethod: .patch, parameters: parameters, headers: headers, loader: loader, success: success, failure: failure)
     }
     
-    private static func request(URLString : String, httpMethod : HTTPMethod, parameters : [String : Any] = [:], encoding: URLEncoding = URLEncoding.httpBody, headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping (JSON) -> Void, failure : @escaping (Error) -> Void) {
+    private static func request(URLString : String, httpMethod : HTTPMethod, parameters : [String : Any] = [:], encoding: URLEncoding = URLEncoding.httpBody, headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping ([String : Any]) -> Void, failure : @escaping (Error) -> Void) {
         
         DispatchQueue.main.async{
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -61,18 +61,18 @@ class NetworkingManager {
             switch(response.result) {
                 
             case .success(let value):
-                let json = JSON(value)
-                if json["CODE"].intValue == 200{
-                    success(json)
-                }else{
-                    let error = NSError(domain: "", code: json["CODE"].intValue, userInfo: [NSLocalizedDescriptionKey : json["MESSAGE"].stringValue, "response": json["RESULT"].dictionaryValue])
 
-//                    if error.code == ErrorCodes.accountBlocked{
-//                        FlowManager.clearAllData()
-//                        FlowManager.goToLogin()
-//                    }else{
+                if let dict = value as? [String : Any]{
+
+                    if let code = dict["code"] as? Int, code == 200{
+                        success(dict)
+                    }else{
+                        let error = NSError(domain: "", code: dict["code"] as? Int ?? 600, userInfo: [NSLocalizedDescriptionKey : dict["message"] as? String ?? "", "response": dict["result"] ?? ""])
                         failure(error)
-//                    }
+                    }
+                }else{
+                    let error = NSError(domain: "", code: 600, userInfo: [NSLocalizedDescriptionKey: StringConstants.something_wrong.localized, "response": ""])
+                    failure(error)
                 }
             case .failure(let e):
                 failure(e)
