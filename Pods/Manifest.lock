@@ -1,0 +1,35 @@
+PODS:
+  - Alamofire (4.8.1)
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - DZNEmptyDataSet (1.8.1)
+  - Fabric (1.9.0)
+  - SDWebImage (4.4.5):
+    - SDWebImage/Core (= 4.4.5)
+  - SDWebImage/Core (4.4.5)
+
+DEPENDENCIES:
+  - Alamofire
+  - Crashlytics
+  - DZNEmptyDataSet
+  - Fabric
+  - SDWebImage
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Crashlytics
+    - DZNEmptyDataSet
+    - Fabric
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  SDWebImage: ecc03494e973b93b80213649d32175f8d2d17d4d
+
+PODFILE CHECKSUM: 497c6b88bba8854cb031a65d1080fd64e3438d2b
+
+COCOAPODS: 1.6.0

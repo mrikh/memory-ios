@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  Memory
+
+  Created by Mayank Rikh on 10/03/19.
+  Copyright © 2019 Mayank Rikh. All rights reserved.
+*/
+
+//Login Flow
+"forgot_pass" = "Forgot Password?";
+"invalid_password" = "Password can't be less than eight characters";
+"email_not_empty" = "Email field can't be Empty.";
+"name_empty_error" = "Name cannot be empty";
+"invalid_email" = "This email address looks incorrect. Please try again.";
+
+//General
+"something_wrong" = "Something went wrong";
+"sorry" = "Sorry";
+"oops" = "Oops!";
+"success" = "Success!";
+"save" = "Save";
+"okay" = "Okay";
+"cancel" = "Cancel";
+"select_option" = "Select Option";
+"camera" = "Camera";
+"gallery" = "Gallery";
+"loading" = "Loading...";
+"no_data_found" = "No data found";
+"progress" = "Progress";
+"clear" = "Clear";
+"alert" = "Alert!";
+"share" = "Share";
+"yes" = "Yes";
+"no" = "No";
+"from" = "from";
+
+//access
+"mic_access" = "You need to provide microphone access to proceed further.";
+"record_access" = "You need to provide recording access to proceed further.";
+"camera_access" = "You need to provide camera access to proceed further";
+"gallery_access" = "You need to provide gallery access to proceed further";
