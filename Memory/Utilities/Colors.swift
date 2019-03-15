@@ -10,5 +10,6 @@ import UIKit
 
 class Colors : UIColor{
 
-    
+    static let bgColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    static let inactiveButtonColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
 }

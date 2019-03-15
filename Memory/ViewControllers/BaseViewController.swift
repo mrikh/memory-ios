@@ -74,6 +74,6 @@ extension BaseViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
 
-        return NSMutableAttributedString(string: self.emptyDataSetString, attributes: [NSAttributedString.Key.font: CustomFonts.default.withSize(17.0)])
+        return NSMutableAttributedString(string: self.emptyDataSetString, attributes: [NSAttributedString.Key.font: CustomFonts.avenirMedium.withSize(17.0)])
     }
 }

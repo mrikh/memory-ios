@@ -6,6 +6,8 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
+import Crashlytics
+import Fabric
 import UIKit
 
 @UIApplicationMain
@@ -15,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        Fabric.with([Crashlytics.self])
         return true
     }
 

@@ -9,12 +9,14 @@
 import Foundation
 import UIKit
 
-enum CustomFonts {
+enum CustomFonts : String{
 
-    case `default`
+    case avenirLight = "Avenir-Light"
+    case avenirMedium = "Avenir-Medium"
+    case avenirHeavy = "Avenir-Heavy"
 
     func withSize(_ fontSize: CGFloat) -> UIFont {
-        return UIFont.systemFont(ofSize: fontSize.getFontSize)
+        return UIFont(name: self.rawValue, size: fontSize.getFontSize) ?? UIFont.systemFont(ofSize: fontSize.getFontSize)
     }
 }
 
