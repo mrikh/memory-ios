@@ -111,3 +111,17 @@ class WelcomeViewController: BaseViewController, KeyboardHandler {
         skipLabel.textColor = Colors.white
     }
 }
+
+extension WelcomeViewController : UITextFieldDelegate{
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        if textField == emailTextField{
+            passwordTextField.becomeFirstResponder()
+        }else{
+            view.endEditing(true)
+        }
+
+        return true
+    }
+}

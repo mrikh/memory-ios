@@ -10,6 +10,44 @@ import Foundation
 
 class TextFieldCellViewModel{
 
+    enum ViewModelType : Int{
+        case name
+        case username
+        case email
+        case password
+
+        var keyboardType : UIKeyboardType{
+            switch self {
+            case .email:
+                return UIKeyboardType.emailAddress
+            default:
+                return UIKeyboardType.default
+            }
+        }
+
+        var returnButton : UIReturnKeyType{
+            switch self {
+            case .password:
+                return UIReturnKeyType.done
+            default:
+                return UIReturnKeyType.next
+            }
+        }
+
+        var contentType : UITextContentType{
+            switch self {
+            case .name:
+                return UITextContentType.name
+            case .username:
+                return UITextContentType.username
+            case .email:
+                return UITextContentType.emailAddress
+            case .password:
+                return UITextContentType.password
+            }
+        }
+    }
+
     enum Availability{
         case none
         case available
@@ -18,6 +56,7 @@ class TextFieldCellViewModel{
         case checking
     }
 
+    var type : ViewModelType?
     var placeholder : Binder<String?> = Binder(nil)
     var errorString : Binder<String?> = Binder(nil)
     var availability : Binder<Availability> = Binder(.none)
@@ -31,10 +70,11 @@ class TextFieldCellViewModel{
 
     var inputValueDidSet : ((String?)->())?
 
-    convenience init(placeholder : String?, inputValue : String?) {
+    convenience init(placeholder : String?, inputValue : String?, type : Int?) {
 
         self.init()
         self.placeholder.value = placeholder
         self.inputValue = inputValue
+        self.type = ViewModelType(rawValue: type ?? 0)
     }
 }

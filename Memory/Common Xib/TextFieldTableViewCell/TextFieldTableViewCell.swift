@@ -13,10 +13,13 @@ class TextFieldTableViewCell: UITableViewCell {
     @IBOutlet weak var mainTextField : MRTextField!
     private weak var viewModel : TextFieldCellViewModel?
 
+    var didPressReturn : ((TextFieldCellViewModel?)->())?
+
     override func awakeFromNib() {
 
         super.awakeFromNib()
         mainTextField.configure(with: nil, text : nil, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
+        mainTextField.delegate = self
     }
 
     override func prepareForReuse() {
@@ -33,10 +36,9 @@ class TextFieldTableViewCell: UITableViewCell {
 
         mainTextField.text = viewModel.inputValue
         mainTextField.placeholder = viewModel.placeholder.value
-
-        viewModel.inputValueDidSet = { [weak self] (string) in
-            self?.mainTextField.text = string
-        }
+        mainTextField.returnKeyType = viewModel.type?.returnButton ?? .default
+        mainTextField.keyboardType = viewModel.type?.keyboardType ?? .default
+        mainTextField.textContentType = viewModel.type?.contentType ?? .none
 
         viewModel.placeholder.bind { [weak self] (string) in
             self?.mainTextField.placeholder = string
@@ -45,5 +47,24 @@ class TextFieldTableViewCell: UITableViewCell {
         viewModel.errorString.bind { [weak self] (string) in
             self?.mainTextField.errorString = string
         }
+    }
+}
+
+extension TextFieldTableViewCell : UITextFieldDelegate{
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        if string.containsEmoji {return false}
+
+        let currentText = textField.text ?? ""
+        let replacedText = (currentText as NSString).replacingCharacters(in: range, with: string)
+
+        viewModel?.inputValue = replacedText
+        return true
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        didPressReturn?(viewModel)
+        return true
     }
 }
