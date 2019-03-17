@@ -8,7 +8,6 @@ PODS:
   - SDWebImage (4.4.5):
     - SDWebImage/Core (= 4.4.5)
   - SDWebImage/Core (4.4.5)
-  - SkyFloatingLabelTextField (3.6.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -17,7 +16,6 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - Fabric
   - SDWebImage
-  - SkyFloatingLabelTextField (~> 3.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -27,7 +25,6 @@ SPEC REPOS:
     - DZNEmptyDataSet
     - Fabric
     - SDWebImage
-    - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
@@ -36,8 +33,7 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   SDWebImage: ecc03494e973b93b80213649d32175f8d2d17d4d
-  SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
 
-PODFILE CHECKSUM: 7d4f54dc4409aba2c6a8a113d07e2a4926bbc518
+PODFILE CHECKSUM: 33800bed990eb296e2814dce69d7058fd6688fdd
 
 COCOAPODS: 1.6.0

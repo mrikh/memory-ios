@@ -43,7 +43,7 @@
 		46BCE3F12235816D00CEC9C1 /* MRActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3F02235816D00CEC9C1 /* MRActivityIndicator.m */; };
 		46BCE3F922363F7C00CEC9C1 /* PreLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE3F822363F7C00CEC9C1 /* PreLogin.storyboard */; };
 		46BCE3FC2236487200CEC9C1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3FB2236487200CEC9C1 /* WelcomeViewController.swift */; };
-		46BCE402223B9E6300CEC9C1 /* MRSkyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE401223B9E6300CEC9C1 /* MRSkyTextField.swift */; };
+		46BCE402223B9E6300CEC9C1 /* MRTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE401223B9E6300CEC9C1 /* MRTextField.swift */; };
 		46BCE404223B9EAB00CEC9C1 /* MRAnimatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */; };
 		46BCE407223BB20F00CEC9C1 /* fa-brands-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE406223BB20F00CEC9C1 /* fa-brands-400.ttf */; };
 /* End PBXBuildFile section */
@@ -90,7 +90,7 @@
 		46BCE3F02235816D00CEC9C1 /* MRActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRActivityIndicator.m; sourceTree = "<group>"; };
 		46BCE3F822363F7C00CEC9C1 /* PreLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreLogin.storyboard; sourceTree = "<group>"; };
 		46BCE3FB2236487200CEC9C1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		46BCE401223B9E6300CEC9C1 /* MRSkyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRSkyTextField.swift; sourceTree = "<group>"; };
+		46BCE401223B9E6300CEC9C1 /* MRTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRTextField.swift; sourceTree = "<group>"; };
 		46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRAnimatingButton.swift; sourceTree = "<group>"; };
 		46BCE406223BB20F00CEC9C1 /* fa-brands-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-brands-400.ttf"; sourceTree = "<group>"; };
 		C7938299BEE333E1DB6C2E75 /* Pods_Memory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,7 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				46BCE3EA2235815F00CEC9C1 /* Activity Indicator */,
-				46BCE401223B9E6300CEC9C1 /* MRSkyTextField.swift */,
+				46BCE401223B9E6300CEC9C1 /* MRTextField.swift */,
 				46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */,
 				46BCE3E8223580F600CEC9C1 /* Binder.swift */,
 			);
@@ -390,7 +390,6 @@
 				"${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -400,7 +399,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CropViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -467,7 +465,7 @@
 				46BCE3CC22357A3100CEC9C1 /* UIImageView + Download.swift in Sources */,
 				46BCE399223578CF00CEC9C1 /* BaseViewController.swift in Sources */,
 				46BCE3C122357A3100CEC9C1 /* TableViewHeaderFooterResizeProtocol.swift in Sources */,
-				46BCE402223B9E6300CEC9C1 /* MRSkyTextField.swift in Sources */,
+				46BCE402223B9E6300CEC9C1 /* MRTextField.swift in Sources */,
 				46BCE3C822357A3100CEC9C1 /* APIManager + EndPoints.swift in Sources */,
 				46BCE3CA22357A3100CEC9C1 /* NetworkingManager.swift in Sources */,
 				46BCE3C022357A3100CEC9C1 /* ImagePickerProtocol.swift in Sources */,

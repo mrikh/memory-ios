@@ -15,8 +15,8 @@ class WelcomeViewController: BaseViewController, KeyboardHandler {
     @IBOutlet weak var googleContainerView: UIView!
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var googleButton: UIButton!
-    @IBOutlet weak var emailTextField: MRSkyTextField!
-    @IBOutlet weak var passwordTextField: MRSkyTextField!
+    @IBOutlet weak var emailTextField: MRTextField!
+    @IBOutlet weak var passwordTextField: MRTextField!
 
     @IBOutlet weak var signUpLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
@@ -57,7 +57,6 @@ class WelcomeViewController: BaseViewController, KeyboardHandler {
 
     //MARK:- IBAction
     @IBAction func loginAction(_ sender: MRAnimatingButton) {
-
     }
 
     @IBAction func facebookAction(_ sender: UIButton) {
@@ -102,7 +101,6 @@ class WelcomeViewController: BaseViewController, KeyboardHandler {
         orLabel.textColor = Colors.white
 
         skipButton.setAttributedTitle(NSAttributedString(string : StringConstants.explore.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(12.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
-
 
         skipLabel.text = StringConstants.the_application.localized
         skipLabel.font = CustomFonts.avenirMedium.withSize(12.0)

@@ -8,7 +8,6 @@ target 'Memory' do
 use_frameworks!
 
   # Pods for Memory
-pod 'SkyFloatingLabelTextField', '~> 3.0'
 pod 'CropViewController'
 pod 'DZNEmptyDataSet'
 pod 'Crashlytics'
