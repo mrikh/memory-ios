@@ -11,6 +11,23 @@ import UIKit
 
 class MRSkyTextField: SkyFloatingLabelTextField {
 
+    func configure(with placeholder : String?){
+
+        titleFormatter = {$0}
+
+        selectedLineHeight = 1.25
+        lineColor = Colors.inactiveButtonTitleColor
+        selectedLineColor = Colors.activeButtonTitleColor
+        selectedTitleColor = Colors.activeButtonTitleColor
+
+        titleFont = CustomFonts.avenirMedium.withSize(11.0)
+        placeholderFont = CustomFonts.avenirMedium.withSize(11.0)
+
+        textColor = Colors.activeButtonTitleColor
+        font = CustomFonts.avenirMedium.withSize(16.0)
+        self.placeholder = placeholder
+    }
+
     func startAnimating(){
         
         let activityIndicator = UIActivityIndicatorView()

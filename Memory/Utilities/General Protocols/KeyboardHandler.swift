@@ -58,6 +58,11 @@ extension KeyboardHandler where Self : UIViewController{
             self?.keyboardWillHide()
         }
     }
+
+    func removeKeyboardObservers(){
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
     //MARK: Private
     private func keyboardWillShow(_ notification : Notification){

@@ -12,6 +12,14 @@
 "email_not_empty" = "Email field can't be Empty.";
 "name_empty_error" = "Name cannot be empty";
 "invalid_email" = "This email address looks incorrect. Please try again.";
+"login" = "Login";
+"email" = "Email";
+"password" = "Password";
+"no_account" = "Don't have an account?";
+"or" = "or";
+"sign_up" = "Sign Up";
+"explore" = "Explore";
+"the_application" = "the application";
 
 //General
 "something_wrong" = "Something went wrong";

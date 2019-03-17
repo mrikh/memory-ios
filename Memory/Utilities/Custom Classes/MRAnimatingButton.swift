@@ -26,14 +26,14 @@ class MRAnimatingButton: UIButton {
     }
     
     /// Title color for the enabled state
-    @IBInspectable var enabledTitleColor : UIColor = UIColor.white{
+    @IBInspectable var enabledTitleColor : UIColor = Colors.activeButtonTitleColor{
         didSet{
             setTitleColor(enabledTitleColor, for: .normal)
         }
     }
     
     /// Title color for the disabled state
-    @IBInspectable var disabledTitleColor : UIColor = UIColor.white{
+    @IBInspectable var disabledTitleColor : UIColor = Colors.inactiveButtonTitleColor{
         didSet{
             setTitleColor(disabledTitleColor, for: .normal)
         }
@@ -67,9 +67,9 @@ class MRAnimatingButton: UIButton {
         enabledTitleColor = UIColor.white
         disabledTitleColor = Colors.inactiveButtonColor
         
-        titleLabel?.font = CustomFonts.avenirMedium.withSize(15.0)
+        titleLabel?.font = CustomFonts.avenirHeavy.withSize(15.0)
         
-        disableButton()
+        enableButton()
     }
     
     override func layoutSubviews() {

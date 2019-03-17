@@ -16,6 +16,14 @@ struct StringConstants{
     static let name_empty_error = "name_empty_error"
     static let invalid_email = "invalid_email"
     static let email_not_empty = "email_not_empty"
+    static let login = "login"
+    static let email = "email"
+    static let password = "password"
+    static let no_account = "no_account"
+    static let or = "or"
+    static let sign_up = "sign_up"
+    static let explore = "explore"
+    static let the_application = "the_application"
 
     //General
     static let something_wrong = "something_wrong"
