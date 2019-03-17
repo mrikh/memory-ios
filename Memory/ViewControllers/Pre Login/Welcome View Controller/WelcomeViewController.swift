@@ -40,6 +40,7 @@ class WelcomeViewController: BaseViewController, KeyboardHandler {
 
         super.viewWillAppear(animated)
         addKeyboardObservers()
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,6 +67,9 @@ class WelcomeViewController: BaseViewController, KeyboardHandler {
     }
 
     @IBAction func signUpAction(_ sender: UIButton) {
+
+        let viewController = SignUpViewController.instantiate(fromAppStoryboard: .PreLogin)
+        navigationController?.setViewControllers([viewController], animated: true)
     }
 
     @IBAction func skipAction(_ sender: UIButton) {
@@ -87,8 +91,8 @@ class WelcomeViewController: BaseViewController, KeyboardHandler {
         googleButton.setTitleColor(Colors.white, for: .normal)
         googleButton.titleLabel?.font = CustomFonts.fontAwesomeBrands.withSize(21.0)
 
-        emailTextField.configure(with: StringConstants.email.localized)
-        passwordTextField.configure(with: StringConstants.password.localized)
+        emailTextField.configure(with: StringConstants.email.localized, text: nil, primaryColor: Colors.activeButtonTitleColor, unselectedBottomColor: Colors.inactiveButtonColor)
+        passwordTextField.configure(with: StringConstants.password.localized, text: nil, primaryColor: Colors.activeButtonTitleColor, unselectedBottomColor: Colors.inactiveButtonColor)
 
         signUpLabel.text = StringConstants.no_account.localized
         signUpLabel.textColor = Colors.white

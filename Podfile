@@ -11,6 +11,7 @@ use_frameworks!
 pod 'CropViewController'
 pod 'DZNEmptyDataSet'
 pod 'Crashlytics'
+pod 'SwiftyJSON'
 pod 'SDWebImage'
 pod 'Alamofire'
 pod 'Fabric'

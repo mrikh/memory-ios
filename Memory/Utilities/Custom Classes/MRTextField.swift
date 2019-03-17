@@ -147,13 +147,14 @@ class MRTextField: UITextField {
     }
 
     //MARK: Error message in case of validation
-    func configure(with placeholder : String?){
+    func configure(with placeholder : String?, text : String?, primaryColor : UIColor, unselectedBottomColor : UIColor){
 
-        defaultBottomBorderColor = Colors.inactiveButtonTitleColor
-        bottomBorderColor = Colors.activeButtonTitleColor
-        floatingLabelColor = Colors.activeButtonTitleColor
+        defaultBottomBorderColor = unselectedBottomColor
+        bottomBorderColor = primaryColor
+        floatingLabelColor = primaryColor
 
-        textColor = Colors.activeButtonTitleColor
+        textColor = primaryColor
+        self.text = text
         font = CustomFonts.avenirMedium.withSize(16.0)
         self.font = CustomFonts.avenirMedium.withSize(16.0)
         errorFont = CustomFonts.avenirMedium.withSize(16.0)

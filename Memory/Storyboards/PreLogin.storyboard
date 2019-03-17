@@ -13,7 +13,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="PUA-C0-Vew">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewController" id="uoI-6o-Qlt" customClass="WelcomeViewController" customModule="Memory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" automaticallyAdjustsScrollViewInsets="NO" id="uoI-6o-Qlt" customClass="WelcomeViewController" customModule="Memory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MNT-cJ-KGB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,7 +68,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="dMW-Gg-9mT">
-                                <rect key="frame" x="15" y="404" width="345" height="86.5"/>
+                                <rect key="frame" x="15" y="414" width="345" height="86.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qra-TS-S9Q">
                                         <rect key="frame" x="52.5" y="0.0" width="240" height="30"/>
@@ -251,7 +251,7 @@
                             <constraint firstAttribute="trailing" secondItem="T2S-FE-dCS" secondAttribute="trailing" id="pWL-ov-bqS"/>
                             <constraint firstItem="azu-ts-chy" firstAttribute="trailing" secondItem="0Ia-Sx-Mes" secondAttribute="trailing" id="pnM-1h-VNy"/>
                             <constraint firstItem="0Ia-Sx-Mes" firstAttribute="leading" secondItem="MNT-cJ-KGB" secondAttribute="leading" id="tol-5E-ajA"/>
-                            <constraint firstItem="dMW-Gg-9mT" firstAttribute="top" secondItem="WTy-DC-KUf" secondAttribute="bottom" constant="8" id="wlN-Ve-frj"/>
+                            <constraint firstItem="dMW-Gg-9mT" firstAttribute="top" secondItem="WTy-DC-KUf" secondAttribute="bottom" constant="18" id="wlN-Ve-frj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rcU-OY-b8g"/>
                     </view>
@@ -276,10 +276,78 @@
             </objects>
             <point key="canvasLocation" x="1172" y="168.6656671664168"/>
         </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="eRE-RT-kUR">
+            <objects>
+                <viewController storyboardIdentifier="SignUpViewController" extendedLayoutIncludesOpaqueBars="YES" id="qv3-kx-RhF" customClass="SignUpViewController" customModule="Memory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wqb-Me-xjO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fcr-fx-3om">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qv3-kx-RhF" id="EQh-NQ-7bn"/>
+                                    <outlet property="delegate" destination="qv3-kx-RhF" id="wqS-C1-8J8"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrs-8H-MQO">
+                                <rect key="frame" x="0.0" y="602" width="375" height="65"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xez-hH-icW">
+                                        <rect key="frame" x="15" y="0.0" width="345" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1o-KK-QPM" customClass="MRAnimatingButton" customModule="Memory" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="8OG-tt-cxq"/>
+                                            <constraint firstAttribute="bottom" secondItem="Y1o-KK-QPM" secondAttribute="bottom" id="IML-OE-1Jc"/>
+                                            <constraint firstAttribute="trailing" secondItem="Y1o-KK-QPM" secondAttribute="trailing" id="WzX-FP-AaP"/>
+                                            <constraint firstItem="Y1o-KK-QPM" firstAttribute="leading" secondItem="Xez-hH-icW" secondAttribute="leading" id="gsW-47-wbb"/>
+                                            <constraint firstItem="Y1o-KK-QPM" firstAttribute="top" secondItem="Xez-hH-icW" secondAttribute="top" id="lqt-7Z-Ivz"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Xez-hH-icW" secondAttribute="trailing" constant="15" id="81w-ld-vJR"/>
+                                    <constraint firstItem="Xez-hH-icW" firstAttribute="leading" secondItem="zrs-8H-MQO" secondAttribute="leading" constant="15" id="LCd-DR-pzO"/>
+                                    <constraint firstItem="Xez-hH-icW" firstAttribute="top" secondItem="zrs-8H-MQO" secondAttribute="top" id="kgD-gM-XZe"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xez-hH-icW" secondAttribute="bottom" constant="15" id="mYV-hd-eVu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fcr-fx-3om" firstAttribute="leading" secondItem="wqb-Me-xjO" secondAttribute="leading" id="Jr3-7Z-Lgx"/>
+                            <constraint firstAttribute="bottom" secondItem="fcr-fx-3om" secondAttribute="bottom" id="Tg1-hE-m30"/>
+                            <constraint firstItem="zrs-8H-MQO" firstAttribute="bottom" secondItem="fcr-fx-3om" secondAttribute="bottom" id="aU2-QU-ccF"/>
+                            <constraint firstItem="zrs-8H-MQO" firstAttribute="trailing" secondItem="kpc-pf-S7c" secondAttribute="trailing" id="agf-gp-jsg"/>
+                            <constraint firstItem="zrs-8H-MQO" firstAttribute="leading" secondItem="kpc-pf-S7c" secondAttribute="leading" id="ik8-ND-GMT"/>
+                            <constraint firstAttribute="trailing" secondItem="fcr-fx-3om" secondAttribute="trailing" id="n3N-gh-pro"/>
+                            <constraint firstItem="fcr-fx-3om" firstAttribute="top" secondItem="wqb-Me-xjO" secondAttribute="top" id="pU9-cX-har"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kpc-pf-S7c"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainTableView" destination="fcr-fx-3om" id="G1H-D1-GtX"/>
+                        <outlet property="tableViewBottomConstraint" destination="Tg1-hE-m30" id="wT5-TH-CuG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CLh-CH-Tv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1942" y="169"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="efa-Hm-3SA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="hgn-yp-rJI" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="hgn-yp-rJI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="usw-wt-R5s">
                         <autoresizingMask key="autoresizingMask"/>

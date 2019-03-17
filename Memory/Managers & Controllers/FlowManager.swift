@@ -13,6 +13,8 @@ class FlowManager{
     /// This method will check various properties to determine which screen we need to open.
     static func checkAppInitializationFlow(){
 
+        configureNavigationBar()
+
         if let _ = Defaults.value(forKey: Defaults.Key.userInfo){
             //user exists
         }
@@ -47,5 +49,18 @@ class FlowManager{
 
         UserModel.current = UserModel()
         Defaults.removeValue(forKey: .userInfo)
+    }
+
+    static func configureNavigationBar(){
+
+        let navigationBarAppearance = UINavigationBar.appearance()
+
+        navigationBarAppearance.shadowImage = UIImage()
+        navigationBarAppearance.barTintColor = .white
+        navigationBarAppearance.tintColor = .black
+        navigationBarAppearance.prefersLargeTitles = true
+        navigationBarAppearance.isTranslucent = false
+        navigationBarAppearance.titleTextAttributes = [.foregroundColor: Colors.bgColor, .font: CustomFonts.avenirHeavy.withSize(16.0)]
+        navigationBarAppearance.largeTitleTextAttributes = [.foregroundColor: Colors.bgColor, .font: CustomFonts.avenirHeavy.withSize(34.0)]
     }
 }

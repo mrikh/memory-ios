@@ -24,6 +24,9 @@ struct StringConstants{
     static let sign_up = "sign_up"
     static let explore = "explore"
     static let the_application = "the_application"
+    static let name = "name"
+    static let username = "username"
+    static let already_account = "already_account"
 
     //General
     static let something_wrong = "something_wrong"

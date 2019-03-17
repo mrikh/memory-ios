@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0A9CB1AC5333EF3AAB258028 /* Pods_Memory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7938299BEE333E1DB6C2E75 /* Pods_Memory.framework */; };
+		464EEF9F223E63A500C6A40D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EEF9E223E63A500C6A40D /* SignUpViewController.swift */; };
+		464EEFA1223E95C400C6A40D /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EEFA0223E95C400C6A40D /* SignUpViewModel.swift */; };
+		464EEFA5223E970A00C6A40D /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EEFA3223E970A00C6A40D /* TextFieldTableViewCell.swift */; };
+		464EEFA6223E970A00C6A40D /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464EEFA4223E970A00C6A40D /* TextFieldTableViewCell.xib */; };
+		464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EEFAC223EB56D00C6A40D /* TextFieldCellViewModel.swift */; };
 		46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE38322356D2100CEC9C1 /* AppDelegate.swift */; };
 		46BCE38922356D2100CEC9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE38722356D2100CEC9C1 /* Main.storyboard */; };
 		46BCE38B22356D2400CEC9C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE38A22356D2400CEC9C1 /* Assets.xcassets */; };
@@ -51,6 +56,11 @@
 /* Begin PBXFileReference section */
 		378FA50C051AFC5CB5C9D58A /* Pods-Memory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memory.release.xcconfig"; path = "Target Support Files/Pods-Memory/Pods-Memory.release.xcconfig"; sourceTree = "<group>"; };
 		437BFD79EFB89FEB73BDBD6B /* Pods-Memory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memory.debug.xcconfig"; path = "Target Support Files/Pods-Memory/Pods-Memory.debug.xcconfig"; sourceTree = "<group>"; };
+		464EEF9E223E63A500C6A40D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		464EEFA0223E95C400C6A40D /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		464EEFA3223E970A00C6A40D /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		464EEFA4223E970A00C6A40D /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		464EEFAC223EB56D00C6A40D /* TextFieldCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCellViewModel.swift; sourceTree = "<group>"; };
 		46BCE38022356D2100CEC9C1 /* Memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BCE38322356D2100CEC9C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46BCE38822356D2100CEC9C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +127,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		464EEF9D223E632200C6A40D /* Sign Up View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				464EEF9E223E63A500C6A40D /* SignUpViewController.swift */,
+				464EEFA0223E95C400C6A40D /* SignUpViewModel.swift */,
+			);
+			path = "Sign Up View Controller";
+			sourceTree = "<group>";
+		};
+		464EEFA7223E971000C6A40D /* Common Xib */ = {
+			isa = PBXGroup;
+			children = (
+				464EEFAB223EB55300C6A40D /* TextFieldTableViewCell */,
+			);
+			path = "Common Xib";
+			sourceTree = "<group>";
+		};
+		464EEFAB223EB55300C6A40D /* TextFieldTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				464EEFA3223E970A00C6A40D /* TextFieldTableViewCell.swift */,
+				464EEFA4223E970A00C6A40D /* TextFieldTableViewCell.xib */,
+				464EEFAC223EB56D00C6A40D /* TextFieldCellViewModel.swift */,
+			);
+			path = TextFieldTableViewCell;
+			sourceTree = "<group>";
+		};
 		46BCE37722356D2100CEC9C1 = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +179,7 @@
 				46BCE3D522357A5100CEC9C1 /* Storyboards */,
 				46BCE3A222357A3100CEC9C1 /* Utilities */,
 				46BCE39D22357A2100CEC9C1 /* Managers & Controllers */,
+				464EEFA7223E971000C6A40D /* Common Xib */,
 				46BCE39A22357A0D00CEC9C1 /* Common Models */,
 				46BCE395223578BC00CEC9C1 /* ViewControllers */,
 				46BCE3E422357A7000CEC9C1 /* Resources */,
@@ -274,6 +312,7 @@
 		46BCE3FA2236485B00CEC9C1 /* Pre Login */ = {
 			isa = PBXGroup;
 			children = (
+				464EEF9D223E632200C6A40D /* Sign Up View Controller */,
 				46BCE3FD2236487600CEC9C1 /* Welcome View Controller */,
 			);
 			path = "Pre Login";
@@ -369,6 +408,7 @@
 				46BCE3E622357A9A00CEC9C1 /* Localizable.strings in Resources */,
 				46BCE38B22356D2400CEC9C1 /* Assets.xcassets in Resources */,
 				46BCE38922356D2100CEC9C1 /* Main.storyboard in Resources */,
+				464EEFA6223E970A00C6A40D /* TextFieldTableViewCell.xib in Resources */,
 				46BCE407223BB20F00CEC9C1 /* fa-brands-400.ttf in Resources */,
 				46BCE3F922363F7C00CEC9C1 /* PreLogin.storyboard in Resources */,
 			);
@@ -390,6 +430,7 @@
 				"${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -399,6 +440,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CropViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -453,6 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464EEF9F223E63A500C6A40D /* SignUpViewController.swift in Sources */,
 				46BCE3D222357A3100CEC9C1 /* Defaults.swift in Sources */,
 				46BCE398223578CF00CEC9C1 /* BaseProtocol.swift in Sources */,
 				46BCE3C222357A3100CEC9C1 /* AlertProtocol.swift in Sources */,
@@ -461,6 +504,8 @@
 				46BCE404223B9EAB00CEC9C1 /* MRAnimatingButton.swift in Sources */,
 				46BCE3C722357A3100CEC9C1 /* StringConstants.swift in Sources */,
 				46BCE3C322357A3100CEC9C1 /* KeyboardHandler.swift in Sources */,
+				464EEFA5223E970A00C6A40D /* TextFieldTableViewCell.swift in Sources */,
+				464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */,
 				46BCE3D022357A3100CEC9C1 /* UIViewController + General.swift in Sources */,
 				46BCE3CC22357A3100CEC9C1 /* UIImageView + Download.swift in Sources */,
 				46BCE399223578CF00CEC9C1 /* BaseViewController.swift in Sources */,
@@ -470,6 +515,7 @@
 				46BCE3CA22357A3100CEC9C1 /* NetworkingManager.swift in Sources */,
 				46BCE3C022357A3100CEC9C1 /* ImagePickerProtocol.swift in Sources */,
 				46BCE39C22357A0D00CEC9C1 /* UserModel.swift in Sources */,
+				464EEFA1223E95C400C6A40D /* SignUpViewModel.swift in Sources */,
 				46BCE3C922357A3100CEC9C1 /* APIManager.swift in Sources */,
 				46BCE3F12235816D00CEC9C1 /* MRActivityIndicator.m in Sources */,
 				46BCE3CF22357A3100CEC9C1 /* String+General.swift in Sources */,

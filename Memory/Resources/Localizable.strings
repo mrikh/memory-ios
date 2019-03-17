@@ -14,12 +14,15 @@
 "invalid_email" = "This email address looks incorrect. Please try again.";
 "login" = "Login";
 "email" = "Email";
+"name" = "Name";
+"username" = "Username";
 "password" = "Password";
 "no_account" = "Don't have an account?";
 "or" = "or";
 "sign_up" = "Sign Up";
 "explore" = "Explore";
 "the_application" = "the application";
+"already_account" = "Already have an account?";
 
 //General
 "something_wrong" = "Something went wrong";
