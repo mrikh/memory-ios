@@ -36,4 +36,20 @@ class SignUpViewModel{
             return nil
         }
     }
+
+    func validate(_ viewModel : TextFieldCellViewModel?){
+
+        guard let model = viewModel, let type = model.type else {return}
+
+        switch type {
+        case .name:
+            viewModel?.errorString.value = ValidationController.validateName(model.inputValue ?? "")
+        case .email:
+            viewModel?.errorString.value = ValidationController.validateEmail(model.inputValue ?? "")
+        case .password:
+            viewModel?.errorString.value = ValidationController.validatePassword(model.inputValue ?? "")
+        case .username:
+            break
+        }
+    }
 }

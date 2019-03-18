@@ -101,6 +101,10 @@ extension SignUpViewController : UITableViewDelegate, UITableViewDataSource{
             self?.selectTextField(after : viewModel)
         }
 
+        cell.didEndEditing = { [weak self] (viewModel) in
+            self?.viewModel.validate(viewModel)
+        }
+
         return cell
     }
 

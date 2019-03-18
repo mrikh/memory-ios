@@ -14,6 +14,7 @@ class TextFieldTableViewCell: UITableViewCell {
     private weak var viewModel : TextFieldCellViewModel?
 
     var didPressReturn : ((TextFieldCellViewModel?)->())?
+    var didEndEditing : ((TextFieldCellViewModel?)->())?
 
     override func awakeFromNib() {
 
@@ -28,6 +29,8 @@ class TextFieldTableViewCell: UITableViewCell {
         viewModel = nil
         mainTextField.text = nil
         mainTextField.placeholder = nil
+        mainTextField.isSecureTextEntry = false
+        mainTextField.rightView = nil
     }
 
     func configure(viewModel : TextFieldCellViewModel){
@@ -39,13 +42,30 @@ class TextFieldTableViewCell: UITableViewCell {
         mainTextField.returnKeyType = viewModel.type?.returnButton ?? .default
         mainTextField.keyboardType = viewModel.type?.keyboardType ?? .default
         mainTextField.textContentType = viewModel.type?.contentType ?? .none
+        mainTextField.errorString = viewModel.errorString.value
+
+        if let type = viewModel.type, type == .password{
+            mainTextField.isSecureTextEntry = true
+        }
 
         viewModel.placeholder.bind { [weak self] (string) in
             self?.mainTextField.placeholder = string
         }
 
         viewModel.errorString.bind { [weak self] (string) in
-            self?.mainTextField.errorString = string
+            self?.showErrorMessageIfNeeded(string, animate: true)
+        }
+    }
+
+    private func showErrorMessageIfNeeded(_ errorString : String?, animate : Bool){
+
+        if let tempString = errorString, !tempString.isEmpty{
+            mainTextField.errorString = tempString
+            mainTextField.shakeIfNeeded()
+            mainTextField.showErrorMessage(animate)
+        }else{
+            mainTextField.errorString = nil
+            mainTextField.hideErrorMessage(animate)
         }
     }
 }
@@ -60,7 +80,14 @@ extension TextFieldTableViewCell : UITextFieldDelegate{
         let replacedText = (currentText as NSString).replacingCharacters(in: range, with: string)
 
         viewModel?.inputValue = replacedText
+        viewModel?.errorString.value = nil
+
         return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+
+        didEndEditing?(viewModel)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

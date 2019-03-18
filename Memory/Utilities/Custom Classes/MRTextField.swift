@@ -104,7 +104,11 @@ class MRTextField: UITextField {
 
     var errorString : String? = nil{
         didSet{
-            errorLabel?.text = errorString
+            if let tempString = errorString, !tempString.isEmpty{
+                errorLabel?.text = tempString
+            }else{
+                errorLabel?.text = nil
+            }
         }
     }
 
@@ -157,7 +161,7 @@ class MRTextField: UITextField {
         self.text = text
         font = CustomFonts.avenirMedium.withSize(16.0)
         self.font = CustomFonts.avenirMedium.withSize(16.0)
-        errorFont = CustomFonts.avenirMedium.withSize(16.0)
+        errorFont = CustomFonts.avenirMedium.withSize(10.0)
         floatingLabel?.text = placeholder
     }
 
@@ -187,7 +191,16 @@ class MRTextField: UITextField {
         animateErrorLabel(0.0, animate: animate)
     }
 
-    func shake() {
+    func shakeIfNeeded(){
+        //already visible
+        if let alpha = errorLabel?.alpha, alpha == 1.0{
+
+        }else{
+            shake()
+        }
+    }
+
+    private func shake() {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animation.duration = 0.4

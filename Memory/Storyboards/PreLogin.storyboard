@@ -291,7 +291,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fcr-fx-3om">
-                                <rect key="frame" x="0.0" y="15" width="375" height="652"/>
+                                <rect key="frame" x="0.0" y="25" width="375" height="642"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="zrs-8H-MQO">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="354"/>
@@ -373,7 +373,7 @@
                             <constraint firstItem="fcr-fx-3om" firstAttribute="leading" secondItem="wqb-Me-xjO" secondAttribute="leading" id="Jr3-7Z-Lgx"/>
                             <constraint firstAttribute="bottom" secondItem="fcr-fx-3om" secondAttribute="bottom" id="Tg1-hE-m30"/>
                             <constraint firstAttribute="trailing" secondItem="fcr-fx-3om" secondAttribute="trailing" id="n3N-gh-pro"/>
-                            <constraint firstItem="fcr-fx-3om" firstAttribute="top" secondItem="wqb-Me-xjO" secondAttribute="top" constant="15" id="pU9-cX-har"/>
+                            <constraint firstItem="fcr-fx-3om" firstAttribute="top" secondItem="wqb-Me-xjO" secondAttribute="top" constant="25" id="pU9-cX-har"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kpc-pf-S7c"/>
                     </view>

@@ -9,12 +9,7 @@
 import Foundation
 
 class ValidationController{
-    
-    static let passwordMaxCount = 16
-    static let pinMaxCount = 6
-    static let pinMinCount = 6
-    static let hashTagRegex = "/^#\\w+$/"
-    
+
     static func validateName(_ string : String) -> String?{
         
         if string.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty{
