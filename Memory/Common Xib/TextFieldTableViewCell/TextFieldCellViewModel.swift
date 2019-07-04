@@ -51,20 +51,22 @@ class TextFieldCellViewModel{
     enum Availability{
         case none
         case available
-        case notAvailable
-        case apiError
+        case error
         case checking
     }
 
+    private var item : DispatchWorkItem?
+
     var type : ViewModelType?
+    var availability : Binder<Availability> = Binder(.none)
     var placeholder : Binder<String?> = Binder(nil)
     var errorString : Binder<String?> = Binder(nil)
-    var availability : Binder<Availability> = Binder(.none)
     var inputValue : String?{
         didSet{
             //reset availability
             availability.value = .none
             inputValueDidSet?(inputValue)
+            performRequest()
         }
     }
 
@@ -76,5 +78,31 @@ class TextFieldCellViewModel{
         self.placeholder.value = placeholder
         self.inputValue = inputValue
         self.type = ViewModelType(rawValue: type ?? 0)
+    }
+
+    private func performRequest(){
+
+        item?.cancel()
+        let work = DispatchWorkItem(block: { [weak self] in
+            guard let type = self?.type else {return}
+            if type == .username{
+                self?.checkUserName()
+            }
+        })
+        item = work
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: work)
+    }
+
+    private func checkUserName(){
+        guard let name = inputValue, availability.value != .checking else {return}
+        availability.value = .checking
+
+        APIManager.checkUserName(name: name) { [weak self] (json, error) in
+            if let _ = json{
+                self?.availability.value = .available
+            }else{
+                self?.availability.value = .error
+            }
+        }
     }
 }

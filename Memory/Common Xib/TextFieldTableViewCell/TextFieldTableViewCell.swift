@@ -11,8 +11,8 @@ import UIKit
 class TextFieldTableViewCell: UITableViewCell {
 
     @IBOutlet weak var mainTextField : MRTextField!
-    private weak var viewModel : TextFieldCellViewModel?
 
+    private weak var viewModel : TextFieldCellViewModel?
     var didPressReturn : ((TextFieldCellViewModel?)->())?
     var didEndEditing : ((TextFieldCellViewModel?)->())?
 

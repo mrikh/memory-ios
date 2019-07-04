@@ -11,12 +11,18 @@ extension APIManager {
 
     enum EndPoint : String {
 
-        case forgetPassword
+        case signUp = "/users/signUp"
+        case checkInfo = "/users/checkInfo"
         
         var path : String {
 
-            let url = "http://18.232.109.183:3001"
-            return url + self.rawValue
+            #if DEBUG
+            let url = "http://127.0.0.1:3000"
+            #else
+            let url = "http://127.0.0.1:3000"
+            #endif
+
+            return url + rawValue
         }
     }
 }
