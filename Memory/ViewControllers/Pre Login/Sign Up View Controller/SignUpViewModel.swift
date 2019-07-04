@@ -30,7 +30,7 @@ class SignUpViewModel{
 
     func selectPosition(after viewModel : TextFieldCellViewModel) -> Int?{
 
-        if let index = dataSource.index(where: {$0.type == viewModel.type}){
+        if let index = dataSource.firstIndex(where: {$0.type == viewModel.type}){
             return index + 1 == dataSource.count ? nil : index + 1
         }else{
             return nil

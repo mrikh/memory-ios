@@ -59,7 +59,7 @@ class TextFieldTableViewCell: UITableViewCell {
 
     private func showErrorMessageIfNeeded(_ errorString : String?, animate : Bool){
 
-        if let tempString = errorString, !tempString.isEmpty{
+        if let tempString = errorString{
             mainTextField.errorString = tempString
             mainTextField.shakeIfNeeded()
             mainTextField.showErrorMessage(animate)
@@ -86,7 +86,6 @@ extension TextFieldTableViewCell : UITextFieldDelegate{
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-
         didEndEditing?(viewModel)
     }
 

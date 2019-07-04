@@ -3,7 +3,7 @@
 //  GullyBeatsBeta
 //
 //  Created by Mayank on 04/12/18.
-//  Copyright © 2018 Appinventiv. All rights reserved.
+//  Copyright © 2018 Mayank Rikh. All rights reserved.
 //
 
 import Foundation

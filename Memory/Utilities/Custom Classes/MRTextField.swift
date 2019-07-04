@@ -8,29 +8,11 @@
 
 import UIKit
 
-protocol MRTextFieldDelegate : class{
-
-    func userDidTapRightButton(_ sender : UIButton)
-}
-
 class MRTextField: UITextField {
-
-    //to store in case of you start animating the button
-    private var currentRightView : UIView?
-    private var errorLabel : UILabel?
-    private var floatingLabel : UILabel?
-    private var floatingLabelBottomConstraint : NSLayoutConstraint?
-    private var floatingLabelTopConstraint : NSLayoutConstraint?
-
-    private enum LayerIdentifier : Int{
-
-        case bottomBorder = 1001
-    }
 
     @IBInspectable var shouldAllowSelectorAction : Bool = true
 
-
-    /// bottom border to set when user inputs text
+    /// Bottom border to set when user inputs text
     @IBInspectable var bottomBorderColor : UIColor = UIColor.clear{
         didSet{
             if let currentValue = floatingLabelTopConstraint?.constant, currentValue != 0.0{
@@ -38,18 +20,6 @@ class MRTextField: UITextField {
             }else{
                 updateBorderColor(defaultBottomBorderColor)
             }
-        }
-    }
-
-    override var font: UIFont?{
-        didSet{
-            floatingLabel?.font = font
-        }
-    }
-
-    override var text: String?{
-        didSet{
-            textFieldDidChange(self)
         }
     }
 
@@ -98,10 +68,7 @@ class MRTextField: UITextField {
         }
     }
 
-    weak var customDelegate : MRTextFieldDelegate?
-
     var regexString : String? = nil
-
     var errorString : String? = nil{
         didSet{
             if let tempString = errorString, !tempString.isEmpty{
@@ -118,6 +85,20 @@ class MRTextField: UITextField {
                 errorLabel?.font = tempFont
             }
         }
+    }
+
+    var textDidUpdate : (()->())?
+    var rightAction : (()->())?
+
+    //MARK: Private Variables
+    private var currentRightView : UIView?
+    private var errorLabel : UILabel?
+    private var floatingLabel : UILabel?
+    private var floatingLabelBottomConstraint : NSLayoutConstraint?
+    private var floatingLabelTopConstraint : NSLayoutConstraint?
+
+    private enum LayerIdentifier : Int{
+        case bottomBorder = 1001
     }
 
     override func awakeFromNib() {
@@ -138,7 +119,6 @@ class MRTextField: UITextField {
         super.layoutSubviews()
 
         if let tempLayer = getLayerForIdentifier(LayerIdentifier.bottomBorder.rawValue){
-
             tempLayer.frame = CGRect(x: 0, y: frame.height - 1, width: frame.width, height: 1)
         }
     }
@@ -150,7 +130,35 @@ class MRTextField: UITextField {
         return false
     }
 
-    //MARK: Error message in case of validation
+    final override var font: UIFont?{
+        didSet{
+            floatingLabel?.font = font
+        }
+    }
+
+    final override var text: String?{
+        didSet{
+            textFieldDidChange(self)
+        }
+    }
+
+    func setupButton(buttonIcon : UIImage?, andSelectedImage selectedImage : UIImage?, withText text: String?, withSelectedText selectedText : String?){
+
+        let button = UIButton(frame: CGRect(x: 0, y: -1, width: 20, height: 20))
+
+        button.setTitle(text, for: .normal)
+        button.setTitle(selectedText, for: .selected)
+
+        button.setImage(buttonIcon, for: .normal)
+        button.setImage(selectedImage, for: .selected)
+
+        button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        button.tag = self.tag
+
+        rightViewMode = .always
+        rightView = createView(withView: button)
+    }
+
     func configure(with placeholder : String?, text : String?, primaryColor : UIColor, unselectedBottomColor : UIColor){
 
         defaultBottomBorderColor = unselectedBottomColor
@@ -188,6 +196,7 @@ class MRTextField: UITextField {
                 updateBorderColor(defaultBottomBorderColor)
             }
         }
+
         animateErrorLabel(0.0, animate: animate)
     }
 
@@ -198,14 +207,6 @@ class MRTextField: UITextField {
         }else{
             shake()
         }
-    }
-
-    private func shake() {
-        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        animation.duration = 0.4
-        animation.values = [-10.0, 10.0, -10.0, 10.0, -5.0, 5.0, -2.0, 2.0, 0.0 ]
-        layer.add(animation, forKey: "shake")
     }
 
     //MARK: Activity indicator on right side
@@ -219,45 +220,54 @@ class MRTextField: UITextField {
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
 
-        currentRightView = self.rightView
-
-        self.rightView = createView(withView: activityIndicator)
+        currentRightView = rightView
+        rightView = createView(withView: activityIndicator)
     }
 
     func stopAnimating(){
 
-        if self.rightView is UIActivityIndicatorView{
-
-            let tempView = self.rightView as! UIActivityIndicatorView
+        if rightView is UIActivityIndicatorView{
+            let tempView = rightView as! UIActivityIndicatorView
             tempView.stopAnimating()
         }
 
-        self.rightView = currentRightView
+        rightView = currentRightView
     }
 
-    //MARK:- Private Functions
     @objc func textFieldDidChange(_ textField : UITextField){
 
         guard let text = textField.text else {return}
 
         if showFloatingLabel{
-
-            if text.isEmpty{
-                animateFloatingLabel(false)
-            }else{
-                animateFloatingLabel(true)
-            }
+            animateFloatingLabel(!text.isEmpty)
         }
 
         checkForErrorString()
+        textDidUpdate?()
     }
 
-    func animateFloatingLabel(_ upDirection : Bool, animate : Bool = true){
+    @objc func buttonAction(_ sender : UIButton){
+        rightAction?()
+    }
+}
+
+//MARK:- Private
+extension MRTextField{
+
+    private func shake() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.duration = 0.4
+        animation.values = [-10.0, 10.0, -10.0, 10.0, -5.0, 5.0, -2.0, 2.0, 0.0 ]
+        layer.add(animation, forKey: "shake")
+    }
+
+    private func animateFloatingLabel(_ upDirection : Bool, animate : Bool = true){
 
         guard let fontHeight = font?.lineHeight else {
             let alpha : CGFloat = upDirection ? 0.0 : 1.0
-            UIView.animate(withDuration: animate ? 0.3 : 0.0, animations: {
-                self.alpha = alpha
+            UIView.animate(withDuration: animate ? 0.3 : 0.0, animations: { [weak self] in
+                self?.alpha = alpha
             })
 
             return
@@ -270,15 +280,15 @@ class MRTextField: UITextField {
                 floatingLabelTopConstraint?.constant = -fontHeight - 5.0
                 floatingLabelBottomConstraint?.constant = -fontHeight - 5.0
 
-                UIView.animate(withDuration: animate ? 0.2 : 0.0, animations: {
-                    self.layoutIfNeeded()
+                UIView.animate(withDuration: animate ? 0.2 : 0.0, animations: { [weak self] in
+                    self?.layoutIfNeeded()
                 })
 
-                UIView.transition(with: self, duration: animate ? 0.15 : 0.0, options: .transitionCrossDissolve, animations: {
-                    self.floatingLabel?.textColor = self.floatingLabelColor
-                    self.floatingLabel?.font = CustomFonts.avenirMedium.withSize(11.0)
-                    self.updateBorderColor(self.bottomBorderColor)
-                }, completion: nil)
+                UIView.transition(with: self, duration: animate ? 0.15 : 0.0, options: .transitionCrossDissolve, animations: { [weak self] in
+                    self?.floatingLabel?.textColor = self?.floatingLabelColor
+                    self?.floatingLabel?.font = CustomFonts.avenirMedium.withSize(11.0)
+                    self?.updateBorderColor(self?.bottomBorderColor)
+                    }, completion: nil)
             }
         }else{
 
@@ -287,15 +297,15 @@ class MRTextField: UITextField {
                 floatingLabelTopConstraint?.constant = 0.0
                 floatingLabelBottomConstraint?.constant = 0.0
 
-                UIView.animate(withDuration: animate ? 0.2 : 0.0, animations: {
-                    self.layoutIfNeeded()
+                UIView.animate(withDuration: animate ? 0.2 : 0.0, animations: { [weak self] in
+                    self?.layoutIfNeeded()
                 })
 
-                UIView.transition(with: self, duration: animate ? 0.15 : 0.0, options: .transitionCrossDissolve, animations: {
-                    self.floatingLabel?.font = self.font ?? UIFont.systemFont(ofSize: 14.0)
-                    self.floatingLabel?.textColor = #colorLiteral(red: 0.8209885955, green: 0.821634829, blue: 0.8407682776, alpha: 1)
-                    self.updateBorderColor(self.defaultBottomBorderColor)
-                }, completion: nil)
+                UIView.transition(with: self, duration: animate ? 0.15 : 0.0, options: .transitionCrossDissolve, animations: { [weak self] in
+                    self?.floatingLabel?.font = self?.font ?? UIFont.systemFont(ofSize: 14.0)
+                    self?.floatingLabel?.textColor = #colorLiteral(red: 0.8209885955, green: 0.821634829, blue: 0.8407682776, alpha: 1)
+                    self?.updateBorderColor(self?.defaultBottomBorderColor)
+                    }, completion: nil)
             }
         }
     }
@@ -318,23 +328,17 @@ class MRTextField: UITextField {
         }
     }
 
-    @objc func buttonAction(_ sender : UIButton){
-
-        customDelegate?.userDidTapRightButton(sender)
-    }
-
     private func animateErrorLabel(_ alpha : CGFloat, animate : Bool){
 
-        UIView.animate(withDuration: animate ? 0.25 : 0.0) {
-
-            self.errorLabel?.alpha = alpha
+        UIView.animate(withDuration: animate ? 0.25 : 0.0) { [weak self] in
+            self?.errorLabel?.alpha = alpha
         }
     }
 
-    private func updateBorderColor(_ color : UIColor){
+    private func updateBorderColor(_ color : UIColor?){
 
-        if let tempLayer = getLayerForIdentifier(LayerIdentifier.bottomBorder.rawValue){
-            tempLayer.backgroundColor = color.cgColor
+        if let tempLayer = getLayerForIdentifier(LayerIdentifier.bottomBorder.rawValue), let temp = color{
+            tempLayer.backgroundColor = temp.cgColor
         }
     }
 
@@ -353,28 +357,8 @@ class MRTextField: UITextField {
 }
 
 
-
 //MARK:- Setup related part
 extension MRTextField{
-
-    //MARK: Setup button to perform some action like password etc on tap the action is passed in the delegate
-
-    func setupButton(buttonIcon : UIImage?, andSelectedImage selectedImage : UIImage?, withText text: String?, withSelectedText selectedText : String?){
-
-        let button = UIButton(frame: CGRect(x: 0, y: -1, width: 20, height: 20))
-
-        button.setTitle(text, for: .normal)
-        button.setTitle(selectedText, for: .selected)
-
-        button.setImage(buttonIcon, for: .normal)
-        button.setImage(selectedImage, for: .selected)
-
-        button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
-        button.tag = self.tag
-
-        rightViewMode = .always
-        rightView = createView(withView: button)
-    }
 
     fileprivate func setupFloatingLabel(){
 
@@ -408,8 +392,8 @@ extension MRTextField{
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         imageView.contentMode = .scaleAspectFill
         imageView.image = image
-        self.leftViewMode = .always
-        self.leftView = createView(withView: imageView)
+        leftViewMode = .always
+        leftView = createView(withView: imageView)
     }
 
     fileprivate func createRightImageView(_ image : UIImage?){
@@ -417,8 +401,8 @@ extension MRTextField{
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         imageView.image = image
         imageView.contentMode = .scaleAspectFill
-        self.rightViewMode = .always
-        self.rightView = createView(withView: imageView)
+        rightViewMode = .always
+        rightView = createView(withView: imageView)
     }
 
     private func createView(withView view : UIView)->UIView{

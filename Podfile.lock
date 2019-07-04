@@ -1,14 +1,14 @@
 PODS:
-  - Alamofire (4.8.1)
-  - Crashlytics (3.12.0):
-    - Fabric (~> 1.9.0)
-  - CropViewController (2.4.0)
+  - Alamofire (4.8.2)
+  - Crashlytics (3.13.2):
+    - Fabric (~> 1.10.2)
+  - CropViewController (2.5.0)
   - DZNEmptyDataSet (1.8.1)
-  - Fabric (1.9.0)
-  - SDWebImage (4.4.5):
-    - SDWebImage/Core (= 4.4.5)
-  - SDWebImage/Core (4.4.5)
-  - SwiftyJSON (4.2.0)
+  - Fabric (1.10.2)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -30,13 +30,13 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
-  CropViewController: a090820b15fc3da68e694d7c192a4708c576828b
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Crashlytics: 611738c7847f8291a1a51084e35987b86ba6b3ee
+  CropViewController: 6c962d6fb264cc5cb325b622d5029d50c6c43e72
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
-  SDWebImage: ecc03494e973b93b80213649d32175f8d2d17d4d
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
 PODFILE CHECKSUM: 85d790875a00976802614ff0e8d602fb239482e8
 

@@ -18,9 +18,7 @@ extension UIImageView{
     ///   - placeholder: placeholder to use while image is downloading
     func setImageWithCompletion(_ urlString : String, placeholder : UIImage?, showLoader : Bool = true, completion: (()->())?){
 
-        sd_setIndicatorStyle(.white)
-        sd_setShowActivityIndicatorView(showLoader)
-
+        sd_imageIndicator = showLoader ? SDWebImageActivityIndicator.white : nil
         sd_setImage(with: URL(string : urlString), placeholderImage: placeholder, options: .init(rawValue : 0)) { (image, error, cache, url) in
             completion?()
         }

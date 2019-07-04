@@ -41,7 +41,6 @@ extension AuthorizationProtocol{
     func checkRecordingAuthorization(_ completion:@escaping(Bool, Bool)->()){
         
         switch AVAudioSession.sharedInstance().recordPermission{
-            
             case .undetermined:
                 AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
                     DispatchQueue.main.async {
@@ -52,6 +51,8 @@ extension AuthorizationProtocol{
                 completion(false, false)
             case .granted:
                 completion(true, false)
+        @unknown default:
+            completion(false, false)
         }
     }
     
