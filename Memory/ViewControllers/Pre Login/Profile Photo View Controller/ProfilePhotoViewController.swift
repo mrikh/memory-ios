@@ -58,11 +58,9 @@ class ProfilePhotoViewController: BaseViewController {
 
     //MARK:- IBAction
     @IBAction func skipAction(_ sender: UIButton) {
-        
     }
 
     @IBAction func doneAction(_ sender: UIButton) {
-
     }
 
     //MARK:- Private
