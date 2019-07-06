@@ -1,6 +1,6 @@
 //
 //  FlowManager.swift
-//  GullyBeatsBeta
+//  Memory
 //
 //  Created by Mayank Rikh on 30/11/18.
 //  Copyright © 2018 Mayank Rikh. All rights reserved.
@@ -47,7 +47,7 @@ class FlowManager{
 
     static func clearAllData(){
 
-        UserModel.current = UserModel()
+        UserModel.current = UserModel(JSON())
         Defaults.removeValue(forKey: .userInfo)
     }
 

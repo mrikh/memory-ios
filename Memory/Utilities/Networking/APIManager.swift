@@ -11,11 +11,12 @@ import Foundation
 
 class APIManager {
 
+    static var authenticationToken = Defaults.value(forKey: .token)?.stringValue ?? ""
     static var headers : [String : String]{
-        return ["" : ""]
+        return ["Authorization" : "Bearer \(authenticationToken)"]
     }
 
-    static func signUpUser(params : JSON, completion : ((JSON?, Error?)->())?){
+    static func signUpUser(params : [String : Any], completion : ((JSON?, Error?)->())?){
 
         NetworkingManager.POST(endPoint: .signUp, success: { (dict) in
             completion?(JSON(dict), nil)

@@ -10,7 +10,7 @@ import Foundation
 
 struct StringConstants{
 
-    //Login Flow
+    //Login Flow and Sign Up
     static let forgot_pass = "forgot_pass"
     static let invalid_password = "invalid_password"
     static let name_empty_error = "name_empty_error"
@@ -27,8 +27,10 @@ struct StringConstants{
     static let name = "name"
     static let username = "username"
     static let already_account = "already_account"
+    static let username_not_available = "username_not_available"
 
     //General
+    static let one_or_more_fields = "one_or_more_fields"
     static let something_wrong = "something_wrong"
     static let sorry = "sorry"
     static let oops = "oops"

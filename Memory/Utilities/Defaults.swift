@@ -6,6 +6,7 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
+import SwiftyJSON
 import Foundation
 
 enum Defaults { }
@@ -14,29 +15,30 @@ extension Defaults {
     
     enum Key : String {
         case userInfo
+        case token
     }
 }
 
 extension Defaults {
-    
-    static func value(forKey key: Key, file : String = #file, line : Int = #line, function : String = #function) -> Any? {
-        
+
+    static func value(forKey key: Key, file : String = #file, line : Int = #line, function : String = #function) -> JSON? {
+
         guard let value = UserDefaults.standard.object(forKey: key.rawValue) else { return nil }
-        return value
+        return JSON(value)
     }
-    
+
     static func save(value : Any, forKey key : Key) {
-        
+
         UserDefaults.standard.set(value, forKey: key.rawValue)
         UserDefaults.standard.synchronize()
     }
-    
+
     static func removeValue(forKey key : Key) {
-        
+
         UserDefaults.standard.removeObject(forKey: key.rawValue)
         UserDefaults.standard.synchronize()
     }
-    
+
     static func removeAllValues() {
         guard let appDomain = Bundle.main.bundleIdentifier else {return}
         UserDefaults.standard.removePersistentDomain(forName: appDomain)

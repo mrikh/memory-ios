@@ -1,6 +1,6 @@
 //
 //  BaseViewController.swift
-//  GullyBeatsBeta
+//  Memory
 //
 //  Created by Mayank on 22/11/18.
 //  Copyright © 2018 Mayank Rikh. All rights reserved.

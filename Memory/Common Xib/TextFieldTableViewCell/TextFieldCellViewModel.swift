@@ -90,17 +90,24 @@ class TextFieldCellViewModel{
             }
         })
         item = work
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: work)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.8, execute: work)
     }
 
     private func checkUserName(){
-        guard let name = inputValue, availability.value != .checking else {return}
+
+        guard let name = inputValue, !name.isEmpty else{
+            availability.value = .none
+            return
+        }
+
+        guard availability.value != .checking else {return}
         availability.value = .checking
 
         APIManager.checkUserName(name: name) { [weak self] (json, error) in
             if let _ = json{
                 self?.availability.value = .available
             }else{
+                self?.errorString.value = error?.localizedDescription ?? StringConstants.username_not_available.localized
                 self?.availability.value = .error
             }
         }

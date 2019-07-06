@@ -55,6 +55,16 @@ class TextFieldTableViewCell: UITableViewCell {
         viewModel.errorString.bind { [weak self] (string) in
             self?.showErrorMessageIfNeeded(string, animate: true)
         }
+
+        viewModel.availability.bind { [weak self] (availability) in
+
+            switch availability{
+            case .checking: self?.mainTextField.startAnimating()
+            case .error: self?.mainTextField.stopAnimating(isSuccess: false, continueStatus: true)
+            case .available: self?.mainTextField.stopAnimating(isSuccess: true, continueStatus: true)
+            default: self?.mainTextField.stopAnimating(isSuccess: false, continueStatus: false)
+            }
+        }
     }
 
     private func showErrorMessageIfNeeded(_ errorString : String?, animate : Bool){

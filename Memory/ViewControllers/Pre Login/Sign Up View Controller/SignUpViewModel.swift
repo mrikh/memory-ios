@@ -8,8 +8,15 @@
 
 import Foundation
 
+protocol SignUpViewModelDelegate : BaseProtocol {
+
+    func reloadTable()
+    func success()
+}
+
 class SignUpViewModel{
 
+    weak var delegate : SignUpViewModelDelegate?
     private var dataSource = [TextFieldCellViewModel]()
 
     var numberOfRows : Int{
@@ -50,6 +57,67 @@ class SignUpViewModel{
             viewModel?.errorString.value = ValidationController.validatePassword(model.inputValue ?? "")
         case .username:
             break
+        }
+    }
+
+    func startSubmit(){
+
+        var errorOccurred = false
+        var name : String?
+        var username : String?
+        var password : String?
+        var email : String?
+
+        dataSource.forEach { (viewModel) in
+
+            if let type = viewModel.type{
+                switch type{
+                case .email:
+                    email = viewModel.inputValue
+                    if let error = viewModel.errorString.value, !error.isEmpty{
+                        errorOccurred = true
+                    }
+                case .name:
+                    name = viewModel.inputValue
+                    if let error = viewModel.errorString.value, !error.isEmpty{
+                        errorOccurred = true
+                    }
+                case .password:
+                    password = viewModel.inputValue
+                    if let error = viewModel.errorString.value, !error.isEmpty{
+                        errorOccurred = true
+                    }
+                case .username:
+                    username = viewModel.inputValue
+                    if viewModel.availability.value != .available{
+                        errorOccurred = true
+                    }
+                }
+            }
+        }
+
+        if errorOccurred{
+            delegate?.reloadTable()
+            delegate?.errorOccurred(errorString: StringConstants.one_or_more_fields.localized)
+            return
+        }
+
+        let params = ["name" : name, "username" : username, "password" : password, "email" : email].compactMapValues({$0})
+
+        APIManager.signUpUser(params: params) { [weak self] (dict, error) in
+            if let tempDict = dict{
+
+                let userModel = UserModel(tempDict["user"])
+                userModel.saveToUserDefaults()
+                UserModel.current = userModel
+
+                let token = tempDict["token"].stringValue
+                APIManager.authenticationToken = token
+                Defaults.save(value: token, forKey: .token)
+                self?.delegate?.success()
+            }else{
+                self?.delegate?.errorOccurred(errorString: error?.localizedDescription)
+            }
         }
     }
 }

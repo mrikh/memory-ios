@@ -67,7 +67,7 @@ class NetworkingManager {
                     if let code = dict["code"] as? Int, code == 200{
                         success(dict)
                     }else{
-                        let error = NSError(domain: "", code: dict["code"] as? Int ?? 600, userInfo: [NSLocalizedDescriptionKey : dict["message"] as? String ?? "", "response": dict["data"] ?? ""])
+                        let error = NSError(domain: "", code: dict["code"] as? Int ?? 600, userInfo: [NSLocalizedDescriptionKey : dict["message"] as? String ?? StringConstants.something_wrong.localized, "response": dict["data"] ?? ""])
                         failure(error)
                     }
                 }else{

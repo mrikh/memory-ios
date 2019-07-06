@@ -17,9 +17,9 @@ extension APIManager {
         var path : String {
 
             #if DEBUG
-            let url = "http://127.0.0.1:3000"
+            let url = "https://memory-node.herokuapp.com"
             #else
-            let url = "http://127.0.0.1:3000"
+            let url = "https://memory-node.herokuapp.com"
             #endif
 
             return url + rawValue

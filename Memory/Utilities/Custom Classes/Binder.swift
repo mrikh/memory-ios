@@ -1,9 +1,9 @@
 //
 //  Binder.swift
-//  Jhaiho
+//  Memory
 //
 //  Created by Mayank Rikh on 07/11/18.
-//  Copyright © 2018 Jhaiho. All rights reserved.
+//  Copyright © 2018 Memory. All rights reserved.
 //
 
 import Foundation

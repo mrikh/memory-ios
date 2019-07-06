@@ -1,6 +1,6 @@
 //
 //  ValidationController.swift
-//  GullyBeatsBeta
+//  Memory
 //
 //  Created by Mayank on 03/12/18.
 //  Copyright © 2018 Mayank Rikh. All rights reserved.

@@ -1,9 +1,9 @@
 //
 //  MRSkyTextField.swift
-//  Jhaiho
+//  Memory
 //
 //  Created by Mayank on 11/10/18.
-//  Copyright © 2018 Jhaiho. All rights reserved.
+//  Copyright © 2018 Memory. All rights reserved.
 //
 
 import UIKit
@@ -96,6 +96,7 @@ class MRTextField: UITextField {
     private var floatingLabel : UILabel?
     private var floatingLabelBottomConstraint : NSLayoutConstraint?
     private var floatingLabelTopConstraint : NSLayoutConstraint?
+    private var otpStatusView = VerificationView(frame: CGRect(x: 0, y: 0, width : 30, height : 40))
 
     private enum LayerIdentifier : Int{
         case bottomBorder = 1001
@@ -212,26 +213,20 @@ class MRTextField: UITextField {
     //MARK: Activity indicator on right side
     func startAnimating(){
 
-        let activityIndicator = UIActivityIndicatorView()
-        //hit and trial value
-        activityIndicator.center.x = activityIndicator.center.x + 10.0
-        activityIndicator.center.y = activityIndicator.center.y + 10.0
-        activityIndicator.style = .gray
-        activityIndicator.startAnimating()
-        activityIndicator.hidesWhenStopped = true
-
+        rightViewMode = .always
         currentRightView = rightView
-        rightView = createView(withView: activityIndicator)
+        rightView = otpStatusView
+        otpStatusView.updateStatus(value: .inProgress)
     }
 
-    func stopAnimating(){
+    func stopAnimating(isSuccess : Bool, continueStatus : Bool){
 
-        if rightView is UIActivityIndicatorView{
-            let tempView = rightView as! UIActivityIndicatorView
-            tempView.stopAnimating()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) { [weak self] in
+            self?.otpStatusView.updateStatus(value: isSuccess ? .verified : .invalid)
+            if !continueStatus{
+                self?.rightView = self?.currentRightView
+            }
         }
-
-        rightView = currentRightView
     }
 
     @objc func textFieldDidChange(_ textField : UITextField){
@@ -305,7 +300,7 @@ extension MRTextField{
                     self?.floatingLabel?.font = self?.font ?? UIFont.systemFont(ofSize: 14.0)
                     self?.floatingLabel?.textColor = #colorLiteral(red: 0.8209885955, green: 0.821634829, blue: 0.8407682776, alpha: 1)
                     self?.updateBorderColor(self?.defaultBottomBorderColor)
-                    }, completion: nil)
+                }, completion: nil)
             }
         }
     }

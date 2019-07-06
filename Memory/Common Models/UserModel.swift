@@ -1,31 +1,34 @@
 //
 //  UserModel.swift
-//  GullyBeatsBeta
+//  Memory
 //
 //  Created by Mayank on 03/12/18.
 //  Copyright © 2018 Mayank Rikh. All rights reserved.
 //
 
+import SwiftyJSON
 import Foundation
 
 struct UserModel{
     
-    static var current = UserModel(Defaults.value(forKey: .userInfo) as? [String : Any])
+    static var current = UserModel(Defaults.value(forKey: .userInfo))
     
-    let user_id: Int
-    var full_name: String
+    let user_id: String
+    var name: String
     let email: String
+    let username: String
     
-    init (_ dict: [String : Any]? = [String : Any]()) {
+    init (_ json: JSON) {
         
-        user_id = dict?["user_id"] as? Int ?? 0
-        full_name = dict?["full_name"] as? String ?? ""
-        email = dict?["email"] as? String ?? ""
+        user_id = json["_id"].stringValue
+        name = json["name"].stringValue
+        email = json["email"].stringValue
+        username = json["username"].stringValue
     }
     
     func saveToUserDefaults() {
         
-        let dict = ["user_id" : user_id, "full_name" : full_name, "email" : email] as [String : Any]
+        let dict = ["_id" : user_id, "name" : name, "email" : email, "username" : username] as [String : Any]
         Defaults.save(value: dict, forKey: .userInfo)
     }
 }

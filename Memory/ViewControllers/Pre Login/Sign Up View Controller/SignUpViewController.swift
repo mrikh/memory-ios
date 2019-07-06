@@ -58,6 +58,7 @@ class SignUpViewController: BaseViewController, KeyboardHandler, TableViewHeader
 
     @IBAction func signUpAction(_ sender: MRAnimatingButton) {
 
+        viewModel.startSubmit()
     }
 
     //MARK:- Private
@@ -81,6 +82,7 @@ class SignUpViewController: BaseViewController, KeyboardHandler, TableViewHeader
     }
 
     @objc private func handleTap(){
+
         view.endEditing(true)
     }
 }
@@ -117,5 +119,17 @@ extension SignUpViewController : UITableViewDelegate, UITableViewDataSource{
         }else{
             view.endEditing(true)
         }
+    }
+}
+
+extension SignUpViewController : SignUpViewModelDelegate{
+
+    func reloadTable() {
+
+        mainTableView.reloadData()
+    }
+
+    func success(){
+        
     }
 }
