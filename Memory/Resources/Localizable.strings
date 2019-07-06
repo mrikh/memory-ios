@@ -6,6 +6,11 @@
   Copyright © 2019 Mayank Rikh. All rights reserved.
 */
 
+//Profile Photo
+"upload_photo" = "Upload your profile photo for other people to recognize you!";
+"skip" = "Skip";
+"done" = "Done";
+
 //Login Flow and Sign Up
 "forgot_pass" = "Forgot Password?";
 "invalid_password" = "Password can't be less than eight characters";
@@ -26,7 +31,7 @@
 "username_not_available" = "Username not available!";
 
 //General
-"one_or_more_fields" = "One or more fields are incorrect. Please correct them before proceeding."
+"one_or_more_fields" = "One or more fields are incorrect. Please correct them before proceeding.";
 "something_wrong" = "Something went wrong";
 "sorry" = "Sorry";
 "oops" = "Oops!";

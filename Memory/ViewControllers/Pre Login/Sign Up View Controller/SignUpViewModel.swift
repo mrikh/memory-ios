@@ -12,6 +12,7 @@ protocol SignUpViewModelDelegate : BaseProtocol {
 
     func reloadTable()
     func success()
+    func responseReceived()
 }
 
 class SignUpViewModel{
@@ -105,6 +106,7 @@ class SignUpViewModel{
         let params = ["name" : name, "username" : username, "password" : password, "email" : email].compactMapValues({$0})
 
         APIManager.signUpUser(params: params) { [weak self] (dict, error) in
+            self?.delegate?.responseReceived()
             if let tempDict = dict{
 
                 let userModel = UserModel(tempDict["user"])

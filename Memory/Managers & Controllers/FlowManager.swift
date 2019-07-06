@@ -6,6 +6,7 @@
 //  Copyright © 2018 Mayank Rikh. All rights reserved.
 //
 
+import SwiftyJSON
 import UIKit
 
 class FlowManager{

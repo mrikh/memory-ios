@@ -80,18 +80,17 @@ class VerificationView: UIView {
         otpStatus = new
         if otpStatus == .inProgress{
             show { [weak self] in
-                self?.rotation{ [weak self] in
-                    self?.clear{
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: { [weak self] in
-                            self?.transform = .identity
-                            self?.stopRotating = false
-                            self?.show(nil)
-                        })
-                    }
-                }
+                self?.rotation(nil)
             }
         }else{
             stopRotating = true
+            clear{
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01, execute: { [weak self] in
+                    self?.transform = .identity
+                    self?.stopRotating = false
+                    self?.show(nil)
+                })
+            }
         }
     }
 

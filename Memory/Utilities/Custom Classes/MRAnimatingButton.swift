@@ -127,7 +127,7 @@ class MRAnimatingButton: UIButton {
     
     func disableButton(){
         
-        updateButton(true, backgroundColor: Colors.inactiveButtonColor, titleColor: UIColor.white)
+        updateButton(true, backgroundColor: Colors.inactiveButtonColor.withAlphaComponent(0.5), titleColor: UIColor.white)
     }
     
     private func updateButton(_ isDisabled : Bool, backgroundColor : UIColor, titleColor : UIColor){

@@ -58,6 +58,7 @@ class SignUpViewController: BaseViewController, KeyboardHandler, TableViewHeader
 
     @IBAction func signUpAction(_ sender: MRAnimatingButton) {
 
+        sender.startAnimating()
         viewModel.startSubmit()
     }
 
@@ -124,12 +125,17 @@ extension SignUpViewController : UITableViewDelegate, UITableViewDataSource{
 
 extension SignUpViewController : SignUpViewModelDelegate{
 
-    func reloadTable() {
+    func responseReceived() {
+        signUpButton.stopAnimating()
+    }
 
+    func reloadTable() {
         mainTableView.reloadData()
     }
 
     func success(){
-        
+
+        let viewController = ProfilePhotoViewController.instantiate(fromAppStoryboard: .PreLogin)
+        navigationController?.setViewControllers([viewController], animated: true)
     }
 }

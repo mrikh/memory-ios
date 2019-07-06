@@ -11,7 +11,7 @@ import Foundation
 
 struct UserModel{
     
-    static var current = UserModel(Defaults.value(forKey: .userInfo))
+    static var current = UserModel(Defaults.value(forKey: .userInfo) ?? JSON())
     
     let user_id: String
     var name: String
