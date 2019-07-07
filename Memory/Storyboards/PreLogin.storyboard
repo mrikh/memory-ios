@@ -408,15 +408,33 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HdK-nl-yVQ">
                                 <rect key="frame" x="47" y="116" width="281" height="281.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="rAH-my-LhX">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rAH-my-LhX">
                                         <rect key="frame" x="0.0" y="0.0" width="281" height="281.5"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ie-x1-dZN">
+                                        <rect key="frame" x="0.0" y="0.0" width="281" height="281.5"/>
+                                        <connections>
+                                            <action selector="uploadAction:" destination="jbE-c0-2o0" eventType="touchUpInside" id="KCR-RG-lm6"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="daZ-Di-IoE" customClass="StoryboardProgressView" customModule="Memory" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="281" height="281.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9Ie-x1-dZN" secondAttribute="trailing" id="2ob-fQ-42J"/>
+                                    <constraint firstAttribute="bottom" secondItem="daZ-Di-IoE" secondAttribute="bottom" id="4yG-EY-vx2"/>
+                                    <constraint firstAttribute="trailing" secondItem="daZ-Di-IoE" secondAttribute="trailing" id="66Q-Ni-Dcl"/>
+                                    <constraint firstItem="9Ie-x1-dZN" firstAttribute="leading" secondItem="HdK-nl-yVQ" secondAttribute="leading" id="aHH-Hn-2p8"/>
                                     <constraint firstItem="rAH-my-LhX" firstAttribute="leading" secondItem="HdK-nl-yVQ" secondAttribute="leading" id="ave-sY-Uz0"/>
+                                    <constraint firstItem="daZ-Di-IoE" firstAttribute="leading" secondItem="HdK-nl-yVQ" secondAttribute="leading" id="cDk-e1-6Fi"/>
                                     <constraint firstAttribute="bottom" secondItem="rAH-my-LhX" secondAttribute="bottom" id="d73-J9-ex5"/>
                                     <constraint firstAttribute="width" secondItem="HdK-nl-yVQ" secondAttribute="height" multiplier="1:1" id="pZx-xg-hNI"/>
+                                    <constraint firstItem="9Ie-x1-dZN" firstAttribute="top" secondItem="HdK-nl-yVQ" secondAttribute="top" id="ptD-vQ-HiJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Ie-x1-dZN" secondAttribute="bottom" id="qzS-rd-4yE"/>
+                                    <constraint firstItem="daZ-Di-IoE" firstAttribute="top" secondItem="HdK-nl-yVQ" secondAttribute="top" id="rOT-Bi-Bl2"/>
                                     <constraint firstItem="rAH-my-LhX" firstAttribute="top" secondItem="HdK-nl-yVQ" secondAttribute="top" id="v53-L8-yRl"/>
                                     <constraint firstAttribute="trailing" secondItem="rAH-my-LhX" secondAttribute="trailing" id="wft-9r-GQB"/>
                                 </constraints>
@@ -453,7 +471,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6jP-Bv-48a" firstAttribute="leading" secondItem="LF7-zs-tUN" secondAttribute="leading" id="1ad-aP-WOE"/>
-                            <constraint firstItem="LF7-zs-tUN" firstAttribute="height" secondItem="UcN-81-FOB" secondAttribute="height" multiplier="0.55" id="49x-xE-CiI"/>
+                            <constraint firstItem="LF7-zs-tUN" firstAttribute="height" secondItem="UcN-81-FOB" secondAttribute="height" multiplier="0.55" priority="749" id="49x-xE-CiI"/>
                             <constraint firstItem="6jP-Bv-48a" firstAttribute="bottom" secondItem="LF7-zs-tUN" secondAttribute="bottom" id="4LQ-Mv-B9s"/>
                             <constraint firstItem="HdK-nl-yVQ" firstAttribute="centerX" secondItem="UcN-81-FOB" secondAttribute="centerX" id="5kB-sW-Nb8"/>
                             <constraint firstItem="LF7-zs-tUN" firstAttribute="leading" secondItem="b6A-xG-pdT" secondAttribute="leading" id="AYh-0f-4sr"/>
@@ -478,7 +496,9 @@
                         <outlet property="infoLabel" destination="ZlX-j4-MgD" id="dSi-QU-5Is"/>
                         <outlet property="semiCircleView" destination="6jP-Bv-48a" id="7U1-Gr-I3O"/>
                         <outlet property="skipButton" destination="Wkn-J3-bs4" id="T9N-e7-46r"/>
+                        <outlet property="storyboardProgressView" destination="daZ-Di-IoE" id="Eqx-Eg-OA8"/>
                         <outlet property="topColorView" destination="LF7-zs-tUN" id="JYp-yf-hqc"/>
+                        <outlet property="uploadButton" destination="9Ie-x1-dZN" id="meN-aA-6jI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="caf-dO-DB8" userLabel="First Responder" sceneMemberID="firstResponder"/>

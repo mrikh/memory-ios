@@ -56,6 +56,8 @@ struct StringConstants{
     static let yes = "yes"
     static let no = "no"
     static let from = "from"
+    static let select_image_to_upload = "select_image_to_upload"
+    static let delete = "delete"
 
     //Access
     static let mic_access = "mic_access"

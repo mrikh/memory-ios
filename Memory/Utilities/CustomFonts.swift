@@ -11,7 +11,6 @@ import UIKit
 
 enum CustomFonts : String{
 
-    case fontAwesomeBrands = "FontAwesome5Brands-Regular"
     case avenirLight = "Avenir-Light"
     case avenirMedium = "Avenir-Medium"
     case avenirHeavy = "Avenir-Heavy"

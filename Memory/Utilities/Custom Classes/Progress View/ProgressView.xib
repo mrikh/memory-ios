@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProgressView" customModule="GullyBeatsBeta" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="95" height="83"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5j-Kq-ef8">
+                    <rect key="frame" x="0.0" y="0.0" width="95" height="83"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7B-Oa-ZY3">
+                            <rect key="frame" x="0.0" y="0.0" width="95" height="83"/>
+                            <connections>
+                                <action selector="tapAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="CaK-Dk-acX"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbR-Dp-uBK">
+                            <rect key="frame" x="26.5" y="31.5" width="42" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="xbR-Dp-uBK" firstAttribute="centerX" secondItem="h5j-Kq-ef8" secondAttribute="centerX" id="2Dn-M5-SDh"/>
+                        <constraint firstItem="K7B-Oa-ZY3" firstAttribute="leading" secondItem="h5j-Kq-ef8" secondAttribute="leading" id="Grc-JC-DU8"/>
+                        <constraint firstAttribute="bottom" secondItem="K7B-Oa-ZY3" secondAttribute="bottom" id="MKi-hy-ZPN"/>
+                        <constraint firstAttribute="trailing" secondItem="K7B-Oa-ZY3" secondAttribute="trailing" id="eFW-Ue-pjF"/>
+                        <constraint firstItem="K7B-Oa-ZY3" firstAttribute="top" secondItem="h5j-Kq-ef8" secondAttribute="top" id="ofV-og-JpH"/>
+                        <constraint firstItem="xbR-Dp-uBK" firstAttribute="centerY" secondItem="h5j-Kq-ef8" secondAttribute="centerY" id="p9i-m5-Shd"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="h5j-Kq-ef8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GwH-RG-Q6n"/>
+                <constraint firstAttribute="bottom" secondItem="h5j-Kq-ef8" secondAttribute="bottom" id="Xa8-4q-s3r"/>
+                <constraint firstAttribute="trailing" secondItem="h5j-Kq-ef8" secondAttribute="trailing" id="aMj-oz-MAE"/>
+                <constraint firstItem="h5j-Kq-ef8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bFa-mV-P0a"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="loaderView" destination="h5j-Kq-ef8" id="6nS-Me-Bkd"/>
+                <outlet property="progressLabel" destination="xbR-Dp-uBK" id="WPI-aa-eqe"/>
+            </connections>
+            <point key="canvasLocation" x="368.80000000000001" y="-108.39580209895054"/>
+        </view>
+    </objects>
+</document>

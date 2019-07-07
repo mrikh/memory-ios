@@ -9,11 +9,13 @@ use_frameworks!
 
   # Pods for Memory
 pod 'CropViewController'
+pod 'FontAwesome.swift'
 pod 'DZNEmptyDataSet'
 pod 'Crashlytics'
 pod 'SwiftyJSON'
 pod 'SDWebImage'
 pod 'Alamofire'
 pod 'Fabric'
+pod 'AWSS3'
 
 end

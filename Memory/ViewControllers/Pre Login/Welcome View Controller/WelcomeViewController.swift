@@ -6,6 +6,7 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
+import FontAwesome_swift
 import UIKit
 
 class WelcomeViewController: BaseViewController, KeyboardHandler {
@@ -83,13 +84,13 @@ class WelcomeViewController: BaseViewController, KeyboardHandler {
         facebookContainerView.backgroundColor = Colors.fbColor
         googleContainerView.backgroundColor = Colors.googleColor
 
-        facebookButton.setTitle("", for: .normal)
+        facebookButton.setTitle(String.fontAwesomeIcon(name: FontAwesome.facebookF), for: .normal)
         facebookButton.setTitleColor(Colors.white, for: .normal)
-        facebookButton.titleLabel?.font = CustomFonts.fontAwesomeBrands.withSize(21.0)
+        facebookButton.titleLabel?.font = UIFont.fontAwesome(ofSize: CGFloat(21.0).getFontSize, style: FontAwesomeStyle.brands)
 
-        googleButton.setTitle("", for: .normal)
+        googleButton.setTitle(String.fontAwesomeIcon(name: FontAwesome.google), for: .normal)
         googleButton.setTitleColor(Colors.white, for: .normal)
-        googleButton.titleLabel?.font = CustomFonts.fontAwesomeBrands.withSize(21.0)
+        googleButton.titleLabel?.font = UIFont.fontAwesome(ofSize: CGFloat(21.0).getFontSize, style: FontAwesomeStyle.brands)
 
         emailTextField.configure(with: StringConstants.email.localized, text: nil, primaryColor: Colors.activeButtonTitleColor, unselectedBottomColor: Colors.inactiveButtonColor)
         passwordTextField.configure(with: StringConstants.password.localized, text: nil, primaryColor: Colors.activeButtonTitleColor, unselectedBottomColor: Colors.inactiveButtonColor)

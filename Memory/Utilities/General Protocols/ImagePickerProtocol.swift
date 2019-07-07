@@ -25,12 +25,12 @@ extension ImagePickerProtocol where Self : UIViewController & UIImagePickerContr
     }
     
     private func showPicker(showFront : Bool, removePhoto:(()->())?){
-        
-        openImagePickerSheet(cameraAction: {
-            self.showImagePicker(showFront : showFront, showCamera : true)
-        }, withGalleryAction: {
-            self.showImagePicker(showFront : showFront, showCamera : false)
-        }, andRemovePhoto: removePhoto)
+
+        openImagePickerSheet(cameraAction: { [weak self] in
+            self?.showImagePicker(showFront : showFront, showCamera : true)
+        }, galleryAction: { [weak self] in 
+            self?.showImagePicker(showFront : showFront, showCamera : false)
+        }, removePhoto: removePhoto)
     }
     
     func showImagePicker(showFront : Bool, showCamera : Bool){
@@ -49,7 +49,7 @@ extension ImagePickerProtocol where Self : UIViewController & UIImagePickerContr
     
     private func openCamera(_ picker : UIImagePickerController, showFront : Bool){
         
-        checkCameraAuthorization { (granted, authorizationRequested) in
+        checkCameraAuthorization { [weak self] (granted, authorizationRequested) in
             if granted{
                 if UIImagePickerController.isSourceTypeAvailable(.camera){
                     picker.sourceType = .camera
@@ -58,28 +58,28 @@ extension ImagePickerProtocol where Self : UIViewController & UIImagePickerContr
                     }else{
                         picker.cameraDevice = .rear
                     }
-                    self.present(picker, animated: true, completion: nil)
+                    self?.present(picker, animated: true, completion: nil)
                 }else{
-                    self.openGallery(picker)
+                    self?.openGallery(picker)
                 }
             }else{
                 //dont show toast if permission was asked this time
                 if !authorizationRequested{
-                    self.showRedirectAlert(StringConstants.oops.localized, withMessage: StringConstants.camera_access.localized)
+                    self?.showRedirectAlert(StringConstants.oops.localized, withMessage: StringConstants.camera_access.localized)
                 }
             }
         }
     }
     
     private func openGallery(_ picker : UIImagePickerController) {
-        checkGalleryAuthorization { (granted, authorizationRequested) in
+        checkGalleryAuthorization { [weak self] (granted, authorizationRequested) in
             if granted{
                 picker.sourceType = .photoLibrary
-                self.present(picker, animated: true, completion: nil)
+                self?.present(picker, animated: true, completion: nil)
             }else{
                 //dont show toast if permission was asked this time
                 if !authorizationRequested{
-                    self.showRedirectAlert(StringConstants.oops.localized, withMessage: StringConstants.gallery_access.localized)
+                    self?.showRedirectAlert(StringConstants.oops.localized, withMessage: StringConstants.gallery_access.localized)
                 }
             }
         }

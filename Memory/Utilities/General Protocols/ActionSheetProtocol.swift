@@ -10,27 +10,16 @@ import Foundation
 import UIKit
 
 protocol ActionSheetProtocol {
-    
+
     /// Open image picker action sheet
     ///
     /// - Parameters:
     ///   - cameraAction: Closure containing camera functionality
     ///   - galleryAction: Closure containing gallery functionality
     ///   - removePhoto: Remove photo Closure if required
-    func openImagePickerSheet(cameraAction: @escaping ()->(), withGalleryAction galleryAction : @escaping ()->(), andRemovePhoto removePhoto: (()->())?)
-    
-    /// Open default ios action sheet
-    ///
-    /// - Parameters:
-    ///   - title: Title to display
-    ///   - message: Message to display
-    ///   - firstTitle: Title of first action
-    ///   - firstAction: Closure of first action
-    ///   - secondTitle: Title of second action
-    ///   - secondAction: Closure of second action
-    func openActionSheet(_ title : String, andMessage message : String, withFirstItemTitle firstTitle:String, withFirstAction firstAction : (()->())?, withSecondActionTitle secondTitle : String?, withSecondAction secondAction : (()->())?)
-    
-    /// Open default ios action sheet with selecting an option if necessary
+    func openImagePickerSheet(cameraAction: @escaping ()->(), galleryAction : @escaping ()->(), removePhoto: (()->())?)
+
+    /// Open default ios action sheet with selecting an option if necessary. Make sure only 1 of the options being selected is true as otherwise it will crash.
     ///
     /// - Parameters:
     ///   - title: Title of the action sheet
@@ -41,65 +30,42 @@ protocol ActionSheetProtocol {
     ///   - firstAction: Closure of first action
     ///   - secondTitle: Title of second action
     ///   - secondAction: Closure of second action
-    func openActionSheet(_ title : String, andMessage message : String, firstItemSelected : Bool, secondItemSelected : Bool, withFirstItemTitle firstTitle:String, withFirstAction firstAction : (()->())?, withSecondActionTitle secondTitle : String?, withSecondAction secondAction : (()->())?)
+    func openActionSheet(title : String, message : String, firstTitle: String, secondTitle : String?, thirdTitle : String?, firstSelected : Bool, secondSelected : Bool, thirdSelected : Bool, firstAction : (()->())?, secondAction : (()->())?, thirdAction : (()->())?)
 }
 
 extension ActionSheetProtocol where Self : UIViewController{
-    
-    func openImagePickerSheet(cameraAction: @escaping ()->(), withGalleryAction galleryAction : @escaping ()->(), andRemovePhoto removePhoto: (()->())?){
-        
-        openActionSheet("", andMessage: StringConstants.select_option.localized, withFirstItemTitle: StringConstants.camera.localized, withFirstAction: cameraAction, withSecondActionTitle: StringConstants.gallery.localized, withSecondAction: galleryAction)
-    }
-    
-    func openActionSheet(_ title : String, andMessage message : String, withFirstItemTitle firstTitle:String, withFirstAction firstAction : (()->())?, withSecondActionTitle secondTitle : String?, withSecondAction secondAction : (()->())?){
-        
-        let actionSheetController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-        
-        actionSheetController.addAction(UIAlertAction(title: firstTitle, style: .default){ _ in
-            
-            if let tempAction = firstAction{
-                tempAction()
-            }
-        })
-        
-        if let tempTitle = secondTitle{
-            actionSheetController.addAction( UIAlertAction(title: tempTitle, style: .default){ _ in
-                if let tempAction = secondAction{
-                    tempAction()
-                }
-            })
-        }
-        
-        actionSheetController.addAction(UIAlertAction(title: StringConstants.cancel.localized, style: .cancel) { _ in })
-        self.present(actionSheetController, animated: true, completion: nil)
+
+    func openImagePickerSheet(cameraAction: @escaping ()->(), galleryAction : @escaping ()->(), removePhoto: (()->())?){
+
+        openActionSheet(title: StringConstants.select_option.localized, message: StringConstants.select_image_to_upload.localized, firstTitle: StringConstants.camera.localized, secondTitle: StringConstants.gallery.localized, thirdTitle: removePhoto == nil ? nil :  StringConstants.delete.localized, firstSelected: false, secondSelected: false, thirdSelected: false, firstAction: cameraAction, secondAction: galleryAction, thirdAction: removePhoto)
     }
 
-    
-    func openActionSheet(_ title : String, andMessage message : String, firstItemSelected : Bool = false, secondItemSelected : Bool = false, withFirstItemTitle firstTitle:String, withFirstAction firstAction : (()->())?, withSecondActionTitle secondTitle : String?, withSecondAction secondAction : (()->())?){
-        
-        var selectSecond = secondItemSelected
-        
-        if firstItemSelected && selectSecond{
-            selectSecond = false
-        }
-        
+    func openActionSheet(title : String, message : String, firstTitle: String, secondTitle : String?, thirdTitle : String?, firstSelected : Bool, secondSelected : Bool, thirdSelected : Bool, firstAction : (()->())?, secondAction : (()->())?, thirdAction : (()->())?){
+
         let actionSheetController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-        
-        actionSheetController.addAction(UIAlertAction(title: firstTitle, style: firstItemSelected ? .destructive : .default){ _ in
-            
+        actionSheetController.addAction(UIAlertAction(title: firstTitle, style: firstSelected ? .destructive : .default){ _ in
+
             if let tempAction = firstAction{
                 tempAction()
             }
         })
-        
+
         if let tempTitle = secondTitle{
-            actionSheetController.addAction( UIAlertAction(title: tempTitle, style: selectSecond ? .destructive : .default){ _ in
+            actionSheetController.addAction( UIAlertAction(title: tempTitle, style: secondSelected ? .destructive : .default){ _ in
                 if let tempAction = secondAction{
                     tempAction()
                 }
             })
         }
-        
+
+        if let tempTitle = thirdTitle{
+            actionSheetController.addAction( UIAlertAction(title: tempTitle, style: thirdSelected ? .destructive : .default){ _ in
+                if let tempAction = thirdAction{
+                    tempAction()
+                }
+            })
+        }
+
         actionSheetController.addAction(UIAlertAction(title: StringConstants.cancel.localized, style: .cancel) { _ in })
         self.present(actionSheetController, animated: true, completion: nil)
     }

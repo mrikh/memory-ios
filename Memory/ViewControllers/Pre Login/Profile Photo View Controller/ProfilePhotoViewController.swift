@@ -6,10 +6,14 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
+import CropViewController
+import FontAwesome_swift
 import UIKit
 
-class ProfilePhotoViewController: BaseViewController {
+class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
 
+    @IBOutlet weak var storyboardProgressView: StoryboardProgressView!
+    @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var doneButton: MRAnimatingButton!
@@ -18,6 +22,7 @@ class ProfilePhotoViewController: BaseViewController {
     @IBOutlet weak var topColorView: UIView!
     @IBOutlet weak var semiCircleView: UIView!
 
+    let viewModel = ProfilePhotoViewModel()
     private var semiPath : UIBezierPath{
         let path = UIBezierPath()
         let radius = semiCircleView.bounds.height * 2.5
@@ -57,10 +62,29 @@ class ProfilePhotoViewController: BaseViewController {
     }
 
     //MARK:- IBAction
+    @IBAction func uploadAction(_ sender: UIButton) {
+
+        if let _ = imageView.image{
+            startImagePick(showFront: true) { [weak self] in
+                self?.imageView.image = nil
+                self?.uploadButton.setTitle(String.fontAwesomeIcon(name: FontAwesome.cameraRetro), for: .normal)
+            }
+        }else{
+            startImagePick(showFront: true, removalClosure: nil)
+        }
+    }
+    
     @IBAction func skipAction(_ sender: UIButton) {
+
+        //go to home
     }
 
     @IBAction func doneAction(_ sender: UIButton) {
+
+        guard let image = imageView.image else {return}
+        storyboardProgressView.isHidden = false
+        viewModel.startUpload(image: image)
+        doneButton.disableButton()
     }
 
     //MARK:- Private
@@ -86,7 +110,69 @@ class ProfilePhotoViewController: BaseViewController {
 
         imageContainerView.layer.borderColor = Colors.white.cgColor
         imageContainerView.layer.borderWidth = 2.5
+        imageContainerView.backgroundColor = Colors.bgColor
 
         imageContainerView.addShadow(3.0)
+
+        uploadButton.setTitle(String.fontAwesomeIcon(name: FontAwesome.cameraRetro), for: .normal)
+        uploadButton.setTitleColor(Colors.white, for: .normal)
+        uploadButton.titleLabel?.font = UIFont.fontAwesome(ofSize: CGFloat(42.0).getFontSize, style: FontAwesomeStyle.solid)
+
+        viewModel.delegate = self
+        storyboardProgressView.isHidden = true
+    }
+}
+
+extension ProfilePhotoViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        guard let image = info[.originalImage] as? UIImage else { return }
+
+        let cropViewController = CropViewController(croppingStyle: .default, image: image)
+        cropViewController.delegate = self
+        picker.present(cropViewController, animated: false, completion: nil)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProfilePhotoViewController : CropViewControllerDelegate{
+
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+
+        imageView.image = image
+
+        doneButton.enableButton()
+        uploadButton.setTitle(nil, for: .normal)
+
+        dismiss(animated: true, completion: nil)
+    }
+
+    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
+
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProfilePhotoViewController : ProfilePhotoViewModelDelegate{
+
+    func updateProgress(progress: Double) {
+        storyboardProgressView.update(progress: progress)
+    }
+
+    func imageUploadSuccess() {
+
+        storyboardProgressView.isHidden = true
+    }
+
+    func errorOccurred(errorString: String?) {
+
+        storyboardProgressView.isHidden = true
+        doneButton.enableButton()
+        showAlert(StringConstants.oops.localized, withMessage: errorString, withCompletion: nil)
     }
 }

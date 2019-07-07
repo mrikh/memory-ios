@@ -9,6 +9,7 @@
 import Crashlytics
 import Fabric
 import UIKit
+import AWSS3
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Fabric.with([Crashlytics.self])
         FlowManager.checkAppInitializationFlow()
-        
+        setupAWS()
+
         return true
     }
 
@@ -44,6 +46,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+
+    //MARK:- Private function
+    private func setupAWS(){
+
+        let credentialsProvider = AWSCognitoCredentialsProvider(
+            regionType: .APSouth1,
+            identityPoolId: AWSKeys.pool_id)
+
+        let configuration = AWSServiceConfiguration(
+            region: .APSouth1,
+            credentialsProvider: credentialsProvider)
+
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
     }
 }
 
