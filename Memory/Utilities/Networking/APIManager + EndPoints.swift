@@ -13,6 +13,7 @@ extension APIManager {
 
         case signUp = "/users/signUp"
         case checkInfo = "/users/checkInfo"
+        case update = "/users/update"
         
         var path : String {
 

@@ -76,7 +76,7 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
     
     @IBAction func skipAction(_ sender: UIButton) {
 
-        //go to home
+        FlowManager.gotToLandingScreen()
     }
 
     @IBAction func doneAction(_ sender: UIButton) {
@@ -166,8 +166,13 @@ extension ProfilePhotoViewController : ProfilePhotoViewModelDelegate{
 
     func imageUploadSuccess() {
 
-        doneButton.stopAnimating()
         storyboardProgressView.isHidden = true
+    }
+
+    func updatedInfo() {
+        
+        doneButton.stopAnimating()
+        FlowManager.gotToLandingScreen()
     }
 
     func errorOccurred(errorString: String?) {

@@ -17,6 +17,8 @@ struct UserModel{
     var name: String
     let email: String
     let username: String
+    var emailVerified : Bool
+    var profilePhoto : String
     
     init (_ json: JSON) {
         
@@ -24,11 +26,13 @@ struct UserModel{
         name = json["name"].stringValue
         email = json["email"].stringValue
         username = json["username"].stringValue
+        emailVerified = json["emailVerified"].boolValue
+        profilePhoto = json["profilePhoto"].stringValue
     }
     
     func saveToUserDefaults() {
         
-        let dict = ["_id" : user_id, "name" : name, "email" : email, "username" : username] as [String : Any]
+        let dict = ["_id" : user_id, "name" : name, "email" : email, "username" : username, "emailVerified" : emailVerified, "profilePhoto" : profilePhoto] as [String : Any]
         Defaults.save(value: dict, forKey: .userInfo)
     }
 }

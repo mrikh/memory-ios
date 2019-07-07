@@ -44,7 +44,7 @@ class NetworkingManager {
         request(URLString: endPoint.path, httpMethod: .patch, parameters: parameters, headers: headers, loader: loader, success: success, failure: failure)
     }
     
-    private static func request(URLString : String, httpMethod : HTTPMethod, parameters : [String : Any] = [:], encoding: URLEncoding = URLEncoding.httpBody, headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping ([String : Any]) -> Void, failure : @escaping (Error) -> Void) {
+    private static func request(URLString : String, httpMethod : HTTPMethod, parameters : [String : Any] = [:], encoding: ParameterEncoding = JSONEncoding.default, headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping ([String : Any]) -> Void, failure : @escaping (Error) -> Void) {
         
         DispatchQueue.main.async{
             UIApplication.shared.isNetworkActivityIndicatorVisible = true

@@ -20,6 +20,8 @@
 		465CB38C22D1E9B2002D2B4B /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 465CB38922D1E9B2002D2B4B /* ProgressView.xib */; };
 		465CB38F22D205BC002D2B4B /* ProfilePhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB38E22D205BC002D2B4B /* ProfilePhotoViewModel.swift */; };
 		465CB39122D207A3002D2B4B /* ImageUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39022D207A3002D2B4B /* ImageUploadManager.swift */; };
+		465CB39422D26AB8002D2B4B /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465CB39322D26AB8002D2B4B /* Landing.storyboard */; };
+		465CB39622D26C3C002D2B4B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39522D26C3C002D2B4B /* HomeViewController.swift */; };
 		46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE38322356D2100CEC9C1 /* AppDelegate.swift */; };
 		46BCE38922356D2100CEC9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE38722356D2100CEC9C1 /* Main.storyboard */; };
 		46BCE38B22356D2400CEC9C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE38A22356D2400CEC9C1 /* Assets.xcassets */; };
@@ -74,6 +76,8 @@
 		465CB38922D1E9B2002D2B4B /* ProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
 		465CB38E22D205BC002D2B4B /* ProfilePhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoViewModel.swift; sourceTree = "<group>"; };
 		465CB39022D207A3002D2B4B /* ImageUploadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadManager.swift; sourceTree = "<group>"; };
+		465CB39322D26AB8002D2B4B /* Landing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Landing.storyboard; sourceTree = "<group>"; };
+		465CB39522D26C3C002D2B4B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		46BCE38022356D2100CEC9C1 /* Memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BCE38322356D2100CEC9C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46BCE38822356D2100CEC9C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -184,6 +188,14 @@
 			path = "Progress View";
 			sourceTree = "<group>";
 		};
+		465CB39222D26A44002D2B4B /* Landing Screens */ = {
+			isa = PBXGroup;
+			children = (
+				465CB39522D26C3C002D2B4B /* HomeViewController.swift */,
+			);
+			path = "Landing Screens";
+			sourceTree = "<group>";
+		};
 		46BCE37722356D2100CEC9C1 = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +235,7 @@
 				46BCE396223578CF00CEC9C1 /* BaseProtocol.swift */,
 				46BCE397223578CF00CEC9C1 /* BaseViewController.swift */,
 				46BCE3FA2236485B00CEC9C1 /* Pre Login */,
+				465CB39222D26A44002D2B4B /* Landing Screens */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -318,6 +331,7 @@
 				46BCE38C22356D2400CEC9C1 /* LaunchScreen.storyboard */,
 				46BCE38722356D2100CEC9C1 /* Main.storyboard */,
 				46BCE3F822363F7C00CEC9C1 /* PreLogin.storyboard */,
+				465CB39322D26AB8002D2B4B /* Landing.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -430,6 +444,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				465CB39422D26AB8002D2B4B /* Landing.storyboard in Resources */,
 				46BCE38E22356D2400CEC9C1 /* LaunchScreen.storyboard in Resources */,
 				465CB38C22D1E9B2002D2B4B /* ProgressView.xib in Resources */,
 				46BCE3E622357A9A00CEC9C1 /* Localizable.strings in Resources */,
@@ -527,6 +542,7 @@
 				465CB39122D207A3002D2B4B /* ImageUploadManager.swift in Sources */,
 				46BCE3C122357A3100CEC9C1 /* TableViewHeaderFooterResizeProtocol.swift in Sources */,
 				46BCE402223B9E6300CEC9C1 /* MRTextField.swift in Sources */,
+				465CB39622D26C3C002D2B4B /* HomeViewController.swift in Sources */,
 				46BCE3C822357A3100CEC9C1 /* APIManager + EndPoints.swift in Sources */,
 				46BCE3CA22357A3100CEC9C1 /* NetworkingManager.swift in Sources */,
 				465CB38F22D205BC002D2B4B /* ProfilePhotoViewModel.swift in Sources */,

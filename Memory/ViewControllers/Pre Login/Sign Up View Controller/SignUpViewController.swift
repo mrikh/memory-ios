@@ -80,6 +80,7 @@ class SignUpViewController: BaseViewController, KeyboardHandler, TableViewHeader
         loginButton.setAttributedTitle(NSAttributedString(string : StringConstants.login.localized, attributes : [.font : CustomFonts.avenirHeavy.withSize(12.0), .foregroundColor : Colors.bgColor, .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
 
         signUpButton.setTitle(StringConstants.sign_up.localized, for: .normal)
+        viewModel.delegate = self
     }
 
     @objc private func handleTap(){
@@ -131,11 +132,15 @@ extension SignUpViewController : SignUpViewModelDelegate{
 
     func reloadTable() {
         mainTableView.reloadData()
+        signUpButton.stopAnimating()
     }
 
-    func success(){
+    func success(message : String){
 
-        let viewController = ProfilePhotoViewController.instantiate(fromAppStoryboard: .PreLogin)
-        navigationController?.setViewControllers([viewController], animated: true)
+        showAlert(StringConstants.success.localized, withMessage: message) { [weak self] in
+
+            let viewController = ProfilePhotoViewController.instantiate(fromAppStoryboard: .PreLogin)
+            self?.navigationController?.setViewControllers([viewController], animated: true)
+        }
     }
 }

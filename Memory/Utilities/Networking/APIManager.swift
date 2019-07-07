@@ -16,9 +16,18 @@ class APIManager {
         return ["Authorization" : "Bearer \(authenticationToken)"]
     }
 
+    static func updateUser(params : [String : Any], completion : ((JSON?, Error?)->())?){
+
+        NetworkingManager.PATCH(endPoint: .update, parameters: params, headers: headers, success: { (dict) in
+            completion?(JSON(dict), nil)
+        }) { (error) in
+            completion?(nil, error)
+        }
+    }
+
     static func signUpUser(params : [String : Any], completion : ((JSON?, Error?)->())?){
 
-        NetworkingManager.POST(endPoint: .signUp, success: { (dict) in
+        NetworkingManager.POST(endPoint: .signUp, parameters: params, success: { (dict) in
             completion?(JSON(dict), nil)
         }) { (error) in
             completion?(nil, error)

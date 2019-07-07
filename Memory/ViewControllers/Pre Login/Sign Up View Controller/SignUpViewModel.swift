@@ -11,7 +11,7 @@ import Foundation
 protocol SignUpViewModelDelegate : BaseProtocol {
 
     func reloadTable()
-    func success()
+    func success(message : String)
     func responseReceived()
 }
 
@@ -107,7 +107,7 @@ class SignUpViewModel{
 
         APIManager.signUpUser(params: params) { [weak self] (dict, error) in
             self?.delegate?.responseReceived()
-            if let tempDict = dict{
+            if let tempDict = dict?["data"]{
 
                 let userModel = UserModel(tempDict["user"])
                 userModel.saveToUserDefaults()
@@ -116,7 +116,7 @@ class SignUpViewModel{
                 let token = tempDict["token"].stringValue
                 APIManager.authenticationToken = token
                 Defaults.save(value: token, forKey: .token)
-                self?.delegate?.success()
+                self?.delegate?.success(message : dict?["message"].stringValue ?? StringConstants.success.localized)
             }else{
                 self?.delegate?.errorOccurred(errorString: error?.localizedDescription)
             }
