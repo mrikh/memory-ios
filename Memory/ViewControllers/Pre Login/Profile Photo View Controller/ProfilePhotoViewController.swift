@@ -84,7 +84,7 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
         guard let image = imageView.image else {return}
         storyboardProgressView.isHidden = false
         viewModel.startUpload(image: image)
-        doneButton.disableButton()
+        doneButton.startAnimating()
     }
 
     //MARK:- Private
@@ -166,13 +166,14 @@ extension ProfilePhotoViewController : ProfilePhotoViewModelDelegate{
 
     func imageUploadSuccess() {
 
+        doneButton.stopAnimating()
         storyboardProgressView.isHidden = true
     }
 
     func errorOccurred(errorString: String?) {
 
         storyboardProgressView.isHidden = true
-        doneButton.enableButton()
+        doneButton.stopAnimating()
         showAlert(StringConstants.oops.localized, withMessage: errorString, withCompletion: nil)
     }
 }
