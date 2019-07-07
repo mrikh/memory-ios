@@ -54,6 +54,7 @@ class ProgressView: UIView {
         if let layer = searchForLayer(value, identifier: layerIdentifier){
             layer.path = path.cgPath
         }
+        loaderView.layer.cornerRadius = loaderView.bounds.height/2.0
     }
 
     func update(progress : Double){
@@ -81,14 +82,14 @@ class ProgressView: UIView {
         progressLabel.textColor = Colors.white
         progressLabel.font = CustomFonts.avenirHeavy.withSize(35.0)
         progressLabel.text = StringConstants.loading.localized
-        loaderView.backgroundColor = .clear
+        loaderView.backgroundColor = Colors.black.withAlphaComponent(0.3)
 
         let tempLayer = CAShapeLayer()
         tempLayer.path = path.cgPath
-        tempLayer.lineWidth = 10.0
+        tempLayer.lineWidth = 4.0
         tempLayer.fillColor = UIColor.clear.cgColor
         tempLayer.strokeEnd = 0.0
-        tempLayer.strokeColor = Colors.bgColor.cgColor
+        tempLayer.strokeColor = Colors.white.cgColor
         tempLayer.setValue(value, forKey: layerIdentifier)
         loaderView.layer.addSublayer(tempLayer)
     }

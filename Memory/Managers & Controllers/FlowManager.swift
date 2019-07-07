@@ -47,7 +47,7 @@ class FlowManager{
     static func clearAllData(){
 
         UserModel.current = UserModel(JSON())
-        Defaults.removeValue(forKey: .userInfo)
+        Defaults.removeAllValues()
     }
 
     static func configureNavigationBar(){

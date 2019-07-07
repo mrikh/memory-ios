@@ -108,8 +108,8 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
 
         skipButton.setAttributedTitle(NSAttributedString(string : StringConstants.skip.localized, attributes : [.font : CustomFonts.avenirHeavy.withSize(12.0), .foregroundColor : Colors.bgColor, .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
 
-        imageContainerView.layer.borderColor = Colors.white.cgColor
-        imageContainerView.layer.borderWidth = 2.5
+        imageContainerView.layer.borderColor = Colors.white.withAlphaComponent(0.3).cgColor
+        imageContainerView.layer.borderWidth = 2.0
         imageContainerView.backgroundColor = Colors.bgColor
 
         imageContainerView.addShadow(3.0)
@@ -129,7 +129,7 @@ extension ProfilePhotoViewController : UIImagePickerControllerDelegate, UINaviga
 
         guard let image = info[.originalImage] as? UIImage else { return }
 
-        let cropViewController = CropViewController(croppingStyle: .default, image: image)
+        let cropViewController = CropViewController(croppingStyle: .circular, image: image)
         cropViewController.delegate = self
         picker.present(cropViewController, animated: false, completion: nil)
     }
