@@ -1,5 +1,5 @@
 //
-//  WelcomeViewController.swift
+//  LoginViewController.swift
 //  Memory
 //
 //  Created by Mayank Rikh on 11/03/19.
@@ -9,7 +9,7 @@
 import FontAwesome_swift
 import UIKit
 
-class WelcomeViewController: BaseViewController, KeyboardHandler {
+class LoginViewController: BaseViewController, KeyboardHandler {
 
     @IBOutlet weak var loginButton: MRAnimatingButton!
     @IBOutlet weak var facebookContainerView: UIView!
@@ -30,6 +30,8 @@ class WelcomeViewController: BaseViewController, KeyboardHandler {
     var bottomConstraints: [NSLayoutConstraint]{
         return [bottomConstraint]
     }
+
+    let viewModel = LoginViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +61,8 @@ class WelcomeViewController: BaseViewController, KeyboardHandler {
 
     //MARK:- IBAction
     @IBAction func loginAction(_ sender: MRAnimatingButton) {
+
+        sender.startAnimating()
     }
 
     @IBAction func facebookAction(_ sender: UIButton) {
@@ -74,6 +78,8 @@ class WelcomeViewController: BaseViewController, KeyboardHandler {
     }
 
     @IBAction func skipAction(_ sender: UIButton) {
+
+        FlowManager.gotToLandingScreen()
     }
 
     //MARK:- Private
@@ -113,7 +119,7 @@ class WelcomeViewController: BaseViewController, KeyboardHandler {
     }
 }
 
-extension WelcomeViewController : UITextFieldDelegate{
+extension LoginViewController : UITextFieldDelegate{
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
@@ -124,5 +130,25 @@ extension WelcomeViewController : UITextFieldDelegate{
         }
 
         return true
+    }
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        if string.containsEmoji {return false}
+
+        if let temp = textField as? MRTextField{
+            temp.errorString = nil
+        }
+
+        return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+
+        if textField == emailTextField{
+            emailTextField.errorString = viewModel.validateEmail(text: textField.text ?? "")
+        }else{
+            passwordTextField.errorString = viewModel.validatePassword(text: textField.text ?? "")
+        }
     }
 }

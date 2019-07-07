@@ -52,7 +52,7 @@ class SignUpViewController: BaseViewController, KeyboardHandler, TableViewHeader
     //MARK:- IBAction
     @IBAction func loginAction(_ sender: UIButton) {
 
-        let viewController = WelcomeViewController.instantiate(fromAppStoryboard: .PreLogin)
+        let viewController = LoginViewController.instantiate(fromAppStoryboard: .PreLogin)
         navigationController?.setViewControllers([viewController], animated: true)
     }
 

@@ -105,6 +105,7 @@ class SignUpViewModel{
 
         let params = ["name" : name, "username" : username, "password" : password, "email" : email].compactMapValues({$0})
 
+        //TODO:- Email verification pending
         APIManager.signUpUser(params: params) { [weak self] (dict, error) in
             self?.delegate?.responseReceived()
             if let tempDict = dict?["data"]{

@@ -22,6 +22,7 @@
 		465CB39122D207A3002D2B4B /* ImageUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39022D207A3002D2B4B /* ImageUploadManager.swift */; };
 		465CB39422D26AB8002D2B4B /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465CB39322D26AB8002D2B4B /* Landing.storyboard */; };
 		465CB39622D26C3C002D2B4B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39522D26C3C002D2B4B /* HomeViewController.swift */; };
+		465CB39822D2811F002D2B4B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39722D2811F002D2B4B /* LoginViewModel.swift */; };
 		46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE38322356D2100CEC9C1 /* AppDelegate.swift */; };
 		46BCE38922356D2100CEC9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE38722356D2100CEC9C1 /* Main.storyboard */; };
 		46BCE38B22356D2400CEC9C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE38A22356D2400CEC9C1 /* Assets.xcassets */; };
@@ -56,7 +57,7 @@
 		46BCE3E9223580F600CEC9C1 /* Binder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3E8223580F600CEC9C1 /* Binder.swift */; };
 		46BCE3F12235816D00CEC9C1 /* MRActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3F02235816D00CEC9C1 /* MRActivityIndicator.m */; };
 		46BCE3F922363F7C00CEC9C1 /* PreLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE3F822363F7C00CEC9C1 /* PreLogin.storyboard */; };
-		46BCE3FC2236487200CEC9C1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3FB2236487200CEC9C1 /* WelcomeViewController.swift */; };
+		46BCE3FC2236487200CEC9C1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3FB2236487200CEC9C1 /* LoginViewController.swift */; };
 		46BCE402223B9E6300CEC9C1 /* MRTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE401223B9E6300CEC9C1 /* MRTextField.swift */; };
 		46BCE404223B9EAB00CEC9C1 /* MRAnimatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		465CB39022D207A3002D2B4B /* ImageUploadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadManager.swift; sourceTree = "<group>"; };
 		465CB39322D26AB8002D2B4B /* Landing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Landing.storyboard; sourceTree = "<group>"; };
 		465CB39522D26C3C002D2B4B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		465CB39722D2811F002D2B4B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		46BCE38022356D2100CEC9C1 /* Memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BCE38322356D2100CEC9C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46BCE38822356D2100CEC9C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,7 +118,7 @@
 		46BCE3EF2235816C00CEC9C1 /* MRActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRActivityIndicator.h; sourceTree = "<group>"; };
 		46BCE3F02235816D00CEC9C1 /* MRActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRActivityIndicator.m; sourceTree = "<group>"; };
 		46BCE3F822363F7C00CEC9C1 /* PreLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreLogin.storyboard; sourceTree = "<group>"; };
-		46BCE3FB2236487200CEC9C1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		46BCE3FB2236487200CEC9C1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		46BCE401223B9E6300CEC9C1 /* MRTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRTextField.swift; sourceTree = "<group>"; };
 		46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRAnimatingButton.swift; sourceTree = "<group>"; };
 		C7938299BEE333E1DB6C2E75 /* Pods_Memory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -361,17 +363,18 @@
 			children = (
 				465CB38222D120DE002D2B4B /* Profile Photo View Controller */,
 				464EEF9D223E632200C6A40D /* Sign Up View Controller */,
-				46BCE3FD2236487600CEC9C1 /* Welcome View Controller */,
+				46BCE3FD2236487600CEC9C1 /* Login View Controller */,
 			);
 			path = "Pre Login";
 			sourceTree = "<group>";
 		};
-		46BCE3FD2236487600CEC9C1 /* Welcome View Controller */ = {
+		46BCE3FD2236487600CEC9C1 /* Login View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				46BCE3FB2236487200CEC9C1 /* WelcomeViewController.swift */,
+				46BCE3FB2236487200CEC9C1 /* LoginViewController.swift */,
+				465CB39722D2811F002D2B4B /* LoginViewModel.swift */,
 			);
-			path = "Welcome View Controller";
+			path = "Login View Controller";
 			sourceTree = "<group>";
 		};
 		5C435BCFBB900C1FCE65FB32 /* Frameworks */ = {
@@ -547,6 +550,7 @@
 				46BCE3CA22357A3100CEC9C1 /* NetworkingManager.swift in Sources */,
 				465CB38F22D205BC002D2B4B /* ProfilePhotoViewModel.swift in Sources */,
 				46BCE3C022357A3100CEC9C1 /* ImagePickerProtocol.swift in Sources */,
+				465CB39822D2811F002D2B4B /* LoginViewModel.swift in Sources */,
 				46BCE39C22357A0D00CEC9C1 /* UserModel.swift in Sources */,
 				464EEFA1223E95C400C6A40D /* SignUpViewModel.swift in Sources */,
 				46BCE3C922357A3100CEC9C1 /* APIManager.swift in Sources */,
@@ -556,7 +560,7 @@
 				46BCE3BF22357A3100CEC9C1 /* ActionSheetProtocol.swift in Sources */,
 				46BCE3D422357A3100CEC9C1 /* Colors.swift in Sources */,
 				46BCE3CE22357A3100CEC9C1 /* View+GeneralEnhancements.swift in Sources */,
-				46BCE3FC2236487200CEC9C1 /* WelcomeViewController.swift in Sources */,
+				46BCE3FC2236487200CEC9C1 /* LoginViewController.swift in Sources */,
 				46BCE3CD22357A3100CEC9C1 /* UITextField + General.swift in Sources */,
 				46BCE3E9223580F600CEC9C1 /* Binder.swift in Sources */,
 				46BCE3C422357A3100CEC9C1 /* AuthorizationProtocol.swift in Sources */,

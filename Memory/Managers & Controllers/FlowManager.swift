@@ -17,7 +17,7 @@ class FlowManager{
         configureNavigationBar()
 
         if let _ = Defaults.value(forKey: Defaults.Key.userInfo){
-            gotToLandingScreen()
+//            gotToLandingScreen()
         }
     }
 
