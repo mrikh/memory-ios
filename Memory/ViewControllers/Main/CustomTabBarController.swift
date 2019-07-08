@@ -27,11 +27,11 @@ class CustomTabBarController: UITabBarController {
             if let items = tabBar.items{
                 for (index, item) in items.enumerated(){
                     if index == 0{
-                        item.title = StringConstants.home.localized
-                        item.image = UIImage.fontAwesomeIcon(name: FontAwesome.home, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
-                    }else if index == 1{
                         item.title = StringConstants.explore.localized
                         item.image = UIImage.fontAwesomeIcon(name: FontAwesome.search, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
+                    }else if index == 1{
+                        item.title = StringConstants.friends.localized
+                        item.image = UIImage.fontAwesomeIcon(name: FontAwesome.userFriends, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
                     }else if index == 2{
                         item.title = StringConstants.create.localized
                         item.image = UIImage.fontAwesomeIcon(name: FontAwesome.pen, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
@@ -46,11 +46,19 @@ class CustomTabBarController: UITabBarController {
     //MARK:- Private
     private func initialSetup(){
 
-        if !UserModel.current.phoneVerified{
+        //not logged in
+        if UserModel.current.user_id.isEmpty{
             if let navigationController = viewControllers?[2] as? UINavigationController{
-                let viewController = PhoneNumberViewController.instantiate(fromAppStoryboard: .PreLogin)
+                let viewController = LoginToContinueViewController.instantiate(fromAppStoryboard: .Main)
                 navigationController.setViewControllers([viewController], animated: true)
             }
+        }else if !UserModel.current.phoneVerified{
+            if let navigationController = viewControllers?[2] as? UINavigationController{
+                let viewController = PhoneNumberViewController.instantiate(fromAppStoryboard: .Main)
+                navigationController.setViewControllers([viewController], animated: true)
+            }
+        }else{
+            //TODO:- Show create screen
         }
     }
 }

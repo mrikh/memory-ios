@@ -38,10 +38,10 @@ class FlowManager{
     
     static func goToLogin(){
 
-//        let viewController = WelcomeViewController.instantiate(fromAppStoryboard: .Main)
-//        let window = (UIApplication.shared.delegate as? AppDelegate)?.window
-//        window?.rootViewController = viewController
-//        window?.makeKeyAndVisible()
+        let viewController = createNavigationController(LoginViewController.instantiate(fromAppStoryboard: .PreLogin))
+        let window = (UIApplication.shared.delegate as? AppDelegate)?.window
+        window?.rootViewController = viewController
+        window?.makeKeyAndVisible()
     }
 
     static func clearAllData(){

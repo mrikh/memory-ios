@@ -10,8 +10,11 @@ import Foundation
 
 struct StringConstants{
 
+    //logintocontinue
+    static let info_login_continue = "info_login_continue"
+
     //tabbar
-    static let home = "home"
+    static let friends = "friends"
     static let create = "create"
 
     //Phone verification

@@ -11,7 +11,7 @@ import UIKit
 
 enum Storyboards : String {
     
-    case Main, PreLogin, Home
+    case Main, PreLogin, Explore, Friends
 }
 
 extension Storyboards {

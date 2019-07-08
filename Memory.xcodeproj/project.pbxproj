@@ -16,6 +16,7 @@
 		465A47B422D34F5700647EA6 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465A47B322D34F5700647EA6 /* Create.storyboard */; };
 		465A47B622D350B900647EA6 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465A47B522D350B900647EA6 /* Explore.storyboard */; };
 		465A47B922D35CF500647EA6 /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */; };
+		465A47BE22D3C7C800647EA6 /* LoginToContinueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47BD22D3C7C800647EA6 /* LoginToContinueViewController.swift */; };
 		465CB38122CFA49E002D2B4B /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB38022CFA49D002D2B4B /* VerificationView.swift */; };
 		465CB38422D120FF002D2B4B /* ProfilePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB38322D120FF002D2B4B /* ProfilePhotoViewController.swift */; };
 		465CB38622D1C476002D2B4B /* AWSHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB38522D1C476002D2B4B /* AWSHandler.swift */; };
@@ -26,7 +27,7 @@
 		465CB39622D26C3C002D2B4B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39522D26C3C002D2B4B /* HomeViewController.swift */; };
 		465CB39822D2811F002D2B4B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39722D2811F002D2B4B /* LoginViewModel.swift */; };
 		465CB39B22D312FE002D2B4B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39A22D312FE002D2B4B /* ForgotPasswordViewController.swift */; };
-		465CB39D22D3304F002D2B4B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465CB39C22D3304F002D2B4B /* Home.storyboard */; };
+		465CB39D22D3304F002D2B4B /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465CB39C22D3304F002D2B4B /* Friends.storyboard */; };
 		465CB3A022D3319A002D2B4B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39F22D3319A002D2B4B /* CustomTabBarController.swift */; };
 		46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE38322356D2100CEC9C1 /* AppDelegate.swift */; };
 		46BCE38922356D2100CEC9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE38722356D2100CEC9C1 /* Main.storyboard */; };
@@ -78,6 +79,7 @@
 		465A47B322D34F5700647EA6 /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		465A47B522D350B900647EA6 /* Explore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
+		465A47BD22D3C7C800647EA6 /* LoginToContinueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginToContinueViewController.swift; sourceTree = "<group>"; };
 		465CB38022CFA49D002D2B4B /* VerificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		465CB38322D120FF002D2B4B /* ProfilePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoViewController.swift; sourceTree = "<group>"; };
 		465CB38522D1C476002D2B4B /* AWSHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSHandler.swift; sourceTree = "<group>"; };
@@ -88,7 +90,7 @@
 		465CB39522D26C3C002D2B4B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		465CB39722D2811F002D2B4B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		465CB39A22D312FE002D2B4B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
-		465CB39C22D3304F002D2B4B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		465CB39C22D3304F002D2B4B /* Friends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
 		465CB39F22D3319A002D2B4B /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		46BCE38022356D2100CEC9C1 /* Memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BCE38322356D2100CEC9C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,9 +187,31 @@
 		465A47B722D35BEF00647EA6 /* Create */ = {
 			isa = PBXGroup;
 			children = (
-				465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */,
 			);
 			path = Create;
+			sourceTree = "<group>";
+		};
+		465A47BA22D3C4BD00647EA6 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		465A47BB22D3C78000647EA6 /* Phone Number Verification */ = {
+			isa = PBXGroup;
+			children = (
+				465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */,
+			);
+			path = "Phone Number Verification";
+			sourceTree = "<group>";
+		};
+		465A47BC22D3C79100647EA6 /* Login Continue */ = {
+			isa = PBXGroup;
+			children = (
+				465A47BD22D3C7C800647EA6 /* LoginToContinueViewController.swift */,
+			);
+			path = "Login Continue";
 			sourceTree = "<group>";
 		};
 		465CB38222D120DE002D2B4B /* Profile Photo View Controller */ = {
@@ -208,12 +232,12 @@
 			path = "Progress View";
 			sourceTree = "<group>";
 		};
-		465CB39222D26A44002D2B4B /* Home */ = {
+		465CB39222D26A44002D2B4B /* Explore  */ = {
 			isa = PBXGroup;
 			children = (
 				465CB39522D26C3C002D2B4B /* HomeViewController.swift */,
 			);
-			path = Home;
+			path = "Explore ";
 			sourceTree = "<group>";
 		};
 		465CB39922D30D29002D2B4B /* Forgot Password View Controller */ = {
@@ -227,6 +251,8 @@
 		465CB39E22D33099002D2B4B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				465A47BC22D3C79100647EA6 /* Login Continue */,
+				465A47BB22D3C78000647EA6 /* Phone Number Verification */,
 				465CB39F22D3319A002D2B4B /* CustomTabBarController.swift */,
 			);
 			path = Main;
@@ -270,9 +296,10 @@
 			children = (
 				46BCE396223578CF00CEC9C1 /* BaseProtocol.swift */,
 				46BCE397223578CF00CEC9C1 /* BaseViewController.swift */,
+				465A47BA22D3C4BD00647EA6 /* Friends */,
 				465CB39E22D33099002D2B4B /* Main */,
 				46BCE3FA2236485B00CEC9C1 /* Pre Login */,
-				465CB39222D26A44002D2B4B /* Home */,
+				465CB39222D26A44002D2B4B /* Explore  */,
 				465A47B722D35BEF00647EA6 /* Create */,
 			);
 			path = ViewControllers;
@@ -369,7 +396,7 @@
 				46BCE38C22356D2400CEC9C1 /* LaunchScreen.storyboard */,
 				46BCE38722356D2100CEC9C1 /* Main.storyboard */,
 				46BCE3F822363F7C00CEC9C1 /* PreLogin.storyboard */,
-				465CB39C22D3304F002D2B4B /* Home.storyboard */,
+				465CB39C22D3304F002D2B4B /* Friends.storyboard */,
 				465A47B322D34F5700647EA6 /* Create.storyboard */,
 				465A47B522D350B900647EA6 /* Explore.storyboard */,
 			);
@@ -495,7 +522,7 @@
 				46BCE38922356D2100CEC9C1 /* Main.storyboard in Resources */,
 				464EEFA6223E970A00C6A40D /* TextFieldTableViewCell.xib in Resources */,
 				46BCE3F922363F7C00CEC9C1 /* PreLogin.storyboard in Resources */,
-				465CB39D22D3304F002D2B4B /* Home.storyboard in Resources */,
+				465CB39D22D3304F002D2B4B /* Friends.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +640,7 @@
 				465CB39B22D312FE002D2B4B /* ForgotPasswordViewController.swift in Sources */,
 				465CB38B22D1E9B2002D2B4B /* ProgressView.swift in Sources */,
 				46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */,
+				465A47BE22D3C7C800647EA6 /* LoginToContinueViewController.swift in Sources */,
 				46BCE3A122357A2100CEC9C1 /* ValidationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
