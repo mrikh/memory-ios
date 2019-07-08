@@ -14,6 +14,8 @@ protocol ProfilePhotoViewModelDelegate : BaseProtocol{
     func updatedInfo()
     func updateProgress(progress : Double)
     func imageUploadSuccess()
+
+    func pendingVerification(string : String)
 }
 
 class ProfilePhotoViewModel{
@@ -44,16 +46,23 @@ class ProfilePhotoViewModel{
         }
     }
 
-    private func uploadToOurServer(photoUrlString : String){
+    func uploadToOurServer(photoUrlString : String){
 
         APIManager.updateUser(params: ["profilePhoto" : photoUrlString]) { [weak self] (json, error) in
 
             if let tempJson = json?["data"]{
                 UserModel.current = UserModel(tempJson)
                 UserModel.current.saveToUserDefaults()
+                Defaults.save(value: APIManager.authenticationToken, forKey: .token)
                 self?.delegate?.updatedInfo()
             }else{
-                self?.delegate?.errorOccurred(errorString: error?.localizedDescription)
+                //clear it incase of error
+                APIManager.authenticationToken = ""
+                if let tempError = error, (tempError as NSError).code == 203{
+                    self?.delegate?.pendingVerification(string: error?.localizedDescription ?? StringConstants.pending_verification.localized)
+                }else{
+                    self?.delegate?.errorOccurred(errorString: error?.localizedDescription)
+                }
             }
         }
     }

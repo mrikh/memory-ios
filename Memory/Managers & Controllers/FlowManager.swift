@@ -17,7 +17,7 @@ class FlowManager{
         configureNavigationBar()
 
         if let _ = Defaults.value(forKey: Defaults.Key.userInfo){
-//            gotToLandingScreen()
+            gotToLandingScreen()
         }
     }
 
@@ -30,7 +30,7 @@ class FlowManager{
 
     static func gotToLandingScreen(){
 
-        let nav = createNavigationController(HomeViewController.instantiate(fromAppStoryboard: .Landing))
+        let nav = createNavigationController(CustomTabBarController.instantiate(fromAppStoryboard: .Main))
         let window = (UIApplication.shared.delegate as? AppDelegate)?.window
         window?.rootViewController = nav
         window?.makeKeyAndVisible()

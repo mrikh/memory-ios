@@ -16,6 +16,15 @@ class APIManager {
         return ["Authorization" : "Bearer \(authenticationToken)"]
     }
 
+    static func resendEmail(email : String, completion: ((JSON?, Error?)->())?){
+        
+        NetworkingManager.POST(endPoint: .resendVerification, parameters: ["email" : email], success: { (dict) in
+            completion?(JSON(dict), nil)
+        }) { (error) in
+            completion?(nil, error)
+        }
+    }
+
     static func forgotPass(params : [String : Any],  completion : ((JSON?, Error?)->())?){
 
         NetworkingManager.POST(endPoint: .forgotPass, parameters: params, success: { (dict) in

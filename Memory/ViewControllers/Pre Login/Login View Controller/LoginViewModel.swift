@@ -13,7 +13,10 @@ protocol LoginVewModelDelegate : BaseProtocol{
     func validationSuccess()
     func success()
 
+    func emailNotVerified(email : String, message : String)
     func receivedResponse()
+
+    func resentMail(message : String)
 }
 
 class LoginViewModel{
@@ -44,10 +47,11 @@ class LoginViewModel{
 
         delegate?.validationSuccess()
 
-        APIManager.login(params: ["email" : email.value.trimmingCharacters(in: .whitespacesAndNewlines), "password" : password.value]) { [weak self] (json, error) in
-            self?.delegate?.receivedResponse()
-            if let tempJson = json?["data"]{
+        let tempEmail = email.value.trimmingCharacters(in: .whitespacesAndNewlines)
 
+        APIManager.login(params: ["email" : tempEmail, "password" : password.value]) { [weak self] (json, error) in
+            if let tempJson = json?["data"]{
+                self?.delegate?.receivedResponse()
                 let userModel = UserModel(tempJson["user"])
                 userModel.saveToUserDefaults()
                 UserModel.current = userModel
@@ -56,6 +60,24 @@ class LoginViewModel{
                 APIManager.authenticationToken = token
                 Defaults.save(value: token, forKey: .token)
                 self?.delegate?.success()
+            }else{
+
+                if let tempError = error, (tempError as NSError).code == 203{
+                    self?.delegate?.emailNotVerified(email : tempEmail, message : tempError.localizedDescription)
+                }else{
+                    self?.delegate?.receivedResponse()
+                    self?.delegate?.errorOccurred(errorString: error?.localizedDescription)
+                }
+            }
+        }
+    }
+
+    func resendEmail(email : String){
+
+        APIManager.resendEmail(email: email) { [weak self] (json, error) in
+            self?.delegate?.receivedResponse()
+            if let tempJson = json{
+                self?.delegate?.resentMail(message: tempJson["message"].stringValue)
             }else{
                 self?.delegate?.errorOccurred(errorString: error?.localizedDescription)
             }

@@ -105,18 +105,11 @@ class SignUpViewModel{
 
         let params = ["name" : name, "username" : username, "password" : password, "email" : email].compactMapValues({$0?.trimmingCharacters(in: .whitespacesAndNewlines)})
 
-        //TODO:- Email verification pending
         APIManager.signUpUser(params: params) { [weak self] (dict, error) in
             self?.delegate?.responseReceived()
             if let tempDict = dict?["data"]{
 
-                let userModel = UserModel(tempDict["user"])
-                userModel.saveToUserDefaults()
-                UserModel.current = userModel
-
-                let token = tempDict["token"].stringValue
-                APIManager.authenticationToken = token
-                Defaults.save(value: token, forKey: .token)
+                APIManager.authenticationToken = tempDict["token"].stringValue
                 self?.delegate?.success(message : dict?["message"].stringValue ?? StringConstants.success.localized)
             }else{
                 self?.delegate?.errorOccurred(errorString: error?.localizedDescription)

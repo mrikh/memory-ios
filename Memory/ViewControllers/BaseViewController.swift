@@ -33,7 +33,7 @@ class BaseViewController: UIViewController, AlertProtocol {
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
+        return .default
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

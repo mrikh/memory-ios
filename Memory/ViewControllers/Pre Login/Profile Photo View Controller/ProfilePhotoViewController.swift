@@ -61,6 +61,10 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
         imageContainerView.layer.cornerRadius = imageContainerView.bounds.width/2.0
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
+
     //MARK:- IBAction
     @IBAction func uploadAction(_ sender: UIButton) {
 
@@ -76,7 +80,8 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
     
     @IBAction func skipAction(_ sender: UIButton) {
 
-        FlowManager.gotToLandingScreen()
+        //upload blank string to check email verified status
+        viewModel.uploadToOurServer(photoUrlString: "")
     }
 
     @IBAction func doneAction(_ sender: UIButton) {
@@ -159,6 +164,14 @@ extension ProfilePhotoViewController : CropViewControllerDelegate{
 }
 
 extension ProfilePhotoViewController : ProfilePhotoViewModelDelegate{
+
+    func pendingVerification(string: String) {
+
+        showAlert(StringConstants.success.localized, withMessage: string) { [weak self] in
+            let viewController = LoginViewController.instantiate(fromAppStoryboard: .PreLogin)
+            self?.navigationController?.setViewControllers([viewController], animated: true)
+        }
+    }
 
     func updateProgress(progress: Double) {
         storyboardProgressView.update(progress: progress)

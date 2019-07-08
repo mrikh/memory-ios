@@ -10,6 +10,15 @@ import Foundation
 
 struct StringConstants{
 
+    //tabbar
+    static let home = "home"
+    static let create = "create"
+
+    //Phone verification
+    static let phone_number = "phone_number"
+    static let phone_title = "phone_title"
+    static let phone_info = "phone_info"
+
     //Forgot Password
     static let forgot_info = "forgot_info"
 
@@ -17,8 +26,10 @@ struct StringConstants{
     static let skip = "skip"
     static let upload_photo = "upload_photo"
     static let done = "done"
+    static let pending_verification = "pending_verification"
 
     //Login Flow and Sign Up
+    static let resend_email = "resend_email"
     static let forgot_pass = "forgot_pass"
     static let invalid_password = "invalid_password"
     static let name_empty_error = "name_empty_error"

@@ -6,17 +6,26 @@
   Copyright © 2019 Mayank Rikh. All rights reserved.
 */
 
+//tabbar
+"home" = "Home";
+"create" = "Create";
+
+//Phone verification
+"phone_number" = "Enter Phone Number";
+"phone_title" = "Mobile Number";
+"phone_info" = "To create your own events, you need to do your phone number verification.";
 
 //Forgot Password
 "forgot_info" = "You will shortly receive an email with information on how to proceed further.";
 
-
 //Profile Photo
+"pending_verification" = "Your account verification is pending. Please verify your account and login again to continue";
 "upload_photo" = "Upload your profile photo for other people to recognize you!";
 "skip" = "Skip";
 "done" = "Done";
 
 //Login Flow and Sign Up
+"resend_email" = "Resend Email";
 "forgot_pass" = "Forgot Password";
 "invalid_password" = "Password can't be less than eight characters";
 "email_not_empty" = "Email field can't be Empty.";
