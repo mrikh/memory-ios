@@ -6,13 +6,18 @@
   Copyright © 2019 Mayank Rikh. All rights reserved.
 */
 
+
+//Forgot Password
+"forgot_info" = "You will shortly receive an email with information on how to proceed further.";
+
+
 //Profile Photo
 "upload_photo" = "Upload your profile photo for other people to recognize you!";
 "skip" = "Skip";
 "done" = "Done";
 
 //Login Flow and Sign Up
-"forgot_pass" = "Forgot Password?";
+"forgot_pass" = "Forgot Password";
 "invalid_password" = "Password can't be less than eight characters";
 "email_not_empty" = "Email field can't be Empty.";
 "name_empty_error" = "Name cannot be empty";

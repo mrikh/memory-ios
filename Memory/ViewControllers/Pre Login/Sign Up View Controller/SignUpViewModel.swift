@@ -103,7 +103,7 @@ class SignUpViewModel{
             return
         }
 
-        let params = ["name" : name, "username" : username, "password" : password, "email" : email].compactMapValues({$0})
+        let params = ["name" : name, "username" : username, "password" : password, "email" : email].compactMapValues({$0?.trimmingCharacters(in: .whitespacesAndNewlines)})
 
         //TODO:- Email verification pending
         APIManager.signUpUser(params: params) { [weak self] (dict, error) in

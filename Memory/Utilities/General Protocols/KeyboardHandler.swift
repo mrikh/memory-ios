@@ -30,10 +30,6 @@ protocol KeyboardHandler : NSObjectProtocol{
 //MARK:- To pass custom selector
 extension KeyboardHandler{
     
-    var bottomConstraints : [NSLayoutConstraint]{
-        return []
-    }
-    
     func addKeyboardObservers(appearanceSelector : Selector?, disappearanceSelector: Selector?){
         if let selector = appearanceSelector{
             NotificationCenter.default.addObserver(self, selector: selector, name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -46,7 +42,7 @@ extension KeyboardHandler{
 }
 
 //MARK:- Handle automatic scroll up
-extension KeyboardHandler where Self : UIViewController{
+extension KeyboardHandler where Self : BaseViewController{
 
     func addKeyboardObservers(){
 
@@ -67,11 +63,17 @@ extension KeyboardHandler where Self : UIViewController{
     //MARK: Private
     private func keyboardWillShow(_ notification : Notification){
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+
+            if keyboardVisible {return}
+            keyboardVisible = true
             animateConstraints(withConstraintValue: keyboardSize.size.height)
         }
     }
     
     private func keyboardWillHide(){
+
+        if !keyboardVisible {return}
+        keyboardVisible = false
         animateConstraints(withConstraintValue: 0)
     }
     

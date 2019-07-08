@@ -23,6 +23,7 @@
 		465CB39422D26AB8002D2B4B /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465CB39322D26AB8002D2B4B /* Landing.storyboard */; };
 		465CB39622D26C3C002D2B4B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39522D26C3C002D2B4B /* HomeViewController.swift */; };
 		465CB39822D2811F002D2B4B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39722D2811F002D2B4B /* LoginViewModel.swift */; };
+		465CB39B22D312FE002D2B4B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39A22D312FE002D2B4B /* ForgotPasswordViewController.swift */; };
 		46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE38322356D2100CEC9C1 /* AppDelegate.swift */; };
 		46BCE38922356D2100CEC9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE38722356D2100CEC9C1 /* Main.storyboard */; };
 		46BCE38B22356D2400CEC9C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE38A22356D2400CEC9C1 /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		465CB39322D26AB8002D2B4B /* Landing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Landing.storyboard; sourceTree = "<group>"; };
 		465CB39522D26C3C002D2B4B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		465CB39722D2811F002D2B4B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		465CB39A22D312FE002D2B4B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		46BCE38022356D2100CEC9C1 /* Memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BCE38322356D2100CEC9C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46BCE38822356D2100CEC9C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -196,6 +198,14 @@
 				465CB39522D26C3C002D2B4B /* HomeViewController.swift */,
 			);
 			path = "Landing Screens";
+			sourceTree = "<group>";
+		};
+		465CB39922D30D29002D2B4B /* Forgot Password View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				465CB39A22D312FE002D2B4B /* ForgotPasswordViewController.swift */,
+			);
+			path = "Forgot Password View Controller";
 			sourceTree = "<group>";
 		};
 		46BCE37722356D2100CEC9C1 = {
@@ -361,6 +371,7 @@
 		46BCE3FA2236485B00CEC9C1 /* Pre Login */ = {
 			isa = PBXGroup;
 			children = (
+				465CB39922D30D29002D2B4B /* Forgot Password View Controller */,
 				465CB38222D120DE002D2B4B /* Profile Photo View Controller */,
 				464EEF9D223E632200C6A40D /* Sign Up View Controller */,
 				46BCE3FD2236487600CEC9C1 /* Login View Controller */,
@@ -567,6 +578,7 @@
 				46BCE3C522357A3100CEC9C1 /* Constants.swift in Sources */,
 				46BCE3D122357A3100CEC9C1 /* Storyboards.swift in Sources */,
 				46BCE3CB22357A3100CEC9C1 /* CustomFonts.swift in Sources */,
+				465CB39B22D312FE002D2B4B /* ForgotPasswordViewController.swift in Sources */,
 				465CB38B22D1E9B2002D2B4B /* ProgressView.swift in Sources */,
 				46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */,
 				46BCE3A122357A2100CEC9C1 /* ValidationController.swift in Sources */,

@@ -8,19 +8,57 @@
 
 import Foundation
 
+protocol LoginVewModelDelegate : BaseProtocol{
+
+    func validationSuccess()
+    func success()
+
+    func receivedResponse()
+}
+
 class LoginViewModel{
 
-    func validateEmail(text : String) -> String?{
+    var email : Binder<String> = Binder("")
+    var emailError : Binder<String?> = Binder(nil)
+    var password : Binder<String> = Binder("")
+    var passwordError : Binder<String?> = Binder(nil)
 
-        return ValidationController.validateEmail(text)
+    weak var delegate : LoginVewModelDelegate?
+
+    func validateEmail(text : String){
+
+        emailError.value = ValidationController.validateEmail(text.trimmingCharacters(in: .whitespacesAndNewlines))
     }
 
-    func validatePassword(text : String) -> String?{
+    func validatePassword(text : String){
         
-        return ValidationController.validatePassword(text)
+        passwordError.value = ValidationController.validatePassword(text)
     }
 
     func startLogin(){
-        
+
+        guard emailError.value == nil, passwordError.value == nil else {
+            delegate?.errorOccurred(errorString: StringConstants.one_or_more_fields.localized)
+            return
+        }
+
+        delegate?.validationSuccess()
+
+        APIManager.login(params: ["email" : email.value.trimmingCharacters(in: .whitespacesAndNewlines), "password" : password.value]) { [weak self] (json, error) in
+            self?.delegate?.receivedResponse()
+            if let tempJson = json?["data"]{
+
+                let userModel = UserModel(tempJson["user"])
+                userModel.saveToUserDefaults()
+                UserModel.current = userModel
+
+                let token = tempJson["token"].stringValue
+                APIManager.authenticationToken = token
+                Defaults.save(value: token, forKey: .token)
+                self?.delegate?.success()
+            }else{
+                self?.delegate?.errorOccurred(errorString: error?.localizedDescription)
+            }
+        }
     }
 }

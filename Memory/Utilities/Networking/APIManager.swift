@@ -16,6 +16,24 @@ class APIManager {
         return ["Authorization" : "Bearer \(authenticationToken)"]
     }
 
+    static func forgotPass(params : [String : Any],  completion : ((JSON?, Error?)->())?){
+
+        NetworkingManager.POST(endPoint: .forgotPass, parameters: params, success: { (dict) in
+            completion?(JSON(dict), nil)
+        }) { (error) in
+            completion?(nil, error)
+        }
+    }
+
+    static func login(params : [String : Any],  completion : ((JSON?, Error?)->())?){
+
+        NetworkingManager.POST(endPoint: .login, parameters: params, success: { (dict) in
+            completion?(JSON(dict), nil)
+        }) { (error) in
+            completion?(nil, error)
+        }
+    }
+
     static func updateUser(params : [String : Any], completion : ((JSON?, Error?)->())?){
 
         NetworkingManager.PATCH(endPoint: .update, parameters: params, headers: headers, success: { (dict) in

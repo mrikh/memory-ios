@@ -18,11 +18,14 @@ class BaseViewController: UIViewController, AlertProtocol {
     
     var emptyDataSetString : String = StringConstants.no_data_found.localized
 
+    var keyboardVisible : Bool = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         indicator = MRActivityIndicator(on: view, withText: "")
+        clearBackTitle()
     }
 
     override var prefersStatusBarHidden: Bool{

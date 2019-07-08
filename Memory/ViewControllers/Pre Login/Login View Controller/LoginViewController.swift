@@ -11,6 +11,7 @@ import UIKit
 
 class LoginViewController: BaseViewController, KeyboardHandler {
 
+    @IBOutlet weak var forgotPassword: UIButton!
     @IBOutlet weak var loginButton: MRAnimatingButton!
     @IBOutlet weak var facebookContainerView: UIView!
     @IBOutlet weak var googleContainerView: UIView!
@@ -62,7 +63,7 @@ class LoginViewController: BaseViewController, KeyboardHandler {
     //MARK:- IBAction
     @IBAction func loginAction(_ sender: MRAnimatingButton) {
 
-        sender.startAnimating()
+        viewModel.startLogin()
     }
 
     @IBAction func facebookAction(_ sender: UIButton) {
@@ -77,9 +78,19 @@ class LoginViewController: BaseViewController, KeyboardHandler {
         navigationController?.setViewControllers([viewController], animated: true)
     }
 
+    @IBAction func forgotAction(_ sender: UIButton) {
+
+        let viewController = ForgotPasswordViewController.instantiate(fromAppStoryboard: .PreLogin)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     @IBAction func skipAction(_ sender: UIButton) {
 
         FlowManager.gotToLandingScreen()
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .default
     }
 
     //MARK:- Private
@@ -98,24 +109,50 @@ class LoginViewController: BaseViewController, KeyboardHandler {
         googleButton.setTitleColor(Colors.white, for: .normal)
         googleButton.titleLabel?.font = UIFont.fontAwesome(ofSize: CGFloat(21.0).getFontSize, style: FontAwesomeStyle.brands)
 
-        emailTextField.configure(with: StringConstants.email.localized, text: nil, primaryColor: Colors.activeButtonTitleColor, unselectedBottomColor: Colors.inactiveButtonColor)
-        passwordTextField.configure(with: StringConstants.password.localized, text: nil, primaryColor: Colors.activeButtonTitleColor, unselectedBottomColor: Colors.inactiveButtonColor)
+        emailTextField.configure(with: StringConstants.email.localized, text: nil, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
+        passwordTextField.configure(with: StringConstants.password.localized, text: nil, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
 
         signUpLabel.text = StringConstants.no_account.localized
-        signUpLabel.textColor = Colors.white
+        signUpLabel.textColor = Colors.black
         signUpLabel.font = CustomFonts.avenirMedium.withSize(12.0)
 
         signUpButton.setAttributedTitle(NSAttributedString(string : StringConstants.sign_up.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(12.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
 
         orLabel.text = StringConstants.or.localized
         orLabel.font = CustomFonts.avenirMedium.withSize(12.0)
-        orLabel.textColor = Colors.white
+        orLabel.textColor = Colors.black
 
         skipButton.setAttributedTitle(NSAttributedString(string : StringConstants.explore.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(12.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
 
+        forgotPassword.setAttributedTitle(NSAttributedString(string : "\(StringConstants.forgot_pass.localized)?", attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(12.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
+
         skipLabel.text = StringConstants.the_application.localized
         skipLabel.font = CustomFonts.avenirMedium.withSize(12.0)
-        skipLabel.textColor = Colors.white
+        skipLabel.textColor = Colors.black
+
+        viewModel.delegate = self
+
+        viewModel.emailError.bind { [weak self] (string) in
+            self?.emailTextField.errorString = string
+
+            if let _ = string{
+                self?.emailTextField.shakeIfNeeded()
+                self?.emailTextField.showErrorMessage()
+            }else{
+                self?.emailTextField.hideErrorMessage()
+            }
+        }
+
+        viewModel.passwordError.bind { [weak self] (string) in
+            self?.passwordTextField.errorString = string
+
+            if let _ = string{
+                self?.passwordTextField.shakeIfNeeded()
+                self?.passwordTextField.showErrorMessage()
+            }else{
+                self?.passwordTextField.hideErrorMessage()
+            }
+        }
     }
 }
 
@@ -129,15 +166,25 @@ extension LoginViewController : UITextFieldDelegate{
             view.endEditing(true)
         }
 
-        return true
+        return false
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
         if string.containsEmoji {return false}
 
+        let currentText = textField.text ?? ""
+        let replacedText = (currentText as NSString).replacingCharacters(in: range, with: string)
+
+        if textField == emailTextField{
+            viewModel.email.value = replacedText
+        }else{
+            viewModel.password.value = replacedText
+        }
+
         if let temp = textField as? MRTextField{
             temp.errorString = nil
+            temp.hideErrorMessage()
         }
 
         return true
@@ -146,9 +193,24 @@ extension LoginViewController : UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
 
         if textField == emailTextField{
-            emailTextField.errorString = viewModel.validateEmail(text: textField.text ?? "")
+            viewModel.validateEmail(text: textField.text ?? "")
         }else{
-            passwordTextField.errorString = viewModel.validatePassword(text: textField.text ?? "")
+            viewModel.validatePassword(text: textField.text ?? "")
         }
+    }
+}
+
+extension LoginViewController : LoginVewModelDelegate{
+
+    func validationSuccess() {
+        loginButton.startAnimating()
+    }
+
+    func success() {
+        FlowManager.gotToLandingScreen()
+    }
+
+    func receivedResponse() {
+        loginButton.stopAnimating()
     }
 }

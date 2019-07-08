@@ -10,6 +10,9 @@ import Foundation
 
 struct StringConstants{
 
+    //Forgot Password
+    static let forgot_info = "forgot_info"
+
     //Profile Photo
     static let skip = "skip"
     static let upload_photo = "upload_photo"
