@@ -27,6 +27,11 @@ struct StringConstants{
     static let phone_title = "phone_title"
     static let phone_info = "phone_info"
 
+    static let select_country_code = "select_country_code"
+    static let enter_mobile_number = "enter_mobile_number"
+    static let missing_digits = "missing_digits"
+    static let number_not_long = "number_not_long"
+
     //Forgot Password
     static let forgot_info = "forgot_info"
 

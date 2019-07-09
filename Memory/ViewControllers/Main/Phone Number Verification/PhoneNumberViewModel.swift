@@ -9,9 +9,16 @@
 import SwiftyJSON
 import Foundation
 
+protocol PhoneNumberViewModelDelegate : BaseProtocol{
+
+    func textFieldError(errorString : String)
+}
+
 class PhoneNumberViewModel{
 
+    weak var delegate : PhoneNumberViewModelDelegate?
     private var dictArray = [[String : Any]]()
+    private var selected : [String : Any]?
 
     func fetcUserCountryCode() -> String?{
 
@@ -22,6 +29,7 @@ class PhoneNumberViewModel{
 
                     dictArray = array
                     if let object = array.first(where: {$0["ISOCode"] as? String == countryCode}){
+                        selected = object
                         if let number = object["CountryCode"] as? Int{
                             return "+\(number)"
                         }
@@ -36,11 +44,39 @@ class PhoneNumberViewModel{
     func countryCodeNumber(for code : String) -> String?{
 
         if let object = dictArray.first(where: {$0["ISOCode"] as? String == code}){
+            selected = object
             if let number = object["CountryCode"] as? Int{
                 return "+\(number)"
             }
         }
 
         return nil
+    }
+
+    func startNumberVerification(number : String?){
+
+        guard let temp = selected else{
+            delegate?.errorOccurred(errorString: StringConstants.select_country_code.localized)
+            return
+        }
+
+        let countryModel = CountryCodeModel(temp)
+
+        guard let mobileNumber = number?.trimmingCharacters(in: .whitespacesAndNewlines), !mobileNumber.isEmpty else {
+            delegate?.textFieldError(errorString: StringConstants.enter_mobile_number.localized)
+            return
+        }
+
+        if mobileNumber.count < countryModel.min_NSN{
+            delegate?.textFieldError(errorString: StringConstants.missing_digits.localized)
+            return
+        }
+
+        if mobileNumber.count > countryModel.max_NSN{
+            delegate?.textFieldError(errorString: StringConstants.number_not_long.localized)
+            return
+        }
+
+        
     }
 }

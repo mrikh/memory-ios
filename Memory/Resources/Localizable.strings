@@ -23,6 +23,11 @@
 "phone_number" = "Enter Phone Number";
 "phone_title" = "Mobile Number";
 "phone_info" = "To create your own events, you need to do your phone number verification.";
+"select_country_code" = "Something went wrong. Select the country code please.";
+"enter_mobile_number" = "Please enter your mobile number";
+"missing_digits" = "Missing a couple of digits there.";
+"number_not_long" = "Your number cannot be that long";
+
 
 //Forgot Password
 "forgot_info" = "You will shortly receive an email with information on how to proceed further.";

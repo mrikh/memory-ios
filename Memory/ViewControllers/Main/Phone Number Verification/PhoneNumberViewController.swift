@@ -8,17 +8,12 @@
 
 import UIKit
 
-class PhoneNumberViewController: BaseViewController, KeyboardHandler {
+class PhoneNumberViewController: BaseViewController {
 
-    @IBOutlet weak var scrollBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var phoneNumberTextField: MRTextField!
     @IBOutlet weak var countryCodeTextField: UITextField!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var doneButton: MRAnimatingButton!
-
-    var bottomConstraints: [NSLayoutConstraint]{
-        return [scrollBottomConstraint]
-    }
 
     let viewModel = PhoneNumberViewModel()
 
@@ -31,15 +26,8 @@ class PhoneNumberViewController: BaseViewController, KeyboardHandler {
     override func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)
-        addKeyboardObservers()
         navigationController?.view.backgroundColor = Colors.white
         navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-
-        removeKeyboardObservers()
-        super.viewWillDisappear(animated)
     }
 
     //MARK:- IBAction
@@ -64,14 +52,7 @@ class PhoneNumberViewController: BaseViewController, KeyboardHandler {
         countryCodeTextField.textColor = Colors.bgColor
         phoneNumberTextField.configure(with: StringConstants.phone_number.localized, text: nil, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
 
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        view.addGestureRecognizer(gesture)
-
         countryCodeTextField.text = viewModel.fetcUserCountryCode()
-    }
-
-    @objc func handleTap(){
-        view.endEditing(true)
     }
 }
 

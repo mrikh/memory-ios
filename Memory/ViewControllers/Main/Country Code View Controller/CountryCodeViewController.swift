@@ -54,12 +54,14 @@ class CountryCodeViewController: BaseViewController, KeyboardHandler, TableViewH
     //MARK:- Private
     private func initialSetup() {
 
+        countryCodeTableView.tableFooterView = UIView(frame: .zero)
         emptyDataSourceDelegate(tableView: countryCodeTableView, message: StringConstants.no_search_result.localized)
 
         navigationItem.title = StringConstants.country_code.localized
         countryCodeTableView.estimatedRowHeight = 60
         countryCodeTableView.rowHeight = UITableView.automaticDimension
 
+        searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = StringConstants.search_country.localized
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = true
