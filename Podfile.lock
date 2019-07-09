@@ -8,6 +8,7 @@ PODS:
   - CropViewController (2.5.0)
   - DZNEmptyDataSet (1.8.1)
   - Fabric (1.10.2)
+  - FlagKit (2.2)
   - FontAwesome.swift (1.7.1)
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - CropViewController
   - DZNEmptyDataSet
   - Fabric
+  - FlagKit
   - FontAwesome.swift
   - SDWebImage
   - SwiftyJSON
@@ -34,6 +36,7 @@ SPEC REPOS:
     - CropViewController
     - DZNEmptyDataSet
     - Fabric
+    - FlagKit
     - FontAwesome.swift
     - SDWebImage
     - SwiftyJSON
@@ -46,10 +49,11 @@ SPEC CHECKSUMS:
   CropViewController: 6c962d6fb264cc5cb325b622d5029d50c6c43e72
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  FlagKit: eca7dc89064b0c986302ba9acefad1bf80a435b1
   FontAwesome.swift: 8d9792fa2d2347055da35bd97752b3960bd75952
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 36dee68faff49453f84a5ea40ce4d92ccdba8b44
+PODFILE CHECKSUM: 5718d48d0912915e4aa12268736c527fd90fc024
 
 COCOAPODS: 1.7.3

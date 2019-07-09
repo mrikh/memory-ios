@@ -15,6 +15,7 @@ pod 'Crashlytics'
 pod 'SwiftyJSON'
 pod 'SDWebImage'
 pod 'Alamofire'
+pod 'FlagKit'
 pod 'Fabric'
 pod 'AWSS3'
 

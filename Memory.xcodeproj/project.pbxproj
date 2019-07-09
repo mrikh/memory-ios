@@ -17,6 +17,12 @@
 		465A47B622D350B900647EA6 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465A47B522D350B900647EA6 /* Explore.storyboard */; };
 		465A47B922D35CF500647EA6 /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */; };
 		465A47BE22D3C7C800647EA6 /* LoginToContinueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47BD22D3C7C800647EA6 /* LoginToContinueViewController.swift */; };
+		465A47C022D3CF5000647EA6 /* PhoneNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47BF22D3CF5000647EA6 /* PhoneNumberViewModel.swift */; };
+		465A47C222D4742F00647EA6 /* CountryData.json in Resources */ = {isa = PBXBuildFile; fileRef = 465A47C122D4742F00647EA6 /* CountryData.json */; };
+		465A47C522D487B300647EA6 /* CountryCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47C422D487B300647EA6 /* CountryCodeViewController.swift */; };
+		465A47C722D49CC100647EA6 /* CountryCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47C622D49CC100647EA6 /* CountryCodeViewModel.swift */; };
+		465A47CA22D49E6300647EA6 /* CountryCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47C922D49E6300647EA6 /* CountryCodeModel.swift */; };
+		465A47CD22D4A15300647EA6 /* CountryCodeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47CC22D4A15300647EA6 /* CountryCodeTableCell.swift */; };
 		465CB38122CFA49E002D2B4B /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB38022CFA49D002D2B4B /* VerificationView.swift */; };
 		465CB38422D120FF002D2B4B /* ProfilePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB38322D120FF002D2B4B /* ProfilePhotoViewController.swift */; };
 		465CB38622D1C476002D2B4B /* AWSHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB38522D1C476002D2B4B /* AWSHandler.swift */; };
@@ -80,6 +86,12 @@
 		465A47B522D350B900647EA6 /* Explore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
 		465A47BD22D3C7C800647EA6 /* LoginToContinueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginToContinueViewController.swift; sourceTree = "<group>"; };
+		465A47BF22D3CF5000647EA6 /* PhoneNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewModel.swift; sourceTree = "<group>"; };
+		465A47C122D4742F00647EA6 /* CountryData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryData.json; sourceTree = "<group>"; };
+		465A47C422D487B300647EA6 /* CountryCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewController.swift; sourceTree = "<group>"; };
+		465A47C622D49CC100647EA6 /* CountryCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewModel.swift; sourceTree = "<group>"; };
+		465A47C922D49E6300647EA6 /* CountryCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeModel.swift; sourceTree = "<group>"; };
+		465A47CC22D4A15300647EA6 /* CountryCodeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeTableCell.swift; sourceTree = "<group>"; };
 		465CB38022CFA49D002D2B4B /* VerificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		465CB38322D120FF002D2B4B /* ProfilePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoViewController.swift; sourceTree = "<group>"; };
 		465CB38522D1C476002D2B4B /* AWSHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSHandler.swift; sourceTree = "<group>"; };
@@ -202,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */,
+				465A47BF22D3CF5000647EA6 /* PhoneNumberViewModel.swift */,
 			);
 			path = "Phone Number Verification";
 			sourceTree = "<group>";
@@ -212,6 +225,33 @@
 				465A47BD22D3C7C800647EA6 /* LoginToContinueViewController.swift */,
 			);
 			path = "Login Continue";
+			sourceTree = "<group>";
+		};
+		465A47C322D4852500647EA6 /* Country Code View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				465A47CB22D4A11400647EA6 /* Prototype Cells */,
+				465A47C822D49E4900647EA6 /* Model */,
+				465A47C422D487B300647EA6 /* CountryCodeViewController.swift */,
+				465A47C622D49CC100647EA6 /* CountryCodeViewModel.swift */,
+			);
+			path = "Country Code View Controller";
+			sourceTree = "<group>";
+		};
+		465A47C822D49E4900647EA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				465A47C922D49E6300647EA6 /* CountryCodeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		465A47CB22D4A11400647EA6 /* Prototype Cells */ = {
+			isa = PBXGroup;
+			children = (
+				465A47CC22D4A15300647EA6 /* CountryCodeTableCell.swift */,
+			);
+			path = "Prototype Cells";
 			sourceTree = "<group>";
 		};
 		465CB38222D120DE002D2B4B /* Profile Photo View Controller */ = {
@@ -251,6 +291,7 @@
 		465CB39E22D33099002D2B4B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				465A47C322D4852500647EA6 /* Country Code View Controller */,
 				465A47BC22D3C79100647EA6 /* Login Continue */,
 				465A47BB22D3C78000647EA6 /* Phone Number Verification */,
 				465CB39F22D3319A002D2B4B /* CustomTabBarController.swift */,
@@ -410,6 +451,7 @@
 				46BCE38F22356D2400CEC9C1 /* Info.plist */,
 				46BCE38A22356D2400CEC9C1 /* Assets.xcassets */,
 				46BCE3E522357A9A00CEC9C1 /* Localizable.strings */,
+				465A47C122D4742F00647EA6 /* CountryData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -513,6 +555,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				465A47C222D4742F00647EA6 /* CountryData.json in Resources */,
 				46BCE38E22356D2400CEC9C1 /* LaunchScreen.storyboard in Resources */,
 				465A47B422D34F5700647EA6 /* Create.storyboard in Resources */,
 				465A47B622D350B900647EA6 /* Explore.storyboard in Resources */,
@@ -596,9 +639,11 @@
 			files = (
 				464EEF9F223E63A500C6A40D /* SignUpViewController.swift in Sources */,
 				46BCE3D222357A3100CEC9C1 /* Defaults.swift in Sources */,
+				465A47CD22D4A15300647EA6 /* CountryCodeTableCell.swift in Sources */,
 				465CB38122CFA49E002D2B4B /* VerificationView.swift in Sources */,
 				46BCE398223578CF00CEC9C1 /* BaseProtocol.swift in Sources */,
 				46BCE3C222357A3100CEC9C1 /* AlertProtocol.swift in Sources */,
+				465A47CA22D49E6300647EA6 /* CountryCodeModel.swift in Sources */,
 				46BCE3A022357A2100CEC9C1 /* FlowManager.swift in Sources */,
 				46BCE3C622357A3100CEC9C1 /* Utilities.swift in Sources */,
 				46BCE404223B9EAB00CEC9C1 /* MRAnimatingButton.swift in Sources */,
@@ -606,6 +651,7 @@
 				46BCE3C322357A3100CEC9C1 /* KeyboardHandler.swift in Sources */,
 				465CB38622D1C476002D2B4B /* AWSHandler.swift in Sources */,
 				464EEFA5223E970A00C6A40D /* TextFieldTableViewCell.swift in Sources */,
+				465A47C522D487B300647EA6 /* CountryCodeViewController.swift in Sources */,
 				464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */,
 				46BCE3D022357A3100CEC9C1 /* UIViewController + General.swift in Sources */,
 				46BCE3CC22357A3100CEC9C1 /* UIImageView + Download.swift in Sources */,
@@ -627,6 +673,7 @@
 				465CB38422D120FF002D2B4B /* ProfilePhotoViewController.swift in Sources */,
 				46BCE3CF22357A3100CEC9C1 /* String+General.swift in Sources */,
 				46BCE3BF22357A3100CEC9C1 /* ActionSheetProtocol.swift in Sources */,
+				465A47C722D49CC100647EA6 /* CountryCodeViewModel.swift in Sources */,
 				46BCE3D422357A3100CEC9C1 /* Colors.swift in Sources */,
 				46BCE3CE22357A3100CEC9C1 /* View+GeneralEnhancements.swift in Sources */,
 				465CB3A022D3319A002D2B4B /* CustomTabBarController.swift in Sources */,
@@ -642,6 +689,7 @@
 				46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */,
 				465A47BE22D3C7C800647EA6 /* LoginToContinueViewController.swift in Sources */,
 				46BCE3A122357A2100CEC9C1 /* ValidationController.swift in Sources */,
+				465A47C022D3CF5000647EA6 /* PhoneNumberViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

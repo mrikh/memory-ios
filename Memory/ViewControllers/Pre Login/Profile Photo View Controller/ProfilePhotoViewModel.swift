@@ -6,6 +6,7 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
+import SwiftyJSON
 import SDWebImage
 import UIKit
 

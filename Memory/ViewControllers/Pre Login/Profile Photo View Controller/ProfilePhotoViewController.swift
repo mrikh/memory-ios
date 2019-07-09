@@ -103,6 +103,7 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
         semiCircleView.backgroundColor = Colors.clear
 
         let layer = CAShapeLayer()
+        layer.shouldRasterize = true
         layer.fillColor = Colors.white.cgColor
         layer.setValue(1005, forKey: "bgColor")
         layer.path = semiPath.cgPath

@@ -10,6 +10,11 @@ import Foundation
 
 struct StringConstants{
 
+    //country code
+    static let search_country = "search_country"
+    static let country_code = "country_code"
+    static let no_search_result = "no_search_result"
+
     //logintocontinue
     static let info_login_continue = "info_login_continue"
 

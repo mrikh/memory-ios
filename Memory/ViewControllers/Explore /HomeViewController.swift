@@ -19,4 +19,10 @@ class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
+
+    @IBAction func action(_ sender: UIButton) {
+        
+        FlowManager.clearAllData()
+        FlowManager.goToLogin()
+    }
 }
