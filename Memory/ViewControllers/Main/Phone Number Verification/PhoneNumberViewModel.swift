@@ -12,6 +12,9 @@ import Foundation
 protocol PhoneNumberViewModelDelegate : BaseProtocol{
 
     func textFieldError(errorString : String)
+    func willHitApi()
+    func gotResponse()
+    func success()
 }
 
 class PhoneNumberViewModel{
@@ -77,6 +80,17 @@ class PhoneNumberViewModel{
             return
         }
 
-        
+        delegate?.willHitApi()
+        let finalNumber = "\(countryModel.countryCode)\(mobileNumber)"
+        APIManager.sendOTP(phone: finalNumber) { [weak self] (json, error) in
+            self?.delegate?.gotResponse()
+            if let _ = json{
+                UserModel.current.phoneNumber = finalNumber
+                UserModel.current.saveToUserDefaults()
+                self?.delegate?.success()
+            }else{
+                self?.delegate?.errorOccurred(errorString: error?.localizedDescription)
+            }
+        }
     }
 }

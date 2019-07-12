@@ -17,6 +17,8 @@ extension APIManager {
         case login = "/users/login"
         case forgotPass = "/users/forgotPass"
         case resendVerification = "/users/resendVerification"
+        case sendOTP = "/users/sendOTP"
+        case verifyOTP = "/users/verifyOTP"
         
         var path : String {
 

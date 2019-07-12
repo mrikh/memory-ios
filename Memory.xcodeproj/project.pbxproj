@@ -23,6 +23,7 @@
 		465A47C722D49CC100647EA6 /* CountryCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47C622D49CC100647EA6 /* CountryCodeViewModel.swift */; };
 		465A47CA22D49E6300647EA6 /* CountryCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47C922D49E6300647EA6 /* CountryCodeModel.swift */; };
 		465A47CD22D4A15300647EA6 /* CountryCodeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47CC22D4A15300647EA6 /* CountryCodeTableCell.swift */; };
+		465A47D022D5B5FA00647EA6 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47CF22D5B5FA00647EA6 /* OTPViewController.swift */; };
 		465CB38122CFA49E002D2B4B /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB38022CFA49D002D2B4B /* VerificationView.swift */; };
 		465CB38422D120FF002D2B4B /* ProfilePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB38322D120FF002D2B4B /* ProfilePhotoViewController.swift */; };
 		465CB38622D1C476002D2B4B /* AWSHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB38522D1C476002D2B4B /* AWSHandler.swift */; };
@@ -92,6 +93,7 @@
 		465A47C622D49CC100647EA6 /* CountryCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewModel.swift; sourceTree = "<group>"; };
 		465A47C922D49E6300647EA6 /* CountryCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeModel.swift; sourceTree = "<group>"; };
 		465A47CC22D4A15300647EA6 /* CountryCodeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeTableCell.swift; sourceTree = "<group>"; };
+		465A47CF22D5B5FA00647EA6 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		465CB38022CFA49D002D2B4B /* VerificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		465CB38322D120FF002D2B4B /* ProfilePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoViewController.swift; sourceTree = "<group>"; };
 		465CB38522D1C476002D2B4B /* AWSHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSHandler.swift; sourceTree = "<group>"; };
@@ -254,6 +256,14 @@
 			path = "Prototype Cells";
 			sourceTree = "<group>";
 		};
+		465A47CE22D5B5DB00647EA6 /* OTP Verification */ = {
+			isa = PBXGroup;
+			children = (
+				465A47CF22D5B5FA00647EA6 /* OTPViewController.swift */,
+			);
+			path = "OTP Verification";
+			sourceTree = "<group>";
+		};
 		465CB38222D120DE002D2B4B /* Profile Photo View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +301,7 @@
 		465CB39E22D33099002D2B4B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				465A47CE22D5B5DB00647EA6 /* OTP Verification */,
 				465A47C322D4852500647EA6 /* Country Code View Controller */,
 				465A47BC22D3C79100647EA6 /* Login Continue */,
 				465A47BB22D3C78000647EA6 /* Phone Number Verification */,
@@ -649,6 +660,7 @@
 				46BCE404223B9EAB00CEC9C1 /* MRAnimatingButton.swift in Sources */,
 				46BCE3C722357A3100CEC9C1 /* StringConstants.swift in Sources */,
 				46BCE3C322357A3100CEC9C1 /* KeyboardHandler.swift in Sources */,
+				465A47D022D5B5FA00647EA6 /* OTPViewController.swift in Sources */,
 				465CB38622D1C476002D2B4B /* AWSHandler.swift in Sources */,
 				464EEFA5223E970A00C6A40D /* TextFieldTableViewCell.swift in Sources */,
 				465A47C522D487B300647EA6 /* CountryCodeViewController.swift in Sources */,

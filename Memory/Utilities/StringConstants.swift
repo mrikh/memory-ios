@@ -10,6 +10,9 @@ import Foundation
 
 struct StringConstants{
 
+    //otp
+    static let resend = "resend"
+
     //country code
     static let search_country = "search_country"
     static let country_code = "country_code"

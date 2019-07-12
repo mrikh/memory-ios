@@ -34,6 +34,7 @@ class PhoneNumberViewController: BaseViewController {
 
     @IBAction func doneAction(_ sender: MRAnimatingButton) {
 
+        viewModel.startNumberVerification(number: phoneNumberTextField.text)
     }
 
     //MARK:- Private
@@ -53,6 +54,8 @@ class PhoneNumberViewController: BaseViewController {
         phoneNumberTextField.configure(with: StringConstants.phone_number.localized, text: nil, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
 
         countryCodeTextField.text = viewModel.fetcUserCountryCode()
+
+        viewModel.delegate = self
     }
 }
 
@@ -74,6 +77,13 @@ extension PhoneNumberViewController : UITextFieldDelegate{
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
+        if string.containsEmoji {return false}
+
+        if let temp = textField as? MRTextField{
+            temp.errorString = nil
+            temp.hideErrorMessage()
+        }
+        
         return true
     }
 }
@@ -83,5 +93,31 @@ extension PhoneNumberViewController : CountryCodeViewControllerDelegate{
     func didSelectCountry(with iSOCode: String) {
 
         countryCodeTextField.text = viewModel.countryCodeNumber(for: iSOCode)
+    }
+}
+
+extension PhoneNumberViewController : PhoneNumberViewModelDelegate{
+
+    func willHitApi() {
+
+        doneButton.startAnimating()
+    }
+
+    func gotResponse() {
+
+        doneButton.stopAnimating()
+    }
+
+    func textFieldError(errorString: String) {
+
+        phoneNumberTextField.errorString = errorString
+        phoneNumberTextField.shakeIfNeeded()
+        phoneNumberTextField.showErrorMessage()
+    }
+
+    func success() {
+
+        let viewController = OTPViewController.instantiate(fromAppStoryboard: .Main)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
