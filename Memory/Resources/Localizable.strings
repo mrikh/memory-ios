@@ -8,7 +8,9 @@
 
 //otp
 "resend" = "Resend OTP";
-
+"enter_otp" = "Enter OTP";
+"new_sent" = "New OTP has been sent";
+"fill_otp" = "You need to enter all the fields";
 
 //country code
 "search_country" = "Search Country";

@@ -11,7 +11,10 @@ import Foundation
 struct StringConstants{
 
     //otp
+    static let new_sent = "new_sent"
     static let resend = "resend"
+    static let enter_otp = "enter_otp"
+    static let fill_otp = "fill_otp"
 
     //country code
     static let search_country = "search_country"

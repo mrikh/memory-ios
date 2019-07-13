@@ -18,4 +18,7 @@ class Colors : UIColor{
 
     static let activeButtonTitleColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     static let inactiveButtonTitleColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+
+    static let textFieldBackgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1) //245, 245 245
+    static let textFieldBorderColor = #colorLiteral(red: 0.7725490196, green: 0.7725490196, blue: 0.7725490196, alpha: 1) //197, 197, 197
 }

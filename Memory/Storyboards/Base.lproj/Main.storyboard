@@ -308,7 +308,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIC-jE-fp0">
                                 <rect key="frame" x="30" y="113" width="315" height="40.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZ4-vi-fFO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZ4-vi-fFO">
                                         <rect key="frame" x="10" y="10" width="295" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -326,7 +326,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hpK-Fv-VnO">
                                 <rect key="frame" x="30" y="227" width="315" height="80"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKM-wA-rcg">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKM-wA-rcg" customClass="CustomBackTextField" customModule="Memory" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="64" height="80"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -335,7 +335,7 @@
                                             <outlet property="delegate" destination="w6h-dU-cIf" id="YJD-2l-vxc"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VZm-EL-Dl9">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VZm-EL-Dl9" customClass="CustomBackTextField" customModule="Memory" customModuleProvider="target">
                                         <rect key="frame" x="84" y="0.0" width="63.5" height="80"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -344,7 +344,7 @@
                                             <outlet property="delegate" destination="w6h-dU-cIf" id="P25-ui-P5k"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dHa-4B-Q6w">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dHa-4B-Q6w" customClass="CustomBackTextField" customModule="Memory" customModuleProvider="target">
                                         <rect key="frame" x="167.5" y="0.0" width="64" height="80"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -353,7 +353,7 @@
                                             <outlet property="delegate" destination="w6h-dU-cIf" id="fLm-sJ-LNe"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e3Y-Kp-26k">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e3Y-Kp-26k" customClass="CustomBackTextField" customModule="Memory" customModuleProvider="target">
                                         <rect key="frame" x="251.5" y="0.0" width="63.5" height="80"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -368,7 +368,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uy7-7X-9Wi">
-                                <rect key="frame" x="299" y="307" width="46" height="30"/>
+                                <rect key="frame" x="299" y="312" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="resendAction:" destination="w6h-dU-cIf" eventType="touchUpInside" id="WSH-oy-PBL"/>
@@ -385,6 +385,12 @@
                                     <action selector="doneAction:" destination="w6h-dU-cIf" eventType="touchUpInside" id="mzD-pu-56v"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSf-6o-pnq">
+                                <rect key="frame" x="30" y="316.5" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -392,15 +398,17 @@
                             <constraint firstItem="hpK-Fv-VnO" firstAttribute="leading" secondItem="WIC-jE-fp0" secondAttribute="leading" id="5ME-3E-e45"/>
                             <constraint firstItem="hhR-Ja-H15" firstAttribute="centerY" secondItem="1GO-AO-GVJ" secondAttribute="centerY" multiplier="1.25" priority="997" id="7Pr-iI-MP6"/>
                             <constraint firstItem="WIC-jE-fp0" firstAttribute="leading" secondItem="jPn-aa-hbJ" secondAttribute="leading" constant="30" id="8ww-l9-5pV"/>
-                            <constraint firstItem="WIC-jE-fp0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jPn-aa-hbJ" secondAttribute="top" constant="15" id="AEY-Lw-6IU"/>
+                            <constraint firstItem="WIC-jE-fp0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jPn-aa-hbJ" secondAttribute="top" constant="25" id="AEY-Lw-6IU"/>
                             <constraint firstItem="WIC-jE-fp0" firstAttribute="centerY" secondItem="1GO-AO-GVJ" secondAttribute="centerY" multiplier="0.4" priority="999" id="AQF-76-fPT"/>
+                            <constraint firstItem="dSf-6o-pnq" firstAttribute="leading" secondItem="hpK-Fv-VnO" secondAttribute="leading" id="B4k-tX-Lu6"/>
                             <constraint firstItem="Uy7-7X-9Wi" firstAttribute="trailing" secondItem="hpK-Fv-VnO" secondAttribute="trailing" id="HvA-EA-J5D"/>
                             <constraint firstItem="hhR-Ja-H15" firstAttribute="leading" secondItem="1GO-AO-GVJ" secondAttribute="leading" constant="15" id="L5v-si-WgA"/>
                             <constraint firstItem="hpK-Fv-VnO" firstAttribute="centerY" secondItem="1GO-AO-GVJ" secondAttribute="centerY" multiplier="0.8" priority="998" id="LfI-Z7-70M"/>
                             <constraint firstItem="jPn-aa-hbJ" firstAttribute="trailing" secondItem="WIC-jE-fp0" secondAttribute="trailing" constant="30" id="V4e-A3-6WU"/>
-                            <constraint firstItem="hpK-Fv-VnO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WIC-jE-fp0" secondAttribute="bottom" constant="15" id="VcM-jh-uPQ"/>
-                            <constraint firstItem="Uy7-7X-9Wi" firstAttribute="top" secondItem="hpK-Fv-VnO" secondAttribute="bottom" id="W7S-HS-tkR"/>
+                            <constraint firstItem="hpK-Fv-VnO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WIC-jE-fp0" secondAttribute="bottom" constant="30" id="VcM-jh-uPQ"/>
+                            <constraint firstItem="Uy7-7X-9Wi" firstAttribute="top" secondItem="hpK-Fv-VnO" secondAttribute="bottom" constant="5" id="W7S-HS-tkR"/>
                             <constraint firstItem="hpK-Fv-VnO" firstAttribute="trailing" secondItem="WIC-jE-fp0" secondAttribute="trailing" id="g99-as-4vh"/>
+                            <constraint firstItem="dSf-6o-pnq" firstAttribute="centerY" secondItem="Uy7-7X-9Wi" secondAttribute="centerY" id="gDH-Cb-F1P"/>
                             <constraint firstItem="hhR-Ja-H15" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Uy7-7X-9Wi" secondAttribute="bottom" constant="25" id="i0j-o4-Chu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jPn-aa-hbJ"/>
@@ -414,6 +422,7 @@
                         <outlet property="resendButton" destination="Uy7-7X-9Wi" id="htz-oH-AZA"/>
                         <outlet property="secondTextField" destination="VZm-EL-Dl9" id="6ha-Tz-GBN"/>
                         <outlet property="thirdTextField" destination="dHa-4B-Q6w" id="2Q6-DS-wco"/>
+                        <outlet property="timerLabel" destination="dSf-6o-pnq" id="MID-S6-LPu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1os-Vz-t7W" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -115,9 +115,10 @@ extension PhoneNumberViewController : PhoneNumberViewModelDelegate{
         phoneNumberTextField.showErrorMessage()
     }
 
-    func success() {
+    func success(number : String) {
 
         let viewController = OTPViewController.instantiate(fromAppStoryboard: .Main)
+        viewController.viewModel = OTPViewModel(number: number)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

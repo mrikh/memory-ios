@@ -36,6 +36,9 @@
 		465CB39B22D312FE002D2B4B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39A22D312FE002D2B4B /* ForgotPasswordViewController.swift */; };
 		465CB39D22D3304F002D2B4B /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465CB39C22D3304F002D2B4B /* Friends.storyboard */; };
 		465CB3A022D3319A002D2B4B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39F22D3319A002D2B4B /* CustomTabBarController.swift */; };
+		46ACC09122D9C28E0003973D /* Double + VideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09022D9C28E0003973D /* Double + VideoTime.swift */; };
+		46ACC09322D9D4CD0003973D /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09222D9D4CD0003973D /* OTPViewModel.swift */; };
+		46ACC09522D9D8CD0003973D /* CustomBackTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */; };
 		46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE38322356D2100CEC9C1 /* AppDelegate.swift */; };
 		46BCE38922356D2100CEC9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE38722356D2100CEC9C1 /* Main.storyboard */; };
 		46BCE38B22356D2400CEC9C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE38A22356D2400CEC9C1 /* Assets.xcassets */; };
@@ -60,8 +63,8 @@
 		46BCE3CB22357A3100CEC9C1 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3B122357A3100CEC9C1 /* CustomFonts.swift */; };
 		46BCE3CC22357A3100CEC9C1 /* UIImageView + Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3B322357A3100CEC9C1 /* UIImageView + Download.swift */; };
 		46BCE3CD22357A3100CEC9C1 /* UITextField + General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3B422357A3100CEC9C1 /* UITextField + General.swift */; };
-		46BCE3CE22357A3100CEC9C1 /* View+GeneralEnhancements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3B522357A3100CEC9C1 /* View+GeneralEnhancements.swift */; };
-		46BCE3CF22357A3100CEC9C1 /* String+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3B622357A3100CEC9C1 /* String+General.swift */; };
+		46BCE3CE22357A3100CEC9C1 /* View + GeneralEnhancements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3B522357A3100CEC9C1 /* View + GeneralEnhancements.swift */; };
+		46BCE3CF22357A3100CEC9C1 /* String + General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3B622357A3100CEC9C1 /* String + General.swift */; };
 		46BCE3D022357A3100CEC9C1 /* UIViewController + General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3B722357A3100CEC9C1 /* UIViewController + General.swift */; };
 		46BCE3D122357A3100CEC9C1 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3B822357A3100CEC9C1 /* Storyboards.swift */; };
 		46BCE3D222357A3100CEC9C1 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3B922357A3100CEC9C1 /* Defaults.swift */; };
@@ -106,6 +109,9 @@
 		465CB39A22D312FE002D2B4B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		465CB39C22D3304F002D2B4B /* Friends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
 		465CB39F22D3319A002D2B4B /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		46ACC09022D9C28E0003973D /* Double + VideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double + VideoTime.swift"; sourceTree = "<group>"; };
+		46ACC09222D9D4CD0003973D /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
+		46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackTextField.swift; sourceTree = "<group>"; };
 		46BCE38022356D2100CEC9C1 /* Memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BCE38322356D2100CEC9C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46BCE38822356D2100CEC9C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,8 +138,8 @@
 		46BCE3B122357A3100CEC9C1 /* CustomFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		46BCE3B322357A3100CEC9C1 /* UIImageView + Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView + Download.swift"; sourceTree = "<group>"; };
 		46BCE3B422357A3100CEC9C1 /* UITextField + General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField + General.swift"; sourceTree = "<group>"; };
-		46BCE3B522357A3100CEC9C1 /* View+GeneralEnhancements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+GeneralEnhancements.swift"; sourceTree = "<group>"; };
-		46BCE3B622357A3100CEC9C1 /* String+General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+General.swift"; sourceTree = "<group>"; };
+		46BCE3B522357A3100CEC9C1 /* View + GeneralEnhancements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View + GeneralEnhancements.swift"; sourceTree = "<group>"; };
+		46BCE3B622357A3100CEC9C1 /* String + General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + General.swift"; sourceTree = "<group>"; };
 		46BCE3B722357A3100CEC9C1 /* UIViewController + General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController + General.swift"; sourceTree = "<group>"; };
 		46BCE3B822357A3100CEC9C1 /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		46BCE3B922357A3100CEC9C1 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
@@ -260,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				465A47CF22D5B5FA00647EA6 /* OTPViewController.swift */,
+				46ACC09222D9D4CD0003973D /* OTPViewModel.swift */,
 			);
 			path = "OTP Verification";
 			sourceTree = "<group>";
@@ -420,10 +427,11 @@
 		46BCE3B222357A3100CEC9C1 /* Genral Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				46ACC09022D9C28E0003973D /* Double + VideoTime.swift */,
 				46BCE3B322357A3100CEC9C1 /* UIImageView + Download.swift */,
 				46BCE3B422357A3100CEC9C1 /* UITextField + General.swift */,
-				46BCE3B522357A3100CEC9C1 /* View+GeneralEnhancements.swift */,
-				46BCE3B622357A3100CEC9C1 /* String+General.swift */,
+				46BCE3B522357A3100CEC9C1 /* View + GeneralEnhancements.swift */,
+				46BCE3B622357A3100CEC9C1 /* String + General.swift */,
 				46BCE3B722357A3100CEC9C1 /* UIViewController + General.swift */,
 			);
 			path = "Genral Extensions";
@@ -438,6 +446,7 @@
 				465CB38022CFA49D002D2B4B /* VerificationView.swift */,
 				46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */,
 				46BCE3E8223580F600CEC9C1 /* Binder.swift */,
+				46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */,
 			);
 			path = "Custom Classes";
 			sourceTree = "<group>";
@@ -665,9 +674,11 @@
 				464EEFA5223E970A00C6A40D /* TextFieldTableViewCell.swift in Sources */,
 				465A47C522D487B300647EA6 /* CountryCodeViewController.swift in Sources */,
 				464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */,
+				46ACC09522D9D8CD0003973D /* CustomBackTextField.swift in Sources */,
 				46BCE3D022357A3100CEC9C1 /* UIViewController + General.swift in Sources */,
 				46BCE3CC22357A3100CEC9C1 /* UIImageView + Download.swift in Sources */,
 				46BCE399223578CF00CEC9C1 /* BaseViewController.swift in Sources */,
+				46ACC09322D9D4CD0003973D /* OTPViewModel.swift in Sources */,
 				465CB39122D207A3002D2B4B /* ImageUploadManager.swift in Sources */,
 				46BCE3C122357A3100CEC9C1 /* TableViewHeaderFooterResizeProtocol.swift in Sources */,
 				46BCE402223B9E6300CEC9C1 /* MRTextField.swift in Sources */,
@@ -683,11 +694,12 @@
 				46BCE3F12235816D00CEC9C1 /* MRActivityIndicator.m in Sources */,
 				465A47B922D35CF500647EA6 /* PhoneNumberViewController.swift in Sources */,
 				465CB38422D120FF002D2B4B /* ProfilePhotoViewController.swift in Sources */,
-				46BCE3CF22357A3100CEC9C1 /* String+General.swift in Sources */,
+				46BCE3CF22357A3100CEC9C1 /* String + General.swift in Sources */,
 				46BCE3BF22357A3100CEC9C1 /* ActionSheetProtocol.swift in Sources */,
+				46ACC09122D9C28E0003973D /* Double + VideoTime.swift in Sources */,
 				465A47C722D49CC100647EA6 /* CountryCodeViewModel.swift in Sources */,
 				46BCE3D422357A3100CEC9C1 /* Colors.swift in Sources */,
-				46BCE3CE22357A3100CEC9C1 /* View+GeneralEnhancements.swift in Sources */,
+				46BCE3CE22357A3100CEC9C1 /* View + GeneralEnhancements.swift in Sources */,
 				465CB3A022D3319A002D2B4B /* CustomTabBarController.swift in Sources */,
 				46BCE3FC2236487200CEC9C1 /* LoginViewController.swift in Sources */,
 				46BCE3CD22357A3100CEC9C1 /* UITextField + General.swift in Sources */,

@@ -16,6 +16,15 @@ class APIManager {
         return ["Authorization" : "Bearer \(authenticationToken)"]
     }
 
+    static func verifyOTP(otp : String, completion: ((JSON?, Error?)->())?){
+
+        NetworkingManager.POST(endPoint: .verifyOTP, parameters: ["token" : otp], headers : headers, success: { (dict) in
+            completion?(JSON(dict), nil)
+        }) { (error) in
+            completion?(nil, error)
+        }
+    }
+
     static func sendOTP(phone : String, completion: ((JSON?, Error?)->())?){
 
         NetworkingManager.POST(endPoint: .sendOTP, parameters: ["phoneNumber" : phone], headers : headers, success: { (dict) in

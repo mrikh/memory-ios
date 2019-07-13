@@ -14,7 +14,7 @@ protocol PhoneNumberViewModelDelegate : BaseProtocol{
     func textFieldError(errorString : String)
     func willHitApi()
     func gotResponse()
-    func success()
+    func success(number : String)
 }
 
 class PhoneNumberViewModel{
@@ -87,7 +87,7 @@ class PhoneNumberViewModel{
             if let _ = json{
                 UserModel.current.phoneNumber = finalNumber
                 UserModel.current.saveToUserDefaults()
-                self?.delegate?.success()
+                self?.delegate?.success(number : finalNumber)
             }else{
                 self?.delegate?.errorOccurred(errorString: error?.localizedDescription)
             }
