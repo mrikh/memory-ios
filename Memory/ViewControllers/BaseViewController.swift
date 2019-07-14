@@ -20,6 +20,8 @@ class BaseViewController: UIViewController, AlertProtocol {
 
     var keyboardVisible : Bool = false
 
+    var extraPadding : CGFloat = 0.0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

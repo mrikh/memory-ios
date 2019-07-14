@@ -10,6 +10,17 @@ import Foundation
 
 struct StringConstants{
 
+    //when
+    static let when_party = "when_party"
+    static let start_time = "start_time"
+    static let end_time = "end_time"
+    static let enter_location = "enter_location"
+    static let select_dates = "select_dates"
+    static let not_same = "not_same"
+
+    //create
+    static let the_scene = "the_scene"
+
     //otp
     static let new_sent = "new_sent"
     static let resend = "resend"

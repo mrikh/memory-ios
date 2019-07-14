@@ -6,13 +6,15 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 protocol KeyboardHandler : NSObjectProtocol{
     
     /// Array of bottom constraints to update
     var bottomConstraints : [NSLayoutConstraint] {get}
+
+    ///Any extra padding you want to remove
+    var extraPadding : CGFloat {get}
     
     
     /// This will add the keyboard will appear and keyboard will disappear notifications
@@ -66,7 +68,7 @@ extension KeyboardHandler where Self : BaseViewController{
 
             if keyboardVisible {return}
             keyboardVisible = true
-            animateConstraints(withConstraintValue: keyboardSize.size.height)
+            animateConstraints(withConstraintValue: keyboardSize.size.height - extraPadding)
         }
     }
     

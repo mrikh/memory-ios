@@ -6,6 +6,18 @@
   Copyright © 2019 Mayank Rikh. All rights reserved.
 */
 
+
+//when
+"when_party" = "Yo, when are you planning the party for?";
+"start_time" = "Enter the Start Time";
+"end_time" = "Enter the End Time";
+"enter_location" = "Click here to enter the location!";
+"select_dates" = "Aye, you need to select both the dates";
+"not_same" = "Both the timings cannot be the same bro";
+
+//create
+"the_scene" = "The Scene";
+
 //otp
 "resend" = "Resend OTP";
 "enter_otp" = "Enter OTP";

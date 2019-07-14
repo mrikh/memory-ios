@@ -57,8 +57,6 @@ class CustomTabBarController: UITabBarController {
                 let viewController = PhoneNumberViewController.instantiate(fromAppStoryboard: .Main)
                 navigationController.setViewControllers([viewController], animated: true)
             }
-        }else{
-            //TODO:- Show create screen
         }
     }
 }

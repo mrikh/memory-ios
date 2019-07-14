@@ -21,3 +21,8 @@ struct AWSKeys{
     static let bucket_name = "memoryies-app"
     static let s3BaseUrl = "https://s3.ap-south-1.amazonaws.com/"
 }
+
+struct DateFormat{
+
+    static let displayDateFormat = "EEE, MMM dd, yyyy h:mm a"
+}

@@ -36,9 +36,16 @@
 		465CB39B22D312FE002D2B4B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39A22D312FE002D2B4B /* ForgotPasswordViewController.swift */; };
 		465CB39D22D3304F002D2B4B /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465CB39C22D3304F002D2B4B /* Friends.storyboard */; };
 		465CB3A022D3319A002D2B4B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CB39F22D3319A002D2B4B /* CustomTabBarController.swift */; };
+		465FFFE222DA5865009D222A /* WhereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFE122DA5865009D222A /* WhereViewController.swift */; };
+		465FFFE522DA5C36009D222A /* CreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFE422DA5C36009D222A /* CreateModel.swift */; };
+		465FFFE722DB83FC009D222A /* Timeinterval + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFE622DB83FC009D222A /* Timeinterval + Date.swift */; };
+		465FFFEA22DB9FE3009D222A /* MRDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFE822DB9FE3009D222A /* MRDatePicker.swift */; };
+		465FFFEB22DB9FE3009D222A /* MRToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFE922DB9FE3009D222A /* MRToolbar.swift */; };
 		46ACC09122D9C28E0003973D /* Double + VideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09022D9C28E0003973D /* Double + VideoTime.swift */; };
 		46ACC09322D9D4CD0003973D /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09222D9D4CD0003973D /* OTPViewModel.swift */; };
 		46ACC09522D9D8CD0003973D /* CustomBackTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */; };
+		46ACC09822D9F5BF0003973D /* WhenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09722D9F5BF0003973D /* WhenViewController.swift */; };
+		46ACC09C22DA1B380003973D /* CreatePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09B22DA1B380003973D /* CreatePageViewController.swift */; };
 		46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE38322356D2100CEC9C1 /* AppDelegate.swift */; };
 		46BCE38922356D2100CEC9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE38722356D2100CEC9C1 /* Main.storyboard */; };
 		46BCE38B22356D2400CEC9C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BCE38A22356D2400CEC9C1 /* Assets.xcassets */; };
@@ -109,9 +116,16 @@
 		465CB39A22D312FE002D2B4B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		465CB39C22D3304F002D2B4B /* Friends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
 		465CB39F22D3319A002D2B4B /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		465FFFE122DA5865009D222A /* WhereViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereViewController.swift; sourceTree = "<group>"; };
+		465FFFE422DA5C36009D222A /* CreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateModel.swift; sourceTree = "<group>"; };
+		465FFFE622DB83FC009D222A /* Timeinterval + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timeinterval + Date.swift"; sourceTree = "<group>"; };
+		465FFFE822DB9FE3009D222A /* MRDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRDatePicker.swift; sourceTree = "<group>"; };
+		465FFFE922DB9FE3009D222A /* MRToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRToolbar.swift; sourceTree = "<group>"; };
 		46ACC09022D9C28E0003973D /* Double + VideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double + VideoTime.swift"; sourceTree = "<group>"; };
 		46ACC09222D9D4CD0003973D /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackTextField.swift; sourceTree = "<group>"; };
+		46ACC09722D9F5BF0003973D /* WhenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhenViewController.swift; sourceTree = "<group>"; };
+		46ACC09B22DA1B380003973D /* CreatePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePageViewController.swift; sourceTree = "<group>"; };
 		46BCE38022356D2100CEC9C1 /* Memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BCE38322356D2100CEC9C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46BCE38822356D2100CEC9C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -207,6 +221,10 @@
 		465A47B722D35BEF00647EA6 /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				465FFFE322DA5C2A009D222A /* Model */,
+				46ACC09D22DA1F350003973D /* Where View Controller */,
+				46ACC09622D9F59D0003973D /* When View Controller */,
+				46ACC09B22DA1B380003973D /* CreatePageViewController.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -315,6 +333,30 @@
 				465CB39F22D3319A002D2B4B /* CustomTabBarController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		465FFFE322DA5C2A009D222A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				465FFFE422DA5C36009D222A /* CreateModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		46ACC09622D9F59D0003973D /* When View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				46ACC09722D9F5BF0003973D /* WhenViewController.swift */,
+			);
+			path = "When View Controller";
+			sourceTree = "<group>";
+		};
+		46ACC09D22DA1F350003973D /* Where View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				465FFFE122DA5865009D222A /* WhereViewController.swift */,
+			);
+			path = "Where View Controller";
 			sourceTree = "<group>";
 		};
 		46BCE37722356D2100CEC9C1 = {
@@ -433,6 +475,7 @@
 				46BCE3B522357A3100CEC9C1 /* View + GeneralEnhancements.swift */,
 				46BCE3B622357A3100CEC9C1 /* String + General.swift */,
 				46BCE3B722357A3100CEC9C1 /* UIViewController + General.swift */,
+				465FFFE622DB83FC009D222A /* Timeinterval + Date.swift */,
 			);
 			path = "Genral Extensions";
 			sourceTree = "<group>";
@@ -443,6 +486,8 @@
 				465CB38722D1E9B2002D2B4B /* Progress View */,
 				46BCE3EA2235815F00CEC9C1 /* Activity Indicator */,
 				46BCE401223B9E6300CEC9C1 /* MRTextField.swift */,
+				465FFFE822DB9FE3009D222A /* MRDatePicker.swift */,
+				465FFFE922DB9FE3009D222A /* MRToolbar.swift */,
 				465CB38022CFA49D002D2B4B /* VerificationView.swift */,
 				46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */,
 				46BCE3E8223580F600CEC9C1 /* Binder.swift */,
@@ -657,6 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				465FFFE522DA5C36009D222A /* CreateModel.swift in Sources */,
 				464EEF9F223E63A500C6A40D /* SignUpViewController.swift in Sources */,
 				46BCE3D222357A3100CEC9C1 /* Defaults.swift in Sources */,
 				465A47CD22D4A15300647EA6 /* CountryCodeTableCell.swift in Sources */,
@@ -675,6 +721,7 @@
 				465A47C522D487B300647EA6 /* CountryCodeViewController.swift in Sources */,
 				464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */,
 				46ACC09522D9D8CD0003973D /* CustomBackTextField.swift in Sources */,
+				46ACC09822D9F5BF0003973D /* WhenViewController.swift in Sources */,
 				46BCE3D022357A3100CEC9C1 /* UIViewController + General.swift in Sources */,
 				46BCE3CC22357A3100CEC9C1 /* UIImageView + Download.swift in Sources */,
 				46BCE399223578CF00CEC9C1 /* BaseViewController.swift in Sources */,
@@ -683,19 +730,24 @@
 				46BCE3C122357A3100CEC9C1 /* TableViewHeaderFooterResizeProtocol.swift in Sources */,
 				46BCE402223B9E6300CEC9C1 /* MRTextField.swift in Sources */,
 				465CB39622D26C3C002D2B4B /* HomeViewController.swift in Sources */,
+				465FFFEB22DB9FE3009D222A /* MRToolbar.swift in Sources */,
 				46BCE3C822357A3100CEC9C1 /* APIManager + EndPoints.swift in Sources */,
+				465FFFEA22DB9FE3009D222A /* MRDatePicker.swift in Sources */,
 				46BCE3CA22357A3100CEC9C1 /* NetworkingManager.swift in Sources */,
 				465CB38F22D205BC002D2B4B /* ProfilePhotoViewModel.swift in Sources */,
 				46BCE3C022357A3100CEC9C1 /* ImagePickerProtocol.swift in Sources */,
 				465CB39822D2811F002D2B4B /* LoginViewModel.swift in Sources */,
+				465FFFE722DB83FC009D222A /* Timeinterval + Date.swift in Sources */,
 				46BCE39C22357A0D00CEC9C1 /* UserModel.swift in Sources */,
 				464EEFA1223E95C400C6A40D /* SignUpViewModel.swift in Sources */,
+				465FFFE222DA5865009D222A /* WhereViewController.swift in Sources */,
 				46BCE3C922357A3100CEC9C1 /* APIManager.swift in Sources */,
 				46BCE3F12235816D00CEC9C1 /* MRActivityIndicator.m in Sources */,
 				465A47B922D35CF500647EA6 /* PhoneNumberViewController.swift in Sources */,
 				465CB38422D120FF002D2B4B /* ProfilePhotoViewController.swift in Sources */,
 				46BCE3CF22357A3100CEC9C1 /* String + General.swift in Sources */,
 				46BCE3BF22357A3100CEC9C1 /* ActionSheetProtocol.swift in Sources */,
+				46ACC09C22DA1B380003973D /* CreatePageViewController.swift in Sources */,
 				46ACC09122D9C28E0003973D /* Double + VideoTime.swift in Sources */,
 				465A47C722D49CC100647EA6 /* CountryCodeViewModel.swift in Sources */,
 				46BCE3D422357A3100CEC9C1 /* Colors.swift in Sources */,
