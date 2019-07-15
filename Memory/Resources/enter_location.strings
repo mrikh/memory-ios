@@ -20,7 +20,6 @@
 "enter_location" = "Click here to enter the location!";
 "select_dates" = "Aye, you need to select both the dates";
 "not_same" = "Both the timings cannot be the same bro";
-"cannot_end_before" = "Event cannot end before it has begun!";
 
 //create
 "the_scene" = "The Scene";

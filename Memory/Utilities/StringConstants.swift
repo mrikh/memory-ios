@@ -10,6 +10,12 @@ import Foundation
 
 struct StringConstants{
 
+    //where
+    static let where_event = "where_event"
+    static let nearby_landmarks = "nearby_landmarks"
+    static let enter_location_where = "enter_location_where"
+    static let go_next = "go_next"
+
     //when
     static let when_party = "when_party"
     static let start_time = "start_time"
@@ -17,6 +23,7 @@ struct StringConstants{
     static let enter_location = "enter_location"
     static let select_dates = "select_dates"
     static let not_same = "not_same"
+    static let cannot_end_before = "cannot_end_before"
 
     //create
     static let the_scene = "the_scene"

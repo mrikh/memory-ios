@@ -68,6 +68,11 @@ class WhenViewController: BaseViewController, KeyboardHandler {
             return
         }
 
+        if start > end{
+            showAlert(StringConstants.oops.localized, withMessage: StringConstants.cannot_end_before.localized, withCompletion: nil)
+            return
+        }
+
         delegate?.userDidCompleteForm()
     }
 
