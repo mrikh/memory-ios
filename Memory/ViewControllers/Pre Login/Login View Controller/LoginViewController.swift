@@ -47,18 +47,20 @@ class LoginViewController: BaseViewController, KeyboardHandler {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
+    override func viewDidLayoutSubviews() {
+
+        super.viewDidLayoutSubviews()
+        facebookContainerView.layer.cornerRadius = facebookContainerView.bounds.width/2.0
+        googleContainerView.layer.cornerRadius = googleContainerView.bounds.width/2.0
+        extraPadding = view.safeAreaInsets.bottom
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
 
         removeKeyboardObservers()
         super.viewWillDisappear(animated)
     }
 
-    override func viewDidLayoutSubviews() {
-
-        super.viewDidLayoutSubviews()
-        facebookContainerView.layer.cornerRadius = facebookContainerView.bounds.width/2.0
-        googleContainerView.layer.cornerRadius = googleContainerView.bounds.width/2.0
-    }
 
     //MARK:- IBAction
     @IBAction func loginAction(_ sender: MRAnimatingButton) {

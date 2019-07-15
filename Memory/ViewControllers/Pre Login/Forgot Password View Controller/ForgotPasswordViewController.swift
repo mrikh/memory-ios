@@ -33,6 +33,12 @@ class ForgotPasswordViewController: BaseViewController, KeyboardHandler {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
+    override func viewDidLayoutSubviews() {
+
+        super.viewDidLayoutSubviews()
+        extraPadding = view.safeAreaInsets.bottom
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
 
         removeKeyboardObservers()

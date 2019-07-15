@@ -2,10 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need access to your location to add the event place.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need access to your gallery to upload your photo</string>
+	<string>We need access to your gallery to upload your photo.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>We need access to your camera to click your photo</string>
+	<string>We need access to your camera to click your photo.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

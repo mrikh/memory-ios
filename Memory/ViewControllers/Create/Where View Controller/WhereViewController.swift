@@ -19,8 +19,6 @@ class WhereViewController: BaseViewController, KeyboardHandler {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var whereTextField: MRTextField!
-    @IBOutlet weak var suggestionsTableView: UITableView!
-    @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var nearbyTextView: KMPlaceholderTextView!
@@ -42,6 +40,11 @@ class WhereViewController: BaseViewController, KeyboardHandler {
 
         super.viewWillAppear(animated)
         addKeyboardObservers()
+
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.barTintColor = Colors.white
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
 
     override func viewDidLayoutSubviews() {
@@ -69,18 +72,16 @@ class WhereViewController: BaseViewController, KeyboardHandler {
         questionLabel.textColor = Colors.bgColor
         questionLabel.font = CustomFonts.avenirHeavy.withSize(18.0)
 
-
-        nearbyTextView.layer.cornerRadius = 8.0
-        nearbyTextView.addBorder(withColor: Colors.textFieldBorderColor, andWidth: 1.0)
         nearbyTextView.text = ""
         nearbyTextView.placeholder = StringConstants.nearby_landmarks.localized
         nearbyTextView.textColor = Colors.bgColor
         nearbyTextView.font = CustomFonts.avenirMedium.withSize(14.0)
+        nearbyTextView.addShadow(3.0, opacity : 0.3)
 
         cardView.layer.cornerRadius = 10.0
         cardView.addShadow(3.0, opacity: 0.3)
 
-        whereTextField.configure(with: StringConstants.enter_location.localized, text: createModel?.address, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
+        whereTextField.configure(with: StringConstants.enter_location_where.localized, text: createModel?.address, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
 
         nextButton.layer.cornerRadius = 5.0
         nextButton.addShadow(3.0, opacity: 0.3)
@@ -96,15 +97,13 @@ class WhereViewController: BaseViewController, KeyboardHandler {
     }
 }
 
-extension WhereViewController : UITableViewDelegate, UITableViewDataSource{
+extension WhereViewController : UITextFieldDelegate{
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
 
-        return 0
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        return UITableViewCell()
+        let viewController = LocationViewController.instantiate(fromAppStoryboard: .Create)
+        navigationController?.pushViewController(viewController, animated: true)
+        
+        return false
     }
 }

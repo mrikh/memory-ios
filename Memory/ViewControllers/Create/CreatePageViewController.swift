@@ -24,6 +24,8 @@ class CreatePageViewController: UIPageViewController{
 
         super.viewWillAppear(animated)
 
+        navigationController?.definesPresentationContext = true
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.barTintColor = Colors.white
         navigationController?.navigationBar.isTranslucent = false
@@ -46,6 +48,8 @@ class CreatePageViewController: UIPageViewController{
         if let first = createViewControllers.first{
             setViewControllers([first], direction: .forward, animated: true, completion: nil)
         }
+
+        clearBackTitle()
     }
 }
 

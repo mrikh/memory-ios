@@ -12,6 +12,7 @@
 "nearby_landmarks" = "Nearby Landmarks (optional)";
 "enter_location_where" = "Enter Location";
 "go_next" = "Click here to go to the next part!";
+"location" = "Location";
 
 //when
 "when_party" = "Yo, when are you planning the event for?";

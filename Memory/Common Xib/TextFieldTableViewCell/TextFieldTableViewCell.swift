@@ -59,10 +59,10 @@ class TextFieldTableViewCell: UITableViewCell {
         viewModel.availability.bind { [weak self] (availability) in
 
             switch availability{
-            case .checking: self?.mainTextField.startAnimating()
-            case .error: self?.mainTextField.stopAnimating(isSuccess: false, continueStatus: true)
-            case .available: self?.mainTextField.stopAnimating(isSuccess: true, continueStatus: true)
-            default: self?.mainTextField.stopAnimating(isSuccess: false, continueStatus: false)
+            case .checking: self?.mainTextField.startVerificationAnimating()
+            case .error: self?.mainTextField.stopVerificationAnimating(isSuccess: false, continueStatus: true)
+            case .available: self?.mainTextField.stopVerificationAnimating(isSuccess: true, continueStatus: true)
+            default: self?.mainTextField.stopVerificationAnimating(isSuccess: false, continueStatus: false)
             }
         }
     }

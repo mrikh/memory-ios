@@ -39,6 +39,12 @@ class CountryCodeViewController: BaseViewController, KeyboardHandler, TableViewH
         addKeyboardObservers()
     }
 
+    override func viewDidLayoutSubviews() {
+
+        super.viewDidLayoutSubviews()
+        extraPadding = view.safeAreaInsets.bottom
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

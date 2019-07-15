@@ -211,7 +211,7 @@ class MRTextField: UITextField {
     }
 
     //MARK: Activity indicator on right side
-    func startAnimating(){
+    func startVerificationAnimating(){
 
         rightViewMode = .always
         currentRightView = rightView
@@ -219,7 +219,7 @@ class MRTextField: UITextField {
         otpStatusView.updateStatus(value: .inProgress)
     }
 
-    func stopAnimating(isSuccess : Bool, continueStatus : Bool){
+    func stopVerificationAnimating(isSuccess : Bool, continueStatus : Bool){
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) { [weak self] in
             self?.otpStatusView.updateStatus(value: isSuccess ? .verified : .invalid)

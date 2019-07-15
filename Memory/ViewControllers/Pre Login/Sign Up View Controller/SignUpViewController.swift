@@ -41,6 +41,8 @@ class SignUpViewController: BaseViewController, KeyboardHandler, TableViewHeader
         if let view = mainTableView.tableFooterView, let resized = resizeView(view){
             mainTableView.tableFooterView = resized
         }
+
+        extraPadding = view.safeAreaInsets.bottom
     }
 
     override func viewWillDisappear(_ animated: Bool) {
