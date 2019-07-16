@@ -13,6 +13,7 @@ class CreateModel{
     var startDate : TimeInterval?
     var endDate : TimeInterval?
 
+    var addressTitle : String?
     var address : String?
     var nearby : String?
     var lat : Double?

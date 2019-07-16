@@ -9,11 +9,26 @@
 import MapKit
 import UIKit
 
+protocol LocationViewControllerDelegate : AnyObject{
+
+    func userDidPickLocation(coordinate : CLLocationCoordinate2D, addressTitle : String, subtitle : String)
+}
+
 class LocationViewController: BaseViewController, KeyboardHandler {
 
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
+
+    private var userDragged = false
+    private var workItem : DispatchWorkItem?
+    private var geocodeWorkItem : DispatchWorkItem?
+
+    var coordinate : CLLocationCoordinate2D?
+    var addressTitle : String?
+    var subTitle : String?
+
+    weak var delegate : LocationViewControllerDelegate?
 
     private lazy var searchBar : UISearchBar = {
         let temp = UISearchBar()
@@ -59,14 +74,24 @@ class LocationViewController: BaseViewController, KeyboardHandler {
     //MARK:- Private
     private func initialSetup(){
 
+        isLoading = false
+        emptyDataSourceDelegate(tableView: searchTableView, message: StringConstants.no_search_result.localized)
         LocationManager.shared.delegate = self
 
-        if LocationManager.shared.locationEnabled{
+        if let coordinate = self.coordinate, let tempTitle = addressTitle, let _ = subTitle{
+
+            searchBar.text = tempTitle
+            focus(coordinate: coordinate, title: nil, subTitle: nil)
+
+        }else if LocationManager.shared.locationEnabled{
             if let current = LocationManager.shared.currentLocation{
-                focus(coordinate: current.coordinate)
+                focus(coordinate: current.coordinate, title: nil, subTitle: nil)
+                reverseGeoCode(coordinate: current.coordinate)
             }
         }
 
+
+        searchTableView.tableFooterView = UIView()
         navigationItem.titleView = searchBar
         searchBar.delegate = self
 
@@ -74,13 +99,98 @@ class LocationViewController: BaseViewController, KeyboardHandler {
         searchTableView.isHidden = true
 
         searchBar.searchBarStyle = .minimal
+
+        mapView.delegate = self
+
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
+        pan.delegate = self
+        mapView.addGestureRecognizer(pan)
+
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDone))
+        navigationItem.rightBarButtonItem = doneButton
     }
 
-    private func focus(coordinate : CLLocationCoordinate2D){
+    @objc func handleDone(){
 
+        guard let cord = coordinate, let name = addressTitle, let desc = subTitle else {
+            showAlert(StringConstants.alert.localized, withMessage: StringConstants.something_wrong.localized, withCompletion: nil)
+            return
+        }
+
+        delegate?.userDidPickLocation(coordinate: cord, addressTitle: name, subtitle: desc)
+        navigationController?.popViewController(animated: true)
+    }
+
+    private func geocode(coordinate : CLLocationCoordinate2D){
+
+        geocodeWorkItem?.cancel()
+        let item = DispatchWorkItem{ [weak self] in
+            self?.reverseGeoCode(coordinate : coordinate)
+        }
+
+        geocodeWorkItem = item
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0, execute: item)
+    }
+
+    private func reverseGeoCode(coordinate : CLLocationCoordinate2D){
+
+        let geocoder = CLGeocoder()
+        searchBar.isLoading = true
+
+        geocoder.reverseGeocodeLocation(CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)) { [weak self] (placemarks, error) in
+
+            if let temp = placemarks?.first{
+                self?.addressTitle = temp.name
+                self?.searchBar.text = temp.name
+
+                let array = [temp.subLocality, temp.locality, temp.subAdministrativeArea, temp.administrativeArea]
+                self?.subTitle = array.compactMap({$0}).joined(separator: "")
+                self?.coordinate = coordinate
+            }else{
+                self?.showAlert(StringConstants.alert.localized, withMessage: error?.localizedDescription ?? StringConstants.something_wrong.localized, withCompletion: nil)
+            }
+
+            self?.searchBar.isLoading = false
+        }
+    }
+
+    private func focus(coordinate : CLLocationCoordinate2D, title : String?, subTitle : String?){
+
+        workItem?.cancel()
+        let item = DispatchWorkItem{ [weak self] in
+            self?.show(coordinate : coordinate, title : title, subTitle : subTitle)
+        }
+
+        workItem = item
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: item)
+    }
+
+    private func show(coordinate : CLLocationCoordinate2D, title : String?, subTitle : String?){
         let radius = 500.0
         let coordinateRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: radius, longitudinalMeters: radius)
-        mapView.setRegion(coordinateRegion, animated: false) 
+        mapView.setRegion(coordinateRegion, animated: true)
+        dropPin(coordinate: coordinate, title: title, subTitle: subTitle)
+    }
+
+    private func dropPin(coordinate : CLLocationCoordinate2D, title : String?, subTitle : String?){
+
+        mapView.removeAnnotations(mapView.annotations)
+        let annotation = Annotation(title: title, subTitle: subTitle, coordinate: coordinate)
+        mapView.addAnnotation(annotation)
+    }
+}
+
+extension LocationViewController : UIGestureRecognizerDelegate{
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+
+    @objc func handlePan(_ gesture : UIPanGestureRecognizer){
+
+        if gesture.state == .ended{
+            userDragged = true
+        }
     }
 }
 
@@ -89,7 +199,8 @@ extension LocationViewController : LocationManagerDelegate{
     func didFetchLocation() {
 
         guard let current = LocationManager.shared.currentLocation else {return}
-        focus(coordinate: current.coordinate)
+        focus(coordinate: current.coordinate, title: nil, subTitle: nil)
+        reverseGeoCode(coordinate: current.coordinate)
     }
 }
 
@@ -160,13 +271,31 @@ extension LocationViewController : UITableViewDelegate, UITableViewDataSource{
         search.start { [weak self] (response, error) in
 
             if let coordinate = response?.mapItems.first?.placemark.coordinate{
-                self?.focus(coordinate: coordinate)
-            }
+                self?.focus(coordinate: coordinate, title: searchResult.title, subTitle: searchResult.subtitle)
 
-            self?.searchBar.text = response?.mapItems.first?.name
-            self?.indicator?.stopAnimating()
-            self?.searchTableView.isHidden = true
-            self?.searchBar.resignFirstResponder()
+                self?.searchBar.text = response?.mapItems.first?.name
+                self?.indicator?.stopAnimating()
+                self?.searchTableView.isHidden = true
+                self?.searchBar.resignFirstResponder()
+
+                self?.coordinate = coordinate
+                self?.addressTitle = searchResult.title
+                self?.subTitle = searchResult.subtitle
+            }
+        }
+    }
+}
+
+extension LocationViewController : MKMapViewDelegate{
+
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+
+        let center = mapView.centerCoordinate
+        dropPin(coordinate: center, title: nil, subTitle: nil)
+
+        if userDragged{
+            reverseGeoCode(coordinate: center)
+            userDragged = false
         }
     }
 }

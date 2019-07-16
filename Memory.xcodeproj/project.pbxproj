@@ -44,6 +44,7 @@
 		465FFFEE22DCB7B6009D222A /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFED22DCB7B6009D222A /* LocationViewController.swift */; };
 		465FFFF022DCBED5009D222A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFEF22DCBED5009D222A /* LocationManager.swift */; };
 		465FFFF222DCFF13009D222A /* UISearchBar + Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFF122DCFF13009D222A /* UISearchBar + Loader.swift */; };
+		465FFFF422DD9BE2009D222A /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFF322DD9BE2009D222A /* Annotation.swift */; };
 		46ACC09122D9C28E0003973D /* Double + VideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09022D9C28E0003973D /* Double + VideoTime.swift */; };
 		46ACC09322D9D4CD0003973D /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09222D9D4CD0003973D /* OTPViewModel.swift */; };
 		46ACC09522D9D8CD0003973D /* CustomBackTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */; };
@@ -127,6 +128,7 @@
 		465FFFED22DCB7B6009D222A /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		465FFFEF22DCBED5009D222A /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		465FFFF122DCFF13009D222A /* UISearchBar + Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar + Loader.swift"; sourceTree = "<group>"; };
+		465FFFF322DD9BE2009D222A /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		46ACC09022D9C28E0003973D /* Double + VideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double + VideoTime.swift"; sourceTree = "<group>"; };
 		46ACC09222D9D4CD0003973D /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackTextField.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				465FFFE422DA5C36009D222A /* CreateModel.swift */,
+				465FFFF322DD9BE2009D222A /* Annotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				465FFFF022DCBED5009D222A /* LocationManager.swift in Sources */,
 				465CB38622D1C476002D2B4B /* AWSHandler.swift in Sources */,
 				464EEFA5223E970A00C6A40D /* TextFieldTableViewCell.swift in Sources */,
+				465FFFF422DD9BE2009D222A /* Annotation.swift in Sources */,
 				465A47C522D487B300647EA6 /* CountryCodeViewController.swift in Sources */,
 				464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */,
 				46ACC09522D9D8CD0003973D /* CustomBackTextField.swift in Sources */,

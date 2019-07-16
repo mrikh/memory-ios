@@ -7,6 +7,7 @@
 //
 
 import KMPlaceholderTextView
+import MapKit
 import UIKit
 
 protocol WhereViewControllerDelegate : AnyObject{
@@ -40,10 +41,6 @@ class WhereViewController: BaseViewController, KeyboardHandler {
 
         super.viewWillAppear(animated)
         addKeyboardObservers()
-
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.barTintColor = Colors.white
-        navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.shadowImage = UIImage()
     }
 
@@ -102,8 +99,37 @@ extension WhereViewController : UITextFieldDelegate{
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
 
         let viewController = LocationViewController.instantiate(fromAppStoryboard: .Create)
+        viewController.delegate = self
+        viewController.addressTitle = createModel?.addressTitle
+        viewController.subTitle = createModel?.address
+        
+        if let lat = createModel?.lat, let long = createModel?.long{
+            viewController.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        }
+
         navigationController?.pushViewController(viewController, animated: true)
         
         return false
+    }
+}
+
+extension WhereViewController : LocationViewControllerDelegate{
+
+    func userDidPickLocation(coordinate: CLLocationCoordinate2D, addressTitle: String, subtitle: String) {
+
+        createModel?.addressTitle = addressTitle
+        createModel?.lat = coordinate.latitude
+        createModel?.long = coordinate.longitude
+        createModel?.address = subtitle
+
+        whereTextField.text = addressTitle
+    }
+}
+
+extension WhereViewController : UITextViewDelegate{
+
+    func textViewDidChange(_ textView: UITextView) {
+
+        createModel?.nearby = textView.text.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
