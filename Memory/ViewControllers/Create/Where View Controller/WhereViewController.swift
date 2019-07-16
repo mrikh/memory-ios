@@ -60,6 +60,13 @@ class WhereViewController: BaseViewController, KeyboardHandler {
     //MARK:- IBAction
     @IBAction func nextAction(_ sender: UIButton) {
 
+        guard let _ = createModel?.lat, let _ = createModel?.long, let _ = createModel?.addressTitle, let _ = createModel?.address else{
+
+            showAlert(StringConstants.oops.localized, withMessage: StringConstants.enter_address.localized, withCompletion: nil)
+            return
+        }
+
+        
     }
 
     //MARK:- Private

@@ -16,6 +16,7 @@ struct StringConstants{
     static let nearby_landmarks = "nearby_landmarks"
     static let enter_location_where = "enter_location_where"
     static let go_next = "go_next"
+    static let enter_address = "enter_address"
 
     //when
     static let when_party = "when_party"

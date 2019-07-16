@@ -45,6 +45,7 @@
 		465FFFF022DCBED5009D222A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFEF22DCBED5009D222A /* LocationManager.swift */; };
 		465FFFF222DCFF13009D222A /* UISearchBar + Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFF122DCFF13009D222A /* UISearchBar + Loader.swift */; };
 		465FFFF422DD9BE2009D222A /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFF322DD9BE2009D222A /* Annotation.swift */; };
+		465FFFF722DE627B009D222A /* PhotosSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFF622DE627B009D222A /* PhotosSelectionViewController.swift */; };
 		46ACC09122D9C28E0003973D /* Double + VideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09022D9C28E0003973D /* Double + VideoTime.swift */; };
 		46ACC09322D9D4CD0003973D /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09222D9D4CD0003973D /* OTPViewModel.swift */; };
 		46ACC09522D9D8CD0003973D /* CustomBackTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */; };
@@ -129,6 +130,7 @@
 		465FFFEF22DCBED5009D222A /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		465FFFF122DCFF13009D222A /* UISearchBar + Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar + Loader.swift"; sourceTree = "<group>"; };
 		465FFFF322DD9BE2009D222A /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		465FFFF622DE627B009D222A /* PhotosSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSelectionViewController.swift; sourceTree = "<group>"; };
 		46ACC09022D9C28E0003973D /* Double + VideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double + VideoTime.swift"; sourceTree = "<group>"; };
 		46ACC09222D9D4CD0003973D /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackTextField.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				465FFFE322DA5C2A009D222A /* Model */,
+				465FFFF522DE5B47009D222A /* Photos Selection View Controller */,
 				465FFFEC22DCB559009D222A /* Location View Controller */,
 				46ACC09D22DA1F350003973D /* Where View Controller */,
 				46ACC09622D9F59D0003973D /* When View Controller */,
@@ -359,6 +362,14 @@
 				465FFFED22DCB7B6009D222A /* LocationViewController.swift */,
 			);
 			path = "Location View Controller";
+			sourceTree = "<group>";
+		};
+		465FFFF522DE5B47009D222A /* Photos Selection View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				465FFFF622DE627B009D222A /* PhotosSelectionViewController.swift */,
+			);
+			path = "Photos Selection View Controller";
 			sourceTree = "<group>";
 		};
 		46ACC09622D9F59D0003973D /* When View Controller */ = {
@@ -758,6 +769,7 @@
 				46BCE3C822357A3100CEC9C1 /* APIManager + EndPoints.swift in Sources */,
 				465FFFEA22DB9FE3009D222A /* MRDatePicker.swift in Sources */,
 				46BCE3CA22357A3100CEC9C1 /* NetworkingManager.swift in Sources */,
+				465FFFF722DE627B009D222A /* PhotosSelectionViewController.swift in Sources */,
 				465CB38F22D205BC002D2B4B /* ProfilePhotoViewModel.swift in Sources */,
 				46BCE3C022357A3100CEC9C1 /* ImagePickerProtocol.swift in Sources */,
 				465CB39822D2811F002D2B4B /* LoginViewModel.swift in Sources */,

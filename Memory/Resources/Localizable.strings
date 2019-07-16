@@ -13,6 +13,7 @@
 "enter_location_where" = "Enter Location";
 "go_next" = "Click here to go to the next part!";
 "location" = "Location";
+"enter_address" = "Entering the address is compulsory man, how else will people find you?";
 
 //when
 "when_party" = "Yo, when are you planning the event for?";
