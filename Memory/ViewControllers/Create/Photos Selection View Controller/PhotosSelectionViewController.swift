@@ -6,9 +6,10 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
+import CropViewController
 import UIKit
 
-class PhotosSelectionViewController: BaseViewController {
+class PhotosSelectionViewController: BaseViewController, ImagePickerProtocol {
 
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var cardView: UIView!
@@ -56,6 +57,28 @@ extension PhotosSelectionViewController : UICollectionViewDelegate, UICollection
 
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PhotoHeaderCollectionReusableView.identifier, for: indexPath) as? PhotoHeaderCollectionReusableView else {return UICollectionReusableView(frame: CGRect.zero)}
 
+        header.action = { [weak self] in
+
+            self?.openImagePickerSheet(cameraAction: { [weak self] in
+
+                self?.showImagePicker(showFront : false, showCamera : true)
+            }, galleryAction: { [weak self] in
+
+                self?.checkGalleryAuthorization { [weak self] (granted, authorizationRequested) in
+                    if granted{
+                        let viewController = GalleryViewController.instantiate(fromAppStoryboard: .Common)
+                        let navigationController = FlowManager.createNavigationController(viewController)
+                        self?.present(navigationController, animated: true, completion: nil)
+                    }else{
+                        //dont show toast if permission was asked this time
+                        if !authorizationRequested{
+                            self?.showRedirectAlert(StringConstants.oops.localized, withMessage: StringConstants.gallery_access.localized)
+                        }
+                    }
+                }
+            }, removePhoto: nil)
+        }
+
         return header
     }
 
@@ -90,5 +113,35 @@ extension PhotosSelectionViewController : UICollectionViewDelegate, UICollection
         }else{
             return UICollectionViewCell()
         }
+    }
+}
+
+extension PhotosSelectionViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        guard let image = info[.originalImage] as? UIImage else { return }
+
+        let cropViewController = CropViewController(croppingStyle: .circular, image: image)
+        cropViewController.delegate = self
+        picker.present(cropViewController, animated: false, completion: nil)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension PhotosSelectionViewController : CropViewControllerDelegate{
+
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+
+        dismiss(animated: true, completion: nil)
+    }
+
+    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
+
+        dismiss(animated: true, completion: nil)
     }
 }

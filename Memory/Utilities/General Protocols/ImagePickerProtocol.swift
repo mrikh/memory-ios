@@ -47,7 +47,7 @@ extension ImagePickerProtocol where Self : UIViewController & UIImagePickerContr
         }
     }
     
-    private func openCamera(_ picker : UIImagePickerController, showFront : Bool){
+    func openCamera(_ picker : UIImagePickerController, showFront : Bool){
         
         checkCameraAuthorization { [weak self] (granted, authorizationRequested) in
             if granted{
@@ -71,7 +71,7 @@ extension ImagePickerProtocol where Self : UIViewController & UIImagePickerContr
         }
     }
     
-    private func openGallery(_ picker : UIImagePickerController) {
+    func openGallery(_ picker : UIImagePickerController) {
         checkGalleryAuthorization { [weak self] (granted, authorizationRequested) in
             if granted{
                 picker.sourceType = .photoLibrary

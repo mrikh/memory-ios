@@ -90,6 +90,9 @@
 		46BCE404223B9EAB00CEC9C1 /* MRAnimatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */; };
 		46DCDE7C22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE7B22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift */; };
 		46DCDE7F22DF0F0100277AC1 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE7E22DF0F0100277AC1 /* ButtonCollectionViewCell.swift */; };
+		46DCDE8222DF62B700277AC1 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46DCDE8122DF62B700277AC1 /* Common.storyboard */; };
+		46DCDE8622DF984E00277AC1 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE8522DF984E00277AC1 /* GalleryViewController.swift */; };
+		46DCDE8822DF985C00277AC1 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE8722DF985C00277AC1 /* GalleryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -181,6 +184,9 @@
 		46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRAnimatingButton.swift; sourceTree = "<group>"; };
 		46DCDE7B22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		46DCDE7E22DF0F0100277AC1 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		46DCDE8122DF62B700277AC1 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
+		46DCDE8522DF984E00277AC1 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		46DCDE8722DF985C00277AC1 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
 		C7938299BEE333E1DB6C2E75 /* Pods_Memory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -430,6 +436,7 @@
 		46BCE395223578BC00CEC9C1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				46DCDE8322DF93F200277AC1 /* Common */,
 				46BCE396223578CF00CEC9C1 /* BaseProtocol.swift */,
 				46BCE397223578CF00CEC9C1 /* BaseViewController.swift */,
 				465A47BA22D3C4BD00647EA6 /* Friends */,
@@ -542,6 +549,7 @@
 				465CB39C22D3304F002D2B4B /* Friends.storyboard */,
 				465A47B322D34F5700647EA6 /* Create.storyboard */,
 				465A47B522D350B900647EA6 /* Explore.storyboard */,
+				46DCDE8122DF62B700277AC1 /* Common.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -601,6 +609,23 @@
 				46DCDE7E22DF0F0100277AC1 /* ButtonCollectionViewCell.swift */,
 			);
 			path = "Collection View Cells";
+			sourceTree = "<group>";
+		};
+		46DCDE8322DF93F200277AC1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				46DCDE8422DF984000277AC1 /* Gallery */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		46DCDE8422DF984000277AC1 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				46DCDE8522DF984E00277AC1 /* GalleryViewController.swift */,
+				46DCDE8722DF985C00277AC1 /* GalleryViewModel.swift */,
+			);
+			path = Gallery;
 			sourceTree = "<group>";
 		};
 		5C435BCFBB900C1FCE65FB32 /* Frameworks */ = {
@@ -682,6 +707,7 @@
 				46BCE38B22356D2400CEC9C1 /* Assets.xcassets in Resources */,
 				46BCE38922356D2100CEC9C1 /* Main.storyboard in Resources */,
 				464EEFA6223E970A00C6A40D /* TextFieldTableViewCell.xib in Resources */,
+				46DCDE8222DF62B700277AC1 /* Common.storyboard in Resources */,
 				46BCE3F922363F7C00CEC9C1 /* PreLogin.storyboard in Resources */,
 				465CB39D22D3304F002D2B4B /* Friends.storyboard in Resources */,
 			);
@@ -787,6 +813,7 @@
 				465CB39122D207A3002D2B4B /* ImageUploadManager.swift in Sources */,
 				46BCE3C122357A3100CEC9C1 /* TableViewHeaderFooterResizeProtocol.swift in Sources */,
 				46BCE402223B9E6300CEC9C1 /* MRTextField.swift in Sources */,
+				46DCDE8822DF985C00277AC1 /* GalleryViewModel.swift in Sources */,
 				465CB39622D26C3C002D2B4B /* HomeViewController.swift in Sources */,
 				465FFFEB22DB9FE3009D222A /* MRToolbar.swift in Sources */,
 				46BCE3C822357A3100CEC9C1 /* APIManager + EndPoints.swift in Sources */,
@@ -824,6 +851,7 @@
 				465CB38B22D1E9B2002D2B4B /* ProgressView.swift in Sources */,
 				46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */,
 				465A47BE22D3C7C800647EA6 /* LoginToContinueViewController.swift in Sources */,
+				46DCDE8622DF984E00277AC1 /* GalleryViewController.swift in Sources */,
 				46BCE3A122357A2100CEC9C1 /* ValidationController.swift in Sources */,
 				465A47C022D3CF5000647EA6 /* PhoneNumberViewModel.swift in Sources */,
 			);
