@@ -326,25 +326,66 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btn-MT-Duj" userLabel="Card View">
                                 <rect key="frame" x="15" y="95.5" width="345" height="556.5"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bfB-ku-vcw">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bfB-ku-vcw">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="556.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Keb-6V-Ksf">
-                                            <size key="itemSize" width="50" height="50"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="itemSize" width="345" height="136"/>
+                                            <size key="headerReferenceSize" width="50" height="50"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3sq-rt-aAw">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ButtonCollectionViewCell" id="3sq-rt-aAw" customClass="ButtonCollectionViewCell" customModule="Memory" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="345" height="136"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTG-Hd-ji6">
+                                                            <rect key="frame" x="10" y="10" width="325" height="116"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <connections>
+                                                                <action selector="mainAction:" destination="3sq-rt-aAw" eventType="touchUpInside" id="frR-Nj-gLF"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
                                                 </view>
+                                                <constraints>
+                                                    <constraint firstItem="oTG-Hd-ji6" firstAttribute="top" secondItem="3sq-rt-aAw" secondAttribute="top" constant="10" id="1SI-yh-2pC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="oTG-Hd-ji6" secondAttribute="trailing" constant="10" id="cCk-uU-hgg"/>
+                                                    <constraint firstAttribute="bottom" secondItem="oTG-Hd-ji6" secondAttribute="bottom" constant="10" id="mEk-wV-MLe"/>
+                                                    <constraint firstItem="oTG-Hd-ji6" firstAttribute="leading" secondItem="3sq-rt-aAw" secondAttribute="leading" constant="10" id="xKr-We-Gvl"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="mainButton" destination="oTG-Hd-ji6" id="XaJ-1T-BEV"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PhotoHeaderCollectionReusableView" id="mjE-N1-3gO" customClass="PhotoHeaderCollectionReusableView" customModule="Memory" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ris-4g-3gf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="galleryAction:" destination="mjE-N1-3gO" eventType="touchUpInside" id="8QF-7e-3yG"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="Ris-4g-3gf" firstAttribute="top" secondItem="mjE-N1-3gO" secondAttribute="top" id="0lr-JR-fM8"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ris-4g-3gf" secondAttribute="trailing" id="FUV-KG-0Ne"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ris-4g-3gf" secondAttribute="bottom" id="lNN-44-2bp"/>
+                                                <constraint firstItem="Ris-4g-3gf" firstAttribute="leading" secondItem="mjE-N1-3gO" secondAttribute="leading" id="sSs-az-7pQ"/>
+                                            </constraints>
+                                            <connections>
+                                                <outlet property="galleryButton" destination="Ris-4g-3gf" id="mtQ-ed-KwS"/>
+                                            </connections>
+                                        </collectionReusableView>
                                         <connections>
                                             <outlet property="dataSource" destination="PdH-5q-XJb" id="0vZ-X9-BJ1"/>
                                             <outlet property="delegate" destination="PdH-5q-XJb" id="zfJ-3a-l7q"/>
@@ -372,10 +413,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BW3-aQ-kt3"/>
                     </view>
+                    <connections>
+                        <outlet property="cardView" destination="btn-MT-Duj" id="TOV-1Q-BXh"/>
+                        <outlet property="mainCollectionView" destination="bfB-ku-vcw" id="rng-Ri-fyv"/>
+                        <outlet property="questionLabel" destination="wwJ-p7-LHd" id="8c3-re-x7R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7q7-u1-PRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1879" y="875"/>
+            <point key="canvasLocation" x="1877.5999999999999" y="874.81259370314854"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="KeS-ww-bFd">

@@ -7,6 +7,11 @@
 */
 
 
+//photo selection
+"select_venue_photos" = "Select photos to upload for the venue";
+"or_skip" = "or you can skip this one!";
+"continue" = "Continue";
+
 //where
 "where_event" = "Where is the event being held?";
 "nearby_landmarks" = "Nearby Landmarks (optional)";

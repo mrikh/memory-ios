@@ -10,21 +10,85 @@ import UIKit
 
 class PhotosSelectionViewController: BaseViewController {
 
+    @IBOutlet weak var mainCollectionView: UICollectionView!
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var questionLabel: UILabel!
+
+    var create : CreateModel?
+    var selectedImages = [String]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        initialSetup()
     }
-    
 
-    /*
-    // MARK: - Navigation
+    //MARK:- Private
+    private func initialSetup(){
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        questionLabel.text = StringConstants.select_venue_photos.localized
+        questionLabel.textColor = Colors.bgColor
+        questionLabel.font = CustomFonts.avenirHeavy.withSize(18.0)
+
+        mainCollectionView.layer.cornerRadius = 10.0
+        cardView.layer.cornerRadius = 10.0
+        cardView.addShadow(3.0, opacity: 0.3)
     }
-    */
+}
 
+extension PhotosSelectionViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        if indexPath.item == selectedImages.count{
+            if selectedImages.isEmpty{
+                return CGSize(width : collectionView.bounds.width, height : collectionView.bounds.height - 70.0)
+            }else{
+                return CGSize(width : collectionView.bounds.width, height : 70.0)
+            }
+        }else{
+            let width = collectionView.bounds.width/3.0
+            return CGSize(width : width, height : width)
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PhotoHeaderCollectionReusableView.identifier, for: indexPath) as? PhotoHeaderCollectionReusableView else {return UICollectionReusableView(frame: CGRect.zero)}
+
+        return header
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+        return selectedImages.count + 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        if indexPath.item == selectedImages.count{
+
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.identifier, for: indexPath) as? ButtonCollectionViewCell else { return UICollectionViewCell(frame: CGRect.zero) }
+
+            if selectedImages.isEmpty{
+
+                cell.buttonAction = {
+
+                }
+
+                cell.mainButton.setAttributedTitle(NSAttributedString(string : StringConstants.or_skip.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
+            }else{
+
+                cell.buttonAction = {
+
+                }
+
+                cell.mainButton.setAttributedTitle(NSAttributedString(string : StringConstants.continue.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
+            }
+
+            return cell
+        }else{
+            return UICollectionViewCell()
+        }
+    }
 }

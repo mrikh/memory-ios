@@ -79,7 +79,7 @@ extension CreatePageViewController : UIPageViewControllerDataSource{
 
 extension CreatePageViewController : WhenViewControllerDelegate{
 
-    func userDidCompleteForm() {
+    func userDidCompleteWhenForm() {
 
         if let position = createViewControllers.firstIndex(where: {$0 is WhereViewController}){
             setViewControllers([createViewControllers[position]], direction: .forward, animated: true, completion: nil)
@@ -87,8 +87,25 @@ extension CreatePageViewController : WhenViewControllerDelegate{
         }
 
         let whereVC = WhereViewController.instantiate(fromAppStoryboard: .Create)
+        whereVC.createModel = createModel
+        whereVC.delegate = self
         createViewControllers.append(whereVC)
-
         setViewControllers([whereVC], direction: .forward, animated: true, completion: nil)
+    }
+}
+
+extension CreatePageViewController : WhereViewControllerDelegate{
+
+    func userDidCompleteWhereForm(){
+
+        if let position = createViewControllers.firstIndex(where: {$0 is PhotosSelectionViewController}){
+            setViewControllers([createViewControllers[position]], direction: .forward, animated: true, completion: nil)
+            return
+        }
+
+        let photoVC = PhotosSelectionViewController.instantiate(fromAppStoryboard: .Create)
+        photoVC.create = createModel
+        createViewControllers.append(photoVC)
+        setViewControllers([photoVC], direction: .forward, animated: true, completion: nil)
     }
 }

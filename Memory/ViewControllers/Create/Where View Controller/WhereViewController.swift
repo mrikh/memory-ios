@@ -12,7 +12,7 @@ import UIKit
 
 protocol WhereViewControllerDelegate : AnyObject{
 
-    func userDidCompleteForm()
+    func userDidCompleteWhereForm()
 }
 
 class WhereViewController: BaseViewController, KeyboardHandler {
@@ -24,7 +24,7 @@ class WhereViewController: BaseViewController, KeyboardHandler {
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var nearbyTextView: KMPlaceholderTextView!
     
-    weak var delegate : WhenViewControllerDelegate?
+    weak var delegate : WhereViewControllerDelegate?
     var createModel : CreateModel?
 
     var bottomConstraints: [NSLayoutConstraint]{
@@ -66,7 +66,7 @@ class WhereViewController: BaseViewController, KeyboardHandler {
             return
         }
 
-        
+        delegate?.userDidCompleteWhereForm()
     }
 
     //MARK:- Private

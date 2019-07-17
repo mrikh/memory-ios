@@ -10,7 +10,7 @@ import UIKit
 
 protocol WhenViewControllerDelegate : AnyObject{
 
-    func userDidCompleteForm()
+    func userDidCompleteWhenForm()
 }
 
 class WhenViewController: BaseViewController, KeyboardHandler {
@@ -73,7 +73,7 @@ class WhenViewController: BaseViewController, KeyboardHandler {
             return
         }
 
-        delegate?.userDidCompleteForm()
+        delegate?.userDidCompleteWhenForm()
     }
 
     //MARK:- Private

@@ -10,6 +10,11 @@ import Foundation
 
 struct StringConstants{
 
+    //photo selection
+    static let select_venue_photos = "select_venue_photos"
+    static let or_skip = "or_skip"
+    static let `continue` = "continue"
+
     //where
     static let location = "location"
     static let where_event = "where_event"

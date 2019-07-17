@@ -88,6 +88,8 @@
 		46BCE3FC2236487200CEC9C1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3FB2236487200CEC9C1 /* LoginViewController.swift */; };
 		46BCE402223B9E6300CEC9C1 /* MRTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE401223B9E6300CEC9C1 /* MRTextField.swift */; };
 		46BCE404223B9EAB00CEC9C1 /* MRAnimatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */; };
+		46DCDE7C22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE7B22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift */; };
+		46DCDE7F22DF0F0100277AC1 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE7E22DF0F0100277AC1 /* ButtonCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -177,6 +179,8 @@
 		46BCE3FB2236487200CEC9C1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		46BCE401223B9E6300CEC9C1 /* MRTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRTextField.swift; sourceTree = "<group>"; };
 		46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRAnimatingButton.swift; sourceTree = "<group>"; };
+		46DCDE7B22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		46DCDE7E22DF0F0100277AC1 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		C7938299BEE333E1DB6C2E75 /* Pods_Memory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -367,6 +371,8 @@
 		465FFFF522DE5B47009D222A /* Photos Selection View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				46DCDE7D22DF0DB400277AC1 /* Collection View Cells */,
+				46DCDE7A22DEFD7700277AC1 /* Collection Header View */,
 				465FFFF622DE627B009D222A /* PhotosSelectionViewController.swift */,
 			);
 			path = "Photos Selection View Controller";
@@ -581,6 +587,22 @@
 			path = "Login View Controller";
 			sourceTree = "<group>";
 		};
+		46DCDE7A22DEFD7700277AC1 /* Collection Header View */ = {
+			isa = PBXGroup;
+			children = (
+				46DCDE7B22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift */,
+			);
+			path = "Collection Header View";
+			sourceTree = "<group>";
+		};
+		46DCDE7D22DF0DB400277AC1 /* Collection View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				46DCDE7E22DF0F0100277AC1 /* ButtonCollectionViewCell.swift */,
+			);
+			path = "Collection View Cells";
+			sourceTree = "<group>";
+		};
 		5C435BCFBB900C1FCE65FB32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -755,6 +777,7 @@
 				465A47C522D487B300647EA6 /* CountryCodeViewController.swift in Sources */,
 				464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */,
 				46ACC09522D9D8CD0003973D /* CustomBackTextField.swift in Sources */,
+				46DCDE7F22DF0F0100277AC1 /* ButtonCollectionViewCell.swift in Sources */,
 				46ACC09822D9F5BF0003973D /* WhenViewController.swift in Sources */,
 				465FFFEE22DCB7B6009D222A /* LocationViewController.swift in Sources */,
 				46BCE3D022357A3100CEC9C1 /* UIViewController + General.swift in Sources */,
@@ -784,6 +807,7 @@
 				46BCE3CF22357A3100CEC9C1 /* String + General.swift in Sources */,
 				46BCE3BF22357A3100CEC9C1 /* ActionSheetProtocol.swift in Sources */,
 				46ACC09C22DA1B380003973D /* CreatePageViewController.swift in Sources */,
+				46DCDE7C22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift in Sources */,
 				46ACC09122D9C28E0003973D /* Double + VideoTime.swift in Sources */,
 				465A47C722D49CC100647EA6 /* CountryCodeViewModel.swift in Sources */,
 				46BCE3D422357A3100CEC9C1 /* Colors.swift in Sources */,
