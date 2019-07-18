@@ -123,7 +123,7 @@ extension PhotosSelectionViewController : UICollectionViewDelegate, UICollection
 
                 self?.viewModel.delete(position: indexPath.item)
 
-                if let empty = self?.viewModel?.isSelectedEmpty, empty{
+                if let empty = self?.viewModel.isSelectedEmpty, empty{
                     collectionView.reloadData()
                 }else{
                     collectionView.performBatchUpdates({
