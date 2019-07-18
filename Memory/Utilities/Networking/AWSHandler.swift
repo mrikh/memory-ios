@@ -80,13 +80,13 @@ class AWSHandler{
     static func deleteImage(withUrl urlString : String, completion : ((Bool, String)->())?){
 
         let s3Service = AWSS3.default()
-        guard let deleteObjectRequest = AWSS3DeleteObjectRequest() else {
+        guard let deleteObjectRequest = AWSS3DeleteObjectRequest(), let name = URL(string: urlString)?.lastPathComponent else {
             completion?(false, urlString)
             return
         }
 
         deleteObjectRequest.bucket = AWSKeys.bucket_name
-        deleteObjectRequest.key = "0.jpeg" // File name
+        deleteObjectRequest.key = name
 
         s3Service.deleteObject(deleteObjectRequest).continueWith { (task:AWSTask) -> AnyObject? in
             if let _ = task.error {

@@ -343,7 +343,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTG-Hd-ji6">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="oTG-Hd-ji6">
                                                             <rect key="frame" x="10" y="10" width="325" height="116"/>
                                                             <state key="normal" title="Button"/>
                                                             <connections>

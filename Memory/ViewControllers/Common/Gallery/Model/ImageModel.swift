@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ImageModel{
+class ImageModel{
 
     var image : UIImage
     var localId : String?

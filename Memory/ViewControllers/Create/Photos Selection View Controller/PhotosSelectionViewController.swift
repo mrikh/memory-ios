@@ -109,33 +109,7 @@ extension PhotosSelectionViewController : UICollectionViewDelegate, UICollection
 
         if indexPath.item == viewModel.selectedCount{
 
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.identifier, for: indexPath) as? ButtonCollectionViewCell else { return UICollectionViewCell(frame: CGRect.zero) }
-
-            if viewModel.isSelectedEmpty{
-
-                cell.buttonAction = { [weak self] in
-                    self?.delegate?.userDidPressContinue()
-                }
-
-                cell.mainButton.setAttributedTitle(NSAttributedString(string : StringConstants.or_skip.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
-            }else{
-
-                cell.buttonAction = { [weak self] in
-                    self?.viewModel.startUpload()
-                    self?.delegate?.userDidPressContinue()
-                }
-
-                if !viewModel.movedPast{
-
-                    cell.mainButton.setAttributedTitle(NSAttributedString(string : StringConstants.continue.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
-                }else{
-                    
-                    //user already did this step and came back
-                    cell.mainButton.setAttributedTitle(NSAttributedString(string : StringConstants.press_again.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
-                }
-            }
-
-            return cell
+            return configureButtonCell(indexPath: indexPath)
         }else{
 
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as? ImageCollectionViewCell else { return UICollectionViewCell(frame: CGRect.zero) }
@@ -143,9 +117,74 @@ extension PhotosSelectionViewController : UICollectionViewDelegate, UICollection
             let image = viewModel.dataSource[indexPath.item]
             cell.mainImageView.image = image.image
             cell.updateLoader(animate: image.isUploading)
+            cell.deleteButton.isHidden = false
+
+            cell.deleteAction = { [weak self] in
+
+                self?.viewModel.delete(position: indexPath.item)
+
+                if let empty = self?.viewModel?.isSelectedEmpty, empty{
+                    collectionView.reloadData()
+                }else{
+                    collectionView.performBatchUpdates({
+                        collectionView.deleteItems(at: [indexPath])
+                    }, completion: { (finished) in
+                        collectionView.reloadData()
+                    })
+                }
+
+                if let tempString = image.urlString{
+
+                    AWSHandler.deleteImage(withUrl: tempString, completion: { [weak self] (success, urlString) in
+                        if !success{
+                            self?.viewModel.add(images: [image])
+                            self?.showAlert(StringConstants.alert.localized, withMessage: StringConstants.error_delete.localized, withCompletion: nil)
+                            collectionView.reloadData()
+                        }
+                    })
+                }
+            }
 
             return cell
         }
+    }
+
+    private func configureButtonCell(indexPath : IndexPath) -> UICollectionViewCell{
+
+        guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.identifier, for: indexPath) as? ButtonCollectionViewCell else { return UICollectionViewCell(frame: CGRect.zero) }
+
+        if viewModel.isSelectedEmpty{
+
+            cell.buttonAction = { [weak self] in
+                self?.delegate?.userDidPressContinue()
+            }
+
+            cell.mainButton.setAttributedTitle(setupAttributedString(title: StringConstants.or_skip.localized), for: .normal)
+        }else{
+
+            cell.buttonAction = { [weak self] in
+                self?.viewModel.startUpload()
+                self?.delegate?.userDidPressContinue()
+            }
+
+            if !viewModel.movedPast{
+
+                cell.mainButton.setAttributedTitle(setupAttributedString(title: StringConstants.continue.localized), for: .normal)
+            }else{
+
+                //user already did this step and came back
+                cell.mainButton.setAttributedTitle(setupAttributedString(title: StringConstants.press_again.localized), for: .normal)
+            }
+        }
+
+        return cell
+    }
+
+    private func setupAttributedString(title : String) -> NSAttributedString{
+
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+        return NSAttributedString(string : title, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue, .paragraphStyle : paragraph])
     }
 }
 
@@ -212,6 +251,7 @@ extension PhotosSelectionViewController : PhotolSelectionViewModelDelegate{
     func completedUpload(with images: [ImageModel]) {
 
         create?.photos = images
+        mainCollectionView.reloadData()
         showAlert(StringConstants.success.localized, withMessage: StringConstants.image_upload_success.localized, withCompletion : nil)
     }
 }

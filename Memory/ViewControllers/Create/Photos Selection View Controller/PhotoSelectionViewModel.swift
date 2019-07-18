@@ -34,6 +34,10 @@ class PhotoSelectionViewModel{
         return dataSource.isEmpty
     }
 
+    func delete(position : Int){
+        dataSource.remove(at: position)
+    }
+
     func removeGalleryImages(){
         dataSource.removeAll(where: {$0.localId != nil})
     }

@@ -25,9 +25,20 @@
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycs-jB-yo0" customClass="MRCheckBoxButton" customModule="Memory" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="159" height="143"/>
                     </button>
-                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="HzT-T4-Tc8">
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="HzT-T4-Tc8">
                         <rect key="frame" x="0.0" y="0.0" width="159" height="143"/>
                     </activityIndicatorView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WxQ-ws-vbc">
+                        <rect key="frame" x="124" y="0.0" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="WxQ-ws-vbc" secondAttribute="height" multiplier="1:1" id="3te-mW-kfW"/>
+                            <constraint firstAttribute="width" constant="35" id="5js-NV-ryh"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="deleteAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="1gc-MR-Djb"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
@@ -37,8 +48,10 @@
                 <constraint firstItem="HzT-T4-Tc8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8YY-Jw-1WD"/>
                 <constraint firstAttribute="bottom" secondItem="ycs-jB-yo0" secondAttribute="bottom" id="CWF-he-KqV"/>
                 <constraint firstItem="ycs-jB-yo0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="HVS-QF-FWA"/>
+                <constraint firstItem="WxQ-ws-vbc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XDT-DM-czq"/>
                 <constraint firstAttribute="bottom" secondItem="HzT-T4-Tc8" secondAttribute="bottom" id="XcJ-Mt-SXw"/>
                 <constraint firstItem="nrv-ll-y6L" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bBo-U7-vj7"/>
+                <constraint firstAttribute="trailing" secondItem="WxQ-ws-vbc" secondAttribute="trailing" id="d1C-Q8-Jsx"/>
                 <constraint firstAttribute="trailing" secondItem="HzT-T4-Tc8" secondAttribute="trailing" id="k6A-Yy-5z0"/>
                 <constraint firstItem="HzT-T4-Tc8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kIL-60-gX8"/>
                 <constraint firstAttribute="trailing" secondItem="nrv-ll-y6L" secondAttribute="trailing" id="nQV-EU-g7M"/>
@@ -49,6 +62,7 @@
             <connections>
                 <outlet property="activityIndicator" destination="HzT-T4-Tc8" id="Ke3-Pw-OjV"/>
                 <outlet property="checkBoxButton" destination="ycs-jB-yo0" id="dYL-UB-n5C"/>
+                <outlet property="deleteButton" destination="WxQ-ws-vbc" id="8HT-lO-oK6"/>
                 <outlet property="mainImageView" destination="nrv-ll-y6L" id="3gI-iH-CYS"/>
             </connections>
             <point key="canvasLocation" x="216.66666666666669" y="175.78125"/>
