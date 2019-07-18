@@ -69,12 +69,12 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
     @IBAction func uploadAction(_ sender: UIButton) {
 
         if let _ = imageView.image{
-            startImagePick(showFront: true, enableVideo: false) { [weak self] in
+            startImagePick(showFront: true) { [weak self] in
                 self?.imageView.image = nil
                 self?.uploadButton.setTitle(String.fontAwesomeIcon(name: FontAwesome.cameraRetro), for: .normal)
             }
         }else{
-            startImagePick(showFront: true, enableVideo: false, removalClosure: nil)
+            startImagePick(showFront: true, removalClosure: nil)
         }
     }
     

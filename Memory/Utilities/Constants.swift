@@ -8,6 +8,11 @@
 
 import UIKit
 
+struct ValidationConstants{
+    
+    static let imageCountLimit = 10
+}
+
 struct DeviceInfo{
     
     static let deviceId = UIDevice.current.identifierForVendor?.uuidString

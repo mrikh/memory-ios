@@ -10,6 +10,9 @@ import Foundation
 
 struct StringConstants{
 
+    //gallery
+    static let count_limit = "count_limit"
+
     //photo selection
     static let select_venue_photos = "select_venue_photos"
     static let or_skip = "or_skip"

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ImageCollectionViewCell" customModule="Memory" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="159" height="143"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="159" height="143"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nrv-ll-y6L">
+                        <rect key="frame" x="0.0" y="0.0" width="159" height="143"/>
+                    </imageView>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycs-jB-yo0" customClass="MRCheckBoxButton" customModule="Memory" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="159" height="143"/>
+                    </button>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="HzT-T4-Tc8">
+                        <rect key="frame" x="0.0" y="0.0" width="159" height="143"/>
+                    </activityIndicatorView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="nrv-ll-y6L" secondAttribute="bottom" id="177-Ek-HJE"/>
+                <constraint firstItem="ycs-jB-yo0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1bh-8H-tGA"/>
+                <constraint firstItem="nrv-ll-y6L" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5PG-cM-MPT"/>
+                <constraint firstItem="HzT-T4-Tc8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8YY-Jw-1WD"/>
+                <constraint firstAttribute="bottom" secondItem="ycs-jB-yo0" secondAttribute="bottom" id="CWF-he-KqV"/>
+                <constraint firstItem="ycs-jB-yo0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="HVS-QF-FWA"/>
+                <constraint firstAttribute="bottom" secondItem="HzT-T4-Tc8" secondAttribute="bottom" id="XcJ-Mt-SXw"/>
+                <constraint firstItem="nrv-ll-y6L" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bBo-U7-vj7"/>
+                <constraint firstAttribute="trailing" secondItem="HzT-T4-Tc8" secondAttribute="trailing" id="k6A-Yy-5z0"/>
+                <constraint firstItem="HzT-T4-Tc8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kIL-60-gX8"/>
+                <constraint firstAttribute="trailing" secondItem="nrv-ll-y6L" secondAttribute="trailing" id="nQV-EU-g7M"/>
+                <constraint firstAttribute="trailing" secondItem="ycs-jB-yo0" secondAttribute="trailing" id="woV-S2-bWI"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="159" height="143"/>
+            <connections>
+                <outlet property="activityIndicator" destination="HzT-T4-Tc8" id="Ke3-Pw-OjV"/>
+                <outlet property="checkBoxButton" destination="ycs-jB-yo0" id="dYL-UB-n5C"/>
+                <outlet property="mainImageView" destination="nrv-ll-y6L" id="3gI-iH-CYS"/>
+            </connections>
+            <point key="canvasLocation" x="216.66666666666669" y="175.78125"/>
+        </collectionViewCell>
+    </objects>
+</document>

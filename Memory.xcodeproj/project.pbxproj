@@ -93,6 +93,11 @@
 		46DCDE8222DF62B700277AC1 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46DCDE8122DF62B700277AC1 /* Common.storyboard */; };
 		46DCDE8622DF984E00277AC1 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE8522DF984E00277AC1 /* GalleryViewController.swift */; };
 		46DCDE8822DF985C00277AC1 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE8722DF985C00277AC1 /* GalleryViewModel.swift */; };
+		46DCDE8E22E0784100277AC1 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE8C22E0784100277AC1 /* ImageCollectionViewCell.swift */; };
+		46DCDE8F22E0784100277AC1 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46DCDE8D22E0784100277AC1 /* ImageCollectionViewCell.xib */; };
+		46DCDE9122E0AE4700277AC1 /* MRCheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE9022E0AE4700277AC1 /* MRCheckBoxButton.swift */; };
+		46DCDE9422E0C34B00277AC1 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE9322E0C34B00277AC1 /* ImageModel.swift */; };
+		46DCDE9622E0D00C00277AC1 /* PhotoSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE9522E0D00C00277AC1 /* PhotoSelectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -187,6 +192,11 @@
 		46DCDE8122DF62B700277AC1 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		46DCDE8522DF984E00277AC1 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		46DCDE8722DF985C00277AC1 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		46DCDE8C22E0784100277AC1 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		46DCDE8D22E0784100277AC1 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		46DCDE9022E0AE4700277AC1 /* MRCheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRCheckBoxButton.swift; sourceTree = "<group>"; };
+		46DCDE9322E0C34B00277AC1 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		46DCDE9522E0D00C00277AC1 /* PhotoSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectionViewModel.swift; sourceTree = "<group>"; };
 		C7938299BEE333E1DB6C2E75 /* Pods_Memory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -223,6 +233,7 @@
 		464EEFA7223E971000C6A40D /* Common Xib */ = {
 			isa = PBXGroup;
 			children = (
+				46DCDE8922E0780100277AC1 /* ImageCollectionViewCell */,
 				464EEFAB223EB55300C6A40D /* TextFieldTableViewCell */,
 			);
 			path = "Common Xib";
@@ -380,6 +391,7 @@
 				46DCDE7D22DF0DB400277AC1 /* Collection View Cells */,
 				46DCDE7A22DEFD7700277AC1 /* Collection Header View */,
 				465FFFF622DE627B009D222A /* PhotosSelectionViewController.swift */,
+				46DCDE9522E0D00C00277AC1 /* PhotoSelectionViewModel.swift */,
 			);
 			path = "Photos Selection View Controller";
 			sourceTree = "<group>";
@@ -536,6 +548,7 @@
 				46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */,
 				46BCE3E8223580F600CEC9C1 /* Binder.swift */,
 				46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */,
+				46DCDE9022E0AE4700277AC1 /* MRCheckBoxButton.swift */,
 			);
 			path = "Custom Classes";
 			sourceTree = "<group>";
@@ -622,10 +635,28 @@
 		46DCDE8422DF984000277AC1 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				46DCDE9222E0C34300277AC1 /* Model */,
 				46DCDE8522DF984E00277AC1 /* GalleryViewController.swift */,
 				46DCDE8722DF985C00277AC1 /* GalleryViewModel.swift */,
 			);
 			path = Gallery;
+			sourceTree = "<group>";
+		};
+		46DCDE8922E0780100277AC1 /* ImageCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				46DCDE8C22E0784100277AC1 /* ImageCollectionViewCell.swift */,
+				46DCDE8D22E0784100277AC1 /* ImageCollectionViewCell.xib */,
+			);
+			path = ImageCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		46DCDE9222E0C34300277AC1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				46DCDE9322E0C34B00277AC1 /* ImageModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5C435BCFBB900C1FCE65FB32 /* Frameworks */ = {
@@ -705,6 +736,7 @@
 				465CB38C22D1E9B2002D2B4B /* ProgressView.xib in Resources */,
 				46BCE3E622357A9A00CEC9C1 /* Localizable.strings in Resources */,
 				46BCE38B22356D2400CEC9C1 /* Assets.xcassets in Resources */,
+				46DCDE8F22E0784100277AC1 /* ImageCollectionViewCell.xib in Resources */,
 				46BCE38922356D2100CEC9C1 /* Main.storyboard in Resources */,
 				464EEFA6223E970A00C6A40D /* TextFieldTableViewCell.xib in Resources */,
 				46DCDE8222DF62B700277AC1 /* Common.storyboard in Resources */,
@@ -798,11 +830,13 @@
 				465A47D022D5B5FA00647EA6 /* OTPViewController.swift in Sources */,
 				465FFFF022DCBED5009D222A /* LocationManager.swift in Sources */,
 				465CB38622D1C476002D2B4B /* AWSHandler.swift in Sources */,
+				46DCDE9622E0D00C00277AC1 /* PhotoSelectionViewModel.swift in Sources */,
 				464EEFA5223E970A00C6A40D /* TextFieldTableViewCell.swift in Sources */,
 				465FFFF422DD9BE2009D222A /* Annotation.swift in Sources */,
 				465A47C522D487B300647EA6 /* CountryCodeViewController.swift in Sources */,
 				464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */,
 				46ACC09522D9D8CD0003973D /* CustomBackTextField.swift in Sources */,
+				46DCDE8E22E0784100277AC1 /* ImageCollectionViewCell.swift in Sources */,
 				46DCDE7F22DF0F0100277AC1 /* ButtonCollectionViewCell.swift in Sources */,
 				46ACC09822D9F5BF0003973D /* WhenViewController.swift in Sources */,
 				465FFFEE22DCB7B6009D222A /* LocationViewController.swift in Sources */,
@@ -826,6 +860,7 @@
 				465FFFE722DB83FC009D222A /* Timeinterval + Date.swift in Sources */,
 				46BCE39C22357A0D00CEC9C1 /* UserModel.swift in Sources */,
 				464EEFA1223E95C400C6A40D /* SignUpViewModel.swift in Sources */,
+				46DCDE9122E0AE4700277AC1 /* MRCheckBoxButton.swift in Sources */,
 				465FFFE222DA5865009D222A /* WhereViewController.swift in Sources */,
 				46BCE3C922357A3100CEC9C1 /* APIManager.swift in Sources */,
 				46BCE3F12235816D00CEC9C1 /* MRActivityIndicator.m in Sources */,
@@ -854,6 +889,7 @@
 				46DCDE8622DF984E00277AC1 /* GalleryViewController.swift in Sources */,
 				46BCE3A122357A2100CEC9C1 /* ValidationController.swift in Sources */,
 				465A47C022D3CF5000647EA6 /* PhoneNumberViewModel.swift in Sources */,
+				46DCDE9422E0C34B00277AC1 /* ImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

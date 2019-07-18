@@ -6,6 +6,8 @@
   Copyright © 2019 Mayank Rikh. All rights reserved.
 */
 
+//gallery
+"count_limit" = "Sorry, currently you are allowed to upload a maximum of 10 images";
 
 //photo selection
 "select_venue_photos" = "Select photos to upload for the venue";

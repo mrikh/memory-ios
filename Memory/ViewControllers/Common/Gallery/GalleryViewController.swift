@@ -6,12 +6,19 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
+import FontAwesome_swift
 import UIKit
+
+protocol GalleryViewControllerDelegate : AnyObject{
+
+    func userDidSelect(images : [ImageModel])
+}
 
 class GalleryViewController: BaseViewController {
 
     @IBOutlet weak var mainCollectionView: UICollectionView!
-    let viewModel = GalleryViewModel()
+    var viewModel = GalleryViewModel()
+    weak var delegate : GalleryViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,20 +35,22 @@ class GalleryViewController: BaseViewController {
     //MARK:- Private
     private func initialSetup(){
 
-        navigationItem.title = StringConstants.Gallery.localized
-
-        mainCollectionView.register(GalleryCollectionViewCell.nib, forCellWithReuseIdentifier: GalleryCollectionViewCell.identifier)
-
-        viewModel.fetchAssestsFromPhotoLibrary()
-        viewModel.delegate = self
+        navigationItem.title = StringConstants.gallery.localized
+        mainCollectionView.register(ImageCollectionViewCell.nib, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
 
         viewModel.reloadCollection = { [weak self] in
             self?.mainCollectionView.reloadData()
         }
 
-        let rightButton = UIBarButtonItem(title: StringConstants.Done.localized, style: .done, target: self, action: #selector(rightButtonTapped(_:)))
+        viewModel.delegate = self
+        viewModel.fetchAssestsFromPhotoLibrary()
+
+        let rightButton = UIBarButtonItem(image: UIImage.fontAwesomeIcon(name: FontAwesome.check, style: .solid, textColor: Colors.black, size: CGSize(width: 35.0, height : 35.0)), style: .plain, target: self, action: #selector(rightButtonTapped(_:)))
         rightButton.isEnabled = false
         navigationItem.rightBarButtonItem = rightButton
+
+        let leftButton = UIBarButtonItem(image: UIImage.fontAwesomeIcon(name: FontAwesome.times, style: .solid, textColor: Colors.black, size: CGSize(width: 35.0, height : 35.0)), style: .plain, target: self, action: #selector(backButtonTapped(_:)))
+        navigationItem.leftBarButtonItem = leftButton
     }
 
     @objc func rightButtonTapped(_ sender : UIBarButtonItem){
@@ -49,9 +58,14 @@ class GalleryViewController: BaseViewController {
         viewModel.completeImageSelection()
     }
 
+    @objc func backButtonTapped(_ sender : UIBarButtonItem){
+
+        dismiss(animated: true, completion: nil)
+    }
+
     private func enableButton(){
 
-        navigationItem.rightBarButtonItem?.isEnabled = viewModel.shouldEnableDone
+        navigationItem.rightBarButtonItem?.isEnabled = viewModel.isAnyAssetSelected
     }
 }
 
@@ -69,19 +83,13 @@ extension GalleryViewController : UICollectionViewDelegate, UICollectionViewData
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.identifier, for: indexPath) as? GalleryCollectionViewCell else {return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as? ImageCollectionViewCell else { return UICollectionViewCell(frame: CGRect.zero) }
 
-        if viewModel.showCamera && indexPath.item == 0{
-
-            cell.configureForCameraCell()
-        }else{
-
-            viewModel.fetchImage(atPosition: indexPath.item) { (image) in
-                cell.mainImageView.image = image
-            }
-
-            cell.updateContainerView(isSelected: viewModel.isSelected(atPosition: indexPath.item))
+        viewModel.fetchImage(atPosition: indexPath.item) { (image) in
+            cell.mainImageView.image = image
         }
+
+        cell.configure(currentSelected: viewModel.isSelected(atPosition: indexPath.item), animated : false)
 
         return cell
     }
@@ -94,62 +102,17 @@ extension GalleryViewController : UICollectionViewDelegate, UICollectionViewData
 
 extension GalleryViewController : GalleryViewModelDelegate{
 
-    func addedNewItem(atPosition position : Int) {
+    func completed(with images: [ImageModel]) {
 
-        mainCollectionView.insertItems(at: [[0, position]])
-    }
-
-    func didSelectCamera() {
-
-        openCamera(showFront: true)
-    }
-
-    func startSingleSelection(singleImageInfo: (image: UIImage, asset: PHAsset)) {
-
-        viewModel.phAssetBeingCropped = singleImageInfo.asset
-
-        let cropViewController = TOCropViewController(croppingStyle: .circular, image: singleImageInfo.image)
-        cropViewController.delegate = self
-        present(cropViewController, animated: true, completion: nil)
-    }
-
-    func startMultipleSelection(multipleImagesInfo: [(image: UIImage, asset: PHAsset)]) {
-        #warning ("Show gallery")
+        delegate?.userDidSelect(images: images)
+        dismiss(animated: true, completion: nil)
     }
 
     func select(atPosition position: Int, select : Bool) {
 
         enableButton()
 
-        guard let cell = mainCollectionView.cellForItem(at: [0, position]) as? GalleryCollectionViewCell else {return}
-        cell.updateContainerView(isSelected: select)
-    }
-}
-
-extension GalleryViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-
-        guard let image = info[.originalImage] as? UIImage else { return }
-        viewModel.addImage(image)
-        dismiss(animated: true, completion: nil)
-    }
-}
-
-extension GalleryViewController : TOCropViewControllerDelegate{
-
-    func cropViewController(_ cropViewController: TOCropViewController, didCropToImage image: UIImage, rect cropRect: CGRect, angle: Int) {
-
-        dismiss(animated: true, completion: nil)
-        navigationController?.popViewController(animated: false)
-
-        if let tempAsset = viewModel.phAssetBeingCropped{
-            completedSelection?([(image : image, asset : tempAsset)])
-        }
-    }
-
-    func cropViewController(_ cropViewController: TOCropViewController, didFinishCancelled cancelled: Bool) {
-
-        dismiss(animated: true, completion: nil)
+        guard let cell = mainCollectionView.cellForItem(at: [0, position]) as? ImageCollectionViewCell else {return}
+        cell.configure(currentSelected: select, animated: true)
     }
 }
