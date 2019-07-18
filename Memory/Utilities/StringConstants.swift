@@ -14,6 +14,9 @@ struct StringConstants{
     static let count_limit = "count_limit"
 
     //photo selection
+    static let press_again = "press_again"
+    static let image_upload_success = "image_upload_success"
+    static let error_upload = "error_upload"
     static let select_venue_photos = "select_venue_photos"
     static let or_skip = "or_skip"
     static let `continue` = "continue"

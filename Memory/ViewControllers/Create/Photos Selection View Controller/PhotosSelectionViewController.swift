@@ -53,9 +53,9 @@ extension PhotosSelectionViewController : UICollectionViewDelegate, UICollection
 
         if indexPath.item == viewModel.selectedCount{
             if viewModel.isSelectedEmpty{
-                return CGSize(width : collectionView.bounds.width, height : collectionView.bounds.height - 70.0)
+                return CGSize(width : collectionView.bounds.width, height : collectionView.bounds.height - 90.0)
             }else{
-                return CGSize(width : collectionView.bounds.width, height : 70.0)
+                return CGSize(width : collectionView.bounds.width, height : 90.0)
             }
         }else{
             let width = collectionView.bounds.width/3.0
@@ -122,9 +122,17 @@ extension PhotosSelectionViewController : UICollectionViewDelegate, UICollection
 
                 cell.buttonAction = { [weak self] in
                     self?.viewModel.startUpload()
+                    self?.delegate?.userDidPressContinue()
                 }
 
-                cell.mainButton.setAttributedTitle(NSAttributedString(string : StringConstants.continue.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
+                if !viewModel.movedPast{
+
+                    cell.mainButton.setAttributedTitle(NSAttributedString(string : StringConstants.continue.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
+                }else{
+                    
+                    //user already did this step and came back
+                    cell.mainButton.setAttributedTitle(NSAttributedString(string : StringConstants.press_again.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
+                }
             }
 
             return cell
@@ -134,6 +142,7 @@ extension PhotosSelectionViewController : UICollectionViewDelegate, UICollection
 
             let image = viewModel.dataSource[indexPath.item]
             cell.mainImageView.image = image.image
+            cell.updateLoader(animate: image.isUploading)
 
             return cell
         }
@@ -200,14 +209,9 @@ extension PhotosSelectionViewController : PhotolSelectionViewModelDelegate{
         }
     }
 
-    func uploadError(position: Int) {
-
-        //TODO:- Add retry
-    }
-
-    func completedUpload(with images: [String]) {
+    func completedUpload(with images: [ImageModel]) {
 
         create?.photos = images
-        delegate?.userDidPressContinue()
+        showAlert(StringConstants.success.localized, withMessage: StringConstants.image_upload_success.localized, withCompletion : nil)
     }
 }

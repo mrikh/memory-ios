@@ -19,7 +19,7 @@ class CreateModel{
     var lat : Double?
     var long : Double?
 
-    var photos = [String]()
+    var photos = [ImageModel]()
 
     var invited = [String]()
 

@@ -12,9 +12,12 @@ struct ImageModel{
 
     var image : UIImage
     var localId : String?
+    var urlString : String?
+    var isUploading : Bool = false
 
-    init(image : UIImage, localId : String?){
+    init(image : UIImage, localId : String?, urlString : String? = nil){
         self.image = image
         self.localId = localId
+        self.urlString = urlString
     }
 }

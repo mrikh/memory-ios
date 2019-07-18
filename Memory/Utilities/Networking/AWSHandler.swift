@@ -76,4 +76,25 @@ class AWSHandler{
             return nil
         }
     }
+
+    static func deleteImage(withUrl urlString : String, completion : ((Bool, String)->())?){
+
+        let s3Service = AWSS3.default()
+        guard let deleteObjectRequest = AWSS3DeleteObjectRequest() else {
+            completion?(false, urlString)
+            return
+        }
+
+        deleteObjectRequest.bucket = AWSKeys.bucket_name
+        deleteObjectRequest.key = "0.jpeg" // File name
+
+        s3Service.deleteObject(deleteObjectRequest).continueWith { (task:AWSTask) -> AnyObject? in
+            if let _ = task.error {
+                completion?(false, urlString)
+                return nil
+            }
+            completion?(true, urlString)
+            return nil
+        }
+    }
 }

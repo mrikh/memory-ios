@@ -14,7 +14,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-
     override func awakeFromNib() {
 
         super.awakeFromNib()
@@ -30,7 +29,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     }
 
     func updateLoader(animate : Bool){
-        
+
         animate ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
     }
 

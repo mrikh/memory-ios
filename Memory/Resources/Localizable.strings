@@ -10,6 +10,9 @@
 "count_limit" = "Sorry, currently you are allowed to upload a maximum of 10 images";
 
 //photo selection
+"press_again" = "Press this button to save any new images.";
+"image_upload_success" = "All images have been uploaded";
+"error_upload" = "There was an error when uploading some photos. Press continue to retry them again.";
 "select_venue_photos" = "Select photos to upload for the venue";
 "or_skip" = "or you can skip this one!";
 "continue" = "Continue";
