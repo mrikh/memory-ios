@@ -101,6 +101,7 @@
 		46DCDE9922E18B2B00277AC1 /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE9822E18B2B00277AC1 /* InviteFriendsViewController.swift */; };
 		46DCDE9F22E303DA00277AC1 /* ExtraInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE9E22E303DA00277AC1 /* ExtraInfoViewController.swift */; };
 		46DCDEA222E38FC800277AC1 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDEA122E38FC800277AC1 /* NameViewController.swift */; };
+		46DCDEA522E399C700277AC1 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDEA422E399C700277AC1 /* EventDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -203,6 +204,7 @@
 		46DCDE9822E18B2B00277AC1 /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
 		46DCDE9E22E303DA00277AC1 /* ExtraInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraInfoViewController.swift; sourceTree = "<group>"; };
 		46DCDEA122E38FC800277AC1 /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
+		46DCDEA422E399C700277AC1 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		C7938299BEE333E1DB6C2E75 /* Pods_Memory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -274,6 +276,7 @@
 		465A47BA22D3C4BD00647EA6 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				465CB39522D26C3C002D2B4B /* HomeViewController.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -352,7 +355,7 @@
 		465CB39222D26A44002D2B4B /* Explore  */ = {
 			isa = PBXGroup;
 			children = (
-				465CB39522D26C3C002D2B4B /* HomeViewController.swift */,
+				46DCDEA322E399B200277AC1 /* Event Detail View Controller */,
 			);
 			path = "Explore ";
 			sourceTree = "<group>";
@@ -700,6 +703,14 @@
 			path = "Name View Controller";
 			sourceTree = "<group>";
 		};
+		46DCDEA322E399B200277AC1 /* Event Detail View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				46DCDEA422E399C700277AC1 /* EventDetailViewController.swift */,
+			);
+			path = "Event Detail View Controller";
+			sourceTree = "<group>";
+		};
 		5C435BCFBB900C1FCE65FB32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -929,6 +940,7 @@
 				465CB38B22D1E9B2002D2B4B /* ProgressView.swift in Sources */,
 				46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */,
 				465A47BE22D3C7C800647EA6 /* LoginToContinueViewController.swift in Sources */,
+				46DCDEA522E399C700277AC1 /* EventDetailViewController.swift in Sources */,
 				46DCDE9922E18B2B00277AC1 /* InviteFriendsViewController.swift in Sources */,
 				46DCDE8622DF984E00277AC1 /* GalleryViewController.swift in Sources */,
 				46BCE3A122357A2100CEC9C1 /* ValidationController.swift in Sources */,

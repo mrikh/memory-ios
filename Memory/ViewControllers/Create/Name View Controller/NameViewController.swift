@@ -75,11 +75,13 @@ extension NameViewController : UITextFieldDelegate{
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
-        mainTextField.hideErrorMessage(true)
-        mainTextField.errorString = nil
-
         let currentText = textField.text ?? ""
         let replacedText = (currentText as NSString).replacingCharacters(in: range, with: string)
+
+        if replacedText.count >= ValidationConstants.eventNameLimit { return false }
+
+        mainTextField.hideErrorMessage(true)
+        mainTextField.errorString = nil
         
         createModel?.name = replacedText
         
