@@ -77,6 +77,11 @@ extension NameViewController : UITextFieldDelegate{
 
         mainTextField.hideErrorMessage(true)
         mainTextField.errorString = nil
+
+        let currentText = textField.text ?? ""
+        let replacedText = (currentText as NSString).replacingCharacters(in: range, with: string)
+        
+        createModel?.name = replacedText
         
         return true
     }
