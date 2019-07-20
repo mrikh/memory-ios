@@ -131,7 +131,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0If-ba-1a6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="426" y="-664"/>
+            <point key="canvasLocation" x="257" y="-664"/>
         </scene>
         <!--Phone Number View Controller-->
         <scene sceneID="3yR-gA-bmp">

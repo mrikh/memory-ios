@@ -10,6 +10,17 @@ import Foundation
 
 struct StringConstants{
 
+    //additional info
+    static let anyone_join = "anyone_join"
+    static let selected_friends = "selected_friends"
+    static let anyone = "anyone"
+    static let anything_else_add = "anything_else_add"
+    static let write_here = "write_here"
+
+    //friend select create
+    static let no_friends = "no_friends"
+    static let select_friends = "select_friends"
+
     //gallery
     static let count_limit = "count_limit"
 

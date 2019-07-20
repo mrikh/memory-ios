@@ -98,6 +98,8 @@
 		46DCDE9122E0AE4700277AC1 /* MRCheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE9022E0AE4700277AC1 /* MRCheckBoxButton.swift */; };
 		46DCDE9422E0C34B00277AC1 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE9322E0C34B00277AC1 /* ImageModel.swift */; };
 		46DCDE9622E0D00C00277AC1 /* PhotoSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE9522E0D00C00277AC1 /* PhotoSelectionViewModel.swift */; };
+		46DCDE9922E18B2B00277AC1 /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE9822E18B2B00277AC1 /* InviteFriendsViewController.swift */; };
+		46DCDE9F22E303DA00277AC1 /* ExtraInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE9E22E303DA00277AC1 /* ExtraInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -197,6 +199,8 @@
 		46DCDE9022E0AE4700277AC1 /* MRCheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRCheckBoxButton.swift; sourceTree = "<group>"; };
 		46DCDE9322E0C34B00277AC1 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		46DCDE9522E0D00C00277AC1 /* PhotoSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectionViewModel.swift; sourceTree = "<group>"; };
+		46DCDE9822E18B2B00277AC1 /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
+		46DCDE9E22E303DA00277AC1 /* ExtraInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraInfoViewController.swift; sourceTree = "<group>"; };
 		C7938299BEE333E1DB6C2E75 /* Pods_Memory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -233,6 +237,7 @@
 		464EEFA7223E971000C6A40D /* Common Xib */ = {
 			isa = PBXGroup;
 			children = (
+				46DCDE9C22E1A13900277AC1 /* Friends Table View Cell */,
 				46DCDE8922E0780100277AC1 /* ImageCollectionViewCell */,
 				464EEFAB223EB55300C6A40D /* TextFieldTableViewCell */,
 			);
@@ -253,8 +258,9 @@
 			isa = PBXGroup;
 			children = (
 				465FFFE322DA5C2A009D222A /* Model */,
+				46DCDE9D22E303C000277AC1 /* Extra Information */,
+				46DCDE9722E18B1400277AC1 /* Invite Friends */,
 				465FFFF522DE5B47009D222A /* Photos Selection View Controller */,
-				465FFFEC22DCB559009D222A /* Location View Controller */,
 				46ACC09D22DA1F350003973D /* Where View Controller */,
 				46ACC09622D9F59D0003973D /* When View Controller */,
 				46ACC09B22DA1B380003973D /* CreatePageViewController.swift */,
@@ -407,6 +413,7 @@
 		46ACC09D22DA1F350003973D /* Where View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				465FFFEC22DCB559009D222A /* Location View Controller */,
 				465FFFE122DA5865009D222A /* WhereViewController.swift */,
 			);
 			path = "Where View Controller";
@@ -659,6 +666,29 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		46DCDE9722E18B1400277AC1 /* Invite Friends */ = {
+			isa = PBXGroup;
+			children = (
+				46DCDE9822E18B2B00277AC1 /* InviteFriendsViewController.swift */,
+			);
+			path = "Invite Friends";
+			sourceTree = "<group>";
+		};
+		46DCDE9C22E1A13900277AC1 /* Friends Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Friends Table View Cell";
+			sourceTree = "<group>";
+		};
+		46DCDE9D22E303C000277AC1 /* Extra Information */ = {
+			isa = PBXGroup;
+			children = (
+				46DCDE9E22E303DA00277AC1 /* ExtraInfoViewController.swift */,
+			);
+			path = "Extra Information";
+			sourceTree = "<group>";
+		};
 		5C435BCFBB900C1FCE65FB32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -859,6 +889,7 @@
 				465CB39822D2811F002D2B4B /* LoginViewModel.swift in Sources */,
 				465FFFE722DB83FC009D222A /* Timeinterval + Date.swift in Sources */,
 				46BCE39C22357A0D00CEC9C1 /* UserModel.swift in Sources */,
+				46DCDE9F22E303DA00277AC1 /* ExtraInfoViewController.swift in Sources */,
 				464EEFA1223E95C400C6A40D /* SignUpViewModel.swift in Sources */,
 				46DCDE9122E0AE4700277AC1 /* MRCheckBoxButton.swift in Sources */,
 				465FFFE222DA5865009D222A /* WhereViewController.swift in Sources */,
@@ -886,6 +917,7 @@
 				465CB38B22D1E9B2002D2B4B /* ProgressView.swift in Sources */,
 				46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */,
 				465A47BE22D3C7C800647EA6 /* LoginToContinueViewController.swift in Sources */,
+				46DCDE9922E18B2B00277AC1 /* InviteFriendsViewController.swift in Sources */,
 				46DCDE8622DF984E00277AC1 /* GalleryViewController.swift in Sources */,
 				46BCE3A122357A2100CEC9C1 /* ValidationController.swift in Sources */,
 				465A47C022D3CF5000647EA6 /* PhoneNumberViewModel.swift in Sources */,

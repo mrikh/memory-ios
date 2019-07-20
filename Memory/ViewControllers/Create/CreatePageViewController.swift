@@ -64,7 +64,7 @@ extension CreatePageViewController : UIPageViewControllerDataSource{
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
 
         guard let index = createViewControllers.firstIndex(of: viewController) else { return nil }
-        guard index == createViewControllers.count - 1 else { return nil }
+        guard index < createViewControllers.count - 1 else { return nil }
 
         return checkForViewController(at : index + 1)
     }
@@ -104,8 +104,51 @@ extension CreatePageViewController : WhereViewControllerDelegate{
         }
 
         let photoVC = PhotosSelectionViewController.instantiate(fromAppStoryboard: .Create)
+        photoVC.delegate = self
         photoVC.create = createModel
         createViewControllers.append(photoVC)
         setViewControllers([photoVC], direction: .forward, animated: true, completion: nil)
+    }
+}
+
+extension CreatePageViewController : PhotoSelectionViewControllerDelegate{
+
+    func userDidPressContinue() {
+
+        if let position = createViewControllers.firstIndex(where: {$0 is InviteFriendsViewController}){
+            setViewControllers([createViewControllers[position]], direction: .forward, animated: true, completion: nil)
+            return
+        }
+
+        let invite = InviteFriendsViewController.instantiate(fromAppStoryboard: .Create)
+        invite.create = createModel
+        invite.delegate = self
+        createViewControllers.append(invite)
+        setViewControllers([invite], direction: .forward, animated: true, completion: nil)
+    }
+}
+
+extension CreatePageViewController : InviteFriendsViewControllerDelegate{
+
+    func didPressNext() {
+
+        if let position = createViewControllers.firstIndex(where: {$0 is ExtraInfoViewController}){
+            setViewControllers([createViewControllers[position]], direction: .forward, animated: true, completion: nil)
+            return
+        }
+
+        let extra = ExtraInfoViewController.instantiate(fromAppStoryboard: .Create)
+        extra.createModel = createModel
+        extra.delegate = self
+        createViewControllers.append(extra)
+        setViewControllers([extra], direction: .forward, animated: true, completion: nil)
+    }
+}
+
+extension CreatePageViewController : ExtraInfoViewControllerDelegate{
+
+    func didPressDone() {
+
+
     }
 }

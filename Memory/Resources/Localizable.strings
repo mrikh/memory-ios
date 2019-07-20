@@ -6,6 +6,17 @@
   Copyright © 2019 Mayank Rikh. All rights reserved.
 */
 
+//additional info
+"anyone_join" = "Allow anyone to join or only selected friends?";
+"selected_friends" = "Selected Friends";
+"anyone" = "Anyone";
+"anything_else_add" = "Anything else you want to add?";
+"write_here" = "Write here";
+
+//friend select create
+"no_friends" = "You don't seem to have any friends!";
+"select_friends" = "Anybody specific you wanna invite?";
+
 //gallery
 "count_limit" = "Sorry, currently you are allowed to upload a maximum of 10 images";
 

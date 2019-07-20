@@ -224,7 +224,8 @@ extension PhotosSelectionViewController : GalleryViewControllerDelegate{
 
     func userDidSelect(images: [ImageModel]) {
 
-        //TODO:- remove all images selected from gallery in model as we are getting new ones. Apply better logic
+        //remove all images selected from gallery in model as we are getting new ones.
+        #warning("Apply better logic")
         viewModel.removeGalleryImages()
 
         viewModel.add(images: images)
@@ -252,6 +253,5 @@ extension PhotosSelectionViewController : PhotolSelectionViewModelDelegate{
 
         create?.photos = images
         mainCollectionView.reloadData()
-        showAlert(StringConstants.success.localized, withMessage: StringConstants.image_upload_success.localized, withCompletion : nil)
     }
 }

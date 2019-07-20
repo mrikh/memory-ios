@@ -64,7 +64,7 @@ class PhotoSelectionViewModel{
 
             group.enter()
 
-            //TODO:- maintain order of upload response urls
+            #warning("maintain order of upload response urls")
             delegate?.uploadBegan(position : index)
             dataSource[index].isUploading = true
             

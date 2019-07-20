@@ -15,14 +15,10 @@ class BaseViewController: UIViewController, AlertProtocol {
     
     /// Boolean value to determine wether we need to show the empty data set or not
     var isLoading : Bool = true
-    
     var emptyDataSetString : String = StringConstants.no_data_found.localized
-
     var keyboardVisible : Bool = false
-
     var extraPadding : CGFloat = 0.0
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -65,7 +61,7 @@ extension BaseViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
         
-        return UIScreen.main.bounds.height/5.0
+        return 0.0
     }
 
     func emptyDataSetShouldAllowTouch(_ scrollView: UIScrollView!) -> Bool {
