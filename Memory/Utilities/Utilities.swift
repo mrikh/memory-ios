@@ -11,7 +11,7 @@ import Foundation
 class Utilities{
 
     static var uniqueName : String{
-        return "\(UserModel.current.user_id)\(Int64(Date().timeIntervalSince1970 * 1000))"
+        return "\(UserModel.current.userId)\(Int64(Date().timeIntervalSince1970 * 1000))"
     }
 
     static func resizeImage(_ sourceImage : UIImage, toWidth scaledToWidth : CGFloat = 1024.0) -> UIImage? {

@@ -29,7 +29,7 @@ class CreateModel{
     var privacy : Privacy = .selectedFriends
     var photos = [ImageModel]()
 
-    var invited = [String]()
+    var invited = [FriendModel]()
 
     var otherDetails : String?
 }

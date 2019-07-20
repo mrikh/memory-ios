@@ -257,13 +257,19 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlm-nq-qw3" userLabel="Privacy">
-                                            <rect key="frame" x="15" y="397.5" width="345" height="20.5"/>
+                                            <rect key="frame" x="15" y="426" width="345" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzt-dd-C5r">
-                                            <rect key="frame" x="15" y="433" width="345" height="20.5"/>
+                                            <rect key="frame" x="15" y="461.5" width="345" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3um-uy-au8">
+                                            <rect key="frame" x="15" y="380.5" width="345" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -292,9 +298,12 @@
                                         <constraint firstItem="K75-sn-qdv" firstAttribute="leading" secondItem="vWl-jX-9QX" secondAttribute="leading" constant="15" id="lkE-J5-gpM"/>
                                         <constraint firstItem="4pb-H8-Vv1" firstAttribute="top" secondItem="K75-sn-qdv" secondAttribute="bottom" constant="8" id="nG1-TI-kFg"/>
                                         <constraint firstItem="eaQ-cF-mMl" firstAttribute="trailing" secondItem="ClO-HH-2tw" secondAttribute="trailing" id="neu-kA-O6L"/>
+                                        <constraint firstItem="3um-uy-au8" firstAttribute="top" secondItem="RKS-ET-6gC" secondAttribute="bottom" constant="8" id="rkv-jg-Ekp"/>
                                         <constraint firstItem="eaQ-cF-mMl" firstAttribute="leading" secondItem="ClO-HH-2tw" secondAttribute="leading" id="sjD-Zf-wtl"/>
-                                        <constraint firstItem="qlm-nq-qw3" firstAttribute="top" secondItem="RKS-ET-6gC" secondAttribute="bottom" constant="25" id="tUZ-fv-DaM"/>
+                                        <constraint firstItem="3um-uy-au8" firstAttribute="trailing" secondItem="RKS-ET-6gC" secondAttribute="trailing" id="tb2-60-cq7"/>
                                         <constraint firstItem="nzt-dd-C5r" firstAttribute="leading" secondItem="qlm-nq-qw3" secondAttribute="leading" id="trp-bI-40L"/>
+                                        <constraint firstItem="qlm-nq-qw3" firstAttribute="top" secondItem="3um-uy-au8" secondAttribute="bottom" constant="25" id="wg8-we-n1x"/>
+                                        <constraint firstItem="3um-uy-au8" firstAttribute="leading" secondItem="RKS-ET-6gC" secondAttribute="leading" id="xTV-vR-GAw"/>
                                         <constraint firstAttribute="trailing" secondItem="WI0-QA-hYl" secondAttribute="trailing" id="yMK-sE-v7j"/>
                                     </constraints>
                                 </view>
@@ -303,26 +312,64 @@
                                     <outlet property="delegate" destination="AJb-Tu-idN" id="VLK-IH-mdo"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kon-2q-0Vg" userLabel="Back Button">
+                                <rect key="frame" x="15" y="25" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="backAction:" destination="AJb-Tu-idN" eventType="touchUpInside" id="JSb-9Y-yUP"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hll-08-UTW" userLabel="Join Button">
                                 <rect key="frame" x="0.0" y="621" width="375" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="utC-UK-aiq"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="joinAction:" destination="AJb-Tu-idN" eventType="touchUpInside" id="ZdX-ZY-LSV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="kon-2q-0Vg" firstAttribute="leading" secondItem="pBw-4D-nGK" secondAttribute="leading" constant="15" id="5pJ-TY-NXU"/>
                             <constraint firstItem="hll-08-UTW" firstAttribute="leading" secondItem="pBw-4D-nGK" secondAttribute="leading" id="A8f-lM-dIy"/>
                             <constraint firstItem="FsZ-yU-mcP" firstAttribute="top" secondItem="gLc-wn-2c3" secondAttribute="top" id="RRG-M9-v4q"/>
                             <constraint firstItem="pBw-4D-nGK" firstAttribute="trailing" secondItem="FsZ-yU-mcP" secondAttribute="trailing" id="cRK-0F-nSA"/>
                             <constraint firstItem="FsZ-yU-mcP" firstAttribute="leading" secondItem="pBw-4D-nGK" secondAttribute="leading" id="dyG-bd-oU9"/>
                             <constraint firstItem="pBw-4D-nGK" firstAttribute="trailing" secondItem="hll-08-UTW" secondAttribute="trailing" id="fyB-Yo-O2p"/>
+                            <constraint firstItem="kon-2q-0Vg" firstAttribute="top" secondItem="pBw-4D-nGK" secondAttribute="top" constant="5" id="k9l-Qm-4UG"/>
                             <constraint firstItem="pBw-4D-nGK" firstAttribute="bottom" secondItem="hll-08-UTW" secondAttribute="bottom" id="u5A-Sd-vgk"/>
                             <constraint firstAttribute="bottom" secondItem="FsZ-yU-mcP" secondAttribute="bottom" id="zU9-kW-Xv4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pBw-4D-nGK"/>
                     </view>
+                    <connections>
+                        <outlet property="additionalInfoLabel" destination="nzt-dd-C5r" id="MAy-r4-y0X"/>
+                        <outlet property="addressDetail" destination="RKS-ET-6gC" id="ZFb-Ms-kPF"/>
+                        <outlet property="addressTitle" destination="eaQ-cF-mMl" id="8z2-4T-FDK"/>
+                        <outlet property="backButton" destination="kon-2q-0Vg" id="eR9-pL-1c1"/>
+                        <outlet property="creatorImageView" destination="bsN-f6-H4T" id="Wou-6g-mAR"/>
+                        <outlet property="creatorInfoView" destination="4pb-H8-Vv1" id="zm3-nl-dxX"/>
+                        <outlet property="creatorNameLabel" destination="2sq-GR-SWn" id="g67-C9-oIa"/>
+                        <outlet property="dateView" destination="ClO-HH-2tw" id="H9M-X2-Ohf"/>
+                        <outlet property="endDateLabel" destination="0SB-Sj-sJR" id="9v2-dr-p22"/>
+                        <outlet property="endDateView" destination="EGr-Tf-tXL" id="Bak-bz-tHo"/>
+                        <outlet property="endDayLabel" destination="KRz-73-p78" id="WeU-zO-b3b"/>
+                        <outlet property="endMonthLabel" destination="RrR-F7-eCJ" id="6nd-m1-ae6"/>
+                        <outlet property="endTimeLabel" destination="4I3-vc-TXa" id="6TU-cx-bKf"/>
+                        <outlet property="joinButton" destination="hll-08-UTW" id="LtR-ni-Xye"/>
+                        <outlet property="mainTableView" destination="FsZ-yU-mcP" id="FOA-Kz-koS"/>
+                        <outlet property="nameLabel" destination="K75-sn-qdv" id="Zmv-2U-aFO"/>
+                        <outlet property="nearbyLabel" destination="3um-uy-au8" id="4vl-19-RbU"/>
+                        <outlet property="photosView" destination="WI0-QA-hYl" id="agi-Hn-Pop"/>
+                        <outlet property="privacyLabel" destination="qlm-nq-qw3" id="NJt-yq-9hP"/>
+                        <outlet property="startDateLabel" destination="534-La-TXL" id="8TG-Qy-fH1"/>
+                        <outlet property="startDateView" destination="CcE-s1-P73" id="cO6-iH-2bQ"/>
+                        <outlet property="startDayLabel" destination="dQO-IX-EYx" id="tJP-Sx-3aw"/>
+                        <outlet property="startMonthLabel" destination="FyQ-cj-RiD" id="o3J-cB-gMJ"/>
+                        <outlet property="startTimeLabel" destination="uKp-D7-XXb" id="bX1-3s-ro2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Rm-RX-Qen" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
