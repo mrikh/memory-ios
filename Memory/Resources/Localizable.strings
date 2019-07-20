@@ -6,6 +6,10 @@
   Copyright © 2019 Mayank Rikh. All rights reserved.
 */
 
+//name
+"enter_name" = "Enter the name";
+"name_question" = "What would you like to name the event? Make it catchy.";
+
 //additional info
 "anyone_join" = "Allow anyone to join or only selected friends?";
 "selected_friends" = "Selected Friends";

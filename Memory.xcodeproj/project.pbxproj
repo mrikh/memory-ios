@@ -100,6 +100,7 @@
 		46DCDE9622E0D00C00277AC1 /* PhotoSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE9522E0D00C00277AC1 /* PhotoSelectionViewModel.swift */; };
 		46DCDE9922E18B2B00277AC1 /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE9822E18B2B00277AC1 /* InviteFriendsViewController.swift */; };
 		46DCDE9F22E303DA00277AC1 /* ExtraInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE9E22E303DA00277AC1 /* ExtraInfoViewController.swift */; };
+		46DCDEA222E38FC800277AC1 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDEA122E38FC800277AC1 /* NameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -201,6 +202,7 @@
 		46DCDE9522E0D00C00277AC1 /* PhotoSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectionViewModel.swift; sourceTree = "<group>"; };
 		46DCDE9822E18B2B00277AC1 /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
 		46DCDE9E22E303DA00277AC1 /* ExtraInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraInfoViewController.swift; sourceTree = "<group>"; };
+		46DCDEA122E38FC800277AC1 /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		C7938299BEE333E1DB6C2E75 /* Pods_Memory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -259,6 +261,7 @@
 			children = (
 				465FFFE322DA5C2A009D222A /* Model */,
 				46DCDE9D22E303C000277AC1 /* Extra Information */,
+				46DCDEA022E38FB900277AC1 /* Name View Controller */,
 				46DCDE9722E18B1400277AC1 /* Invite Friends */,
 				465FFFF522DE5B47009D222A /* Photos Selection View Controller */,
 				46ACC09D22DA1F350003973D /* Where View Controller */,
@@ -689,6 +692,14 @@
 			path = "Extra Information";
 			sourceTree = "<group>";
 		};
+		46DCDEA022E38FB900277AC1 /* Name View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				46DCDEA122E38FC800277AC1 /* NameViewController.swift */,
+			);
+			path = "Name View Controller";
+			sourceTree = "<group>";
+		};
 		5C435BCFBB900C1FCE65FB32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -862,6 +873,7 @@
 				465CB38622D1C476002D2B4B /* AWSHandler.swift in Sources */,
 				46DCDE9622E0D00C00277AC1 /* PhotoSelectionViewModel.swift in Sources */,
 				464EEFA5223E970A00C6A40D /* TextFieldTableViewCell.swift in Sources */,
+				46DCDEA222E38FC800277AC1 /* NameViewController.swift in Sources */,
 				465FFFF422DD9BE2009D222A /* Annotation.swift in Sources */,
 				465A47C522D487B300647EA6 /* CountryCodeViewController.swift in Sources */,
 				464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */,

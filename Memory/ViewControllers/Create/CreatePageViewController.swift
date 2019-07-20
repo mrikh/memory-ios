@@ -38,11 +38,11 @@ class CreatePageViewController: UIPageViewController{
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = Colors.white
 
-        let when = WhenViewController.instantiate(fromAppStoryboard: .Create)
-        when.createModel = createModel
-        when.delegate = self
+        let name = NameViewController.instantiate(fromAppStoryboard: .Create)
+        name.createModel = createModel
+        name.delegate = self
         
-        createViewControllers.append(when)
+        createViewControllers.append(name)
         if let first = createViewControllers.first{
             setViewControllers([first], direction: .forward, animated: true, completion: nil)
         }
@@ -74,6 +74,23 @@ extension CreatePageViewController : UIPageViewControllerDataSource{
 
         if position < 0 || position > createViewControllers.count - 1 { return nil }
         return createViewControllers[position]
+    }
+}
+
+extension CreatePageViewController : NameViewControllerDelegate{
+
+    func userDidComplete() {
+
+        if let position = createViewControllers.firstIndex(where: {$0 is WhenViewController}){
+            setViewControllers([createViewControllers[position]], direction: .forward, animated: true, completion: nil)
+            return
+        }
+
+        let when = WhenViewController.instantiate(fromAppStoryboard: .Create)
+        when.createModel = createModel
+        when.delegate = self
+        createViewControllers.append(when)
+        setViewControllers([when], direction: .forward, animated: true, completion: nil)
     }
 }
 

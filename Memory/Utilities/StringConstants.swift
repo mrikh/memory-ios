@@ -10,6 +10,10 @@ import Foundation
 
 struct StringConstants{
 
+    //name
+    static let enter_name = "enter_name"
+    static let name_question = "name_question"
+
     //additional info
     static let anyone_join = "anyone_join"
     static let selected_friends = "selected_friends"

@@ -85,7 +85,7 @@ class WhereViewController: BaseViewController, KeyboardHandler {
         cardView.layer.cornerRadius = 10.0
         cardView.addShadow(3.0, opacity: 0.3)
 
-        whereTextField.configure(with: StringConstants.enter_location_where.localized, text: createModel?.address, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
+        whereTextField.configure(with: StringConstants.enter_location_where.localized, text: createModel?.addressTitle, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
 
         nextButton.layer.cornerRadius = 5.0
         nextButton.addShadow(3.0, opacity: 0.3)

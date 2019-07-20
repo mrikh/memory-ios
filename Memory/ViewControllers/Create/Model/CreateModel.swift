@@ -15,6 +15,8 @@ class CreateModel{
         case anyone = 1
     }
 
+    var name : String?
+
     var startDate : TimeInterval?
     var endDate : TimeInterval?
 
