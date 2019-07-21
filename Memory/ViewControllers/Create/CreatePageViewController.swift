@@ -166,9 +166,12 @@ extension CreatePageViewController : ExtraInfoViewControllerDelegate{
 
     func didPressDone() {
 
-        if createModel.photos.contains(where: {$0.isUploading}){
-            showAlert(StringConstants.sorry.localized, withMessage: StringConstants.please_wait_images.localized, withCompletion: nil)
-            return
+        if let viewController = createViewControllers.first(where: {$0 is PhotosSelectionViewController}), let photos = viewController as? PhotosSelectionViewController{
+
+            if photos.isUploading{
+                showAlert(StringConstants.sorry.localized, withMessage: StringConstants.please_wait_images.localized, withCompletion: nil)
+                return
+            }
         }
 
         let viewController = EventDetailViewController.instantiate(fromAppStoryboard: .Explore)

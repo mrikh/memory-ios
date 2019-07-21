@@ -6,10 +6,9 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
-import FSPagerView
 import UIKit
 
-class FSImageCollectionViewCell: FSPagerViewCell {
+class FSImageCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var photoImageView: UIImageView!
 

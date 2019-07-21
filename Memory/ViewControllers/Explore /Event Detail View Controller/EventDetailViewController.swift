@@ -7,7 +7,6 @@
 //
 
 import FontAwesome_swift
-import FSPagerView
 import UIKit
 
 class EventDetailViewController: BaseViewController, TableViewHeaderFooterResizeProtocol {
@@ -21,7 +20,7 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
     @IBOutlet weak var bufferView: UIView!
     @IBOutlet weak var photosHeightConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var photosView: FSPagerView!{
+    @IBOutlet weak var photosView: UICollectionView!{
         didSet{
             photosView.register(FSImageCollectionViewCell.nib, forCellWithReuseIdentifier: FSImageCollectionViewCell.identifier)
         }
@@ -91,9 +90,8 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
 
         mainTableView.tableFooterView = UIView()
 
-        photosView.dataSource = self
-        photosView.delegate = self
-        photosView.transformer = FSPagerViewTransformer(type: .overlap)
+        let height = UIScreen.main.bounds.height/3.0
+        photosHeightConstraint.constant = height
 
         bufferView.backgroundColor = Colors.bgColor
         mainTableView.tableFooterView = UIView()
@@ -102,8 +100,6 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
         backButton.setImage(UIImage.fontAwesomeIcon(name: FontAwesome.chevronLeft, style: .solid, textColor: Colors.bgColor, size: CGSize(width: 30.0, height : 30.0)), for: .normal)
         backButton.addShadow(3.0)
 
-        photosHeightConstraint.constant = UIScreen.main.bounds.height/3.0
-
         configure(label: nameLabel, font: CustomFonts.avenirMedium.withSize(23.0), text: viewModel.eventName)
         creatorImageView.setImageWithCompletion(viewModel.creatorImage, placeholder: nil)
         configure(label: creatorNameLabel, font: CustomFonts.avenirLight.withSize(12.0), text: viewModel.creatorName)
@@ -111,7 +107,6 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
         dateView.addShadow(3.0)
 
         let startTuple = viewModel.startTuple
-
         configure(label: startTimeLabel, font: CustomFonts.avenirLight.withSize(16.0), text: startTuple.time)
         configure(label: startDayLabel, font: CustomFonts.avenirMedium.withSize(18.0), text: startTuple.day)
         configure(label: startMonthLabel, font: CustomFonts.avenirLight.withSize(13.0), text: startTuple.monthYear)
@@ -154,18 +149,23 @@ extension EventDetailViewController : UITableViewDelegate, UITableViewDataSource
     }
 }
 
-extension EventDetailViewController : FSPagerViewDelegate, FSPagerViewDataSource{
+extension EventDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
 
-    func numberOfItems(in pagerView: FSPagerView) -> Int {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return collectionView.bounds.size
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         return viewModel.pagerItemsCount
     }
 
-    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        guard let cell = pagerView.dequeueReusableCell(withReuseIdentifier: FSImageCollectionViewCell.identifier, at: index) as? FSImageCollectionViewCell else { return FSPagerViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FSImageCollectionViewCell.identifier, for: indexPath) as? FSImageCollectionViewCell else { return UICollectionViewCell(frame : CGRect.zero) }
 
-        cell.photoImageView.setImageWithCompletion(viewModel.fetchPhoto(at: index), placeholder: nil)
+        cell.photoImageView.setImageWithCompletion(viewModel.fetchPhoto(at: indexPath.item), placeholder: nil)
         return cell
     }
 }

@@ -34,7 +34,13 @@ class PhotoSelectionViewModel{
         return dataSource.isEmpty
     }
 
+    var isUploading : Bool{
+        return dataSource.contains(where: {$0.isUploading})
+    }
+
     func delete(position : Int){
+
+        #warning("remove from create model too in case user has uploaded and comes back")
         dataSource.remove(at: position)
     }
 

@@ -20,6 +20,10 @@ class PhotosSelectionViewController: BaseViewController, ImagePickerProtocol {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var questionLabel: UILabel!
 
+    var isUploading : Bool{
+        return viewModel.isUploading
+    }
+
     var create : CreateModel?
     let viewModel = PhotoSelectionViewModel()
     weak var delegate : PhotoSelectionViewControllerDelegate?
