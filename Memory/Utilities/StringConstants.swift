@@ -12,6 +12,7 @@ struct StringConstants{
 
     //event detail
     static let looks_ok = "looks_ok"
+    static let to = "to"
 
     //name
     static let enter_name = "enter_name"

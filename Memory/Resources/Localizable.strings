@@ -8,6 +8,7 @@
 
 //event detail
 "looks_ok" = "Looks okay!";
+"to" = "To";
 
 //name
 "enter_name" = "Enter the name";

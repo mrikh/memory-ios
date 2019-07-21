@@ -175,7 +175,7 @@ extension CreatePageViewController : ExtraInfoViewControllerDelegate{
         }
 
         let viewController = EventDetailViewController.instantiate(fromAppStoryboard: .Explore)
-        viewController.viewModel = EventDetailViewModel(model: EventDetailModel(create: createModel))
+        viewController.viewModel = EventDetailViewModel(model: EventDetailModel(create: createModel), isDraft: true)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

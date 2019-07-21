@@ -37,7 +37,8 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
     @IBOutlet weak var startDayLabel: UILabel!
     @IBOutlet weak var startMonthLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
-
+    @IBOutlet weak var toLabel: UILabel!
+    
     @IBOutlet weak var endDateView: UIView!
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var endDayLabel: UILabel!
@@ -49,6 +50,7 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
     @IBOutlet weak var addressDetail: UILabel!
     @IBOutlet weak var privacyLabel: UILabel!
     @IBOutlet weak var additionalInfoLabel: UILabel!
+    @IBOutlet weak var mapsButton: UIButton!
 
     var viewModel = EventDetailViewModel()
 
@@ -71,12 +73,21 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
         if let view = mainTableView.tableHeaderView, let resized = resizeView(view){
             mainTableView.tableHeaderView = resized
         }
+
+        let height = viewModel.pagerItemsCount == 0 ? backButton.frame.maxY + 10.0 : UIScreen.main.bounds.height/3.0
+        photosHeightConstraint.constant = height
     }
 
     //MARK:- IBAction
+    @IBAction func mapsAction(_ sender: UIButton) {
+
+        let tuple = viewModel.coordinates
+        
+        guard let lat = tuple.lat, let long = tuple.long else { return }
+        Utilities.openMaps(lat, andLongitude: long, title: viewModel.addressTitle)
+    }
 
     @IBAction func joinAction(_ sender: UIButton) {
-
 
     }
 
@@ -90,12 +101,11 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
 
         mainTableView.tableFooterView = UIView()
 
-        let height = UIScreen.main.bounds.height/3.0
-        photosHeightConstraint.constant = height
-
         bufferView.backgroundColor = Colors.bgColor
         mainTableView.tableFooterView = UIView()
         mainTableView.tableFooterView?.frame.size.height = joinButton.frame.size.height + 15.0
+
+        mapsButton.setImage(UIImage.fontAwesomeIcon(name: FontAwesome.locationArrow, style: .solid, textColor: Colors.bgColor, size: CGSize(width: 30.0, height : 30.0)), for: .normal)
 
         backButton.setImage(UIImage.fontAwesomeIcon(name: FontAwesome.chevronLeft, style: .solid, textColor: Colors.bgColor, size: CGSize(width: 30.0, height : 30.0)), for: .normal)
         backButton.addShadow(3.0)
@@ -104,7 +114,8 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
         creatorImageView.setImageWithCompletion(viewModel.creatorImage, placeholder: nil)
         configure(label: creatorNameLabel, font: CustomFonts.avenirLight.withSize(12.0), text: viewModel.creatorName)
 
-        dateView.addShadow(3.0)
+        startDateView.addShadow(3.0)
+        endDateView.addShadow(3.0)
 
         let startTuple = viewModel.startTuple
         configure(label: startTimeLabel, font: CustomFonts.avenirLight.withSize(16.0), text: startTuple.time)
@@ -119,10 +130,12 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
         configure(label: endDateLabel, font: CustomFonts.avenirHeavy.withSize(34.0), text: endTuple.date)
 
         configure(label: addressTitle, font: CustomFonts.avenirMedium.withSize(16.0), text: viewModel.addressTitle)
-        configure(label: addressDetail, font: CustomFonts.avenirLight.withSize(13.0), text: viewModel.nearby)
-        configure(label: nearbyLabel, font: CustomFonts.avenirLight.withSize(13.0), text: viewModel.addressDetail)
+        configure(label: addressDetail, font: CustomFonts.avenirLight.withSize(13.0), text: viewModel.addressDetail)
+        configure(label: nearbyLabel, font: CustomFonts.avenirLight.withSize(13.0), text: viewModel.nearby)
         configure(label: privacyLabel, font: CustomFonts.avenirHeavy.withSize(14.0), text: viewModel.privacy)
         configure(label: additionalInfoLabel, font: CustomFonts.avenirMedium.withSize(14.0), text: viewModel.additionalInfo)
+
+        configure(label: toLabel, font: CustomFonts.avenirLight.withSize(10.0), text: StringConstants.to.localized)
 
         joinButton.setAttributedTitle(NSAttributedString(string : StringConstants.looks_ok.localized, attributes : [.foregroundColor : Colors.white, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
         joinButton.backgroundColor = Colors.black

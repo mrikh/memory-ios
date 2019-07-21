@@ -11,11 +11,13 @@ import Foundation
 class EventDetailViewModel{
 
     private var model : EventDetailModel?
+    private var isDraft : Bool = false
 
-    convenience init(model : EventDetailModel){
+    convenience init(model : EventDetailModel, isDraft : Bool){
 
         self.init()
         self.model = model
+        self.isDraft = isDraft
     }
 
     var eventName : String?{
@@ -62,6 +64,10 @@ class EventDetailViewModel{
 
     var pagerItemsCount : Int{
         return model?.photos.count ?? 0
+    }
+
+    var coordinates : (lat : Double?, long : Double?){
+        return (lat : model?.lat, long : model?.long)
     }
 
     func fetchPhoto(at position : Int) -> String{

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 class Utilities{
 
@@ -27,5 +28,17 @@ class Utilities{
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
+    }
+
+    static func openMaps(_ latitude : Double, andLongitude longitude: Double, title : String?){
+
+        let coordinate = CLLocationCoordinate2DMake(latitude,longitude)
+
+        let placemark = MKPlacemark(coordinate: coordinate)
+
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = title
+
+        mapItem.openInMaps(launchOptions: nil)
     }
 }
