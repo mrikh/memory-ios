@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreatePageViewController: UIPageViewController{
+class CreatePageViewController: UIPageViewController, AlertProtocol{
 
     private lazy var createViewControllers = [UIViewController]()
 
@@ -166,6 +166,13 @@ extension CreatePageViewController : ExtraInfoViewControllerDelegate{
 
     func didPressDone() {
 
+        if createModel.photos.contains(where: {$0.isUploading}){
+            showAlert(StringConstants.sorry.localized, withMessage: StringConstants.please_wait_images.localized, withCompletion: nil)
+            return
+        }
 
+        let viewController = EventDetailViewController.instantiate(fromAppStoryboard: .Explore)
+        viewController.viewModel = EventDetailViewModel(model: EventDetailModel(create: createModel))
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

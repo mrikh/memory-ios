@@ -31,4 +31,5 @@ struct AWSKeys{
 struct DateFormat{
 
     static let displayDateFormat = "EEE, MMM dd, yyyy h:mm a"
+    static let timeFormat = "h:mm a"
 }

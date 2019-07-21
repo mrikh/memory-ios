@@ -26,6 +26,6 @@ struct FriendModel{
 
         friendId = id
         self.name = name
-        profileImage = self.image
+        profileImage = image
     }
 }

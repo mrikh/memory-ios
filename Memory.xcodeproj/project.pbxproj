@@ -104,6 +104,9 @@
 		46DCDEA522E399C700277AC1 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDEA422E399C700277AC1 /* EventDetailViewController.swift */; };
 		46DCDEA922E3B93900277AC1 /* EventDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDEA822E3B93900277AC1 /* EventDetailModel.swift */; };
 		46DCDEAB22E3B95800277AC1 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDEAA22E3B95800277AC1 /* FriendModel.swift */; };
+		46DCDEAD22E46AD600277AC1 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDEAC22E46AD600277AC1 /* EventDetailViewModel.swift */; };
+		46DCDEB522E4E1C000277AC1 /* FSImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDEB322E4E1C000277AC1 /* FSImageCollectionViewCell.swift */; };
+		46DCDEB622E4E1C000277AC1 /* FSImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46DCDEB422E4E1C000277AC1 /* FSImageCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,6 +212,9 @@
 		46DCDEA422E399C700277AC1 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		46DCDEA822E3B93900277AC1 /* EventDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailModel.swift; sourceTree = "<group>"; };
 		46DCDEAA22E3B95800277AC1 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		46DCDEAC22E46AD600277AC1 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
+		46DCDEB322E4E1C000277AC1 /* FSImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		46DCDEB422E4E1C000277AC1 /* FSImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		C7938299BEE333E1DB6C2E75 /* Pods_Memory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -712,9 +718,20 @@
 		46DCDEA322E399B200277AC1 /* Event Detail View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				46DCDEAE22E4E16A00277AC1 /* Collection View Cell */,
 				46DCDEA422E399C700277AC1 /* EventDetailViewController.swift */,
+				46DCDEAC22E46AD600277AC1 /* EventDetailViewModel.swift */,
 			);
 			path = "Event Detail View Controller";
+			sourceTree = "<group>";
+		};
+		46DCDEAE22E4E16A00277AC1 /* Collection View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				46DCDEB322E4E1C000277AC1 /* FSImageCollectionViewCell.swift */,
+				46DCDEB422E4E1C000277AC1 /* FSImageCollectionViewCell.xib */,
+			);
+			path = "Collection View Cell";
 			sourceTree = "<group>";
 		};
 		5C435BCFBB900C1FCE65FB32 /* Frameworks */ = {
@@ -798,6 +815,7 @@
 				46BCE38922356D2100CEC9C1 /* Main.storyboard in Resources */,
 				464EEFA6223E970A00C6A40D /* TextFieldTableViewCell.xib in Resources */,
 				46DCDE8222DF62B700277AC1 /* Common.storyboard in Resources */,
+				46DCDEB622E4E1C000277AC1 /* FSImageCollectionViewCell.xib in Resources */,
 				46BCE3F922363F7C00CEC9C1 /* PreLogin.storyboard in Resources */,
 				465CB39D22D3304F002D2B4B /* Friends.storyboard in Resources */,
 			);
@@ -900,6 +918,7 @@
 				46ACC09822D9F5BF0003973D /* WhenViewController.swift in Sources */,
 				465FFFEE22DCB7B6009D222A /* LocationViewController.swift in Sources */,
 				46BCE3D022357A3100CEC9C1 /* UIViewController + General.swift in Sources */,
+				46DCDEB522E4E1C000277AC1 /* FSImageCollectionViewCell.swift in Sources */,
 				46BCE3CC22357A3100CEC9C1 /* UIImageView + Download.swift in Sources */,
 				46BCE399223578CF00CEC9C1 /* BaseViewController.swift in Sources */,
 				46ACC09322D9D4CD0003973D /* OTPViewModel.swift in Sources */,
@@ -945,6 +964,7 @@
 				46BCE3D122357A3100CEC9C1 /* Storyboards.swift in Sources */,
 				46BCE3CB22357A3100CEC9C1 /* CustomFonts.swift in Sources */,
 				465CB39B22D312FE002D2B4B /* ForgotPasswordViewController.swift in Sources */,
+				46DCDEAD22E46AD600277AC1 /* EventDetailViewModel.swift in Sources */,
 				465CB38B22D1E9B2002D2B4B /* ProgressView.swift in Sources */,
 				46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */,
 				465A47BE22D3C7C800647EA6 /* LoginToContinueViewController.swift in Sources */,

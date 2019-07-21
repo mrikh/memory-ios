@@ -10,6 +10,9 @@ import Foundation
 
 struct StringConstants{
 
+    //event detail
+    static let looks_ok = "looks_ok"
+
     //name
     static let enter_name = "enter_name"
     static let name_question = "name_question"
@@ -55,6 +58,7 @@ struct StringConstants{
     static let cannot_end_before = "cannot_end_before"
 
     //create
+    static let please_wait_images = "please_wait_images"
     static let the_scene = "the_scene"
 
     //otp

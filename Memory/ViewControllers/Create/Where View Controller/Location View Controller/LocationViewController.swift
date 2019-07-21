@@ -144,7 +144,7 @@ class LocationViewController: BaseViewController, KeyboardHandler {
                 self?.searchBar.text = temp.name
 
                 let array = [temp.subLocality, temp.locality, temp.subAdministrativeArea, temp.administrativeArea]
-                self?.subTitle = array.compactMap({$0}).joined(separator: "")
+                self?.subTitle = array.compactMap({$0}).joined(separator: ", ")
                 self?.coordinate = coordinate
             }else{
                 self?.showAlert(StringConstants.alert.localized, withMessage: error?.localizedDescription ?? StringConstants.something_wrong.localized, withCompletion: nil)

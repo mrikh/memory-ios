@@ -13,6 +13,13 @@ class CreateModel{
     enum Privacy : Int{
         case selectedFriends = 0
         case anyone = 1
+
+        var displayString : String{
+            switch self{
+            case .selectedFriends: return "Only people selected by the organiser can join the event."
+            case .anyone : return "Anyone can attend this event."
+            }
+        }
     }
 
     var name : String?
