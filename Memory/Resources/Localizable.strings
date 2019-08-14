@@ -6,9 +6,18 @@
   Copyright © 2019 Mayank Rikh. All rights reserved.
 */
 
+//Landing
+"redirect_location" = "You will be redirected to the settings page to enable location services";
+"enable_location" = "Enable Location";
+"enable_location_services" = "Enable location services or select a custom location.";
+"update_location" = "Update Location";
+"unable_fetch" = "Unable to fetch your location. You can set a custom location by tapping on the button above.";
+
 //event detail
 "looks_ok" = "Looks okay!";
 "to" = "To";
+"people_selected_join" = "Only people selected by the organiser can join the event.";
+"anyone_attend" = "Anyone can attend this event.";
 
 //name
 "enter_name" = "Enter the name";
@@ -75,6 +84,7 @@
 //tabbar
 "friends" = "Friends";
 "create" = "Create";
+"profile" = "Profile";
 
 //Phone verification
 "phone_number" = "Enter Phone Number";
@@ -138,6 +148,7 @@
 "select_image_to_upload" = "Please select an option to import the image from";
 "from" = "from";
 "delete" = "Delete";
+"are_sure" = "Are you sure?";
 
 //access
 "mic_access" = "You need to provide microphone access to proceed further.";

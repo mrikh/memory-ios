@@ -12,7 +12,7 @@ import Foundation
 struct EventDetailModel{
 
     enum EventStatus : Int{
-        case pending
+        case upcoming
         case completed
     }
 
@@ -35,11 +35,13 @@ struct EventDetailModel{
     let additionalInfo : String
     let invited : [FriendModel]
 
+    let attendingCount : Int
+
     init(create : CreateModel){
 
         //dont need id as this will only happen in case of privacy
         eventId = ""
-        eventStatus = .pending
+        eventStatus = .upcoming
         photos = create.photos.compactMap({$0.urlString})
         eventName = create.name ?? ""
         creator = FriendModel(id: UserModel.current.userId, name: UserModel.current.name, image: UserModel.current.profilePhoto)
@@ -56,5 +58,7 @@ struct EventDetailModel{
         privacy = create.privacy
         additionalInfo = create.otherDetails ?? ""
         invited = create.invited
+
+        attendingCount = 0
     }
 }

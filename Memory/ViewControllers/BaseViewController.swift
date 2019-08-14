@@ -19,6 +19,11 @@ class BaseViewController: UIViewController, AlertProtocol {
     var keyboardVisible : Bool = false
     var extraPadding : CGFloat = 0.0
 
+    private var action : (()->())?
+    private var infoText : String?
+    private var buttonText : String?
+    var showEmptyView = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,10 +43,29 @@ class BaseViewController: UIViewController, AlertProtocol {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
+
+    func configureEmptyView(infoText : String?, with buttonText : String?, action : (()->())?){
+
+        self.action = action
+        self.infoText = infoText
+        self.buttonText = buttonText
+        showEmptyView = true
+    }
 }
 
 extension BaseViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-    
+
+    func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
+
+        if showEmptyView{
+            let noAccess = NoAccessView.nib.instantiate(withOwner: nil, options: nil)[0] as? NoAccessView
+            noAccess?.configure(infoText: infoText, with: buttonText, action: action)
+            return noAccess
+        }else{
+            return nil
+        }
+    }
+
     func emptyDataSourceDelegate(tableView : UITableView, message : String? = nil) {
         tableView.emptyDataSetSource    = self
         tableView.emptyDataSetDelegate  = self
@@ -69,8 +93,7 @@ extension BaseViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     }
     
     func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
-        //    return true
-        return !self.isLoading
+        return !self.isLoading || showEmptyView
     }
 
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

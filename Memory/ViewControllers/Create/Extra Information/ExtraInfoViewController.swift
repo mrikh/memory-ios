@@ -99,7 +99,11 @@ class ExtraInfoViewController: BaseViewController, KeyboardHandler {
         cardView.layer.cornerRadius = 10.0
         cardView.addShadow(3.0, opacity: 0.3)
 
-        privateRadioButton.updateSelection(select: true, animated : false)
+        if let privacy = createModel?.privacy, privacy == .anyone{
+            privateRadioButton.updateSelection(select: false, animated : false)
+        }else{
+            privateRadioButton.updateSelection(select: true, animated : false)
+        }
 
         additionalInfoLabel.text = StringConstants.anything_else_add.localized
         additionalInfoLabel.textColor = Colors.bgColor

@@ -10,9 +10,18 @@ import Foundation
 
 struct StringConstants{
 
+    //Landing
+    static let redirect_location = "redirect_location"
+    static let enable_location = "enable_location"
+    static let enable_location_services = "enable_location_services"
+    static let update_location = "update_location"
+    static let unable_fetch = "unable_fetch"
+
     //event detail
     static let looks_ok = "looks_ok"
     static let to = "to"
+    static let people_selected_join = "people_selected_join"
+    static let anyone_attend = "anyone_attend"
 
     //name
     static let enter_name = "enter_name"
@@ -79,6 +88,7 @@ struct StringConstants{
     //tabbar
     static let friends = "friends"
     static let create = "create"
+    static let profile = "profile"
 
     //Phone verification
     static let phone_number = "phone_number"
@@ -143,6 +153,7 @@ struct StringConstants{
     static let from = "from"
     static let select_image_to_upload = "select_image_to_upload"
     static let delete = "delete"
+    static let are_sure = "are_sure"
 
     //Access
     static let mic_access = "mic_access"

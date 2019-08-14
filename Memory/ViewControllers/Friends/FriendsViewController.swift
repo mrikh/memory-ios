@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  FriendsViewController.swift
 //  Memory
 //
 //  Created by Mayank Rikh on 07/07/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class FriendsViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

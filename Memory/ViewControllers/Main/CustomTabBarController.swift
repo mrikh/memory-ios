@@ -22,6 +22,7 @@ class CustomTabBarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)
+        
         if firstTime{
             tabBar.tintColor = Colors.bgColor
             if let items = tabBar.items{
@@ -35,6 +36,9 @@ class CustomTabBarController: UITabBarController {
                     }else if index == 2{
                         item.title = StringConstants.create.localized
                         item.image = UIImage.fontAwesomeIcon(name: FontAwesome.pen, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
+                    }else if index == 3{
+                        item.title = StringConstants.profile.localized
+                        item.image = UIImage.fontAwesomeIcon(name: FontAwesome.userCog, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
                     }
                 }
             }
@@ -52,6 +56,12 @@ class CustomTabBarController: UITabBarController {
                 let viewController = LoginToContinueViewController.instantiate(fromAppStoryboard: .Main)
                 navigationController.setViewControllers([viewController], animated: true)
             }
+
+            if let navigationController = viewControllers?[3] as? UINavigationController{
+                let viewController = LoginToContinueViewController.instantiate(fromAppStoryboard: .Main)
+                navigationController.setViewControllers([viewController], animated: true)
+            }
+
         }else if !UserModel.current.phoneVerified{
             if let navigationController = viewControllers?[2] as? UINavigationController{
                 let viewController = PhoneNumberViewController.instantiate(fromAppStoryboard: .Main)

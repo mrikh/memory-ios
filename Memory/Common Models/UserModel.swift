@@ -21,6 +21,7 @@ struct UserModel{
     var phoneVerified : Bool
     var profilePhoto : String
     var phoneNumber : String
+    var distance : Double
     
     init (_ json: JSON) {
         
@@ -32,11 +33,13 @@ struct UserModel{
         profilePhoto = json["profilePhoto"].stringValue
         phoneVerified = json["phoneVerified"].boolValue
         phoneNumber = json["phoneNumber"].stringValue
+        //default value is 1000
+        distance = json["distance"].double ?? 1000
     }
     
     func saveToUserDefaults() {
         
-        let dict = ["_id" : userId, "name" : name, "email" : email, "username" : username, "emailVerified" : emailVerified, "profilePhoto" : profilePhoto, "phoneVerified" : phoneVerified, "phoneNumber" : phoneNumber] as [String : Any]
+        let dict = ["_id" : userId, "name" : name, "email" : email, "username" : username, "emailVerified" : emailVerified, "profilePhoto" : profilePhoto, "phoneVerified" : phoneVerified, "phoneNumber" : phoneNumber, "distance" : distance] as [String : Any]
         Defaults.save(value: dict, forKey: .userInfo)
     }
 }

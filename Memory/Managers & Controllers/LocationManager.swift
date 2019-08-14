@@ -12,6 +12,9 @@ import Foundation
 protocol LocationManagerDelegate : AnyObject{
 
     func didFetchLocation()
+    func locationFetchError()
+
+    func statusChangedToAllowed()
 }
 
 class LocationManager : NSObject{
@@ -67,6 +70,7 @@ extension LocationManager : CLLocationManagerDelegate{
 
         //dont update unless 2 meters distance difference atleast
         if let current = currentLocation, current.distance(from: locationObject) < threshold{ return }
+        
         currentLocation = locationObject
         delegate?.didFetchLocation()
     }
@@ -76,5 +80,13 @@ extension LocationManager : CLLocationManagerDelegate{
         #if DEBUG
         print("Error : \(error.localizedDescription)")
         #endif
+        delegate?.locationFetchError()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+
+        if status == .authorizedAlways || status == .authorizedWhenInUse{
+            delegate?.statusChangedToAllowed()
+        }
     }
 }

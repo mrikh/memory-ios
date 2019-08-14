@@ -19,6 +19,11 @@ extension APIManager {
         case resendVerification = "/users/resendVerification"
         case sendOTP = "/users/sendOTP"
         case verifyOTP = "/users/verifyOTP"
+
+        case getEvents = "/event/list"
+        #warning("Aggregate query for get events based on privacy status and if querying user is in invited array. Delete the invited key from results")
+
+        #warning("add distance radius in profile")
         
         var path : String {
 

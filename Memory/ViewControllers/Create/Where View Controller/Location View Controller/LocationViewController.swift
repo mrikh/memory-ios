@@ -196,12 +196,16 @@ extension LocationViewController : UIGestureRecognizerDelegate{
 
 extension LocationViewController : LocationManagerDelegate{
 
+    func statusChangedToAllowed() {}
+
     func didFetchLocation() {
 
         guard let current = LocationManager.shared.currentLocation else {return}
         focus(coordinate: current.coordinate, title: nil, subTitle: nil)
         reverseGeoCode(coordinate: current.coordinate)
     }
+
+    func locationFetchError() {}
 }
 
 extension LocationViewController : UISearchBarDelegate {

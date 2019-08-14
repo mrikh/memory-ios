@@ -16,6 +16,15 @@ class APIManager {
         return ["Authorization" : "Bearer \(authenticationToken)"]
     }
 
+    static func getEvents(lat : Double, long : Double, status : EventDetailModel.EventStatus, skip : Int, completion: ((JSON?, Error?)->())?){
+
+        NetworkingManager.GET(endPoint: .getEvents, parameters: ["lat" : lat, "long" : long, "distance" : UserModel.current.distance, "limit" : 10, "skip" : skip, "eventStatus" : status.rawValue], success: { (dict) in
+            completion?(JSON(dict), nil)
+        }) { (error) in
+            completion?(nil, error)
+        }
+    }
+
     static func verifyOTP(otp : String, completion: ((JSON?, Error?)->())?){
 
         NetworkingManager.POST(endPoint: .verifyOTP, parameters: ["token" : otp], headers : headers, success: { (dict) in

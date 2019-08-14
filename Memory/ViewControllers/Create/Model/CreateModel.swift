@@ -16,8 +16,8 @@ class CreateModel{
 
         var displayString : String{
             switch self{
-            case .selectedFriends: return "Only people selected by the organiser can join the event."
-            case .anyone : return "Anyone can attend this event."
+            case .selectedFriends: return StringConstants.people_selected_join.localized
+            case .anyone : return StringConstants.anyone_attend.localized
             }
         }
     }
@@ -33,7 +33,7 @@ class CreateModel{
     var lat : Double?
     var long : Double?
 
-    var privacy : Privacy = .selectedFriends
+    var privacy : Privacy = .anyone
     var photos = [ImageModel]()
 
     var invited = [FriendModel]()
