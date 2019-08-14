@@ -32,4 +32,10 @@ struct DateFormat{
 
     static let displayDateFormat = "EEE, MMM dd, yyyy h:mm a"
     static let timeFormat = "h:mm a"
+    static let isoFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+}
+
+struct NotificationKeys{
+
+    static let eventCreated = "eventCreated"
 }

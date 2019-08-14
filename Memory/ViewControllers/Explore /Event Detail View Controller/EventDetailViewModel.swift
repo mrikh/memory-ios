@@ -8,8 +8,15 @@
 
 import Foundation
 
+protocol EventDetailViewModelDelegate : BaseProtocol{
+
+    func showSuccess(message : String)
+}
+
 class EventDetailViewModel{
 
+    weak var delegate : EventDetailViewModelDelegate?
+    
     private var model : EventDetailModel?
     private var isDraft : Bool = false
 
@@ -34,12 +41,12 @@ class EventDetailViewModel{
 
     var startTuple : (time : String, date : String, monthYear : String, day : String){
 
-        return dateBreakDown(timeInterval: model?.startDate) ?? (time : "", date : "", monthYear : "", day : "")
+        return dateBreakDown(date: model?.startDate) ?? (time : "", date : "", monthYear : "", day : "")
     }
 
     var endTuple : (time : String, date : String, monthYear : String, day : String){
 
-        return dateBreakDown(timeInterval: model?.endDate) ?? (time : "", date : "", monthYear : "", day : "")
+        return dateBreakDown(date: model?.endDate) ?? (time : "", date : "", monthYear : "", day : "")
     }
 
     var addressTitle : String?{
@@ -74,18 +81,24 @@ class EventDetailViewModel{
         return model?.photos[position] ?? ""
     }
 
-    //MARK:- Private
-    private func dateBreakDown(timeInterval : TimeInterval?) -> (time : String, date : String, monthYear : String, day : String)?{
+    func confirmAction(){
 
-        guard let interval = timeInterval else { return nil }
+        if isDraft{
+            createEvent()
+        }
+    }
+
+    //MARK:- Private
+    private func dateBreakDown(date : Date?) -> (time : String, date : String, monthYear : String, day : String)?{
+
+        guard let val = date else { return nil }
 
         let formatter = DateFormatter()
-        let date = Date(timeIntervalSince1970: interval)
         formatter.dateFormat = DateFormat.timeFormat
-        let time = formatter.string(from: date)
+        let time = formatter.string(from: val)
 
         let calendar = Calendar.current
-        let components = calendar.dateComponents([.day, .month, .year, .weekday], from: date)
+        let components = calendar.dateComponents([.day, .month, .year, .weekday], from: val)
 
         if let day = components.day, let month = components.month, let year = components.year, let weekday = components.weekday{
 
@@ -94,6 +107,29 @@ class EventDetailViewModel{
             return (time : time, date : "\(day)", monthYear : "\(monthName) '\(year%1000)", day : weekdayString.localizedUppercase)
         }else{
             return nil
+        }
+    }
+
+    private func createEvent(){
+
+        guard let tempModel = model else {
+            delegate?.errorOccurred(errorString: StringConstants.something_wrong.localized)
+            return
+        }
+
+        delegate?.startLoader()
+        APIManager.createEvent(params: tempModel.convertToDictionary()) { [weak self] (json, error) in
+
+            self?.delegate?.stopLoader()
+
+            if let tempJson = json?["data"]{
+                let model = EventDetailModel(json: tempJson)
+                NotificationCenter.default.post(name: Notification.Name(NotificationKeys.eventCreated), object: model)
+                self?.delegate?.showSuccess(message: StringConstants.created.localized)
+                #warning("Local notification to locally update UI in profile")
+            }else{
+                self?.delegate?.errorOccurred(errorString: error?.localizedDescription ?? StringConstants.something_wrong.localized)
+            }
         }
     }
 }

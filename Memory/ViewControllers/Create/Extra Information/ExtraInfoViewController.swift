@@ -101,8 +101,10 @@ class ExtraInfoViewController: BaseViewController, KeyboardHandler {
 
         if let privacy = createModel?.privacy, privacy == .anyone{
             privateRadioButton.updateSelection(select: false, animated : false)
+            publicRadioButton.updateSelection(select: true, animated : false)
         }else{
             privateRadioButton.updateSelection(select: true, animated : false)
+            publicRadioButton.updateSelection(select: false, animated : false)
         }
 
         additionalInfoLabel.text = StringConstants.anything_else_add.localized

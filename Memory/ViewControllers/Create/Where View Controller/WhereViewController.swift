@@ -105,7 +105,7 @@ extension WhereViewController : UITextFieldDelegate{
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
 
-        let viewController = LocationViewController.instantiate(fromAppStoryboard: .Create)
+        let viewController = LocationViewController.instantiate(fromAppStoryboard: .Common)
         viewController.delegate = self
         viewController.addressTitle = createModel?.addressTitle
         viewController.subTitle = createModel?.address

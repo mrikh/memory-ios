@@ -89,6 +89,7 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
 
     @IBAction func joinAction(_ sender: UIButton) {
 
+        viewModel.confirmAction()
     }
 
     @IBAction func backAction(_ sender: UIButton) {
@@ -139,6 +140,8 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
 
         joinButton.setAttributedTitle(NSAttributedString(string : StringConstants.looks_ok.localized, attributes : [.foregroundColor : Colors.white, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
         joinButton.backgroundColor = Colors.black
+
+        viewModel.delegate = self
     }
 
     private func configure(label : UILabel, font : UIFont, text : String?){
@@ -180,5 +183,14 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
 
         cell.photoImageView.setImageWithCompletion(viewModel.fetchPhoto(at: indexPath.item), placeholder: nil)
         return cell
+    }
+}
+
+extension EventDetailViewController : EventDetailViewModelDelegate{
+
+    func showSuccess(message: String) {
+
+        navigationController?.popViewController(animated: true)
+        showAlert(StringConstants.success.localized, withMessage: message, withCompletion: nil)
     }
 }

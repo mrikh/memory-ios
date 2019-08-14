@@ -11,6 +11,7 @@ import Foundation
 struct StringConstants{
 
     //Landing
+    static let join = "join"
     static let redirect_location = "redirect_location"
     static let enable_location = "enable_location"
     static let enable_location_services = "enable_location_services"
@@ -68,6 +69,7 @@ struct StringConstants{
     static let cannot_end_before = "cannot_end_before"
 
     //create
+    static let created = "created"
     static let please_wait_images = "please_wait_images"
     static let the_scene = "the_scene"
 

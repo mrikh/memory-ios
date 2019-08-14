@@ -38,16 +38,30 @@ class CreatePageViewController: UIPageViewController, AlertProtocol{
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = Colors.white
 
+        setupFirstScreen()
+        clearBackTitle()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(handleEventCreate(_:)), name: Notification.Name(NotificationKeys.eventCreated), object: nil)
+    }
+
+    private func setupFirstScreen(){
+
         let name = NameViewController.instantiate(fromAppStoryboard: .Create)
         name.createModel = createModel
         name.delegate = self
-        
+
         createViewControllers.append(name)
         if let first = createViewControllers.first{
-            setViewControllers([first], direction: .forward, animated: true, completion: nil)
+            setViewControllers([first], direction: .forward, animated: false, completion: nil)
         }
+    }
 
-        clearBackTitle()
+    @objc func handleEventCreate(_ notification : Notification){
+
+        guard let _ = notification.object as? EventDetailModel else {return}
+        createViewControllers.removeAll()
+        createModel = CreateModel()
+        setupFirstScreen()
     }
 }
 

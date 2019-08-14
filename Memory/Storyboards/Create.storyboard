@@ -504,49 +504,6 @@
             </objects>
             <point key="canvasLocation" x="2640.8000000000002" y="874.81259370314854"/>
         </scene>
-        <!--Location View Controller-->
-        <scene sceneID="KeS-ww-bFd">
-            <objects>
-                <viewController storyboardIdentifier="LocationViewController" hidesBottomBarWhenPushed="YES" id="tZl-Rd-9zm" customClass="LocationViewController" customModule="Memory" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Hlf-ff-df6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VGn-vA-R61">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </mapView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OHP-Vq-nXG">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="tZl-Rd-9zm" id="oqy-Y4-loj"/>
-                                    <outlet property="delegate" destination="tZl-Rd-9zm" id="BOs-nD-fbF"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="VGn-vA-R61" secondAttribute="trailing" id="CH7-vO-G1Z"/>
-                            <constraint firstItem="VGn-vA-R61" firstAttribute="top" secondItem="AbL-Qy-PEY" secondAttribute="top" id="On2-at-nRV"/>
-                            <constraint firstItem="VGn-vA-R61" firstAttribute="leading" secondItem="Hlf-ff-df6" secondAttribute="leading" id="chO-LF-tU4"/>
-                            <constraint firstAttribute="trailing" secondItem="OHP-Vq-nXG" secondAttribute="trailing" id="fiJ-Ex-o8M"/>
-                            <constraint firstItem="OHP-Vq-nXG" firstAttribute="leading" secondItem="Hlf-ff-df6" secondAttribute="leading" id="nry-ha-pXp"/>
-                            <constraint firstItem="AbL-Qy-PEY" firstAttribute="bottom" secondItem="OHP-Vq-nXG" secondAttribute="bottom" id="pje-v6-Gb3"/>
-                            <constraint firstAttribute="bottom" secondItem="VGn-vA-R61" secondAttribute="bottom" id="wli-a0-s5w"/>
-                            <constraint firstItem="OHP-Vq-nXG" firstAttribute="top" secondItem="AbL-Qy-PEY" secondAttribute="top" id="xzZ-fk-XOB"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="AbL-Qy-PEY"/>
-                    </view>
-                    <connections>
-                        <outlet property="bottomConstraint" destination="pje-v6-Gb3" id="MHV-BC-2gM"/>
-                        <outlet property="mapView" destination="VGn-vA-R61" id="RNc-mS-ytC"/>
-                        <outlet property="searchTableView" destination="OHP-Vq-nXG" id="SNI-Id-u5n"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C6J-NP-arh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1081" y="1597"/>
-        </scene>
         <!--Extra Info View Controller-->
         <scene sceneID="WN2-5A-wZl">
             <objects>

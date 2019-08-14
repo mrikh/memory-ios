@@ -104,12 +104,12 @@ class WhenViewController: BaseViewController, KeyboardHandler {
 
             if let responder = self?.startDateTextField.isFirstResponder, responder{
                 self?.startDateTextField.text = string
-                self?.createModel?.startDate = date.timeIntervalSince1970
+                self?.createModel?.startDate = date
                 self?.endDateTextField.becomeFirstResponder()
             }else{
-                
+            
                 self?.endDateTextField.text = string
-                self?.createModel?.endDate = date.timeIntervalSince1970
+                self?.createModel?.endDate = date
                 self?.view.endEditing(true)
             }
         }, cancelAction: { [weak self] in

@@ -16,9 +16,19 @@ class APIManager {
         return ["Authorization" : "Bearer \(authenticationToken)"]
     }
 
-    static func getEvents(lat : Double, long : Double, status : EventDetailModel.EventStatus, skip : Int, completion: ((JSON?, Error?)->())?){
+    static func createEvent(params : [String : Any], completion: ((JSON?, Error?)->())?){
 
-        NetworkingManager.GET(endPoint: .getEvents, parameters: ["lat" : lat, "long" : long, "distance" : UserModel.current.distance, "limit" : 10, "skip" : skip, "eventStatus" : status.rawValue], success: { (dict) in
+        NetworkingManager.POST(endPoint: .create, parameters: params, headers : headers, success: { (dict) in
+            completion?(JSON(dict), nil)
+        }) { (error) in
+            completion?(nil, error)
+        }
+    }
+
+    static func getEvents(lat : Double, long : Double, status : Int, skip : Int, completion: ((JSON?, Error?)->())?){
+
+        NetworkingManager.GET(endPoint: .getEvents, parameters: ["lat" : lat, "long" : long, "distance" : UserModel.current.distance, "limit" : 10, "skip" : skip, "eventStatus" : status, "userId" : UserModel.current.userId], success: { (dict) in
+
             completion?(JSON(dict), nil)
         }) { (error) in
             completion?(nil, error)

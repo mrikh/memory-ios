@@ -8,12 +8,12 @@
 
 import Foundation
 
-extension TimeInterval{
+extension Date{
 
     var dateString : String?{
 
         let formatter = DateFormatter()
         formatter.dateFormat = DateFormat.displayDateFormat
-        return formatter.string(from: Date(timeIntervalSince1970: self))
+        return formatter.string(from: self)
     }
 }

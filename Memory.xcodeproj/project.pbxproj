@@ -13,6 +13,9 @@
 		464EEFA5223E970A00C6A40D /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EEFA3223E970A00C6A40D /* TextFieldTableViewCell.swift */; };
 		464EEFA6223E970A00C6A40D /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464EEFA4223E970A00C6A40D /* TextFieldTableViewCell.xib */; };
 		464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EEFAC223EB56D00C6A40D /* TextFieldCellViewModel.swift */; };
+		464FAB3323043D2B00763FAD /* ExploreEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464FAB3123043D2B00763FAD /* ExploreEventTableViewCell.swift */; };
+		464FAB3423043D2B00763FAD /* ExploreEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464FAB3223043D2B00763FAD /* ExploreEventTableViewCell.xib */; };
+		464FAB38230473D200763FAD /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464FAB37230473D200763FAD /* EventModel.swift */; };
 		465A47B422D34F5700647EA6 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465A47B322D34F5700647EA6 /* Create.storyboard */; };
 		465A47B622D350B900647EA6 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465A47B522D350B900647EA6 /* Explore.storyboard */; };
 		465A47B922D35CF500647EA6 /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */; };
@@ -122,6 +125,9 @@
 		464EEFA3223E970A00C6A40D /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		464EEFA4223E970A00C6A40D /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		464EEFAC223EB56D00C6A40D /* TextFieldCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCellViewModel.swift; sourceTree = "<group>"; };
+		464FAB3123043D2B00763FAD /* ExploreEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreEventTableViewCell.swift; sourceTree = "<group>"; };
+		464FAB3223043D2B00763FAD /* ExploreEventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreEventTableViewCell.xib; sourceTree = "<group>"; };
+		464FAB37230473D200763FAD /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		465A47B322D34F5700647EA6 /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		465A47B522D350B900647EA6 /* Explore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +285,15 @@
 			path = TextFieldTableViewCell;
 			sourceTree = "<group>";
 		};
+		464FAB3023043D1100763FAD /* Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				464FAB3123043D2B00763FAD /* ExploreEventTableViewCell.swift */,
+				464FAB3223043D2B00763FAD /* ExploreEventTableViewCell.xib */,
+			);
+			path = "Table View Cell";
+			sourceTree = "<group>";
+		};
 		465A47B722D35BEF00647EA6 /* Create */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +448,7 @@
 		467840E322FABBC1004D43E7 /* Landing View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				464FAB3023043D1100763FAD /* Table View Cell */,
 				467840E422FAC78B004D43E7 /* LandingViewController.swift */,
 				467840E622FAC84A004D43E7 /* LandingViewModel.swift */,
 			);
@@ -519,6 +535,7 @@
 				46BCE39B22357A0D00CEC9C1 /* UserModel.swift */,
 				46DCDEA822E3B93900277AC1 /* EventDetailModel.swift */,
 				46DCDEAA22E3B95800277AC1 /* FriendModel.swift */,
+				464FAB37230473D200763FAD /* EventModel.swift */,
 			);
 			path = "Common Models";
 			sourceTree = "<group>";
@@ -839,6 +856,7 @@
 				46BCE38E22356D2400CEC9C1 /* LaunchScreen.storyboard in Resources */,
 				465A47B422D34F5700647EA6 /* Create.storyboard in Resources */,
 				467840EF22FAF564004D43E7 /* NoAccessView.xib in Resources */,
+				464FAB3423043D2B00763FAD /* ExploreEventTableViewCell.xib in Resources */,
 				465A47B622D350B900647EA6 /* Explore.storyboard in Resources */,
 				465CB38C22D1E9B2002D2B4B /* ProgressView.xib in Resources */,
 				46BCE3E622357A9A00CEC9C1 /* Localizable.strings in Resources */,
@@ -950,6 +968,7 @@
 				46DCDE7F22DF0F0100277AC1 /* ButtonCollectionViewCell.swift in Sources */,
 				46ACC09822D9F5BF0003973D /* WhenViewController.swift in Sources */,
 				465FFFEE22DCB7B6009D222A /* LocationViewController.swift in Sources */,
+				464FAB38230473D200763FAD /* EventModel.swift in Sources */,
 				467840E522FAC78B004D43E7 /* LandingViewController.swift in Sources */,
 				46BCE3D022357A3100CEC9C1 /* UIViewController + General.swift in Sources */,
 				46DCDEB522E4E1C000277AC1 /* FSImageCollectionViewCell.swift in Sources */,
@@ -1002,6 +1021,7 @@
 				465CB39B22D312FE002D2B4B /* ForgotPasswordViewController.swift in Sources */,
 				46DCDEAD22E46AD600277AC1 /* EventDetailViewModel.swift in Sources */,
 				465CB38B22D1E9B2002D2B4B /* ProgressView.swift in Sources */,
+				464FAB3323043D2B00763FAD /* ExploreEventTableViewCell.swift in Sources */,
 				46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */,
 				465A47BE22D3C7C800647EA6 /* LoginToContinueViewController.swift in Sources */,
 				46DCDEA522E399C700277AC1 /* EventDetailViewController.swift in Sources */,

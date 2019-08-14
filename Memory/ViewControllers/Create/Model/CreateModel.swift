@@ -24,8 +24,8 @@ class CreateModel{
 
     var name : String?
 
-    var startDate : TimeInterval?
-    var endDate : TimeInterval?
+    var startDate : Date?
+    var endDate : Date?
 
     var addressTitle : String?
     var address : String?

@@ -49,7 +49,50 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="duu-nD-dl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6" y="175"/>
+            <point key="canvasLocation" x="-126" y="172"/>
+        </scene>
+        <!--Location View Controller-->
+        <scene sceneID="gnK-Il-e8A">
+            <objects>
+                <viewController storyboardIdentifier="LocationViewController" hidesBottomBarWhenPushed="YES" id="40h-HK-IaV" customClass="LocationViewController" customModule="Memory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kgC-Qe-55s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEZ-cE-M7X">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Id8-q6-oAe">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="40h-HK-IaV" id="Flx-wq-ZZs"/>
+                                    <outlet property="delegate" destination="40h-HK-IaV" id="p80-rO-u03"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dEZ-cE-M7X" firstAttribute="top" secondItem="OL3-UP-7GH" secondAttribute="top" id="4dP-d9-Z9G"/>
+                            <constraint firstItem="OL3-UP-7GH" firstAttribute="bottom" secondItem="Id8-q6-oAe" secondAttribute="bottom" id="KNQ-HG-7bn"/>
+                            <constraint firstAttribute="bottom" secondItem="dEZ-cE-M7X" secondAttribute="bottom" id="OXe-Ff-acj"/>
+                            <constraint firstItem="Id8-q6-oAe" firstAttribute="leading" secondItem="kgC-Qe-55s" secondAttribute="leading" id="PEN-Vl-TA3"/>
+                            <constraint firstItem="Id8-q6-oAe" firstAttribute="top" secondItem="OL3-UP-7GH" secondAttribute="top" id="Pg4-uy-AhW"/>
+                            <constraint firstAttribute="trailing" secondItem="Id8-q6-oAe" secondAttribute="trailing" id="a0Z-g3-XjI"/>
+                            <constraint firstAttribute="trailing" secondItem="dEZ-cE-M7X" secondAttribute="trailing" id="bAw-KQ-VBO"/>
+                            <constraint firstItem="dEZ-cE-M7X" firstAttribute="leading" secondItem="kgC-Qe-55s" secondAttribute="leading" id="xTt-I7-0Nd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OL3-UP-7GH"/>
+                    </view>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="KNQ-HG-7bn" id="J7G-QW-SzS"/>
+                        <outlet property="mapView" destination="dEZ-cE-M7X" id="zZO-0z-IIn"/>
+                        <outlet property="searchTableView" destination="Id8-q6-oAe" id="TaN-6K-kMF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yml-nD-0ZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="739" y="171"/>
         </scene>
     </scenes>
 </document>

@@ -7,6 +7,7 @@
 */
 
 //Landing
+"join" = "JOIN";
 "redirect_location" = "You will be redirected to the settings page to enable location services";
 "enable_location" = "Enable Location";
 "enable_location_services" = "Enable location services or select a custom location.";
@@ -16,12 +17,12 @@
 //event detail
 "looks_ok" = "Looks okay!";
 "to" = "To";
-"people_selected_join" = "Only people selected by the organiser can join the event.";
-"anyone_attend" = "Anyone can attend this event.";
+"people_selected_join" = "Only people selected by the organiser can join the party.";
+"anyone_attend" = "Anyone can attend this party.";
 
 //name
 "enter_name" = "Enter the name";
-"name_question" = "What would you like to name the event? Make it catchy.";
+"name_question" = "What would you like to name the party? Make it catchy.";
 
 //additional info
 "anyone_join" = "Allow anyone to join or only selected friends?";
@@ -47,7 +48,7 @@
 "continue" = "Continue";
 
 //where
-"where_event" = "Where is the event being held?";
+"where_event" = "Where is the party being held?";
 "nearby_landmarks" = "Nearby Landmarks (optional)";
 "enter_location_where" = "Enter Location";
 "go_next" = "Click here to go to the next part!";
@@ -55,15 +56,16 @@
 "enter_address" = "Entering the address is compulsory man, how else will people find you?";
 
 //when
-"when_party" = "Yo, when are you planning the event for?";
+"when_party" = "Yo, when are you planning the party for?";
 "start_time" = "Enter the Start Time";
 "end_time" = "Enter the End Time";
 "enter_location" = "Click here to enter the location!";
 "select_dates" = "Aye, you need to select both the dates";
 "not_same" = "Both the timings cannot be the same bro";
-"cannot_end_before" = "Event cannot end before it has begun!";
+"cannot_end_before" = "Party cannot end before it has begun!";
 
 //create
+"created" = "Your party details have been uploaded.";
 "please_wait_images" = "Please wait until images are done uploading";
 "the_scene" = "The Scene";
 
@@ -89,7 +91,7 @@
 //Phone verification
 "phone_number" = "Enter Phone Number";
 "phone_title" = "Mobile Number";
-"phone_info" = "To create your own events, you need to do your phone number verification.";
+"phone_info" = "To host a party, you need to do your phone number verification.";
 "select_country_code" = "Something went wrong. Select the country code please.";
 "enter_mobile_number" = "Please enter your mobile number";
 "missing_digits" = "Missing a couple of digits there.";

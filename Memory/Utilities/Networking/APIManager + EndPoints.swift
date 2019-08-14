@@ -20,6 +20,7 @@ extension APIManager {
         case sendOTP = "/users/sendOTP"
         case verifyOTP = "/users/verifyOTP"
 
+        case create = "/event/create"
         case getEvents = "/event/list"
         #warning("Aggregate query for get events based on privacy status and if querying user is in invited array. Delete the invited key from results")
 
