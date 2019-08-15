@@ -21,7 +21,7 @@ struct EventModel {
 
     let attendingCount : Int
     let attending : [FriendModel]
-
+    let isAttending : Bool
 
     init(json : JSON){
 
@@ -36,8 +36,8 @@ struct EventModel {
         addressTitle = json["addressTitle"].stringValue
         addressDetail = json["addressDetail"].stringValue
 
+        isAttending = json["isAttending"].boolValue
         attendingCount = json["attendingCount"].intValue
-
         attending = json["attending"].arrayValue.map({FriendModel(json : $0)})
     }
 }

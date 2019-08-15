@@ -12,6 +12,10 @@ import Foundation
 struct UserModel{
     
     static var current = UserModel(Defaults.value(forKey: .userInfo) ?? JSON())
+
+    static var isLoggedIn : Bool{
+        return !current.userId.isEmpty
+    }
     
     let userId: String
     var name: String
@@ -33,8 +37,8 @@ struct UserModel{
         profilePhoto = json["profilePhoto"].stringValue
         phoneVerified = json["phoneVerified"].boolValue
         phoneNumber = json["phoneNumber"].stringValue
-        //default value is 1000
-        distance = json["distance"].double ?? 1000
+        //default value is 10
+        distance = json["distance"].double ?? 10
     }
     
     func saveToUserDefaults() {

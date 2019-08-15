@@ -10,6 +10,8 @@ import UIKit
 
 class ExploreEventTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imageContainerView: UIView!
+    @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -23,7 +25,7 @@ class ExploreEventTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        containerView.addShadow(3.0)
+        imageContainerView.addShadow(3.0)
 
         nameLabel.textColor = Colors.black
         nameLabel.font = CustomFonts.avenirMedium.withSize(17.0)
@@ -40,6 +42,11 @@ class ExploreEventTableViewCell: UITableViewCell {
         joinButton.setTitleColor(Colors.black, for: .normal)
         joinButton.titleLabel?.font = CustomFonts.avenirMedium.withSize(14.0)
         joinContainerView.backgroundColor = Colors.white
+
+        joinContainerView.isHidden = !UserModel.isLoggedIn
+        imageHeightConstraint.constant = UIScreen.main.bounds.height/3.0
+
+        mainImageView.layer.cornerRadius = 15.0
     }
 
     override func prepareForReuse() {
@@ -50,9 +57,33 @@ class ExploreEventTableViewCell: UITableViewCell {
         joinContainerView.backgroundColor = Colors.white
     }
 
-    func configure(model : EventDetailModel){
+    func configure(model : EventModel){
 
-        
+        nameLabel.text = model.eventName
+
+        let attributedString = NSMutableAttributedString(string: model.addressTitle, attributes: [.foregroundColor : Colors.black, .font : CustomFonts.avenirMedium.withSize(14.0)])
+        attributedString.append(NSAttributedString(string: ", \(model.addressDetail)", attributes: [.foregroundColor : Colors.black, .font : CustomFonts.avenirLight.withSize(14.0)]))
+        addressLabel.attributedText = attributedString
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateFormat.displayDateFormat
+        if let date = model.startDate{
+            dateLabel.text = formatter.string(from: date)
+        }else{
+            dateLabel.text = StringConstants.something_wrong.localized
+        }
+
+        if model.isAttending{
+            joinButton.setTitle(StringConstants.joined.localized, for: .normal)
+            joinContainerView.backgroundColor = Colors.black
+            joinButton.setTitleColor(Colors.white, for: .normal)
+        }else{
+            joinButton.setTitle(StringConstants.join.localized, for: .normal)
+            joinContainerView.backgroundColor = Colors.white
+            joinButton.setTitleColor(Colors.black, for: .normal)
+        }
+
+        mainImageView.setImageWithCompletion(model.photos.first ?? "")
     }
 
     //MARK:- IBAction

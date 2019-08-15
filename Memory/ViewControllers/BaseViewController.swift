@@ -49,7 +49,6 @@ class BaseViewController: UIViewController, AlertProtocol {
         self.action = action
         self.infoText = infoText
         self.buttonText = buttonText
-        showEmptyView = true
     }
 }
 

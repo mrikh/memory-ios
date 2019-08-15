@@ -56,6 +56,7 @@ class LocationViewController: BaseViewController, KeyboardHandler {
 
         super.viewWillAppear(animated)
         addKeyboardObservers()
+        navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.shadowImage = nil
     }
 
@@ -74,22 +75,24 @@ class LocationViewController: BaseViewController, KeyboardHandler {
     //MARK:- Private
     private func initialSetup(){
 
+        navigationItem.largeTitleDisplayMode = .never
+
         isLoading = false
         emptyDataSourceDelegate(tableView: searchTableView, message: StringConstants.no_search_result.localized)
         LocationManager.shared.delegate = self
 
-        if let coordinate = self.coordinate, let tempTitle = addressTitle, let _ = subTitle{
-
-            searchBar.text = tempTitle
+        if let coordinate = self.coordinate{
             focus(coordinate: coordinate, title: nil, subTitle: nil)
-
-        }else if LocationManager.shared.locationEnabled{
-            if let current = LocationManager.shared.currentLocation{
-                focus(coordinate: current.coordinate, title: nil, subTitle: nil)
-                reverseGeoCode(coordinate: current.coordinate)
+            reverseGeoCode(coordinate: coordinate)
+        }else{
+            let locationStatus = LocationManager.shared.locationEnabled
+            if locationStatus.granted{
+                if let current = LocationManager.shared.currentLocation{
+                    focus(coordinate: current.coordinate, title: nil, subTitle: nil)
+                    reverseGeoCode(coordinate: current.coordinate)
+                }
             }
         }
-
 
         searchTableView.tableFooterView = UIView()
         navigationItem.titleView = searchBar

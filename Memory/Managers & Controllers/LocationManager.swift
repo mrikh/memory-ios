@@ -44,18 +44,22 @@ class LocationManager : NSObject{
         locationManager?.startUpdatingLocation()
     }
 
-    var locationEnabled : Bool{
+    var locationEnabled : ( notAsked : Bool, denied : Bool, granted : Bool){
 
         if CLLocationManager.locationServicesEnabled() {
             switch(CLLocationManager.authorizationStatus()) {
-            case .notDetermined, .restricted, .denied:
-                return false
+            case .notDetermined:
+                return (notAsked : true, denied : false, granted : false)
+            case .denied, .restricted:
+                return (notAsked : false, denied : true, granted : false)
             case .authorizedAlways, .authorizedWhenInUse:
-                return true
+                return (notAsked : false, denied : false, granted : true)
             @unknown default:
-                return false
+                return (notAsked : false, denied : true, granted : false)
             }
-        } else { return false }
+        } else {
+            return (notAsked : false, denied : true, granted : false)
+        }
     }
 }
 

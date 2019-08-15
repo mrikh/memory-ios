@@ -16,6 +16,7 @@
 		464FAB3323043D2B00763FAD /* ExploreEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464FAB3123043D2B00763FAD /* ExploreEventTableViewCell.swift */; };
 		464FAB3423043D2B00763FAD /* ExploreEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464FAB3223043D2B00763FAD /* ExploreEventTableViewCell.xib */; };
 		464FAB38230473D200763FAD /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464FAB37230473D200763FAD /* EventModel.swift */; };
+		464FAB3A2304B54E00763FAD /* MRRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464FAB392304B54D00763FAD /* MRRefreshControl.swift */; };
 		465A47B422D34F5700647EA6 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465A47B322D34F5700647EA6 /* Create.storyboard */; };
 		465A47B622D350B900647EA6 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465A47B522D350B900647EA6 /* Explore.storyboard */; };
 		465A47B922D35CF500647EA6 /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */; };
@@ -128,6 +129,7 @@
 		464FAB3123043D2B00763FAD /* ExploreEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreEventTableViewCell.swift; sourceTree = "<group>"; };
 		464FAB3223043D2B00763FAD /* ExploreEventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreEventTableViewCell.xib; sourceTree = "<group>"; };
 		464FAB37230473D200763FAD /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		464FAB392304B54D00763FAD /* MRRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRRefreshControl.swift; sourceTree = "<group>"; };
 		465A47B322D34F5700647EA6 /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		465A47B522D350B900647EA6 /* Explore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
@@ -617,6 +619,7 @@
 				465FFFE822DB9FE3009D222A /* MRDatePicker.swift */,
 				465FFFE922DB9FE3009D222A /* MRToolbar.swift */,
 				465CB38022CFA49D002D2B4B /* VerificationView.swift */,
+				464FAB392304B54D00763FAD /* MRRefreshControl.swift */,
 				46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */,
 				46BCE3E8223580F600CEC9C1 /* Binder.swift */,
 				46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */,
@@ -960,6 +963,7 @@
 				46DCDE9622E0D00C00277AC1 /* PhotoSelectionViewModel.swift in Sources */,
 				464EEFA5223E970A00C6A40D /* TextFieldTableViewCell.swift in Sources */,
 				46DCDEA222E38FC800277AC1 /* NameViewController.swift in Sources */,
+				464FAB3A2304B54E00763FAD /* MRRefreshControl.swift in Sources */,
 				465FFFF422DD9BE2009D222A /* Annotation.swift in Sources */,
 				465A47C522D487B300647EA6 /* CountryCodeViewController.swift in Sources */,
 				464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */,

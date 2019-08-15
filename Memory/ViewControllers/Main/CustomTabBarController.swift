@@ -51,7 +51,7 @@ class CustomTabBarController: UITabBarController {
     private func initialSetup(){
 
         //not logged in
-        if UserModel.current.userId.isEmpty{
+        if !UserModel.isLoggedIn{
             if let navigationController = viewControllers?[2] as? UINavigationController{
                 let viewController = LoginToContinueViewController.instantiate(fromAppStoryboard: .Main)
                 navigationController.setViewControllers([viewController], animated: true)

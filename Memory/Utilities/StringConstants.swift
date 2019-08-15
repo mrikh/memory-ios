@@ -11,6 +11,7 @@ import Foundation
 struct StringConstants{
 
     //Landing
+    static let joined = "joined"
     static let join = "join"
     static let redirect_location = "redirect_location"
     static let enable_location = "enable_location"

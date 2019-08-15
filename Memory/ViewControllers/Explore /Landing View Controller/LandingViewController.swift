@@ -21,6 +21,7 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
 
     private let viewModel = LandingViewModel()
     private var firstTime = true
+    private var refresh : MRRefreshControl?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,16 +32,11 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
     override func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
 
         if firstTime{
-
             firstTime = false
-
-            if !LocationManager.shared.locationEnabled{
-                configureEmptyView(infoText: StringConstants.enable_location_services.localized, with: StringConstants.enable_location.localized) { [weak self] in
-                    self?.showRedirectAlert(StringConstants.are_sure.localized, withMessage: StringConstants.redirect_location.localized)
-                }
-            }
+            viewModel.startLocationFetch()
         }
     }
 
@@ -51,6 +47,12 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
         if let view = mainTableView.tableHeaderView, let resized = resizeView(view){
             mainTableView.tableHeaderView = resized
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+
+        super.viewDidAppear(animated)
+        view.layoutIfNeeded()
     }
 
     //MARK:- IBAction
@@ -72,7 +74,6 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
     private func initialSetup(){
 
         viewModel.delegate = self
-        viewModel.startLocationFetch()
 
         addressLabel.font = CustomFonts.avenirHeavy.withSize(15.0)
         addressLabel.textColor = Colors.bgColor
@@ -85,11 +86,10 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
 
         viewModel.addressTitle.bind { [weak self] (text) in
 
-            self?.updateButton.isEnabled = true
-
             if let tempText = text{
                 self?.addressLabel.text = tempText
                 self?.addressLabelView.isHidden = false
+                self?.emptyDataSetString = StringConstants.no_data_found.localized
             }else{
                 //unable to fetch coordinates
                 self?.addressLabel.text = nil
@@ -111,9 +111,15 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
             }
         }
 
+        let refreshControl = MRRefreshControl { [weak self] in
+            self?.viewModel.fetchEvents(skip: 0, showLoader: false)
+        }
+        refresh = refreshControl
+        mainTableView.addSubview(refreshControl)
+
         updateButton.setAttributedTitle(NSAttributedString(string : StringConstants.update_location.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(12.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
-        updateButton.isEnabled = false
-        mainTableView.tableFooterView = UIView()
+
+        mainTableView.register(ExploreEventTableViewCell.nib, forCellReuseIdentifier: ExploreEventTableViewCell.identifier)
     }
 }
 
@@ -121,12 +127,22 @@ extension LandingViewController : UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 0
+        return viewModel.rowCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExploreEventTableViewCell.identifier) as? ExploreEventTableViewCell else { return UITableViewCell() }
+
+        cell.configure(model: viewModel.model(at: indexPath.row))
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+        if indexPath.row == viewModel.rowCount - 3{
+            viewModel.fetchEvents(skip: viewModel.rowCount, showLoader: false)
+        }
     }
 }
 
@@ -142,11 +158,31 @@ extension LandingViewController : LandingViewModelDelegate{
         showEmptyView = false
         mainTableView.reloadData()
     }
+
+    func reloadTable(){
+
+        refresh?.endRefreshing()
+        mainTableView.reloadData()
+    }
+
+    func enableLocationServices() {
+
+        configureEmptyView(infoText: StringConstants.enable_location_services.localized, with: StringConstants.enable_location.localized) { [weak self] in
+            self?.showRedirectAlert(StringConstants.are_sure.localized, withMessage: StringConstants.redirect_location.localized)
+        }
+
+        showEmptyView = true
+        mainTableView.reloadData()
+    }
 }
 
 extension LandingViewController : LocationViewControllerDelegate{
 
     func userDidPickLocation(coordinate: CLLocationCoordinate2D, addressTitle: String, subtitle: String) {
+
+        //done to hide the empty view of location permission
+        isLoading = true
+        mainTableView.reloadData()
 
         viewModel.updateLocation(coordinate: coordinate, addressTitle: addressTitle, subtitle: subtitle)
     }
