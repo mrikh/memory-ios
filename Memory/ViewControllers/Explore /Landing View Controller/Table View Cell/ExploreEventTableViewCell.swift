@@ -27,13 +27,13 @@ class ExploreEventTableViewCell: UITableViewCell {
 
         imageContainerView.addShadow(3.0)
 
-        nameLabel.textColor = Colors.black
+        nameLabel.textColor = Colors.bgColor
         nameLabel.font = CustomFonts.avenirMedium.withSize(17.0)
 
-        addressLabel.textColor = Colors.black
+        addressLabel.textColor = Colors.bgColor
         addressLabel.font = CustomFonts.avenirLight.withSize(14.0)
 
-        dateLabel.textColor = Colors.black
+        dateLabel.textColor = Colors.bgColor
         dateLabel.font = CustomFonts.avenirLight.withSize(14.0)
 
         joinContainerView.addShadow(3.0)
