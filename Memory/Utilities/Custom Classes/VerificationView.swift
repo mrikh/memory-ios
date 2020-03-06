@@ -236,13 +236,19 @@ class VerificationView: UIView {
         let path = UIBezierPath()
         let wholeButtonWidth = bounds.size.width
         let wholeButtonHeight = bounds.size.height
-        
-        let firstPoint = CGPoint(x: wholeButtonWidth/2.0 + wholeButtonWidth * (-1/3.5 + 1/6.5 + 1/3.0), y: wholeButtonHeight/2.0 + wholeButtonHeight/12.0 - wholeButtonHeight/4.0)
+
+        let halfWidth = wholeButtonWidth/2.0
+        let halfHeight = wholeButtonHeight/2.0
+
+        //based on hit and trial (-1/3.5 + 1/6.5 + 1/3.0)
+        let tempWidth = wholeButtonWidth * 0.2015
+
+        let firstPoint = CGPoint(x: halfWidth + tempWidth, y: halfHeight + halfHeight/6.0 - halfHeight/2.0)
         path.move(to: firstPoint)
         
-        let radius = hypot(firstPoint.x - wholeButtonWidth/2.0, firstPoint.y - wholeButtonHeight/2.0)
-        path.addArc(withCenter: CGPoint(x: wholeButtonWidth/2.0, y: wholeButtonHeight/2.0), radius: radius, startAngle: CGFloat(Double.pi * 3.0/2.0) + CGFloat(Double.pi/6.0), endAngle: CGFloat(Double.pi * 3.0/2.0), clockwise: false)
-        path.addArc(withCenter: CGPoint(x: wholeButtonWidth/2.0, y: wholeButtonHeight/2.0), radius: radius, startAngle: CGFloat(Double.pi * 3.0/2.0), endAngle: CGFloat(2 * Double.pi), clockwise: false)
+        let radius = hypot(firstPoint.x - halfWidth, firstPoint.y - halfHeight)
+        path.addArc(withCenter: CGPoint(x: halfWidth, y: halfHeight), radius: radius, startAngle: CGFloat(Double.pi * 3.0/2.0) + CGFloat(Double.pi/6.0), endAngle: CGFloat(Double.pi * 3.0/2.0), clockwise: false)
+        path.addArc(withCenter: CGPoint(x: halfWidth, y: halfHeight), radius: radius, startAngle: CGFloat(Double.pi * 3.0/2.0), endAngle: CGFloat(2 * Double.pi), clockwise: false)
         
         return path
     }
