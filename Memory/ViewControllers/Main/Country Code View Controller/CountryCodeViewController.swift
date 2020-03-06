@@ -129,13 +129,12 @@ extension CountryCodeViewController : CountryCodeViewModelDelegate {
         delegate?.didSelectCountry(with: iSOCode)
 
         view.endEditing(true)
-        
         if searchController.isActive{
-            searchController.isActive = false
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            searchController.dismiss(animated: true) { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            }
+        }else{
+            navigationController?.popViewController(animated: true)
         }
     }
 }
