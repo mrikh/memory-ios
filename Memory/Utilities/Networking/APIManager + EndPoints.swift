@@ -29,7 +29,7 @@ extension APIManager {
         var path : String {
 
             #if DEBUG
-            let url = "https://memory-node.herokuapp.com"
+            let url = "http://localhost:3000"
             #else
             let url = "https://memory-node.herokuapp.com"
             #endif

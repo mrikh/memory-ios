@@ -50,8 +50,8 @@ class LoginViewModel{
         let tempEmail = email.value.trimmingCharacters(in: .whitespacesAndNewlines)
 
         APIManager.login(params: ["email" : tempEmail, "password" : password.value]) { [weak self] (json, error) in
+            self?.delegate?.receivedResponse()
             if let tempJson = json?["data"]{
-                self?.delegate?.receivedResponse()
                 let userModel = UserModel(tempJson["user"])
                 userModel.saveToUserDefaults()
                 UserModel.current = userModel
@@ -65,7 +65,6 @@ class LoginViewModel{
                 if let tempError = error, (tempError as NSError).code == 203{
                     self?.delegate?.emailNotVerified(email : tempEmail, message : tempError.localizedDescription)
                 }else{
-                    self?.delegate?.receivedResponse()
                     self?.delegate?.errorOccurred(errorString: error?.localizedDescription)
                 }
             }

@@ -7,6 +7,7 @@ PODS:
     - Fabric (~> 1.10.2)
   - CropViewController (2.5.0)
   - DZNEmptyDataSet (1.8.1)
+  - ESTabBarController-swift (2.8.0)
   - Fabric (1.10.2)
   - FlagKit (2.2)
   - FontAwesome.swift (1.7.1)
@@ -24,6 +25,7 @@ DEPENDENCIES:
   - Crashlytics
   - CropViewController
   - DZNEmptyDataSet
+  - ESTabBarController-swift
   - Fabric
   - FlagKit
   - FontAwesome.swift
@@ -34,13 +36,14 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - AWSCore
     - AWSS3
     - Crashlytics
     - CropViewController
     - DZNEmptyDataSet
+    - ESTabBarController-swift
     - Fabric
     - FlagKit
     - FontAwesome.swift
@@ -57,6 +60,7 @@ SPEC CHECKSUMS:
   Crashlytics: 611738c7847f8291a1a51084e35987b86ba6b3ee
   CropViewController: 6c962d6fb264cc5cb325b622d5029d50c6c43e72
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  ESTabBarController-swift: 05593a6ad64700b03c0eb60ff625916370aa4136
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FlagKit: eca7dc89064b0c986302ba9acefad1bf80a435b1
   FontAwesome.swift: 8d9792fa2d2347055da35bd97752b3960bd75952
@@ -66,6 +70,6 @@ SPEC CHECKSUMS:
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 1e64b867e5884b7cb1877f2287f159482392cc63
+PODFILE CHECKSUM: 96c1403a3a709130a1209abdfbbc064164e6fe4d
 
-COCOAPODS: 1.7.3
+COCOAPODS: 1.8.4

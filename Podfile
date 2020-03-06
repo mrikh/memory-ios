@@ -8,6 +8,7 @@ target 'Memory' do
 use_frameworks!
 
   # Pods for Memory
+pod "ESTabBarController-swift"
 pod 'KMPlaceholderTextView'
 pod 'CropViewController'
 pod 'FontAwesome.swift'

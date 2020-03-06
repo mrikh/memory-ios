@@ -6,12 +6,11 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
+import ESTabBarController_swift
 import FontAwesome_swift
 import UIKit
 
 class CustomTabBarController: UITabBarController {
-
-    private var firstTime = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,36 +18,10 @@ class CustomTabBarController: UITabBarController {
         initialSetup()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-
-        super.viewWillAppear(animated)
-        
-        if firstTime{
-            tabBar.tintColor = Colors.bgColor
-            if let items = tabBar.items{
-                for (index, item) in items.enumerated(){
-                    if index == 0{
-                        item.title = StringConstants.explore.localized
-                        item.image = UIImage.fontAwesomeIcon(name: FontAwesome.search, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
-                    }else if index == 1{
-                        item.title = StringConstants.friends.localized
-                        item.image = UIImage.fontAwesomeIcon(name: FontAwesome.userFriends, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
-                    }else if index == 2{
-                        item.title = StringConstants.create.localized
-                        item.image = UIImage.fontAwesomeIcon(name: FontAwesome.pen, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
-                    }else if index == 3{
-                        item.title = StringConstants.profile.localized
-                        item.image = UIImage.fontAwesomeIcon(name: FontAwesome.userCog, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
-                    }
-                }
-            }
-
-            firstTime = false
-        }
-    }
-
     //MARK:- Private
     private func initialSetup(){
+
+        tabBar.tintColor = Colors.bgColor
 
         //not logged in
         if !UserModel.isLoggedIn{
@@ -67,6 +40,19 @@ class CustomTabBarController: UITabBarController {
                 let viewController = PhoneNumberViewController.instantiate(fromAppStoryboard: .Main)
                 navigationController.setViewControllers([viewController], animated: true)
             }
+        }
+
+        if let viewControllers = viewControllers{
+            let exploreImage = UIImage.fontAwesomeIcon(name: FontAwesome.search, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
+            let penImage = UIImage.fontAwesomeIcon(name: FontAwesome.pen, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
+            let profileImage = UIImage.fontAwesomeIcon(name: FontAwesome.userCog, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
+            let friendsImage = UIImage.fontAwesomeIcon(name: FontAwesome.userFriends, style: .solid, textColor: Colors.black, size: CGSize(width: 28.0, height : 28.0))
+
+            viewControllers[0].tabBarItem = ESTabBarItem.init(ExampleBouncesContentView(), title: StringConstants.explore.localized, image: exploreImage, selectedImage: exploreImage, tag: 0)
+            viewControllers[1].tabBarItem = ESTabBarItem.init (ExampleBouncesContentView(), title: StringConstants.friends.localized, image: friendsImage, selectedImage: friendsImage, tag: 1)
+            viewControllers[2].tabBarItem = ESTabBarItem.init (ExampleBouncesContentView(), title: StringConstants.create.localized, image: penImage, selectedImage: penImage, tag: 2)
+            viewControllers[3].tabBarItem = ESTabBarItem.init (ExampleBouncesContentView(), title: StringConstants.profile.localized, image: profileImage, selectedImage:
+                profileImage, tag: 4)
         }
     }
 }

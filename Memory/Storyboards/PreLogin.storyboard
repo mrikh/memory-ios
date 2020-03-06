@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hgn-yp-rJI">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hgn-yp-rJI">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +24,6 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4L0-VU-x4z" customClass="MRTextField" customModule="Memory" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                                 <connections>
@@ -48,7 +45,6 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oON-kg-24e" customClass="MRTextField" customModule="Memory" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
@@ -286,6 +282,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SgV-Tg-9bS" userLabel="Disable Scroll View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcC-Rr-ko0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
@@ -309,7 +309,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="OaF-Ku-3Ly"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                                                 <connections>
@@ -328,10 +327,10 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="tJk-pU-KWc" firstAttribute="trailing" secondItem="ea7-s2-8EM" secondAttribute="trailing" id="19g-UN-ucf"/>
-                                            <constraint firstItem="ea7-s2-8EM" firstAttribute="centerY" secondItem="FMW-yz-9qi" secondAttribute="centerY" multiplier="0.3" priority="999" id="2Tw-bp-azw"/>
+                                            <constraint firstItem="ea7-s2-8EM" firstAttribute="centerY" secondItem="FMW-yz-9qi" secondAttribute="centerY" multiplier="0.3" priority="749" id="2Tw-bp-azw"/>
                                             <constraint firstItem="ShO-jH-9bq" firstAttribute="centerY" secondItem="FMW-yz-9qi" secondAttribute="centerY" id="47o-9v-Qti"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="MVj-fY-OGT" secondAttribute="bottom" constant="15" id="8ph-P7-hs1"/>
                                             <constraint firstItem="tJk-pU-KWc" firstAttribute="top" secondItem="ea7-s2-8EM" secondAttribute="bottom" constant="25" id="D9w-5W-0dp"/>
@@ -343,12 +342,13 @@
                                             <constraint firstAttribute="trailing" secondItem="MVj-fY-OGT" secondAttribute="trailing" constant="15" id="Vmi-yI-BMo"/>
                                             <constraint firstItem="ea7-s2-8EM" firstAttribute="leading" secondItem="FMW-yz-9qi" secondAttribute="leading" constant="15" id="cn8-3b-Iok"/>
                                             <constraint firstItem="ShO-jH-9bq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="tJk-pU-KWc" secondAttribute="bottom" constant="25" id="dOK-Nc-NTn"/>
-                                            <constraint firstItem="MVj-fY-OGT" firstAttribute="centerY" secondItem="FMW-yz-9qi" secondAttribute="centerY" multiplier="1.5" priority="998" id="fTq-EA-Tpz"/>
+                                            <constraint firstItem="MVj-fY-OGT" firstAttribute="centerY" secondItem="FMW-yz-9qi" secondAttribute="centerY" multiplier="1.5" priority="750" id="fTq-EA-Tpz"/>
                                             <constraint firstItem="ShO-jH-9bq" firstAttribute="leading" secondItem="FMW-yz-9qi" secondAttribute="leading" constant="15" id="ona-AH-XsN"/>
                                             <constraint firstItem="ea7-s2-8EM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FMW-yz-9qi" secondAttribute="top" constant="20" id="ync-1D-W8v"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="FMW-yz-9qi" firstAttribute="leading" secondItem="rcC-Rr-ko0" secondAttribute="leading" id="KD8-HD-bzk"/>
                                     <constraint firstItem="FMW-yz-9qi" firstAttribute="width" secondItem="rcC-Rr-ko0" secondAttribute="width" id="NX3-fz-Ote"/>
@@ -361,10 +361,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rcC-Rr-ko0" firstAttribute="top" secondItem="GWu-30-mZ9" secondAttribute="top" id="B5Y-bF-EwO"/>
+                            <constraint firstItem="rcC-Rr-ko0" firstAttribute="top" secondItem="Nt0-JQ-eA9" secondAttribute="top" id="B5Y-bF-EwO"/>
                             <constraint firstItem="Nt0-JQ-eA9" firstAttribute="trailing" secondItem="rcC-Rr-ko0" secondAttribute="trailing" id="M9h-S4-6VU"/>
-                            <constraint firstAttribute="bottom" secondItem="rcC-Rr-ko0" secondAttribute="bottom" id="QmU-6s-bwr"/>
+                            <constraint firstItem="SgV-Tg-9bS" firstAttribute="top" secondItem="Nt0-JQ-eA9" secondAttribute="top" id="ONn-cu-2Au"/>
+                            <constraint firstItem="Nt0-JQ-eA9" firstAttribute="trailing" secondItem="SgV-Tg-9bS" secondAttribute="trailing" id="QOW-sJ-B5f"/>
+                            <constraint firstItem="Nt0-JQ-eA9" firstAttribute="bottom" secondItem="rcC-Rr-ko0" secondAttribute="bottom" id="QmU-6s-bwr"/>
+                            <constraint firstItem="SgV-Tg-9bS" firstAttribute="leading" secondItem="Nt0-JQ-eA9" secondAttribute="leading" id="SOE-Rb-BJM"/>
+                            <constraint firstItem="SgV-Tg-9bS" firstAttribute="centerY" secondItem="GWu-30-mZ9" secondAttribute="centerY" id="TcV-E9-GgN"/>
+                            <constraint firstItem="SgV-Tg-9bS" firstAttribute="centerX" secondItem="GWu-30-mZ9" secondAttribute="centerX" id="Xlf-eH-J7I"/>
                             <constraint firstItem="rcC-Rr-ko0" firstAttribute="leading" secondItem="Nt0-JQ-eA9" secondAttribute="leading" id="ajf-9v-njK"/>
+                            <constraint firstItem="Nt0-JQ-eA9" firstAttribute="bottom" secondItem="SgV-Tg-9bS" secondAttribute="bottom" id="uJP-wZ-7wy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nt0-JQ-eA9"/>
                     </view>

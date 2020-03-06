@@ -89,14 +89,12 @@ class MRAnimatingButton: UIButton {
         initialCornerRadius = layer.cornerRadius
         titleText = title(for: .normal)
         isAnimating = true
-        
+
         UIView.transition(with: self, duration: 0.05, options: .transitionCrossDissolve, animations: {
             self.setTitle(nil, for: .normal)
         }, completion: { [weak self] (finished) in
             self?.executeAnimation(true) { [weak self] in
-                self?.circleGroupedAnimation({
-                    
-                })
+                self?.circleGroupedAnimation(nil)
             }
         })
     }
@@ -108,7 +106,6 @@ class MRAnimatingButton: UIButton {
             self?.executeAnimation(false) { [weak self] in
                 if let tempSelf = self{
                     UIView.transition(with: tempSelf, duration: 0.05, options: .transitionCrossDissolve, animations: {
-
                         tempSelf.setTitle(tempSelf.titleText, for: .normal)
                     }, completion: nil)
                     self?.isUserInteractionEnabled = true
@@ -239,7 +236,6 @@ class MRAnimatingButton: UIButton {
         }
         
         searchForLayer(firstLayer)?.add(group, forKey: nil)
-        
         CATransaction.commit()
     }
     

@@ -100,6 +100,9 @@
 		46BCE3FC2236487200CEC9C1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE3FB2236487200CEC9C1 /* LoginViewController.swift */; };
 		46BCE402223B9E6300CEC9C1 /* MRTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE401223B9E6300CEC9C1 /* MRTextField.swift */; };
 		46BCE404223B9EAB00CEC9C1 /* MRAnimatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */; };
+		46CEB2282412CF5400CCE906 /* ExampleIrregularityBasicContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CEB2252412CF5300CCE906 /* ExampleIrregularityBasicContentView.swift */; };
+		46CEB2292412CF5400CCE906 /* ExampleBounceContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CEB2262412CF5300CCE906 /* ExampleBounceContentView.swift */; };
+		46CEB22A2412CF5400CCE906 /* ExampleBasicContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CEB2272412CF5300CCE906 /* ExampleBasicContentView.swift */; };
 		46DCDE7C22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE7B22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift */; };
 		46DCDE7F22DF0F0100277AC1 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE7E22DF0F0100277AC1 /* ButtonCollectionViewCell.swift */; };
 		46DCDE8222DF62B700277AC1 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46DCDE8122DF62B700277AC1 /* Common.storyboard */; };
@@ -220,6 +223,9 @@
 		46BCE3FB2236487200CEC9C1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		46BCE401223B9E6300CEC9C1 /* MRTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRTextField.swift; sourceTree = "<group>"; };
 		46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRAnimatingButton.swift; sourceTree = "<group>"; };
+		46CEB2252412CF5300CCE906 /* ExampleIrregularityBasicContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleIrregularityBasicContentView.swift; sourceTree = "<group>"; };
+		46CEB2262412CF5300CCE906 /* ExampleBounceContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleBounceContentView.swift; sourceTree = "<group>"; };
+		46CEB2272412CF5300CCE906 /* ExampleBasicContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleBasicContentView.swift; sourceTree = "<group>"; };
 		46DCDE7B22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		46DCDE7E22DF0F0100277AC1 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		46DCDE8122DF62B700277AC1 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
@@ -588,6 +594,7 @@
 		46BCE3A222357A3100CEC9C1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				46CEB2242412CF5300CCE906 /* Pod-Helpers */,
 				46BCE3BA22357A3100CEC9C1 /* Custom Classes */,
 				46BCE3B222357A3100CEC9C1 /* Genral Extensions */,
 				46BCE3AD22357A3100CEC9C1 /* Networking */,
@@ -714,6 +721,16 @@
 				465CB39722D2811F002D2B4B /* LoginViewModel.swift */,
 			);
 			path = "Login View Controller";
+			sourceTree = "<group>";
+		};
+		46CEB2242412CF5300CCE906 /* Pod-Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				46CEB2252412CF5300CCE906 /* ExampleIrregularityBasicContentView.swift */,
+				46CEB2262412CF5300CCE906 /* ExampleBounceContentView.swift */,
+				46CEB2272412CF5300CCE906 /* ExampleBasicContentView.swift */,
+			);
+			path = "Pod-Helpers";
 			sourceTree = "<group>";
 		};
 		46DCDE7A22DEFD7700277AC1 /* Collection Header View */ = {
@@ -1061,12 +1078,15 @@
 				465CB39B22D312FE002D2B4B /* ForgotPasswordViewController.swift in Sources */,
 				46DCDEAD22E46AD600277AC1 /* EventDetailViewModel.swift in Sources */,
 				465CB38B22D1E9B2002D2B4B /* ProgressView.swift in Sources */,
+				46CEB2292412CF5400CCE906 /* ExampleBounceContentView.swift in Sources */,
 				464FAB3323043D2B00763FAD /* ExploreEventTableViewCell.swift in Sources */,
 				46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */,
 				465A47BE22D3C7C800647EA6 /* LoginToContinueViewController.swift in Sources */,
+				46CEB2282412CF5400CCE906 /* ExampleIrregularityBasicContentView.swift in Sources */,
 				46DCDEA522E399C700277AC1 /* EventDetailViewController.swift in Sources */,
 				46DCDE9922E18B2B00277AC1 /* InviteFriendsViewController.swift in Sources */,
 				46DCDE8622DF984E00277AC1 /* GalleryViewController.swift in Sources */,
+				46CEB22A2412CF5400CCE906 /* ExampleBasicContentView.swift in Sources */,
 				46BCE3A122357A2100CEC9C1 /* ValidationController.swift in Sources */,
 				465A47C022D3CF5000647EA6 /* PhoneNumberViewModel.swift in Sources */,
 				46DCDE9422E0C34B00277AC1 /* ImageModel.swift in Sources */,
