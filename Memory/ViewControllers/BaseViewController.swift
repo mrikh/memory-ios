@@ -81,6 +81,10 @@ extension BaseViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
             self.emptyDataSetString = string
         }
     }
+
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
+        return true
+    }
     
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
         

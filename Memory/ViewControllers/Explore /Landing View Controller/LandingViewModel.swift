@@ -83,7 +83,7 @@ class LandingViewModel{
             delegate?.startLoader()
         }
 
-        APIManager.getEvents(lat: coordinate.latitude, long: coordinate.longitude, status: 0, skip: skip) { [weak self] (json, error) in
+        APIManager.getEvents(lat: coordinate.latitude, long: coordinate.longitude, status: 1, skip: skip) { [weak self] (json, error) in
 
             self?.delegate?.stopLoader()
 

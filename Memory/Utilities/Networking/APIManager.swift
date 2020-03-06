@@ -25,6 +25,7 @@ class APIManager {
         }
     }
 
+    //user id passed manually as we will have explore feature so to get user id, this is done.
     static func getEvents(lat : Double, long : Double, status : Int, skip : Int, completion: ((JSON?, Error?)->())?){
 
         NetworkingManager.GET(endPoint: .getEvents, parameters: ["lat" : lat, "long" : long, "distance" : UserModel.current.distance, "limit" : 10, "skip" : skip, "eventStatus" : status, "userId" : UserModel.current.userId], success: { (dict) in

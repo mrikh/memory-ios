@@ -21,7 +21,6 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
 
     private let viewModel = LandingViewModel()
     private var firstTime = true
-    private var refresh : MRRefreshControl?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,8 +113,8 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
         let refreshControl = MRRefreshControl { [weak self] in
             self?.viewModel.fetchEvents(skip: 0, showLoader: false)
         }
-        refresh = refreshControl
-        mainTableView.addSubview(refreshControl)
+        
+        mainTableView.refreshControl = refreshControl
 
         updateButton.setAttributedTitle(NSAttributedString(string : StringConstants.update_location.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(12.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
 
@@ -161,7 +160,7 @@ extension LandingViewController : LandingViewModelDelegate{
 
     func reloadTable(){
 
-        refresh?.endRefreshing()
+        mainTableView.refreshControl?.endRefreshing()
         mainTableView.reloadData()
     }
 
