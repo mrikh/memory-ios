@@ -19,6 +19,9 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var addressSubtitleView: UIView!
 
+    //this was done as assigning to table view isnt working
+    private var refresh : MRRefreshControl?
+
     private let viewModel = LandingViewModel()
     private var firstTime = true
 
@@ -46,12 +49,6 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
         if let view = mainTableView.tableHeaderView, let resized = resizeView(view){
             mainTableView.tableHeaderView = resized
         }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-
-        super.viewDidAppear(animated)
-        view.layoutIfNeeded()
     }
 
     //MARK:- IBAction
@@ -111,10 +108,12 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
         }
 
         let refreshControl = MRRefreshControl { [weak self] in
+            self?.mainTableView.refreshControl?.beginRefreshing()
             self?.viewModel.fetchEvents(skip: 0, showLoader: false)
         }
         
-        mainTableView.refreshControl = refreshControl
+        refresh = refreshControl
+        mainTableView.addSubview(refreshControl)
 
         updateButton.setAttributedTitle(NSAttributedString(string : StringConstants.update_location.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(12.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
 
@@ -180,6 +179,7 @@ extension LandingViewController : LocationViewControllerDelegate{
     func userDidPickLocation(coordinate: CLLocationCoordinate2D, addressTitle: String, subtitle: String) {
 
         //done to hide the empty view of location permission
+        refresh?.endRefreshing()
         isLoading = true
         mainTableView.reloadData()
 
