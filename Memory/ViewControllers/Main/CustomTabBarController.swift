@@ -10,7 +10,7 @@ import ESTabBarController_swift
 import FontAwesome_swift
 import UIKit
 
-class CustomTabBarController: UITabBarController {
+class CustomTabBarController: ESTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -37,8 +37,8 @@ class ProfilePhotoViewModel{
 
             if let tempString = urlString{
 
-                SDImageCache.shared.clearMemory()
                 SDImageCache.shared.store(Utilities.resizeImage(image), forKey: tempString, completion: nil)
+                SDImageCache.shared.clearMemory()
                 self?.delegate?.imageUploadSuccess()
                 self?.uploadToOurServer(photoUrlString: tempString)
             }else{

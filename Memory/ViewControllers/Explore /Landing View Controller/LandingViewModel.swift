@@ -16,6 +16,7 @@ protocol LandingViewModelDelegate : BaseProtocol{
 
     func enableLocationServices()
     func reloadTable()
+    func endRefreshing()
 }
 
 class LandingViewModel{
@@ -86,6 +87,7 @@ class LandingViewModel{
         APIManager.getEvents(lat: coordinate.latitude, long: coordinate.longitude, status: 1, skip: skip) { [weak self] (json, error) in
 
             self?.delegate?.stopLoader()
+            self?.delegate?.endRefreshing()
 
             if let array = json?["data"].arrayValue{
 

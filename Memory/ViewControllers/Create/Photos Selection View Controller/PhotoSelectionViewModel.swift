@@ -81,8 +81,8 @@ class PhotoSelectionViewModel{
                 if let tempString = urlString{
 
                     strongSelf.dataSource[index].urlString = tempString
-                    SDImageCache.shared.clearMemory()
                     SDImageCache.shared.store(Utilities.resizeImage(model.image), forKey: tempString, completion: nil)
+                    SDImageCache.shared.clearMemory()
                 }else{
                     strongSelf.delegate?.errorOccurred(errorString: StringConstants.error_upload.localized)
                 }

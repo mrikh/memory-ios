@@ -20,8 +20,6 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
     @IBOutlet weak var addressSubtitleView: UIView!
 
     //this was done as assigning to table view isnt working
-    private var refresh : MRRefreshControl?
-
     private let viewModel = LandingViewModel()
     private var firstTime = true
 
@@ -71,6 +69,8 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
 
         viewModel.delegate = self
 
+        navigationItem.largeTitleDisplayMode = .never
+
         addressLabel.font = CustomFonts.avenirHeavy.withSize(15.0)
         addressLabel.textColor = Colors.bgColor
         addressSubtitleLabel.font = CustomFonts.avenirMedium.withSize(12.0)
@@ -108,12 +108,10 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
         }
 
         let refreshControl = MRRefreshControl { [weak self] in
-            self?.mainTableView.refreshControl?.beginRefreshing()
             self?.viewModel.fetchEvents(skip: 0, showLoader: false)
         }
-        
-        refresh = refreshControl
-        mainTableView.addSubview(refreshControl)
+
+        mainTableView.refreshControl = refreshControl
 
         updateButton.setAttributedTitle(NSAttributedString(string : StringConstants.update_location.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(12.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
 
@@ -157,9 +155,12 @@ extension LandingViewController : LandingViewModelDelegate{
         mainTableView.reloadData()
     }
 
+    func endRefreshing() {
+        mainTableView.refreshControl?.endRefreshing()
+    }
+
     func reloadTable(){
 
-        mainTableView.refreshControl?.endRefreshing()
         mainTableView.reloadData()
     }
 
@@ -179,7 +180,6 @@ extension LandingViewController : LocationViewControllerDelegate{
     func userDidPickLocation(coordinate: CLLocationCoordinate2D, addressTitle: String, subtitle: String) {
 
         //done to hide the empty view of location permission
-        refresh?.endRefreshing()
         isLoading = true
         mainTableView.reloadData()
 

@@ -36,25 +36,22 @@ class ExploreEventTableViewCell: UITableViewCell {
         dateLabel.textColor = Colors.bgColor
         dateLabel.font = CustomFonts.avenirLight.withSize(14.0)
 
-        joinContainerView.addShadow(3.0)
-
-        joinButton.setTitle(StringConstants.join.localized, for: .normal)
-        joinButton.setTitleColor(Colors.black, for: .normal)
-        joinButton.titleLabel?.font = CustomFonts.avenirMedium.withSize(14.0)
-        joinContainerView.backgroundColor = Colors.white
+        setupJoinButton(joined: false)
 
         joinContainerView.isHidden = !UserModel.isLoggedIn
         imageHeightConstraint.constant = UIScreen.main.bounds.height/3.0
 
         mainImageView.layer.cornerRadius = 15.0
+
+        joinButton.titleLabel?.font = CustomFonts.avenirHeavy.withSize(12.0)
+        joinContainerView.layer.cornerRadius = joinContainerView.bounds.height/2.0
     }
 
     override func prepareForReuse() {
 
         super.prepareForReuse()
 
-        joinButton.setTitleColor(Colors.black, for: .normal)
-        joinContainerView.backgroundColor = Colors.white
+        setupJoinButton(joined: false)
     }
 
     func configure(model : EventModel){
@@ -73,15 +70,7 @@ class ExploreEventTableViewCell: UITableViewCell {
             dateLabel.text = StringConstants.something_wrong.localized
         }
 
-        if model.isAttending{
-            joinButton.setTitle(StringConstants.joined.localized, for: .normal)
-            joinContainerView.backgroundColor = Colors.black
-            joinButton.setTitleColor(Colors.white, for: .normal)
-        }else{
-            joinButton.setTitle(StringConstants.join.localized, for: .normal)
-            joinContainerView.backgroundColor = Colors.white
-            joinButton.setTitleColor(Colors.black, for: .normal)
-        }
+        setupJoinButton(joined: model.isAttending)
 
         mainImageView.setImageWithCompletion(model.photos.first ?? "")
     }
@@ -90,5 +79,23 @@ class ExploreEventTableViewCell: UITableViewCell {
     @IBAction func joinButtonAction(_ sender: UIButton) {
 
         joinAction?()
+    }
+
+    //MARK:- Private
+    private func setupJoinButton(joined : Bool){
+
+        if joined{
+            joinButton.setTitle(StringConstants.joined.localized, for: .normal)
+            joinContainerView.backgroundColor = Colors.white
+            joinButton.setTitleColor(Colors.black, for: .normal)
+            joinButton.layer.borderColor = Colors.black.cgColor
+            joinButton.layer.borderWidth = 1.0
+        }else{
+            joinButton.setTitle(StringConstants.join.localized, for: .normal)
+            joinContainerView.backgroundColor = Colors.black
+            joinButton.setTitleColor(Colors.white, for: .normal)
+            joinButton.layer.borderWidth = 0.0
+            joinButton.layer.borderColor = Colors.clear.cgColor
+        }
     }
 }

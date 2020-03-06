@@ -13,6 +13,12 @@ class ButtonCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mainButton: UIButton!
     var buttonAction : (()->())?
 
+    override func awakeFromNib() {
+
+        super.awakeFromNib()
+        mainButton.setTitle("x", for: .normal)
+    }
+
     //MARK:- IBAction
     @IBAction func mainAction(_ sender: UIButton) {
 

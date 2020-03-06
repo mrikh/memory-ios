@@ -101,6 +101,7 @@ struct EventDetailModel{
         dict["long"] = long
         dict["privacy"] = privacy.rawValue
         dict["invited"] = invited.map({$0.friendId})
+        dict["photos"] = photos
 
         return dict
     }
