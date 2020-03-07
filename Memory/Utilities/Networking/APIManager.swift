@@ -16,6 +16,24 @@ class APIManager {
         return ["Authorization" : "Bearer \(authenticationToken)"]
     }
 
+    static func updateAttending(eventId : String, isAttending : Bool, completion : ((JSON?, Error?)->())?){
+
+        NetworkingManager.PATCH(endPoint: .attending, parameters: ["eventId" : eventId, "isAttending" : isAttending], headers: headers, success: { (dict) in
+            completion?(JSON(dict), nil)
+        }) { (error) in
+            completion?(nil, error)
+        }
+    }
+
+    static func eventDetails(id : String, completion : ((JSON?, Error?)->())?){
+
+        NetworkingManager.GET(endPoint: .eventDetails, parameters: ["eventId": id, "userId" : UserModel.current.userId], success: { (dict) in
+            completion?(JSON(dict), nil)
+        }) { (error) in
+            completion?(nil, error)
+        }
+    }
+
     static func createEvent(params : [String : Any], completion: ((JSON?, Error?)->())?){
 
         NetworkingManager.POST(endPoint: .create, parameters: params, headers : headers, success: { (dict) in

@@ -9,8 +9,14 @@
 import FontAwesome_swift
 import UIKit
 
+protocol EventDetailViewControllerDelegate : AnyObject {
+
+    func updateJoinStatus(eventId : String, isAttending : Bool)
+}
+
 class EventDetailViewController: BaseViewController, TableViewHeaderFooterResizeProtocol {
 
+    @IBOutlet var joinTopBorderView: UIView!
     @IBOutlet weak var mainTableView: UITableView!
     //this button is for joining event, exit, confirming preview
     @IBOutlet weak var joinButton: UIButton!
@@ -53,6 +59,7 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
     @IBOutlet weak var mapsButton: UIButton!
 
     var viewModel = EventDetailViewModel()
+    weak var delegate : EventDetailViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +83,8 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
 
         let height = viewModel.pagerItemsCount == 0 ? backButton.frame.maxY + 10.0 : UIScreen.main.bounds.height/3.0
         photosHeightConstraint.constant = height
+
+        creatorImageView.layer.cornerRadius = creatorImageView.bounds.height/2.0
     }
 
     //MARK:- IBAction
@@ -101,9 +110,6 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
     private func initialSetup(){
 
         mainTableView.tableFooterView = UIView()
-
-        bufferView.backgroundColor = Colors.bgColor
-        mainTableView.tableFooterView = UIView()
         mainTableView.tableFooterView?.frame.size.height = joinButton.frame.size.height + 15.0
 
         mapsButton.setImage(UIImage.fontAwesomeIcon(name: FontAwesome.locationArrow, style: .solid, textColor: Colors.bgColor, size: CGSize(width: 30.0, height : 30.0)), for: .normal)
@@ -112,11 +118,9 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
         backButton.addShadow(3.0)
 
         configure(label: nameLabel, font: CustomFonts.avenirMedium.withSize(23.0), text: viewModel.eventName)
-        creatorImageView.setImageWithCompletion(viewModel.creatorImage, placeholder: nil)
-        configure(label: creatorNameLabel, font: CustomFonts.avenirLight.withSize(12.0), text: viewModel.creatorName)
 
+        configureData()
         startDateView.addShadow(3.0)
-        endDateView.addShadow(3.0)
 
         let startTuple = viewModel.startTuple
         configure(label: startTimeLabel, font: CustomFonts.avenirLight.withSize(16.0), text: startTuple.time)
@@ -124,24 +128,63 @@ class EventDetailViewController: BaseViewController, TableViewHeaderFooterResize
         configure(label: startMonthLabel, font: CustomFonts.avenirLight.withSize(13.0), text: startTuple.monthYear)
         configure(label: startDateLabel, font: CustomFonts.avenirHeavy.withSize(34.0), text: startTuple.date)
 
+        configure(label: addressTitle, font: CustomFonts.avenirMedium.withSize(16.0), text: viewModel.addressTitle)
+        configure(label: addressDetail, font: CustomFonts.avenirLight.withSize(13.0), text: viewModel.addressDetail)
+        configure(label: toLabel, font: CustomFonts.avenirLight.withSize(10.0), text: StringConstants.to.localized)
+
+        viewModel.delegate = self
+
+        if !viewModel.isDraft{
+            viewModel.fetchEventDetails()
+        }
+    }
+
+    private func updateButton(){
+
+        if !UserModel.isLoggedIn{
+            joinButton.isHidden = true
+            bufferView.isHidden = true
+            return
+        }
+
+        if viewModel.isDraft{
+            configureBottomPart(text: StringConstants.looks_ok.localized, darkMode: true)
+        }else{
+            if viewModel.attending{
+                configureBottomPart(text: StringConstants.joined.localized, darkMode: false)
+            }else{
+                configureBottomPart(text: StringConstants.join.localized, darkMode: true)
+            }
+        }
+    }
+
+    private func configureBottomPart(text : String, darkMode : Bool){
+
+        let color = darkMode ? Colors.bgColor : Colors.activeButtonTitleColor
+        let antiColor = darkMode ? Colors.activeButtonTitleColor : Colors.bgColor
+
+        joinButton.setAttributedTitle(NSAttributedString(string : text, attributes : [.foregroundColor : antiColor, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
+        joinButton.backgroundColor = color
+        bufferView.backgroundColor = color
+        joinTopBorderView.backgroundColor = color
+    }
+
+    private func configureData(){
+        creatorImageView.setImageWithCompletion(viewModel.creatorImage, placeholder: nil)
+        configure(label: creatorNameLabel, font: CustomFonts.avenirLight.withSize(12.0), text: viewModel.creatorName)
+
+        endDateView.addShadow(3.0)
         let endTuple = viewModel.endTuple
         configure(label: endTimeLabel, font: CustomFonts.avenirLight.withSize(16.0), text: endTuple.time)
         configure(label: endDayLabel, font: CustomFonts.avenirMedium.withSize(18.0), text: endTuple.day)
         configure(label: endMonthLabel, font: CustomFonts.avenirLight.withSize(13.0), text: endTuple.monthYear)
         configure(label: endDateLabel, font: CustomFonts.avenirHeavy.withSize(34.0), text: endTuple.date)
 
-        configure(label: addressTitle, font: CustomFonts.avenirMedium.withSize(16.0), text: viewModel.addressTitle)
-        configure(label: addressDetail, font: CustomFonts.avenirLight.withSize(13.0), text: viewModel.addressDetail)
         configure(label: nearbyLabel, font: CustomFonts.avenirLight.withSize(13.0), text: viewModel.nearby)
         configure(label: privacyLabel, font: CustomFonts.avenirHeavy.withSize(14.0), text: viewModel.privacy)
         configure(label: additionalInfoLabel, font: CustomFonts.avenirMedium.withSize(14.0), text: viewModel.additionalInfo)
 
-        configure(label: toLabel, font: CustomFonts.avenirLight.withSize(10.0), text: StringConstants.to.localized)
-
-        joinButton.setAttributedTitle(NSAttributedString(string : StringConstants.looks_ok.localized, attributes : [.foregroundColor : Colors.white, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
-        joinButton.backgroundColor = Colors.black
-
-        viewModel.delegate = self
+        updateButton()
     }
 
     private func configure(label : UILabel, font : UIFont, text : String?){
@@ -187,6 +230,21 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
 }
 
 extension EventDetailViewController : EventDetailViewModelDelegate{
+
+    func updatedAttendingOnServer(isAttending : Bool){
+
+        delegate?.updateJoinStatus(eventId: viewModel.eventId, isAttending: isAttending)
+    }
+
+    func resetButton(){
+        
+        updateButton()
+    }
+
+    func updatedData() {
+        
+        configureData()
+    }
 
     func showSuccess(message: String) {
 

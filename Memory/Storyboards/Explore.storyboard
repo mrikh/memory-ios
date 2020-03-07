@@ -467,6 +467,13 @@
                                     <action selector="backAction:" destination="AJb-Tu-idN" eventType="touchUpInside" id="JSb-9Y-yUP"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAW-5r-O4N">
+                                <rect key="frame" x="0.0" y="620" width="375" height="1"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="756-4c-tQi"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hll-08-UTW" userLabel="Join Button">
                                 <rect key="frame" x="0.0" y="621" width="375" height="46"/>
                                 <constraints>
@@ -485,9 +492,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kon-2q-0Vg" firstAttribute="leading" secondItem="pBw-4D-nGK" secondAttribute="leading" constant="15" id="5pJ-TY-NXU"/>
+                            <constraint firstItem="hll-08-UTW" firstAttribute="top" secondItem="tAW-5r-O4N" secondAttribute="bottom" id="76K-7F-N33"/>
                             <constraint firstItem="7qL-Fe-4FG" firstAttribute="top" secondItem="hll-08-UTW" secondAttribute="bottom" id="7tB-ds-7tV"/>
                             <constraint firstItem="hll-08-UTW" firstAttribute="leading" secondItem="pBw-4D-nGK" secondAttribute="leading" id="A8f-lM-dIy"/>
                             <constraint firstItem="7qL-Fe-4FG" firstAttribute="leading" secondItem="pBw-4D-nGK" secondAttribute="leading" id="Lnq-7z-Bf3"/>
+                            <constraint firstItem="tAW-5r-O4N" firstAttribute="trailing" secondItem="hll-08-UTW" secondAttribute="trailing" id="NbR-d6-tB3"/>
                             <constraint firstItem="FsZ-yU-mcP" firstAttribute="top" secondItem="gLc-wn-2c3" secondAttribute="top" id="RRG-M9-v4q"/>
                             <constraint firstItem="pBw-4D-nGK" firstAttribute="trailing" secondItem="FsZ-yU-mcP" secondAttribute="trailing" id="cRK-0F-nSA"/>
                             <constraint firstItem="pBw-4D-nGK" firstAttribute="trailing" secondItem="7qL-Fe-4FG" secondAttribute="trailing" id="cSH-MJ-2xf"/>
@@ -496,6 +505,7 @@
                             <constraint firstItem="kon-2q-0Vg" firstAttribute="top" secondItem="pBw-4D-nGK" secondAttribute="top" constant="5" id="k9l-Qm-4UG"/>
                             <constraint firstAttribute="bottom" secondItem="7qL-Fe-4FG" secondAttribute="bottom" id="s2P-fh-jf5"/>
                             <constraint firstItem="pBw-4D-nGK" firstAttribute="bottom" secondItem="hll-08-UTW" secondAttribute="bottom" id="u5A-Sd-vgk"/>
+                            <constraint firstItem="tAW-5r-O4N" firstAttribute="leading" secondItem="hll-08-UTW" secondAttribute="leading" id="wnS-B4-tQW"/>
                             <constraint firstAttribute="bottom" secondItem="FsZ-yU-mcP" secondAttribute="bottom" id="zU9-kW-Xv4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pBw-4D-nGK"/>
@@ -516,6 +526,7 @@
                         <outlet property="endMonthLabel" destination="RrR-F7-eCJ" id="6nd-m1-ae6"/>
                         <outlet property="endTimeLabel" destination="4I3-vc-TXa" id="6TU-cx-bKf"/>
                         <outlet property="joinButton" destination="hll-08-UTW" id="LtR-ni-Xye"/>
+                        <outlet property="joinTopBorderView" destination="tAW-5r-O4N" id="mNN-hB-hEI"/>
                         <outlet property="mainTableView" destination="FsZ-yU-mcP" id="FOA-Kz-koS"/>
                         <outlet property="mapsButton" destination="H29-dH-bAC" id="s0h-Xf-WhM"/>
                         <outlet property="nameLabel" destination="K75-sn-qdv" id="Zmv-2U-aFO"/>

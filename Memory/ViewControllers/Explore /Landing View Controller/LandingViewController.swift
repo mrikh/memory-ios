@@ -140,6 +140,16 @@ extension LandingViewController : UITableViewDelegate, UITableViewDataSource{
             viewModel.fetchEvents(skip: viewModel.rowCount, showLoader: false)
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let model = viewModel.model(at: indexPath.row)
+
+        let viewController = EventDetailViewController.instantiate(fromAppStoryboard: .Explore)
+        viewController.viewModel = EventDetailViewModel(model: EventDetailModel(event: model), isDraft: false)
+        viewController.delegate = self
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 extension LandingViewController : LandingViewModelDelegate{
@@ -184,5 +194,15 @@ extension LandingViewController : LocationViewControllerDelegate{
         mainTableView.reloadData()
 
         viewModel.updateLocation(coordinate: coordinate, addressTitle: addressTitle, subtitle: subtitle)
+    }
+}
+
+extension LandingViewController : EventDetailViewControllerDelegate{
+
+    func updateJoinStatus(eventId: String, isAttending: Bool) {
+
+        if let index = viewModel.updateAttending(id : eventId, attending : isAttending){
+            mainTableView.reloadRows(at: [[0, index]], with: .automatic)
+        }
     }
 }

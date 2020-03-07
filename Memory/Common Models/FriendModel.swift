@@ -16,11 +16,18 @@ struct FriendModel{
     let profileImage : String
     let isAttending : Bool
 
+    init(){
+        friendId = ""
+        name = ""
+        profileImage = ""
+        isAttending = false
+    }
+
     init(json : JSON){
 
         friendId = json["_id"].stringValue
         name = json["name"].stringValue
-        profileImage = json["profileImage"].stringValue
+        profileImage = json["profilePhoto"].stringValue
         isAttending = json["isAttending"].boolValue
     }
 

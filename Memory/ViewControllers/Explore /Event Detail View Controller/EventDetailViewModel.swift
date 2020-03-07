@@ -11,6 +11,10 @@ import Foundation
 protocol EventDetailViewModelDelegate : BaseProtocol{
 
     func showSuccess(message : String)
+    func updatedData()
+
+    func resetButton()
+    func updatedAttendingOnServer(isAttending : Bool)
 }
 
 class EventDetailViewModel{
@@ -18,13 +22,17 @@ class EventDetailViewModel{
     weak var delegate : EventDetailViewModelDelegate?
     
     private var model : EventDetailModel?
-    private var isDraft : Bool = false
+    private (set) var isDraft : Bool = false
 
     convenience init(model : EventDetailModel, isDraft : Bool){
 
         self.init()
         self.model = model
         self.isDraft = isDraft
+    }
+
+    var eventId : String{
+        return model?.eventId ?? ""
     }
 
     var eventName : String?{
@@ -77,6 +85,10 @@ class EventDetailViewModel{
         return (lat : model?.lat, long : model?.long)
     }
 
+    var attending : Bool{
+        return model?.isAttending ?? false
+    }
+
     func fetchPhoto(at position : Int) -> String{
         return model?.photos[position] ?? ""
     }
@@ -85,6 +97,8 @@ class EventDetailViewModel{
 
         if isDraft{
             createEvent()
+        }else{
+            updateAttending()
         }
     }
 
@@ -107,6 +121,48 @@ class EventDetailViewModel{
             return (time : time, date : "\(day)", monthYear : "\(monthName) '\(year%1000)", day : weekdayString.localizedUppercase)
         }else{
             return nil
+        }
+    }
+
+    func fetchEventDetails(){
+
+        guard let tempModel = model else {
+            delegate?.errorOccurred(errorString: StringConstants.something_wrong.localized)
+            return
+        }
+
+        APIManager.eventDetails(id: tempModel.eventId) { [weak self] (json, error) in
+
+            if let tempJson = json?["data"]{
+                self?.model = EventDetailModel(json: tempJson)
+                self?.delegate?.updatedData()
+            }else{
+                self?.delegate?.errorOccurred(errorString: error?.localizedDescription ?? StringConstants.something_wrong.localized)
+            }
+        }
+    }
+
+    private func updateAttending(){
+
+        guard let tempModel = model else {
+            delegate?.errorOccurred(errorString: StringConstants.something_wrong.localized)
+            return
+        }
+
+        let value = !tempModel.isAttending
+
+        model?.isAttending = value
+        delegate?.resetButton()
+        delegate?.updatedAttendingOnServer(isAttending: value)
+
+        APIManager.updateAttending(eventId: tempModel.eventId, isAttending: value) { [weak self] (json, error) in
+
+            if let _ = error{
+                //reset to original
+                self?.model?.isAttending = !value
+                self?.delegate?.resetButton()
+                self?.delegate?.updatedAttendingOnServer(isAttending: !value)
+            }
         }
     }
 

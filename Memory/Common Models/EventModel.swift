@@ -21,7 +21,7 @@ struct EventModel {
 
     let attendingCount : Int
     let attending : [FriendModel]
-    let isAttending : Bool
+    var isAttending : Bool
 
     init(json : JSON){
 

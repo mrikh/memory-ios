@@ -59,6 +59,13 @@ class LandingViewModel{
         }
     }
 
+    func updateAttending(id : String, attending : Bool) -> Int?{
+
+        guard let position = dataSource.firstIndex(where: {$0._id == id}) else {return nil}
+        dataSource[position].isAttending = attending
+        return position
+    }
+
     func updateLocation(coordinate: CLLocationCoordinate2D, addressTitle: String, subtitle: String){
 
         self.coordinate = coordinate
