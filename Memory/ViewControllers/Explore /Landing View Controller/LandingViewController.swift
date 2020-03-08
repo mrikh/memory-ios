@@ -130,7 +130,12 @@ extension LandingViewController : UITableViewDelegate, UITableViewDataSource{
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ExploreEventTableViewCell.identifier) as? ExploreEventTableViewCell else { return UITableViewCell() }
 
-        cell.configure(model: viewModel.model(at: indexPath.row))
+        let vm = viewModel.model(at: indexPath.row)
+        cell.configure(model: vm)
+        cell.joinAction = { [weak self] in
+            self?.viewModel.updateAttending(id: <#T##String#>, attending: <#T##Bool#>)
+        }
+
         return cell
     }
 
