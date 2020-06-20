@@ -11,9 +11,9 @@ import UIKit
 
 enum CustomFonts : String{
 
-    case avenirLight = "Avenir-Light"
-    case avenirMedium = "Avenir-Medium"
-    case avenirHeavy = "Avenir-Heavy"
+    case avenirLight = "AvenirNext-Regular"
+    case avenirMedium = "AvenirNext-Medium"
+    case avenirHeavy = "AvenirNext-DemiBold"
 
     func withSize(_ fontSize: CGFloat) -> UIFont {
         return UIFont(name: self.rawValue, size: fontSize.getFontSize) ?? UIFont.systemFont(ofSize: fontSize.getFontSize)

@@ -9,6 +9,7 @@ use_frameworks!
 
   # Pods for Memory
 pod "ESTabBarController-swift"
+pod 'CHIPageControl/Aleppo'
 pod 'KMPlaceholderTextView'
 pod 'CropViewController'
 pod 'FontAwesome.swift'

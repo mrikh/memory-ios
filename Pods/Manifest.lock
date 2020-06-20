@@ -3,6 +3,7 @@ PODS:
   - AWSCore (2.13.4)
   - AWSS3 (2.13.4):
     - AWSCore (= 2.13.4)
+  - CHIPageControl/Aleppo (0.2)
   - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
   - CropViewController (2.5.3)
@@ -22,6 +23,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AWSS3
+  - CHIPageControl/Aleppo
   - Crashlytics
   - CropViewController
   - DZNEmptyDataSet
@@ -40,6 +42,7 @@ SPEC REPOS:
     - Alamofire
     - AWSCore
     - AWSS3
+    - CHIPageControl
     - Crashlytics
     - CropViewController
     - DZNEmptyDataSet
@@ -57,6 +60,7 @@ SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   AWSCore: 06beea22b6bdbfe9f5ab5015c6901e8475c746a8
   AWSS3: ab3965322c8e5ee069eaf9b3201c55557ad21be1
+  CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
   Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   CropViewController: a5c143548a0fabcd6cc25f2d26e40460cfb8c78c
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -70,6 +74,6 @@ SPEC CHECKSUMS:
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 96c1403a3a709130a1209abdfbbc064164e6fe4d
+PODFILE CHECKSUM: 32e97ddce6a438f4dc17dc61baa2080bcba66ab1
 
 COCOAPODS: 1.8.4

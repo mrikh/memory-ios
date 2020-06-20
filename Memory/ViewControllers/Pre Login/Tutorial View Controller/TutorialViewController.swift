@@ -44,11 +44,7 @@ class TutorialViewController: BaseViewController {
         }
     }
 
-    var currentPage : PageNumber = .first{
-        didSet{
-            setupItems()
-        }
-    }
+    var currentPage : PageNumber = .first
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +54,12 @@ class TutorialViewController: BaseViewController {
 
     //MARK:- Private
     private func setupItems(){
+
+        titleLabel.font = CustomFonts.avenirHeavy.withSize(18.0)
+        titleLabel.textColor = Colors.bgColor
+
+        infoLabel.font = CustomFonts.avenirMedium.withSize(14.0)
+        infoLabel.textColor = Colors.bgColor
 
         titleLabel.text = currentPage.title
         infoLabel.text = currentPage.subtitle
