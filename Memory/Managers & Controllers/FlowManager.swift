@@ -16,7 +16,11 @@ class FlowManager{
 
         configureNavigationBar()
 
-        if let _ = Defaults.value(forKey: Defaults.Key.userInfo){
+        if Defaults.value(forKey : Defaults.Key.tutorialDone) == nil{
+            let window = (UIApplication.shared.delegate as? AppDelegate)?.window
+            window?.rootViewController = TutorialPageViewController.instantiate(fromAppStoryboard: .PreLogin)
+            window?.makeKeyAndVisible()
+        }else if let _ = Defaults.value(forKey: Defaults.Key.userInfo){
             gotToLandingScreen()
         }
     }

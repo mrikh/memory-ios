@@ -20,6 +20,18 @@ class TutorialPageViewController: BaseViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
 
+    private var currentPage : TutorialViewController.PageNumber = .first{
+        didSet{
+            if currentPage == .first{
+                pageControl.currentPage = 0
+            }else if currentPage == .second{
+                pageControl.currentPage = 1
+            }else{
+                pageControl.currentPage = 2
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,5 +57,17 @@ class TutorialPageViewController: BaseViewController {
 
         nextButton.configureFontAwesome(name: FontAwesome.arrowRight, size: 21.0)
         previousButton.configureFontAwesome(name: FontAwesome.arrowLeft, size: 21.0)
+
+        addChildWith(viewController: TutorialViewController.instantiate(fromAppStoryboard: .PreLogin), on: firstPageView, with : .first)
+        addChildWith(viewController: TutorialViewController.instantiate(fromAppStoryboard: .PreLogin), on: firstPageView, with : .second)
+        addChildWith(viewController: TutorialViewController.instantiate(fromAppStoryboard: .PreLogin), on: firstPageView, with : .third)
+    }
+
+    private func addChildWith(viewController : TutorialViewController, on view: UIView, with page : TutorialViewController.PageNumber){
+
+        viewController.currentPage = page
+        addChild(viewController)
+        viewController.didMove(toParent: self)
+        view.addOnFullScreen(viewController.view)
     }
 }

@@ -16,6 +16,7 @@ extension Defaults {
     enum Key : String {
         case userInfo
         case token
+        case tutorialDone
     }
 }
 
