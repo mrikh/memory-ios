@@ -62,8 +62,6 @@ class HeaderView: UIView {
     //MARK:- Private
     private func configureButton(button : UIButton, text : FontAwesome, style : FontAwesomeStyle = .regular){
 
-        button.titleLabel?.font = UIFont.fontAwesome(ofSize: 20.0, style: style)
-        button.setTitleColor(Colors.bgColor, for: .normal)
-        button.setTitle(String.fontAwesomeIcon(name: text), for: .normal)
+        button.configureFontAwesome(name: text, titleColor: Colors.bgColor, size: 20.0, style: FontAwesomeStyle.solid)
     }
 }

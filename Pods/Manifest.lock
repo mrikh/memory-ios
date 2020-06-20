@@ -1,22 +1,22 @@
 PODS:
-  - Alamofire (4.8.2)
-  - AWSCore (2.9.10)
-  - AWSS3 (2.9.10):
-    - AWSCore (= 2.9.10)
-  - Crashlytics (3.13.2):
+  - Alamofire (5.2.1)
+  - AWSCore (2.13.4)
+  - AWSS3 (2.13.4):
+    - AWSCore (= 2.13.4)
+  - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
-  - CropViewController (2.5.0)
+  - CropViewController (2.5.3)
   - DZNEmptyDataSet (1.8.1)
   - ESTabBarController-swift (2.8.0)
   - Fabric (1.10.2)
   - FlagKit (2.2)
-  - FontAwesome.swift (1.7.1)
+  - FontAwesome.swift (1.9.0)
   - KMPlaceholderTextView (1.4.0)
   - MRRadioButton (0.0.4)
-  - MXParallaxHeader (0.6.1)
-  - SDWebImage (5.0.6):
-    - SDWebImage/Core (= 5.0.6)
-  - SDWebImage/Core (5.0.6)
+  - MXParallaxHeader (1.1.0)
+  - SDWebImage (5.8.1):
+    - SDWebImage/Core (= 5.8.1)
+  - SDWebImage/Core (5.8.1)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
@@ -54,20 +54,20 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  AWSCore: 22b6bbc6761ca9981d878155d11bc02edd681a64
-  AWSS3: fe0221519fe4d05adf4c3fdf0cb4477f5e433ee6
-  Crashlytics: 611738c7847f8291a1a51084e35987b86ba6b3ee
-  CropViewController: 6c962d6fb264cc5cb325b622d5029d50c6c43e72
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  AWSCore: 06beea22b6bdbfe9f5ab5015c6901e8475c746a8
+  AWSS3: ab3965322c8e5ee069eaf9b3201c55557ad21be1
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
+  CropViewController: a5c143548a0fabcd6cc25f2d26e40460cfb8c78c
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   ESTabBarController-swift: 05593a6ad64700b03c0eb60ff625916370aa4136
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FlagKit: eca7dc89064b0c986302ba9acefad1bf80a435b1
-  FontAwesome.swift: 8d9792fa2d2347055da35bd97752b3960bd75952
+  FontAwesome.swift: a403b88cec950511745ba8f2decd1b6a07346d13
   KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
   MRRadioButton: b337feb08d4ebadeb3a22947c47757d1992bd053
-  MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
-  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+  MXParallaxHeader: de3c867e10ba46e8f6e20c8ee1f2a910372b3b94
+  SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
 PODFILE CHECKSUM: 96c1403a3a709130a1209abdfbbc064164e6fe4d

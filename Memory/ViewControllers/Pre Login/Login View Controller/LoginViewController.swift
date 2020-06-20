@@ -69,9 +69,11 @@ class LoginViewController: BaseViewController, KeyboardHandler {
     }
 
     @IBAction func facebookAction(_ sender: UIButton) {
+
     }
 
     @IBAction func googleAction(_ sender: UIButton) {
+        
     }
 
     @IBAction func signUpAction(_ sender: UIButton) {
@@ -99,13 +101,10 @@ class LoginViewController: BaseViewController, KeyboardHandler {
         facebookContainerView.backgroundColor = Colors.fbColor
         googleContainerView.backgroundColor = Colors.googleColor
 
-        facebookButton.setTitle(String.fontAwesomeIcon(name: FontAwesome.facebookF), for: .normal)
-        facebookButton.setTitleColor(Colors.white, for: .normal)
-        facebookButton.titleLabel?.font = UIFont.fontAwesome(ofSize: CGFloat(21.0).getFontSize, style: FontAwesomeStyle.brands)
 
-        googleButton.setTitle(String.fontAwesomeIcon(name: FontAwesome.google), for: .normal)
-        googleButton.setTitleColor(Colors.white, for: .normal)
-        googleButton.titleLabel?.font = UIFont.fontAwesome(ofSize: CGFloat(21.0).getFontSize, style: FontAwesomeStyle.brands)
+        facebookButton.configureFontAwesome(name: FontAwesome.facebookF, titleColor: Colors.white, size: 21.0)
+
+        googleButton.configureFontAwesome(name: FontAwesome.google, titleColor: Colors.white, size: 21.0)
 
         emailTextField.configure(with: StringConstants.email.localized, text: nil, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
         passwordTextField.configure(with: StringConstants.password.localized, text: nil, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))

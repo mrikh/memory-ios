@@ -8,11 +8,12 @@
 
 import SwiftyJSON
 import Foundation
+import Alamofire
 
 class APIManager {
 
     static var authenticationToken = Defaults.value(forKey: .token)?.stringValue ?? ""
-    static var headers : [String : String]{
+    static var headers : HTTPHeaders{
         return ["Authorization" : "Bearer \(authenticationToken)"]
     }
 

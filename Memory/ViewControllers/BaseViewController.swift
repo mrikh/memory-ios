@@ -13,7 +13,7 @@ class BaseViewController: UIViewController, AlertProtocol {
 
     var indicator : MRActivityIndicator?
     
-    /// Boolean value to determine wether we need to show the empty data set or not
+    // Boolean value to determine wether we need to show the empty data set or not
     var isLoading : Bool = true
     var emptyDataSetString : String = StringConstants.no_data_found.localized
     var keyboardVisible : Bool = false

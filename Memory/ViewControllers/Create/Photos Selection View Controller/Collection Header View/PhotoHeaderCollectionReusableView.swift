@@ -19,9 +19,7 @@ class PhotoHeaderCollectionReusableView: UICollectionReusableView {
 
         super.awakeFromNib()
 
-        galleryButton.setTitleColor(Colors.bgColor, for: .normal)
-        galleryButton.titleLabel?.font = UIFont.fontAwesome(ofSize: CGFloat(42.0).getFontSize, style: FontAwesomeStyle.solid)
-        galleryButton.setTitle(String.fontAwesomeIcon(name: FontAwesome.cameraRetro), for: .normal)
+        galleryButton.configureFontAwesome(name: .cameraRetro, titleColor: Colors.bgColor, size: 42.0, style: FontAwesomeStyle.solid)
     }
 
     @IBAction func galleryAction(_ sender: UIButton) {

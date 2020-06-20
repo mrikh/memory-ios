@@ -58,6 +58,7 @@
 		467840EF22FAF564004D43E7 /* NoAccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 467840EE22FAF564004D43E7 /* NoAccessView.xib */; };
 		467840F222FAF576004D43E7 /* NoAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467840F122FAF576004D43E7 /* NoAccessView.swift */; };
 		467840F422FB05FA004D43E7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 467840F322FB05FA004D43E7 /* Profile.storyboard */; };
+		4684C5AC249DA12A0003753D /* UIButton+FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684C5AB249DA12A0003753D /* UIButton+FontAwesome.swift */; };
 		46ACC09122D9C28E0003973D /* Double + VideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09022D9C28E0003973D /* Double + VideoTime.swift */; };
 		46ACC09322D9D4CD0003973D /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09222D9D4CD0003973D /* OTPViewModel.swift */; };
 		46ACC09522D9D8CD0003973D /* CustomBackTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */; };
@@ -103,6 +104,8 @@
 		46CEB2282412CF5400CCE906 /* ExampleIrregularityBasicContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CEB2252412CF5300CCE906 /* ExampleIrregularityBasicContentView.swift */; };
 		46CEB2292412CF5400CCE906 /* ExampleBounceContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CEB2262412CF5300CCE906 /* ExampleBounceContentView.swift */; };
 		46CEB22A2412CF5400CCE906 /* ExampleBasicContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CEB2272412CF5300CCE906 /* ExampleBasicContentView.swift */; };
+		46DAA7A6249D7ED600B71758 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DAA7A5249D7ED600B71758 /* TutorialPageViewController.swift */; };
+		46DAA7A8249D80B300B71758 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DAA7A7249D80B300B71758 /* TutorialViewController.swift */; };
 		46DCDE7C22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE7B22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift */; };
 		46DCDE7F22DF0F0100277AC1 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DCDE7E22DF0F0100277AC1 /* ButtonCollectionViewCell.swift */; };
 		46DCDE8222DF62B700277AC1 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46DCDE8122DF62B700277AC1 /* Common.storyboard */; };
@@ -177,6 +180,7 @@
 		467840EE22FAF564004D43E7 /* NoAccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoAccessView.xib; sourceTree = "<group>"; };
 		467840F122FAF576004D43E7 /* NoAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAccessView.swift; sourceTree = "<group>"; };
 		467840F322FB05FA004D43E7 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		4684C5AB249DA12A0003753D /* UIButton+FontAwesome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+FontAwesome.swift"; sourceTree = "<group>"; };
 		46ACC09022D9C28E0003973D /* Double + VideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double + VideoTime.swift"; sourceTree = "<group>"; };
 		46ACC09222D9D4CD0003973D /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackTextField.swift; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 		46CEB2252412CF5300CCE906 /* ExampleIrregularityBasicContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleIrregularityBasicContentView.swift; sourceTree = "<group>"; };
 		46CEB2262412CF5300CCE906 /* ExampleBounceContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleBounceContentView.swift; sourceTree = "<group>"; };
 		46CEB2272412CF5300CCE906 /* ExampleBasicContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleBasicContentView.swift; sourceTree = "<group>"; };
+		46DAA7A5249D7ED600B71758 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
+		46DAA7A7249D80B300B71758 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		46DCDE7B22DEFE3B00277AC1 /* PhotoHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		46DCDE7E22DF0F0100277AC1 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		46DCDE8122DF62B700277AC1 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
@@ -637,6 +643,7 @@
 		46BCE3B222357A3100CEC9C1 /* Genral Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4684C5AB249DA12A0003753D /* UIButton+FontAwesome.swift */,
 				46ACC09022D9C28E0003973D /* Double + VideoTime.swift */,
 				46BCE3B322357A3100CEC9C1 /* UIImageView + Download.swift */,
 				46BCE3B422357A3100CEC9C1 /* UITextField + General.swift */,
@@ -706,6 +713,7 @@
 		46BCE3FA2236485B00CEC9C1 /* Pre Login */ = {
 			isa = PBXGroup;
 			children = (
+				46DAA7A4249D798900B71758 /* Tutorial View Controller */,
 				465CB39922D30D29002D2B4B /* Forgot Password View Controller */,
 				465CB38222D120DE002D2B4B /* Profile Photo View Controller */,
 				464EEF9D223E632200C6A40D /* Sign Up View Controller */,
@@ -731,6 +739,15 @@
 				46CEB2272412CF5300CCE906 /* ExampleBasicContentView.swift */,
 			);
 			path = "Pod-Helpers";
+			sourceTree = "<group>";
+		};
+		46DAA7A4249D798900B71758 /* Tutorial View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				46DAA7A5249D7ED600B71758 /* TutorialPageViewController.swift */,
+				46DAA7A7249D80B300B71758 /* TutorialViewController.swift */,
+			);
+			path = "Tutorial View Controller";
 			sourceTree = "<group>";
 		};
 		46DCDE7A22DEFD7700277AC1 /* Collection Header View */ = {
@@ -999,8 +1016,11 @@
 				46BCE3D222357A3100CEC9C1 /* Defaults.swift in Sources */,
 				465A47CD22D4A15300647EA6 /* CountryCodeTableCell.swift in Sources */,
 				465CB38122CFA49E002D2B4B /* VerificationView.swift in Sources */,
+				4684C5AC249DA12A0003753D /* UIButton+FontAwesome.swift in Sources */,
+				46DAA7A6249D7ED600B71758 /* TutorialPageViewController.swift in Sources */,
 				46BCE398223578CF00CEC9C1 /* BaseProtocol.swift in Sources */,
 				46BCE3C222357A3100CEC9C1 /* AlertProtocol.swift in Sources */,
+				46DAA7A8249D80B300B71758 /* TutorialViewController.swift in Sources */,
 				465A47CA22D49E6300647EA6 /* CountryCodeModel.swift in Sources */,
 				46BCE3A022357A2100CEC9C1 /* FlowManager.swift in Sources */,
 				46BCE3C622357A3100CEC9C1 /* Utilities.swift in Sources */,

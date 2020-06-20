@@ -10,14 +10,16 @@ import Foundation
 import Alamofire
 
 class NetworkingManager {
-    
-    static var alamoFireManager : SessionManager = {
-        
+
+    static var sessionConfig : URLSessionConfiguration = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 20
         configuration.timeoutIntervalForResource = 20
-        return Alamofire.SessionManager(configuration: configuration)
+        return configuration
     }()
+
+    static var alamoFireManager = Session(configuration: sessionConfig)
+
     
     static func POST(endPoint : APIManager.EndPoint, parameters : [String : Any] = [:], headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping ([String : Any]) -> Void, failure : @escaping (Error) -> Void) {
         
@@ -51,8 +53,9 @@ class NetworkingManager {
         }
         
         let request = alamoFireManager.request(URLString, method: httpMethod, parameters: parameters, encoding: encoding, headers: headers)
-        
-        request.responseJSON { (response:DataResponse<Any>) in
+
+
+        request.responseJSON { (response) in
             
             DispatchQueue.main.async{
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false

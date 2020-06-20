@@ -120,9 +120,7 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
 
         imageContainerView.addShadow(3.0)
 
-        uploadButton.setTitle(String.fontAwesomeIcon(name: FontAwesome.cameraRetro), for: .normal)
-        uploadButton.setTitleColor(Colors.white, for: .normal)
-        uploadButton.titleLabel?.font = UIFont.fontAwesome(ofSize: CGFloat(42.0).getFontSize, style: FontAwesomeStyle.solid)
+        uploadButton.configureFontAwesome(name: FontAwesome.cameraRetro, titleColor: Colors.white, size: 42.0, style: FontAwesomeStyle.solid)
 
         viewModel.delegate = self
         storyboardProgressView.isHidden = true

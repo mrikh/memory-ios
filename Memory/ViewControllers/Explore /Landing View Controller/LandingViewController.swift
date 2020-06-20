@@ -133,7 +133,7 @@ extension LandingViewController : UITableViewDelegate, UITableViewDataSource{
         let vm = viewModel.model(at: indexPath.row)
         cell.configure(model: vm)
         cell.joinAction = { [weak self] in
-            self?.viewModel.updateAttending(id: <#T##String#>, attending: <#T##Bool#>)
+//            self?.viewModel.updateAttending(id: <#T##String#>, attending: <#T##Bool#>)
         }
 
         return cell
