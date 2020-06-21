@@ -143,7 +143,7 @@ class MRTextField: UITextField {
         }
     }
 
-    func setupButton(buttonIcon : UIImage?, andSelectedImage selectedImage : UIImage?, withText text: String?, withSelectedText selectedText : String?){
+    func setupButton(buttonIcon : UIImage?, andSelectedImage selectedImage : UIImage?, withText text: String? = nil, withSelectedText selectedText : String? = nil){
 
         let button = UIButton(frame: CGRect(x: 0, y: -1, width: 20, height: 20))
 
@@ -242,6 +242,10 @@ class MRTextField: UITextField {
     }
 
     @objc func buttonAction(_ sender : UIButton){
+        //image exists soo toggle
+        if let _ = sender.image(for: .selected){
+            sender.isSelected = !sender.isSelected
+        }
         rightAction?()
     }
 }

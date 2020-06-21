@@ -63,14 +63,14 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nM-pL-a7w">
-                                <rect key="frame" x="164.5" y="344.5" width="46" height="30"/>
+                                <rect key="frame" x="314" y="349.5" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="forgotAction:" destination="uoI-6o-Qlt" eventType="touchUpInside" id="8XI-Cb-euB"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="dMW-Gg-9mT">
-                                <rect key="frame" x="15" y="414.5" width="345" height="86.5"/>
+                                <rect key="frame" x="15" y="419.5" width="345" height="86.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qra-TS-S9Q">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
@@ -239,14 +239,14 @@
                             <constraint firstItem="WTy-DC-KUf" firstAttribute="leading" secondItem="rcU-OY-b8g" secondAttribute="leading" constant="15" id="EpE-Cc-t0a"/>
                             <constraint firstItem="dMW-Gg-9mT" firstAttribute="leading" secondItem="WTy-DC-KUf" secondAttribute="leading" id="FM2-CZ-cvv"/>
                             <constraint firstAttribute="bottom" secondItem="T2S-FE-dCS" secondAttribute="bottom" id="FYm-OE-Zcr"/>
-                            <constraint firstItem="8nM-pL-a7w" firstAttribute="centerX" secondItem="MNT-cJ-KGB" secondAttribute="centerX" id="FxK-Gu-0D9"/>
                             <constraint firstItem="dMW-Gg-9mT" firstAttribute="trailing" secondItem="WTy-DC-KUf" secondAttribute="trailing" id="M05-iF-Cqv"/>
                             <constraint firstItem="rcU-OY-b8g" firstAttribute="trailing" secondItem="WTy-DC-KUf" secondAttribute="trailing" constant="15" id="VBz-wH-iZN"/>
                             <constraint firstItem="WTy-DC-KUf" firstAttribute="centerY" secondItem="MNT-cJ-KGB" secondAttribute="centerY" multiplier="0.8" priority="749" id="ZW3-Ob-Icl"/>
                             <constraint firstItem="T2S-FE-dCS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dMW-Gg-9mT" secondAttribute="bottom" constant="15" id="aIQ-k5-Sll"/>
                             <constraint firstItem="dMW-Gg-9mT" firstAttribute="top" secondItem="8nM-pL-a7w" secondAttribute="bottom" priority="998" constant="40" id="g52-1T-VvQ"/>
                             <constraint firstItem="T2S-FE-dCS" firstAttribute="leading" secondItem="MNT-cJ-KGB" secondAttribute="leading" id="gBl-Mr-oCe"/>
-                            <constraint firstItem="8nM-pL-a7w" firstAttribute="top" secondItem="WTy-DC-KUf" secondAttribute="bottom" constant="15" id="hkZ-Xb-leu"/>
+                            <constraint firstItem="8nM-pL-a7w" firstAttribute="top" secondItem="WTy-DC-KUf" secondAttribute="bottom" constant="20" id="hkZ-Xb-leu"/>
+                            <constraint firstItem="8nM-pL-a7w" firstAttribute="trailing" secondItem="WTy-DC-KUf" secondAttribute="trailing" id="krc-Ph-I8B"/>
                             <constraint firstItem="WTy-DC-KUf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="rcU-OY-b8g" secondAttribute="top" constant="25" id="pAF-C3-sU0"/>
                             <constraint firstAttribute="trailing" secondItem="T2S-FE-dCS" secondAttribute="trailing" id="pWL-ov-bqS"/>
                         </constraints>
@@ -352,6 +352,13 @@
                                     <action selector="previousAction:" destination="wa2-L1-Csn" eventType="touchUpInside" id="4hF-Kq-rsW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKv-F7-Z3t">
+                                <rect key="frame" x="319.5" y="627" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="doneAction:" destination="wa2-L1-Csn" eventType="touchUpInside" id="vi6-y2-w16"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJv-1V-bzT" customClass="CHIPageControlAleppo" customModule="CHIPageControl">
                                 <rect key="frame" x="167.5" y="637" width="40" height="10"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -381,13 +388,18 @@
                             <constraint firstItem="MtC-E9-qOh" firstAttribute="centerY" secondItem="fBz-Wc-uCh" secondAttribute="centerY" id="YT4-cK-s29"/>
                             <constraint firstItem="fBz-Wc-uCh" firstAttribute="centerY" secondItem="sJv-1V-bzT" secondAttribute="centerY" id="Z8M-eZ-942"/>
                             <constraint firstItem="MtC-E9-qOh" firstAttribute="leading" secondItem="vl0-mo-vXJ" secondAttribute="leading" constant="15" id="aP3-gx-n50"/>
+                            <constraint firstItem="wKv-F7-Z3t" firstAttribute="centerX" secondItem="fBz-Wc-uCh" secondAttribute="centerX" id="at6-yH-Gfc"/>
                             <constraint firstItem="nob-MO-SF1" firstAttribute="top" secondItem="vl0-mo-vXJ" secondAttribute="top" id="fOy-uI-i1c"/>
+                            <constraint firstItem="wKv-F7-Z3t" firstAttribute="centerY" secondItem="fBz-Wc-uCh" secondAttribute="centerY" id="hCe-oK-xrG"/>
+                            <constraint firstItem="wKv-F7-Z3t" firstAttribute="height" secondItem="fBz-Wc-uCh" secondAttribute="height" multiplier="0.857143" id="qA8-MQ-5RD"/>
                             <constraint firstItem="vl0-mo-vXJ" firstAttribute="trailing" secondItem="fBz-Wc-uCh" secondAttribute="trailing" constant="15" id="vOK-rx-aHw"/>
                             <constraint firstItem="vl0-mo-vXJ" firstAttribute="bottom" secondItem="sJv-1V-bzT" secondAttribute="bottom" constant="20" id="vby-Na-KeN"/>
+                            <constraint firstItem="wKv-F7-Z3t" firstAttribute="width" secondItem="fBz-Wc-uCh" secondAttribute="width" multiplier="1.31429" id="yXG-Oz-QXQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vl0-mo-vXJ"/>
                     </view>
                     <connections>
+                        <outlet property="doneButton" destination="wKv-F7-Z3t" id="6oZ-SQ-Ba0"/>
                         <outlet property="firstPageView" destination="Fa4-na-TNC" id="b42-XJ-YRe"/>
                         <outlet property="mainScrollView" destination="nob-MO-SF1" id="z4u-Nq-lTF"/>
                         <outlet property="nextButton" destination="fBz-Wc-uCh" id="EeJ-6L-TKl"/>
@@ -609,7 +621,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xez-hH-icW">
-                                            <rect key="frame" x="15" y="60" width="345" height="50"/>
+                                            <rect key="frame" x="15" y="75" width="345" height="50"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1o-KK-QPM" customClass="MRAnimatingButton" customModule="Memory" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
@@ -637,7 +649,7 @@
                                         <constraint firstItem="Xez-hH-icW" firstAttribute="leading" secondItem="zrs-8H-MQO" secondAttribute="leading" constant="15" id="LCd-DR-pzO"/>
                                         <constraint firstAttribute="trailing" secondItem="sfT-VM-x7f" secondAttribute="trailing" constant="5" id="e34-Bw-ClM"/>
                                         <constraint firstItem="sfT-VM-x7f" firstAttribute="top" secondItem="zrs-8H-MQO" secondAttribute="top" constant="15" id="fle-EZ-VSZ"/>
-                                        <constraint firstItem="Xez-hH-icW" firstAttribute="top" secondItem="sfT-VM-x7f" secondAttribute="bottom" constant="15" id="jsU-MN-tct"/>
+                                        <constraint firstItem="Xez-hH-icW" firstAttribute="top" secondItem="sfT-VM-x7f" secondAttribute="bottom" constant="30" id="jsU-MN-tct"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Xez-hH-icW" secondAttribute="bottom" constant="15" id="mYV-hd-eVu"/>
                                     </constraints>
                                 </view>

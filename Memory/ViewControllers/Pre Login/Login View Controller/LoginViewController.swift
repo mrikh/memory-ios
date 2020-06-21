@@ -101,13 +101,18 @@ class LoginViewController: BaseViewController, KeyboardHandler {
         facebookContainerView.backgroundColor = Colors.fbColor
         googleContainerView.backgroundColor = Colors.googleColor
 
-
         facebookButton.configureFontAwesome(name: FontAwesome.facebookF, titleColor: Colors.white, size: 21.0)
 
         googleButton.configureFontAwesome(name: FontAwesome.google, titleColor: Colors.white, size: 21.0)
 
         emailTextField.configure(with: StringConstants.email.localized, text: nil, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
         passwordTextField.configure(with: StringConstants.password.localized, text: nil, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
+        passwordTextField.setupButton(buttonIcon: #imageLiteral(resourceName: "show-password"), andSelectedImage: #imageLiteral(resourceName: "hide-password"))
+        passwordTextField.rightAction = { [weak self] in
+            if let tempSelf = self{
+                tempSelf.passwordTextField.isSecureTextEntry = !tempSelf.passwordTextField.isSecureTextEntry
+            }
+        }
 
         signUpLabel.text = StringConstants.no_account.localized
         signUpLabel.textColor = Colors.black

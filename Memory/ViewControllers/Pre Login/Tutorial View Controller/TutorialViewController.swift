@@ -14,24 +14,24 @@ class TutorialViewController: BaseViewController {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
 
-    enum PageNumber : Int {
+    enum PageNumber : Int, CaseIterable {
         case first
         case second
         case third
 
         var title : String{
             switch self{
-            case .first : return "Want to create some memories?"
-            case .second: return "Nothing to do?"
-            case .third: return "Had a good time?"
+            case .first : return StringConstants.firstTitle.localized
+            case .second: return StringConstants.secondTitle.localized
+            case .third: return StringConstants.thirdTitle.localized
             }
         }
 
         var subtitle : String{
             switch self{
-            case .first: return "Host an event! You can have only your friends join or meet new people, make it public!"
-            case .second: return "Why not try something new?"
-            case .third: return "Find your photos after the event is over!"
+            case .first: return StringConstants.firstInfo.localized
+            case .second: return StringConstants.secondInfo.localized
+            case .third: return StringConstants.thirdInfo.localized
             }
         }
 

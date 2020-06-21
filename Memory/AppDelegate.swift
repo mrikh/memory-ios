@@ -6,8 +6,6 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
-import Crashlytics
-import Fabric
 import UIKit
 import AWSS3
 
@@ -18,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        Fabric.with([Crashlytics.self])
         FlowManager.checkAppInitializationFlow()
         setupAWS()
 

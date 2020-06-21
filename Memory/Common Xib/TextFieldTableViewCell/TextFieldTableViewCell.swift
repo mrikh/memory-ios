@@ -46,6 +46,12 @@ class TextFieldTableViewCell: UITableViewCell {
 
         if let type = viewModel.type, type == .password{
             mainTextField.isSecureTextEntry = true
+            mainTextField.setupButton(buttonIcon: #imageLiteral(resourceName: "show-password"), andSelectedImage: #imageLiteral(resourceName: "hide-password"))
+            mainTextField.rightAction = { [weak self] in
+                if let tempSelf = self{
+                    tempSelf.mainTextField.isSecureTextEntry = !tempSelf.mainTextField.isSecureTextEntry
+                }
+            }
         }
 
         viewModel.placeholder.bind { [weak self] (string) in

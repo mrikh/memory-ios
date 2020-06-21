@@ -17,9 +17,9 @@ class TutorialPageViewController: BaseViewController {
     @IBOutlet weak var secondPageView: UIView!
     @IBOutlet weak var thirdPageView: UIView!
 
-
     @IBOutlet weak var pageControl: CHIPageControlAleppo!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
 
     private var currentPage : TutorialViewController.PageNumber = .first{
@@ -36,11 +36,23 @@ class TutorialPageViewController: BaseViewController {
 
     //MARK:- IBAction
     @IBAction func previousAction(_ sender: UIButton) {
-        
+
+        let offset = Int(UIScreen.main.bounds.width) * (max(currentPage.rawValue - 1, 0))
+        mainScrollView.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
+        updatePage(with : CGFloat(offset))
     }
 
     @IBAction func nextAction(_ sender: UIButton) {
 
+        let offset = Int(UIScreen.main.bounds.width) * (min(currentPage.rawValue + 1, TutorialViewController.PageNumber.allCases.count - 1))
+        mainScrollView.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
+        updatePage(with : CGFloat(offset))
+    }
+
+    @IBAction func doneAction(_ sender: UIButton) {
+
+        Defaults.save(value: true, forKey: Defaults.Key.tutorialDone)
+        navigationController?.setViewControllers([LoginViewController.instantiate(fromAppStoryboard: .PreLogin)], animated: true)
     }
 
     //MARK:- Private
@@ -59,6 +71,11 @@ class TutorialPageViewController: BaseViewController {
         addChildWith(viewController: TutorialViewController.instantiate(fromAppStoryboard: .PreLogin), on: thirdPageView, with : .third)
 
         mainScrollView.delegate = self
+
+        previousButton.alpha = 0.0
+        doneButton.alpha = 0.0
+
+        doneButton.setAttributedTitle(NSAttributedString(string : StringConstants.done.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(12.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
     }
 
     private func addChildWith(viewController : TutorialViewController, on view: UIView, with page : TutorialViewController.PageNumber){
@@ -76,20 +93,26 @@ extension TutorialPageViewController : UIScrollViewDelegate{
 
         let progress = scrollView.contentOffset.x/scrollView.bounds.width
         pageControl.progress = Double(progress)
+        if progress <= 1.0{
+            previousButton.alpha = max(0, progress)
+        }else if progress > 1.0 && progress <= 2.0{
+            nextButton.alpha = max(1.0 - (progress - 1.0), 0.0)
+            doneButton.alpha = min(1.0, (progress - 1.0))
+        }
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
 
         if !decelerate{
-            updatePage(offset: scrollView.contentOffset.x)
+            updatePage(with: scrollView.contentOffset.x)
         }
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        updatePage(offset: scrollView.contentOffset.x)
+        updatePage(with : scrollView.contentOffset.x)
     }
 
-    private func updatePage(offset : CGFloat){
+    private func updatePage(with offset : CGFloat){
         let value = Int(offset/mainScrollView.frame.width)
         if let value = TutorialViewController.PageNumber(rawValue: value){
             currentPage = value

@@ -4,12 +4,9 @@ PODS:
   - AWSS3 (2.13.4):
     - AWSCore (= 2.13.4)
   - CHIPageControl/Aleppo (0.2)
-  - Crashlytics (3.14.0):
-    - Fabric (~> 1.10.2)
   - CropViewController (2.5.3)
   - DZNEmptyDataSet (1.8.1)
   - ESTabBarController-swift (2.8.0)
-  - Fabric (1.10.2)
   - FlagKit (2.2)
   - FontAwesome.swift (1.9.0)
   - KMPlaceholderTextView (1.4.0)
@@ -24,11 +21,9 @@ DEPENDENCIES:
   - Alamofire
   - AWSS3
   - CHIPageControl/Aleppo
-  - Crashlytics
   - CropViewController
   - DZNEmptyDataSet
   - ESTabBarController-swift
-  - Fabric
   - FlagKit
   - FontAwesome.swift
   - KMPlaceholderTextView
@@ -43,11 +38,9 @@ SPEC REPOS:
     - AWSCore
     - AWSS3
     - CHIPageControl
-    - Crashlytics
     - CropViewController
     - DZNEmptyDataSet
     - ESTabBarController-swift
-    - Fabric
     - FlagKit
     - FontAwesome.swift
     - KMPlaceholderTextView
@@ -61,11 +54,9 @@ SPEC CHECKSUMS:
   AWSCore: 06beea22b6bdbfe9f5ab5015c6901e8475c746a8
   AWSS3: ab3965322c8e5ee069eaf9b3201c55557ad21be1
   CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
-  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   CropViewController: a5c143548a0fabcd6cc25f2d26e40460cfb8c78c
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   ESTabBarController-swift: 05593a6ad64700b03c0eb60ff625916370aa4136
-  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FlagKit: eca7dc89064b0c986302ba9acefad1bf80a435b1
   FontAwesome.swift: a403b88cec950511745ba8f2decd1b6a07346d13
   KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
@@ -74,6 +65,6 @@ SPEC CHECKSUMS:
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 32e97ddce6a438f4dc17dc61baa2080bcba66ab1
+PODFILE CHECKSUM: a66b014eb6d03bfb97ab00188495f6f6810e3abe
 
 COCOAPODS: 1.8.4
