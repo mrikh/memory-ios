@@ -872,7 +872,6 @@
 				46BCE37D22356D2100CEC9C1 /* Frameworks */,
 				46BCE37E22356D2100CEC9C1 /* Resources */,
 				09648578373F7203AF3EF15D /* [CP] Embed Pods Frameworks */,
-				46BCE405223B9FA000CEC9C1 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -962,25 +961,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Memory/Pods-Memory-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		46BCE405223B9FA000CEC9C1 /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = "Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 35a375a83ed37abbe1f3c40b8e4baa72b67a1d9d 113a88bbf63fefe22f1c72a141b6abca27ec5388c8d78dd9f8916c0c6cbabf22\n";
 		};
 		7082260D9C5348FD5EB92034 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

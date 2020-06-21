@@ -66,7 +66,10 @@ class TextFieldCellViewModel{
             //reset availability
             availability.value = .none
             inputValueDidSet?(inputValue)
-            performRequest()
+
+            if type == .username{
+                performRequest()
+            }
         }
     }
 
@@ -84,13 +87,10 @@ class TextFieldCellViewModel{
 
         item?.cancel()
         let work = DispatchWorkItem(block: { [weak self] in
-            guard let type = self?.type else {return}
-            if type == .username{
-                self?.checkUserName()
-            }
+            self?.checkUserName()
         })
         item = work
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.8, execute: work)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: work)
     }
 
     private func checkUserName(){

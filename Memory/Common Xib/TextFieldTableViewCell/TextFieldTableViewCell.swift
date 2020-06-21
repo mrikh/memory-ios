@@ -68,7 +68,7 @@ class TextFieldTableViewCell: UITableViewCell {
             case .checking: self?.mainTextField.startVerificationAnimating()
             case .error: self?.mainTextField.stopVerificationAnimating(isSuccess: false, continueStatus: true)
             case .available: self?.mainTextField.stopVerificationAnimating(isSuccess: true, continueStatus: true)
-            default: self?.mainTextField.stopVerificationAnimating(isSuccess: false, continueStatus: false)
+            default: self?.mainTextField.stopVerificationAnimating(isSuccess: false, continueStatus: true)
             }
         }
     }
