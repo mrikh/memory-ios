@@ -13,6 +13,7 @@
 "confirm" = "Confirm";
 "or_do" = "or do it";
 "later" = "later";
+"resend_message" = "Email has been resent. You will receive the email shortly. If you do not see it in your inbox after a while, check the spam folder.";
 
 //Tutorial
 "first_title" = "Want to create some memories?";

@@ -17,6 +17,7 @@ extension APIManager {
         case login = "/users/login"
         case forgotPass = "/users/forgotPass"
         case resendVerification = "/users/resendVerification"
+        case verifyEmail = "/users/verifyEmail"
         case sendOTP = "/users/sendOTP"
         case verifyOTP = "/users/verifyOTP"
 

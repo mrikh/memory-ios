@@ -12,11 +12,7 @@ protocol LoginVewModelDelegate : BaseProtocol{
 
     func validationSuccess()
     func success()
-
-    func emailNotVerified(email : String, message : String)
     func receivedResponse()
-
-    func resentMail(message : String)
 }
 
 class LoginViewModel{
@@ -62,22 +58,6 @@ class LoginViewModel{
                 self?.delegate?.success()
             }else{
 
-                if let tempError = error, (tempError as NSError).code == 203{
-                    self?.delegate?.emailNotVerified(email : tempEmail, message : tempError.localizedDescription)
-                }else{
-                    self?.delegate?.errorOccurred(errorString: error?.localizedDescription)
-                }
-            }
-        }
-    }
-
-    func resendEmail(email : String){
-
-        APIManager.resendEmail(email: email) { [weak self] (json, error) in
-            self?.delegate?.receivedResponse()
-            if let tempJson = json{
-                self?.delegate?.resentMail(message: tempJson["message"].stringValue)
-            }else{
                 self?.delegate?.errorOccurred(errorString: error?.localizedDescription)
             }
         }

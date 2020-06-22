@@ -204,9 +204,6 @@ extension LoginViewController : UITextFieldDelegate{
 
 extension LoginViewController : LoginVewModelDelegate{
 
-    func resentMail(message: String) {
-        showAlert(StringConstants.success.localized, withMessage: message, withCompletion: nil)
-    }
 
     func validationSuccess() {
         loginButton.startAnimating()
@@ -218,13 +215,5 @@ extension LoginViewController : LoginVewModelDelegate{
 
     func receivedResponse() {
         loginButton.stopAnimating()
-    }
-
-    func emailNotVerified(email : String, message : String) {
-
-        showAlert(StringConstants.alert.localized, withMessage: message, andShowCancel: true, okayTitle : StringConstants.resend_email.localized) { [weak self] in
-
-            self?.viewModel.resendEmail(email : email)
-        }
     }
 }

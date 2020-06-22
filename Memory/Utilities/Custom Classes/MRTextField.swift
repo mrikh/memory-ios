@@ -214,19 +214,19 @@ class MRTextField: UITextField {
     func startVerificationAnimating(){
 
         rightViewMode = .always
-        currentRightView = rightView
         rightView = otpStatusView
         otpStatusView.updateStatus(value: .inProgress)
     }
 
-    func stopVerificationAnimating(isSuccess : Bool, continueStatus : Bool){
+    func stopVerificationAnimating(isSuccess : Bool){
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) { [weak self] in
             self?.otpStatusView.updateStatus(value: isSuccess ? .verified : .invalid)
-            if !continueStatus{
-                self?.rightView = self?.currentRightView
-            }
         }
+    }
+
+    func clearVerification(){
+        rightView = nil
     }
 
     @objc func textFieldDidChange(_ textField : UITextField){

@@ -59,12 +59,38 @@ class VerifyEmailViewController: BaseViewController, KeyboardHandler {
 
     //MARK:- IBAction
     @IBAction func resendAction(_ sender: UIButton) {
+
+        showAlert(StringConstants.alert.localized, withMessage: StringConstants.resend_message.localized) {
+            [weak self] in
+
+            APIManager.resendEmail(email: UserModel.current.email) { [weak self] (json, error) in
+                if let tempError = error{
+                    self?.showAlert(StringConstants.alert.localized, withMessage: tempError.localizedDescription, withCompletion: nil)
+                }
+            }
+        }
     }
 
     @IBAction func verifyAction(_ sender: UIButton) {
+
+        verifyButton.startAnimating()
+        APIManager.verifyEmail(otp: otpStoryboardView.otpView?.otpArray.joined() ?? "") { [weak self] (json, error) in
+            self?.verifyButton.stopAnimating()
+            if let _ = json{
+                UserModel.current.emailVerified = true
+                UserModel.current.saveToUserDefaults()
+                let viewController = ProfilePhotoViewController.instantiate(fromAppStoryboard: .PreLogin)
+                self?.navigationController?.setViewControllers([viewController], animated: true)
+            }else{
+                self?.showAlert(StringConstants.alert.localized, withMessage: error?.localizedDescription, withCompletion: nil)
+            }
+        }
     }
 
     @IBAction func skipAction(_ sender: UIButton) {
+
+        let viewController = ProfilePhotoViewController.instantiate(fromAppStoryboard: .PreLogin)
+        navigationController?.setViewControllers([viewController], animated: true)
     }
 
     //MARK:- Private

@@ -33,18 +33,44 @@ class OTPCodeView: UIView{
             field.textColor = Colors.bgColor
             field.textAlignment = .center
             field.returnKeyType = .next
+            field.keyboardType = .numberPad
         }
 
         underlines.forEach { (view) in
             view.backgroundColor = Colors.bgColor.withAlphaComponent(0.40)
         }
 
-        underlines[0].backgroundColor = Colors.bgColor
         textFields[3].returnKeyType = .done
+    }
+
+    private func enableUnderline(index : Int){
+
+        underlines.forEach { (view) in
+            if index != -1, underlines[index] == view{
+                view.backgroundColor = Colors.bgColor
+            }else{
+                view.backgroundColor = Colors.bgColor.withAlphaComponent(0.40)
+            }
+        }
     }
 }
 
 extension OTPCodeView : UITextFieldDelegate, CustomBackTextFieldDelegate{
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+
+        if let index = textFields.firstIndex(where: {$0 == textField}){
+            enableUnderline(index: index)
+        }
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+
+        if textFields.firstIndex(where: {$0.isFirstResponder}) == nil{
+
+            enableUnderline(index: -1)
+        }
+    }
 
     func textFieldDidDelete(_ textField: CustomBackTextField) {
 
@@ -54,6 +80,7 @@ extension OTPCodeView : UITextFieldDelegate, CustomBackTextFieldDelegate{
 
             if index > 0{
                 textFields[index - 1].becomeFirstResponder()
+                enableUnderline(index: index - 1)
             }
         }
     }
@@ -66,14 +93,17 @@ extension OTPCodeView : UITextFieldDelegate, CustomBackTextFieldDelegate{
                 textField.text = string
                 if index < 3{
                     textFields[index + 1].becomeFirstResponder()
+                    enableUnderline(index: index + 1)
                 }else{
                     textField.resignFirstResponder()
+                    enableUnderline(index: -1)
                 }
             }else{
                 textField.text = ""
                 otpArray[index] = ""
                 if index > 0{
                     textFields[index - 1].becomeFirstResponder()
+                    enableUnderline(index: index - 1)
                 }
             }
         }

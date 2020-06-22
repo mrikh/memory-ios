@@ -75,7 +75,16 @@ class APIManager {
 
     static func resendEmail(email : String, completion: ((JSON?, Error?)->())?){
         
-        NetworkingManager.POST(endPoint: .resendVerification, parameters: ["email" : email], success: { (dict) in
+        NetworkingManager.POST(endPoint: .resendVerification, parameters: [:], headers: headers, success: { (dict) in
+            completion?(JSON(dict), nil)
+        }) { (error) in
+            completion?(nil, error)
+        }
+    }
+
+    static func verifyEmail(otp : String, completion: ((JSON?, Error?)->())?){
+
+        NetworkingManager.POST(endPoint: .verifyEmail, parameters: ["otp":otp], headers: headers, success: { (dict) in
             completion?(JSON(dict), nil)
         }) { (error) in
             completion?(nil, error)

@@ -44,16 +44,6 @@ class TextFieldTableViewCell: UITableViewCell {
         mainTextField.textContentType = viewModel.type?.contentType ?? .none
         mainTextField.errorString = viewModel.errorString.value
 
-        if let type = viewModel.type, type == .password{
-            mainTextField.isSecureTextEntry = true
-            mainTextField.setupButton(buttonIcon: #imageLiteral(resourceName: "show-password"), andSelectedImage: #imageLiteral(resourceName: "hide-password"))
-            mainTextField.rightAction = { [weak self] in
-                if let tempSelf = self{
-                    tempSelf.mainTextField.isSecureTextEntry = !tempSelf.mainTextField.isSecureTextEntry
-                }
-            }
-        }
-
         viewModel.placeholder.bind { [weak self] (string) in
             self?.mainTextField.placeholder = string
         }
@@ -66,9 +56,20 @@ class TextFieldTableViewCell: UITableViewCell {
 
             switch availability{
             case .checking: self?.mainTextField.startVerificationAnimating()
-            case .error: self?.mainTextField.stopVerificationAnimating(isSuccess: false, continueStatus: true)
-            case .available: self?.mainTextField.stopVerificationAnimating(isSuccess: true, continueStatus: true)
-            default: self?.mainTextField.stopVerificationAnimating(isSuccess: false, continueStatus: true)
+            case .error: self?.mainTextField.stopVerificationAnimating(isSuccess: false)
+            case .available: self?.mainTextField.stopVerificationAnimating(isSuccess: true)
+            default: self?.mainTextField.clearVerification()
+            }
+        }
+
+        //do this last as otherwise the above bind will clear the right button
+        if let type = viewModel.type, type == .password{
+            mainTextField.isSecureTextEntry = true
+            mainTextField.setupButton(buttonIcon: #imageLiteral(resourceName: "show-password"), andSelectedImage: #imageLiteral(resourceName: "hide-password"))
+            mainTextField.rightAction = { [weak self] in
+                if let tempSelf = self{
+                    tempSelf.mainTextField.isSecureTextEntry = !tempSelf.mainTextField.isSecureTextEntry
+                }
             }
         }
     }

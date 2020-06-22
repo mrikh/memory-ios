@@ -63,11 +63,11 @@ class TextFieldCellViewModel{
     var errorString : Binder<String?> = Binder(nil)
     var inputValue : String?{
         didSet{
-            //reset availability
-            availability.value = .none
             inputValueDidSet?(inputValue)
 
             if type == .username{
+                //reset availability
+                availability.value = .none
                 performRequest()
             }
         }
@@ -90,7 +90,7 @@ class TextFieldCellViewModel{
             self?.checkUserName()
         })
         item = work
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: work)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: work)
     }
 
     private func checkUserName(){

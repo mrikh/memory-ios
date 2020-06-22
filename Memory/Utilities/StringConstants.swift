@@ -17,6 +17,7 @@ struct StringConstants{
     static let confirm = "confirm"
     static let or_do = "or_do"
     static let later = "later"
+    static let resend_message = "resend_message"
 
     //tutorial
     static let first_title = "first_title"
