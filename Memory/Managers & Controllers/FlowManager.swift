@@ -16,13 +16,17 @@ class FlowManager{
 
         configureNavigationBar()
 
-        if Defaults.value(forKey : Defaults.Key.tutorialDone) == nil{
-            let window = (UIApplication.shared.delegate as? AppDelegate)?.window
-            window?.rootViewController = createNavigationController(TutorialPageViewController.instantiate(fromAppStoryboard: .PreLogin))
-            window?.makeKeyAndVisible()
-        }else if let _ = Defaults.value(forKey: Defaults.Key.userInfo){
-            gotToLandingScreen()
-        }
+//        if Defaults.value(forKey : Defaults.Key.tutorialDone) == nil{
+//            let window = (UIApplication.shared.delegate as? AppDelegate)?.window
+//            window?.rootViewController = createNavigationController(TutorialPageViewController.instantiate(fromAppStoryboard: .PreLogin))
+//            window?.makeKeyAndVisible()
+//        }else if let _ = Defaults.value(forKey: Defaults.Key.userInfo){
+//            gotToLandingScreen()
+//        }
+
+        let window = (UIApplication.shared.delegate as? AppDelegate)?.window
+        window?.rootViewController = createNavigationController(VerifyEmailViewController.instantiate(fromAppStoryboard: .PreLogin))
+        window?.makeKeyAndVisible()
     }
 
     static func createNavigationController(_ viewController : UIViewController) -> UINavigationController{

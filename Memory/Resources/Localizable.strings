@@ -6,14 +6,22 @@
   Copyright © 2019 Mayank Rikh. All rights reserved.
 */
 
-//Tutorial
-"firstTitle" = "Want to create some memories?";
-"secondTitle" = "Nothing to do?";
-"thirdTitle" = "Had a good time?";
+//verify email
+"verify_email" = "Verify Your Email";
+"verify_email_info" = "We have sent you an email with the code. Please enter it to complete Sign Up!";
+"resend_code" = "Resend Code";
+"confirm" = "Confirm";
+"or_do" = "or do it";
+"later" = "later";
 
-"firstInfo" = "Host an event! You can have only your friends join or meet new people, make it public!";
-"secondInfo" = "Why not try something new?";
-"thirdInfo" = "Find your photos after the event is over!";
+//Tutorial
+"first_title" = "Want to create some memories?";
+"second_title" = "Nothing to do?";
+"third_title" = "Had a good time?";
+
+"first_info" = "Host an event! You can have only your friends join or meet new people, make it public!";
+"second_info" = "Why not try something new?";
+"third_info" = "Find your photos after the event is over!";
 
 //Landing
 "joined" = "JOINED";

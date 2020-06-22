@@ -21,17 +21,17 @@ class TutorialViewController: BaseViewController {
 
         var title : String{
             switch self{
-            case .first : return StringConstants.firstTitle.localized
-            case .second: return StringConstants.secondTitle.localized
-            case .third: return StringConstants.thirdTitle.localized
+            case .first : return StringConstants.first_title.localized
+            case .second: return StringConstants.second_title.localized
+            case .third: return StringConstants.third_title.localized
             }
         }
 
         var subtitle : String{
             switch self{
-            case .first: return StringConstants.firstInfo.localized
-            case .second: return StringConstants.secondInfo.localized
-            case .third: return StringConstants.thirdInfo.localized
+            case .first: return StringConstants.first_info.localized
+            case .second: return StringConstants.second_info.localized
+            case .third: return StringConstants.third_info.localized
             }
         }
 

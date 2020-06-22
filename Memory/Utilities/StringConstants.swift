@@ -10,14 +10,22 @@ import Foundation
 
 struct StringConstants{
 
-    //tutorial
-    static let firstTitle = "Want to create some memories?"
-    static let secondTitle = "Nothing to do?"
-    static let thirdTitle = "Had a good time?"
+    //verify email
+    static let verify_email = "verify_email"
+    static let verify_email_info = "verify_email_info"
+    static let resend_code = "resend_code"
+    static let confirm = "confirm"
+    static let or_do = "or_do"
+    static let later = "later"
 
-    static let firstInfo = "Host an event! You can have only your friends join or meet new people, make it public!"
-    static let secondInfo = "Why not try something new?"
-    static let thirdInfo = "Find your photos after the event is over!"
+    //tutorial
+    static let first_title = "first_title"
+    static let second_title = "second_title"
+    static let third_title = "third_title"
+
+    static let first_info = "first_info"
+    static let second_info = "second_info"
+    static let third_info = "third_info"
 
     //Landing
     static let joined = "joined"

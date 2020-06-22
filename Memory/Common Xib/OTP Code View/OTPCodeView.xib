@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OTPCodeView" customModule="Memory" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="buq-kl-pYR">
+                    <rect key="frame" x="15" y="0.0" width="384" height="896"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kC5-vY-2Fa">
+                            <rect key="frame" x="0.0" y="0.0" width="88.5" height="896"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EdM-B4-GTR" customClass="CustomBackTextField" customModule="Memory" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="88.5" height="890"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FiC-Ao-HdC">
+                                    <rect key="frame" x="0.0" y="895" width="88.5" height="1"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="GIC-wE-YaA"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="f4R-n3-Z1G">
+                            <rect key="frame" x="98.5" y="0.0" width="88.5" height="896"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nnf-S7-KWH" customClass="CustomBackTextField" customModule="Memory" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="88.5" height="890"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RzG-uD-AQe">
+                                    <rect key="frame" x="0.0" y="895" width="88.5" height="1"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="Lgk-0e-6tx"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WYd-YF-5ub">
+                            <rect key="frame" x="197" y="0.0" width="88.5" height="896"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Tb-NI-NYc" customClass="CustomBackTextField" customModule="Memory" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="88.5" height="890"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FrJ-Gf-au2">
+                                    <rect key="frame" x="0.0" y="895" width="88.5" height="1"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="iq6-Lv-Hdp"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eCN-m7-F8V">
+                            <rect key="frame" x="295.5" y="0.0" width="88.5" height="896"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HtE-BA-FA2" customClass="CustomBackTextField" customModule="Memory" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="88.5" height="890"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRM-SG-fuv">
+                                    <rect key="frame" x="0.0" y="895" width="88.5" height="1"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="IPh-8E-TIs"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="buq-kl-pYR" secondAttribute="trailing" constant="15" id="5yN-HW-6na"/>
+                <constraint firstAttribute="bottom" secondItem="buq-kl-pYR" secondAttribute="bottom" id="B6e-Hs-2gT"/>
+                <constraint firstItem="buq-kl-pYR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Yug-mo-d7e"/>
+                <constraint firstItem="buq-kl-pYR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="ofZ-Rg-rj2"/>
+            </constraints>
+            <connections>
+                <outletCollection property="textFields" destination="EdM-B4-GTR" collectionClass="NSMutableArray" id="10x-1J-bAI"/>
+                <outletCollection property="textFields" destination="Nnf-S7-KWH" collectionClass="NSMutableArray" id="oag-vi-8mB"/>
+                <outletCollection property="textFields" destination="7Tb-NI-NYc" collectionClass="NSMutableArray" id="D29-q2-E6c"/>
+                <outletCollection property="textFields" destination="HtE-BA-FA2" collectionClass="NSMutableArray" id="iIj-Ap-XXJ"/>
+                <outletCollection property="underlines" destination="FiC-Ao-HdC" collectionClass="NSMutableArray" id="Wac-2l-f12"/>
+                <outletCollection property="underlines" destination="RzG-uD-AQe" collectionClass="NSMutableArray" id="JQx-Hl-dK4"/>
+                <outletCollection property="underlines" destination="FrJ-Gf-au2" collectionClass="NSMutableArray" id="nrD-0c-CU0"/>
+                <outletCollection property="underlines" destination="bRM-SG-fuv" collectionClass="NSMutableArray" id="c08-JQ-3YP"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="145"/>
+        </view>
+    </objects>
+</document>

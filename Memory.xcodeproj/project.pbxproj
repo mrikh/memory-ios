@@ -59,9 +59,13 @@
 		467840F222FAF576004D43E7 /* NoAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467840F122FAF576004D43E7 /* NoAccessView.swift */; };
 		467840F422FB05FA004D43E7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 467840F322FB05FA004D43E7 /* Profile.storyboard */; };
 		4684C5AC249DA12A0003753D /* UIButton+FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684C5AB249DA12A0003753D /* UIButton+FontAwesome.swift */; };
+		4684C5B424A000620003753D /* OTPCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4684C5B324A000620003753D /* OTPCodeView.xib */; };
+		4684C5B624A000C50003753D /* OTPCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684C5B524A000C50003753D /* OTPCodeView.swift */; };
+		4684C5B824A0111E0003753D /* CustomBackTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684C5B724A0111E0003753D /* CustomBackTextField.swift */; };
+		4684C5BA24A025460003753D /* VerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684C5B924A025460003753D /* VerifyEmailViewController.swift */; };
+		4684C5BC24A026460003753D /* OTPCodeStoryboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684C5BB24A026460003753D /* OTPCodeStoryboardView.swift */; };
 		46ACC09122D9C28E0003973D /* Double + VideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09022D9C28E0003973D /* Double + VideoTime.swift */; };
 		46ACC09322D9D4CD0003973D /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09222D9D4CD0003973D /* OTPViewModel.swift */; };
-		46ACC09522D9D8CD0003973D /* CustomBackTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */; };
 		46ACC09822D9F5BF0003973D /* WhenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09722D9F5BF0003973D /* WhenViewController.swift */; };
 		46ACC09C22DA1B380003973D /* CreatePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09B22DA1B380003973D /* CreatePageViewController.swift */; };
 		46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BCE38322356D2100CEC9C1 /* AppDelegate.swift */; };
@@ -181,9 +185,13 @@
 		467840F122FAF576004D43E7 /* NoAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAccessView.swift; sourceTree = "<group>"; };
 		467840F322FB05FA004D43E7 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4684C5AB249DA12A0003753D /* UIButton+FontAwesome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+FontAwesome.swift"; sourceTree = "<group>"; };
+		4684C5B324A000620003753D /* OTPCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPCodeView.xib; sourceTree = "<group>"; };
+		4684C5B524A000C50003753D /* OTPCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPCodeView.swift; sourceTree = "<group>"; };
+		4684C5B724A0111E0003753D /* CustomBackTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackTextField.swift; sourceTree = "<group>"; };
+		4684C5B924A025460003753D /* VerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewController.swift; sourceTree = "<group>"; };
+		4684C5BB24A026460003753D /* OTPCodeStoryboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPCodeStoryboardView.swift; sourceTree = "<group>"; };
 		46ACC09022D9C28E0003973D /* Double + VideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double + VideoTime.swift"; sourceTree = "<group>"; };
 		46ACC09222D9D4CD0003973D /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
-		46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackTextField.swift; sourceTree = "<group>"; };
 		46ACC09722D9F5BF0003973D /* WhenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhenViewController.swift; sourceTree = "<group>"; };
 		46ACC09B22DA1B380003973D /* CreatePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePageViewController.swift; sourceTree = "<group>"; };
 		46BCE38022356D2100CEC9C1 /* Memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,6 +295,7 @@
 		464EEFA7223E971000C6A40D /* Common Xib */ = {
 			isa = PBXGroup;
 			children = (
+				4684C5AE24A000080003753D /* OTP Code View */,
 				467840F022FAF568004D43E7 /* No Access View */,
 				46DCDE9C22E1A13900277AC1 /* Friends Table View Cell */,
 				46DCDE8922E0780100277AC1 /* ImageCollectionViewCell */,
@@ -510,6 +519,24 @@
 			path = "No Access View";
 			sourceTree = "<group>";
 		};
+		4684C5AD249FE7870003753D /* Verify Email View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4684C5B924A025460003753D /* VerifyEmailViewController.swift */,
+			);
+			path = "Verify Email View Controller";
+			sourceTree = "<group>";
+		};
+		4684C5AE24A000080003753D /* OTP Code View */ = {
+			isa = PBXGroup;
+			children = (
+				4684C5B324A000620003753D /* OTPCodeView.xib */,
+				4684C5B524A000C50003753D /* OTPCodeView.swift */,
+				4684C5BB24A026460003753D /* OTPCodeStoryboardView.swift */,
+			);
+			path = "OTP Code View";
+			sourceTree = "<group>";
+		};
 		46ACC09622D9F59D0003973D /* When View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -668,8 +695,8 @@
 				464FAB392304B54D00763FAD /* MRRefreshControl.swift */,
 				46BCE403223B9EAA00CEC9C1 /* MRAnimatingButton.swift */,
 				46BCE3E8223580F600CEC9C1 /* Binder.swift */,
-				46ACC09422D9D8CD0003973D /* CustomBackTextField.swift */,
 				46DCDE9022E0AE4700277AC1 /* MRCheckBoxButton.swift */,
+				4684C5B724A0111E0003753D /* CustomBackTextField.swift */,
 			);
 			path = "Custom Classes";
 			sourceTree = "<group>";
@@ -713,6 +740,7 @@
 		46BCE3FA2236485B00CEC9C1 /* Pre Login */ = {
 			isa = PBXGroup;
 			children = (
+				4684C5AD249FE7870003753D /* Verify Email View Controller */,
 				46DAA7A4249D798900B71758 /* Tutorial View Controller */,
 				465CB39922D30D29002D2B4B /* Forgot Password View Controller */,
 				465CB38222D120DE002D2B4B /* Profile Photo View Controller */,
@@ -939,6 +967,7 @@
 				464FAB4C23059EE600763FAD /* HeaderView.xib in Resources */,
 				46BCE3F922363F7C00CEC9C1 /* PreLogin.storyboard in Resources */,
 				465CB39D22D3304F002D2B4B /* Friends.storyboard in Resources */,
+				4684C5B424A000620003753D /* OTPCodeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1000,6 +1029,7 @@
 				46DAA7A6249D7ED600B71758 /* TutorialPageViewController.swift in Sources */,
 				46BCE398223578CF00CEC9C1 /* BaseProtocol.swift in Sources */,
 				46BCE3C222357A3100CEC9C1 /* AlertProtocol.swift in Sources */,
+				4684C5B824A0111E0003753D /* CustomBackTextField.swift in Sources */,
 				46DAA7A8249D80B300B71758 /* TutorialViewController.swift in Sources */,
 				465A47CA22D49E6300647EA6 /* CountryCodeModel.swift in Sources */,
 				46BCE3A022357A2100CEC9C1 /* FlowManager.swift in Sources */,
@@ -1016,14 +1046,15 @@
 				464FAB4B23059EE600763FAD /* HeaderView.swift in Sources */,
 				46DCDEA222E38FC800277AC1 /* NameViewController.swift in Sources */,
 				464FAB3A2304B54E00763FAD /* MRRefreshControl.swift in Sources */,
+				4684C5BC24A026460003753D /* OTPCodeStoryboardView.swift in Sources */,
 				465FFFF422DD9BE2009D222A /* Annotation.swift in Sources */,
 				465A47C522D487B300647EA6 /* CountryCodeViewController.swift in Sources */,
 				464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */,
-				46ACC09522D9D8CD0003973D /* CustomBackTextField.swift in Sources */,
 				46DCDE8E22E0784100277AC1 /* ImageCollectionViewCell.swift in Sources */,
 				46DCDE7F22DF0F0100277AC1 /* ButtonCollectionViewCell.swift in Sources */,
 				46ACC09822D9F5BF0003973D /* WhenViewController.swift in Sources */,
 				465FFFEE22DCB7B6009D222A /* LocationViewController.swift in Sources */,
+				4684C5B624A000C50003753D /* OTPCodeView.swift in Sources */,
 				464FAB38230473D200763FAD /* EventModel.swift in Sources */,
 				467840E522FAC78B004D43E7 /* LandingViewController.swift in Sources */,
 				46BCE3D022357A3100CEC9C1 /* UIViewController + General.swift in Sources */,
@@ -1088,6 +1119,7 @@
 				46DCDE8622DF984E00277AC1 /* GalleryViewController.swift in Sources */,
 				46CEB22A2412CF5400CCE906 /* ExampleBasicContentView.swift in Sources */,
 				46BCE3A122357A2100CEC9C1 /* ValidationController.swift in Sources */,
+				4684C5BA24A025460003753D /* VerifyEmailViewController.swift in Sources */,
 				465A47C022D3CF5000647EA6 /* PhoneNumberViewModel.swift in Sources */,
 				46DCDE9422E0C34B00277AC1 /* ImageModel.swift in Sources */,
 			);

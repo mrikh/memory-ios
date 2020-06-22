@@ -141,7 +141,7 @@ extension SignUpViewController : SignUpViewModelDelegate{
 
         showAlert(StringConstants.success.localized, withMessage: message) { [weak self] in
 
-            let viewController = ProfilePhotoViewController.instantiate(fromAppStoryboard: .PreLogin)
+            let viewController = VerifyEmailViewController.instantiate(fromAppStoryboard: .PreLogin)
             self?.navigationController?.setViewControllers([viewController], animated: true)
         }
     }
