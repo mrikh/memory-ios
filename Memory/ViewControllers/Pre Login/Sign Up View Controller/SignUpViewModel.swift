@@ -108,7 +108,8 @@ class SignUpViewModel{
         APIManager.signUpUser(params: params) { [weak self] (dict, error) in
             self?.delegate?.responseReceived()
             if let tempDict = dict?["data"]{
-
+                UserModel.current = UserModel(tempDict)
+                UserModel.current.saveToUserDefaults()
                 APIManager.authenticationToken = tempDict["token"].stringValue
                 self?.delegate?.success(message : dict?["message"].stringValue ?? StringConstants.success.localized)
             }else{

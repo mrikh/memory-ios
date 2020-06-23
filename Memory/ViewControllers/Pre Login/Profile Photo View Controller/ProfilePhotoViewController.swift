@@ -25,10 +25,15 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
     let viewModel = ProfilePhotoViewModel()
     private var semiPath : UIBezierPath{
         let path = UIBezierPath()
-        let radius = semiCircleView.bounds.height * 2.5
-        let centerPoint = CGPoint(x : semiCircleView.center.x, y: radius)
+        let firstPoint = CGPoint(x: 0.0, y: semiCircleView.bounds.height)
+        let secondPoint = CGPoint(x: semiCircleView.bounds.width, y: 0.0)
+        let thirdPoint = CGPoint(x: semiCircleView.bounds.width, y: semiCircleView.bounds.height)
 
-        path.addArc(withCenter: centerPoint, radius: radius, startAngle: 0, endAngle: CGFloat(Double.pi), clockwise: false)
+        path.move(to: firstPoint)
+        path.addLine(to: secondPoint)
+        path.addLine(to: thirdPoint)
+        path.close()
+
         return path
     }
 
@@ -57,8 +62,6 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
 
         (layer as? CAShapeLayer)?.path = semiPath.cgPath
         doneButton.layer.cornerRadius = doneButton.bounds.height/2.0
-        imageView.layer.cornerRadius = imageView.bounds.width/2.0
-        imageContainerView.layer.cornerRadius = imageContainerView.bounds.width/2.0
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -80,8 +83,8 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
     
     @IBAction func skipAction(_ sender: UIButton) {
 
-        //upload blank string to check email verified status
-        viewModel.uploadToOurServer(photoUrlString: "")
+        let tab = CustomTabBarController.instantiate(fromAppStoryboard: .Main)
+        navigationController?.setViewControllers([tab], animated: true)
     }
 
     @IBAction func doneAction(_ sender: UIButton) {
@@ -114,11 +117,7 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
 
         skipButton.setAttributedTitle(NSAttributedString(string : StringConstants.skip.localized, attributes : [.font : CustomFonts.avenirHeavy.withSize(12.0), .foregroundColor : Colors.bgColor, .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
 
-        imageContainerView.layer.borderColor = Colors.white.withAlphaComponent(0.3).cgColor
-        imageContainerView.layer.borderWidth = 2.0
         imageContainerView.backgroundColor = Colors.bgColor
-
-        imageContainerView.addShadow(3.0)
 
         uploadButton.configureFontAwesome(name: FontAwesome.cameraRetro, titleColor: Colors.white, size: 42.0, style: FontAwesomeStyle.solid)
 
@@ -133,7 +132,7 @@ extension ProfilePhotoViewController : UIImagePickerControllerDelegate, UINaviga
 
         guard let image = info[.originalImage] as? UIImage else { return }
 
-        let cropViewController = CropViewController(croppingStyle: .circular, image: image)
+        let cropViewController = CropViewController(croppingStyle: .default, image: image)
         cropViewController.delegate = self
         picker.present(cropViewController, animated: false, completion: nil)
     }
