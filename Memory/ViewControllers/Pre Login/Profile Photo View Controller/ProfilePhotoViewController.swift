@@ -12,6 +12,8 @@ import UIKit
 
 class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
 
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var storyboardProgressView: StoryboardProgressView!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
@@ -62,6 +64,7 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
 
         (layer as? CAShapeLayer)?.path = semiPath.cgPath
         doneButton.layer.cornerRadius = doneButton.bounds.height/2.0
+        visualEffectView.layer.cornerRadius = visualEffectView.bounds.height/2.0
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -69,16 +72,17 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
     }
 
     //MARK:- IBAction
+    @IBAction func editAction(_ sender: UIButton) {
+
+        startImagePick(showFront: true) { [weak self] in
+            self?.imageView.image = nil
+            self?.updateButtons(showEdit: false)
+        }
+    }
+
     @IBAction func uploadAction(_ sender: UIButton) {
 
-        if let _ = imageView.image{
-            startImagePick(showFront: true) { [weak self] in
-                self?.imageView.image = nil
-                self?.uploadButton.setTitle(String.fontAwesomeIcon(name: FontAwesome.cameraRetro), for: .normal)
-            }
-        }else{
-            startImagePick(showFront: true, removalClosure: nil)
-        }
+        startImagePick(showFront: true, removalClosure: nil)
     }
     
     @IBAction func skipAction(_ sender: UIButton) {
@@ -96,6 +100,14 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
     }
 
     //MARK:- Private
+    private func updateButtons(showEdit : Bool){
+
+        uploadButton.setTitle(showEdit ? nil : String.fontAwesomeIcon(name: FontAwesome.cameraRetro), for: .normal)
+        visualEffectView.isHidden = !showEdit
+        showEdit ? doneButton.enableButton() : doneButton.disableButton()
+        uploadButton.isHidden = showEdit
+    }
+
     private func initialSetup(){
 
         infoLabel.textColor = Colors.black
@@ -110,7 +122,7 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
         layer.fillColor = Colors.white.cgColor
         layer.setValue(1005, forKey: "bgColor")
         layer.path = semiPath.cgPath
-        semiCircleView.layer.addSublayer(layer)
+        semiCircleView.layer.insertSublayer(layer, at: 0)
 
         doneButton.setTitle(StringConstants.done.localized, for: .normal)
         doneButton.disableButton()
@@ -123,6 +135,9 @@ class ProfilePhotoViewController: BaseViewController, ImagePickerProtocol{
 
         viewModel.delegate = self
         storyboardProgressView.isHidden = true
+        visualEffectView.isHidden = true
+
+        editButton.configureFontAwesome(name: .cameraRetro, titleColor: .white, size: 22.0, style: .solid)
     }
 }
 
@@ -148,9 +163,7 @@ extension ProfilePhotoViewController : CropViewControllerDelegate{
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
 
         imageView.image = image
-
-        doneButton.enableButton()
-        uploadButton.setTitle(nil, for: .normal)
+        updateButtons(showEdit: true)
 
         dismiss(animated: true, completion: nil)
     }
