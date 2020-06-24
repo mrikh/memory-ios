@@ -15,6 +15,7 @@ protocol LocationManagerDelegate : AnyObject{
     func locationFetchError()
 
     func statusChangedToAllowed()
+    func didUpdatePermissionStatus()
 }
 
 class LocationManager : NSObject{
@@ -31,7 +32,6 @@ class LocationManager : NSObject{
     private override init(){
 
         super.init()
-        setupLocationManager()
     }
 
     func setupLocationManager(){
@@ -88,6 +88,11 @@ extension LocationManager : CLLocationManagerDelegate{
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+
+        if status != .notDetermined{
+            //only fire when an option has been chosen
+            delegate?.didUpdatePermissionStatus()
+        }
 
         if status == .authorizedAlways || status == .authorizedWhenInUse{
             delegate?.statusChangedToAllowed()

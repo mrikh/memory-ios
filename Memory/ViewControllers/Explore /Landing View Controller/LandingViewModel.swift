@@ -142,6 +142,8 @@ class LandingViewModel{
 
 extension LandingViewModel : LocationManagerDelegate{
 
+    func didUpdatePermissionStatus() {}
+
     func didFetchLocation() {
 
         coordinate = LocationManager.shared.currentLocation?.coordinate

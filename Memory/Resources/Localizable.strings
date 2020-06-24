@@ -6,6 +6,11 @@
   Copyright © 2019 Mayank Rikh. All rights reserved.
 */
 
+//location permission
+"allow" = "Allow";
+"location_permission_title" = "We need access to your location to show you nearby events!";
+"location_permission_info" = "Don't worry if you don't want to allow this service. You can still manually pick the location to search. This may not be as accurate though.";
+
 //verify email
 "verify_email" = "Verify Your Email";
 "verify_email_info" = "We have sent you an email with the code. Please enter it to complete Sign Up!";

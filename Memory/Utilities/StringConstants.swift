@@ -10,6 +10,11 @@ import Foundation
 
 struct StringConstants{
 
+    //location permission
+    static let allow = "allow"
+    static let location_permission_title = "location_permission_title"
+    static let location_permission_info = "location_permission_info"
+
     //verify email
     static let verify_email = "verify_email"
     static let verify_email_info = "verify_email_info"

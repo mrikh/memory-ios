@@ -67,7 +67,7 @@ class CountryCodeViewController: BaseViewController, KeyboardHandler, TableViewH
         countryCodeTableView.estimatedRowHeight = 60
         countryCodeTableView.rowHeight = UITableView.automaticDimension
 
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = StringConstants.search_country.localized
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = true

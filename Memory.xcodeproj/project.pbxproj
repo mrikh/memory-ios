@@ -20,6 +20,9 @@
 		464FAB3D23054D1A00763FAD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464FAB3C23054D1A00763FAD /* ProfileViewController.swift */; };
 		464FAB4B23059EE600763FAD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464FAB4823059EE600763FAD /* HeaderView.swift */; };
 		464FAB4C23059EE600763FAD /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464FAB4923059EE600763FAD /* HeaderView.xib */; };
+		46592DD924A2CE7B00136C08 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46592DD824A2CE7B00136C08 /* ExploreViewController.swift */; };
+		46592DDB24A2CE8500136C08 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46592DDA24A2CE8500136C08 /* ExploreViewModel.swift */; };
+		46592DE024A2D01100136C08 /* LocationReasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46592DDF24A2D01100136C08 /* LocationReasonViewController.swift */; };
 		465A47B422D34F5700647EA6 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465A47B322D34F5700647EA6 /* Create.storyboard */; };
 		465A47B622D350B900647EA6 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465A47B522D350B900647EA6 /* Explore.storyboard */; };
 		465A47B922D35CF500647EA6 /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */; };
@@ -146,6 +149,9 @@
 		464FAB3C23054D1A00763FAD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		464FAB4823059EE600763FAD /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		464FAB4923059EE600763FAD /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		46592DD824A2CE7B00136C08 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		46592DDA24A2CE8500136C08 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
+		46592DDF24A2D01100136C08 /* LocationReasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationReasonViewController.swift; sourceTree = "<group>"; };
 		465A47B322D34F5700647EA6 /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		465A47B522D350B900647EA6 /* Explore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
@@ -349,6 +355,14 @@
 			path = "Child View Controllers";
 			sourceTree = "<group>";
 		};
+		46592DDC24A2CF4000136C08 /* Location Reason View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				46592DDF24A2D01100136C08 /* LocationReasonViewController.swift */,
+			);
+			path = "Location Reason View Controller";
+			sourceTree = "<group>";
+		};
 		465A47B722D35BEF00647EA6 /* Create */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +520,8 @@
 				464FAB3023043D1100763FAD /* Table View Cell */,
 				467840E422FAC78B004D43E7 /* LandingViewController.swift */,
 				467840E622FAC84A004D43E7 /* LandingViewModel.swift */,
+				46592DD824A2CE7B00136C08 /* ExploreViewController.swift */,
+				46592DDA24A2CE8500136C08 /* ExploreViewModel.swift */,
 			);
 			path = "Landing View Controller";
 			sourceTree = "<group>";
@@ -797,6 +813,7 @@
 		46DCDE8322DF93F200277AC1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				46592DDC24A2CF4000136C08 /* Location Reason View Controller */,
 				465FFFEC22DCB559009D222A /* Location View Controller */,
 				46DCDE8422DF984000277AC1 /* Gallery */,
 			);
@@ -1080,6 +1097,7 @@
 				465CB39822D2811F002D2B4B /* LoginViewModel.swift in Sources */,
 				467840E722FAC84A004D43E7 /* LandingViewModel.swift in Sources */,
 				465FFFE722DB83FC009D222A /* Timeinterval + Date.swift in Sources */,
+				46592DDB24A2CE8500136C08 /* ExploreViewModel.swift in Sources */,
 				46BCE39C22357A0D00CEC9C1 /* UserModel.swift in Sources */,
 				46DCDE9F22E303DA00277AC1 /* ExtraInfoViewController.swift in Sources */,
 				464EEFA1223E95C400C6A40D /* SignUpViewModel.swift in Sources */,
@@ -1122,6 +1140,8 @@
 				4684C5BA24A025460003753D /* VerifyEmailViewController.swift in Sources */,
 				465A47C022D3CF5000647EA6 /* PhoneNumberViewModel.swift in Sources */,
 				46DCDE9422E0C34B00277AC1 /* ImageModel.swift in Sources */,
+				46592DE024A2D01100136C08 /* LocationReasonViewController.swift in Sources */,
+				46592DD924A2CE7B00136C08 /* ExploreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

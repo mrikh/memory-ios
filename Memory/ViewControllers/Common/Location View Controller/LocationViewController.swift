@@ -199,6 +199,8 @@ extension LocationViewController : UIGestureRecognizerDelegate{
 
 extension LocationViewController : LocationManagerDelegate{
 
+    func didUpdatePermissionStatus() {}
+
     func statusChangedToAllowed() {}
 
     func didFetchLocation() {

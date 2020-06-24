@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="WTy-DC-KUf">
-                                <rect key="frame" x="15" y="204.5" width="345" height="125"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="WTy-DC-KUf">
+                                <rect key="frame" x="15" y="197" width="345" height="140"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sld-PP-wgh">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
@@ -41,7 +41,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehj-7n-1Kc">
-                                        <rect key="frame" x="0.0" y="75" width="345" height="50"/>
+                                        <rect key="frame" x="0.0" y="90" width="345" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oON-kg-24e" customClass="MRTextField" customModule="Memory" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
@@ -63,14 +63,14 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nM-pL-a7w">
-                                <rect key="frame" x="314" y="349.5" width="46" height="30"/>
+                                <rect key="frame" x="314" y="357" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="forgotAction:" destination="uoI-6o-Qlt" eventType="touchUpInside" id="8XI-Cb-euB"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="dMW-Gg-9mT">
-                                <rect key="frame" x="15" y="419.5" width="345" height="86.5"/>
+                                <rect key="frame" x="15" y="427" width="345" height="86.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qra-TS-S9Q">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
@@ -456,7 +456,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBe-eI-UUq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2102" y="912"/>
+            <point key="canvasLocation" x="2102" y="866"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="gRR-EE-I55">
