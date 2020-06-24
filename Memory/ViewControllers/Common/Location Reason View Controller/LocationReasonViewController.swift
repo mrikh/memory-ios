@@ -47,9 +47,11 @@ class LocationReasonViewController: BaseViewController {
         doneButton.setTitle(StringConstants.allow.localized, for: .normal)
         doneButton.enableButton()
 
+        #warning("show or not the below button? As it might confuse user as on next launch we will ask this permission again.")
         cancelButton.setTitleColor(Colors.bgColor, for: .normal)
         cancelButton.setTitle(StringConstants.cancel.localized, for: .normal)
         cancelButton.setAttributedTitle(NSAttributedString(string : StringConstants.cancel.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(12.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
+        cancelButton.isHidden = true
     }
 }
 
