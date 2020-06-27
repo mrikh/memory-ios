@@ -6,5 +6,6 @@
 #define BridgingHeader_h
 
 #import "MRActivityIndicator.h"
+#import "iCarousel.h"
 
 #endif /* BridgingHeader_h */

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A9CB1AC5333EF3AAB258028 /* Pods_Memory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7938299BEE333E1DB6C2E75 /* Pods_Memory.framework */; };
+		460A71B924A7D119002C4BD6 /* MRCustomBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460A71B824A7D119002C4BD6 /* MRCustomBlur.swift */; };
 		464EEF9F223E63A500C6A40D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EEF9E223E63A500C6A40D /* SignUpViewController.swift */; };
 		464EEFA1223E95C400C6A40D /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EEFA0223E95C400C6A40D /* SignUpViewModel.swift */; };
 		464EEFA5223E970A00C6A40D /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464EEFA3223E970A00C6A40D /* TextFieldTableViewCell.swift */; };
@@ -23,6 +24,8 @@
 		46592DD924A2CE7B00136C08 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46592DD824A2CE7B00136C08 /* ExploreViewController.swift */; };
 		46592DDB24A2CE8500136C08 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46592DDA24A2CE8500136C08 /* ExploreViewModel.swift */; };
 		46592DE024A2D01100136C08 /* LocationReasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46592DDF24A2D01100136C08 /* LocationReasonViewController.swift */; };
+		46592DE424A4C10B00136C08 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46592DE224A4C10A00136C08 /* iCarousel.m */; };
+		46592DE624A5776900136C08 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 46592DE524A5776900136C08 /* style.json */; };
 		465A47B422D34F5700647EA6 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465A47B322D34F5700647EA6 /* Create.storyboard */; };
 		465A47B622D350B900647EA6 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465A47B522D350B900647EA6 /* Explore.storyboard */; };
 		465A47B922D35CF500647EA6 /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */; };
@@ -137,6 +140,7 @@
 /* Begin PBXFileReference section */
 		378FA50C051AFC5CB5C9D58A /* Pods-Memory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memory.release.xcconfig"; path = "Target Support Files/Pods-Memory/Pods-Memory.release.xcconfig"; sourceTree = "<group>"; };
 		437BFD79EFB89FEB73BDBD6B /* Pods-Memory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memory.debug.xcconfig"; path = "Target Support Files/Pods-Memory/Pods-Memory.debug.xcconfig"; sourceTree = "<group>"; };
+		460A71B824A7D119002C4BD6 /* MRCustomBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRCustomBlur.swift; sourceTree = "<group>"; };
 		464EEF9E223E63A500C6A40D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		464EEFA0223E95C400C6A40D /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		464EEFA3223E970A00C6A40D /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
@@ -152,6 +156,9 @@
 		46592DD824A2CE7B00136C08 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		46592DDA24A2CE8500136C08 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
 		46592DDF24A2D01100136C08 /* LocationReasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationReasonViewController.swift; sourceTree = "<group>"; };
+		46592DE224A4C10A00136C08 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		46592DE324A4C10A00136C08 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		46592DE524A5776900136C08 /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
 		465A47B322D34F5700647EA6 /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		465A47B522D350B900647EA6 /* Explore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		465A47B822D35CF500647EA6 /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
@@ -361,6 +368,15 @@
 				46592DDF24A2D01100136C08 /* LocationReasonViewController.swift */,
 			);
 			path = "Location Reason View Controller";
+			sourceTree = "<group>";
+		};
+		46592DE124A4C0FE00136C08 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				46592DE324A4C10A00136C08 /* iCarousel.h */,
+				46592DE224A4C10A00136C08 /* iCarousel.m */,
+			);
+			path = iCarousel;
 			sourceTree = "<group>";
 		};
 		465A47B722D35BEF00647EA6 /* Create */ = {
@@ -643,6 +659,7 @@
 		46BCE3A222357A3100CEC9C1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				46592DE124A4C0FE00136C08 /* iCarousel */,
 				46CEB2242412CF5300CCE906 /* Pod-Helpers */,
 				46BCE3BA22357A3100CEC9C1 /* Custom Classes */,
 				46BCE3B222357A3100CEC9C1 /* Genral Extensions */,
@@ -713,6 +730,7 @@
 				46BCE3E8223580F600CEC9C1 /* Binder.swift */,
 				46DCDE9022E0AE4700277AC1 /* MRCheckBoxButton.swift */,
 				4684C5B724A0111E0003753D /* CustomBackTextField.swift */,
+				460A71B824A7D119002C4BD6 /* MRCustomBlur.swift */,
 			);
 			path = "Custom Classes";
 			sourceTree = "<group>";
@@ -735,6 +753,7 @@
 		46BCE3E422357A7000CEC9C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				46592DE524A5776900136C08 /* style.json */,
 				46BCE3EE2235816C00CEC9C1 /* Memory-Bridging-Header.h */,
 				46BCE38F22356D2400CEC9C1 /* Info.plist */,
 				46BCE38A22356D2400CEC9C1 /* Assets.xcassets */,
@@ -917,6 +936,7 @@
 				46BCE37D22356D2100CEC9C1 /* Frameworks */,
 				46BCE37E22356D2100CEC9C1 /* Resources */,
 				09648578373F7203AF3EF15D /* [CP] Embed Pods Frameworks */,
+				BC4FB5B73B84AF7137C4B966 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -969,6 +989,7 @@
 				465A47C222D4742F00647EA6 /* CountryData.json in Resources */,
 				46BCE38E22356D2400CEC9C1 /* LaunchScreen.storyboard in Resources */,
 				465A47B422D34F5700647EA6 /* Create.storyboard in Resources */,
+				46592DE624A5776900136C08 /* style.json in Resources */,
 				467840EF22FAF564004D43E7 /* NoAccessView.xib in Resources */,
 				464FAB3423043D2B00763FAD /* ExploreEventTableViewCell.xib in Resources */,
 				465A47B622D350B900647EA6 /* Explore.storyboard in Resources */,
@@ -1030,6 +1051,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BC4FB5B73B84AF7137C4B966 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Memory/Pods-Memory-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Memory/Pods-Memory-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Memory/Pods-Memory-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1041,6 +1079,7 @@
 				464EEF9F223E63A500C6A40D /* SignUpViewController.swift in Sources */,
 				46BCE3D222357A3100CEC9C1 /* Defaults.swift in Sources */,
 				465A47CD22D4A15300647EA6 /* CountryCodeTableCell.swift in Sources */,
+				460A71B924A7D119002C4BD6 /* MRCustomBlur.swift in Sources */,
 				465CB38122CFA49E002D2B4B /* VerificationView.swift in Sources */,
 				4684C5AC249DA12A0003753D /* UIButton+FontAwesome.swift in Sources */,
 				46DAA7A6249D7ED600B71758 /* TutorialPageViewController.swift in Sources */,
@@ -1068,6 +1107,7 @@
 				465A47C522D487B300647EA6 /* CountryCodeViewController.swift in Sources */,
 				464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */,
 				46DCDE8E22E0784100277AC1 /* ImageCollectionViewCell.swift in Sources */,
+				46592DE424A4C10B00136C08 /* iCarousel.m in Sources */,
 				46DCDE7F22DF0F0100277AC1 /* ButtonCollectionViewCell.swift in Sources */,
 				46ACC09822D9F5BF0003973D /* WhenViewController.swift in Sources */,
 				465FFFEE22DCB7B6009D222A /* LocationViewController.swift in Sources */,

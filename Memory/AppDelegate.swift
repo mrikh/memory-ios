@@ -6,6 +6,7 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
+import GoogleMaps
 import UIKit
 import AWSS3
 
@@ -15,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        GMSServices.provideAPIKey(APIKeys.googleKey)
 
         FlowManager.checkAppInitializationFlow()
         setupAWS()

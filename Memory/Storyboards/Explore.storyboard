@@ -142,14 +142,75 @@
                     <view key="view" contentMode="scaleToFill" id="uHW-sB-3Eo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58I-l8-E14" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHd-gc-2DH">
+                                <rect key="frame" x="10" y="59" width="120" height="46"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZCe-yl-em0">
+                                        <rect key="frame" x="13" y="8" width="94" height="30"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marker" translatesAutoresizingMaskIntoConstraints="NO" id="8VQ-Ff-cZ4">
+                                                <rect key="frame" x="0.0" y="0.0" width="18" height="30"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8Y-9F-cy6">
+                                                <rect key="frame" x="23" y="0.0" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="locationAction:" destination="9rP-To-lov" eventType="touchUpInside" id="PRD-tu-QT4"/>
+                                                </connections>
+                                            </button>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="enh-1E-ddQ">
+                                                <rect key="frame" x="74" y="0.0" width="20" height="30"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ZCe-yl-em0" secondAttribute="bottom" constant="8" id="1yB-n6-D8A"/>
+                                    <constraint firstItem="ZCe-yl-em0" firstAttribute="leading" secondItem="XHd-gc-2DH" secondAttribute="leading" constant="13" id="EbS-1P-fBR"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZCe-yl-em0" secondAttribute="trailing" constant="13" id="R6u-Ng-Ic3"/>
+                                    <constraint firstItem="ZCe-yl-em0" firstAttribute="top" secondItem="XHd-gc-2DH" secondAttribute="top" constant="8" id="r6P-c2-Tru"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Akq-aR-j6u" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="447" width="375" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="58I-l8-E14" firstAttribute="top" secondItem="uHW-sB-3Eo" secondAttribute="top" id="4Zl-hj-q9u"/>
+                            <constraint firstItem="58I-l8-E14" firstAttribute="leading" secondItem="7qy-6N-rt5" secondAttribute="leading" id="64D-ZW-9oe"/>
+                            <constraint firstItem="7qy-6N-rt5" firstAttribute="bottom" secondItem="58I-l8-E14" secondAttribute="bottom" id="8Ie-0e-hcH"/>
+                            <constraint firstItem="7qy-6N-rt5" firstAttribute="trailing" secondItem="Akq-aR-j6u" secondAttribute="trailing" id="Ay5-8t-jie"/>
+                            <constraint firstItem="7qy-6N-rt5" firstAttribute="bottom" secondItem="Akq-aR-j6u" secondAttribute="bottom" constant="20" id="FIY-bf-WEf"/>
+                            <constraint firstItem="Akq-aR-j6u" firstAttribute="leading" secondItem="7qy-6N-rt5" secondAttribute="leading" id="LqF-HP-Hoc"/>
+                            <constraint firstItem="7qy-6N-rt5" firstAttribute="trailing" secondItem="58I-l8-E14" secondAttribute="trailing" id="Tbe-dH-BE9"/>
+                            <constraint firstItem="Akq-aR-j6u" firstAttribute="height" secondItem="uHW-sB-3Eo" secondAttribute="height" multiplier="0.3" id="gOc-tV-c7q"/>
+                            <constraint firstItem="Akq-aR-j6u" firstAttribute="centerX" secondItem="uHW-sB-3Eo" secondAttribute="centerX" id="gfQ-bS-FmT"/>
+                            <constraint firstItem="XHd-gc-2DH" firstAttribute="top" secondItem="7qy-6N-rt5" secondAttribute="top" constant="15" id="qeR-ex-fSF"/>
+                            <constraint firstItem="XHd-gc-2DH" firstAttribute="leading" secondItem="7qy-6N-rt5" secondAttribute="leading" constant="10" id="rR2-3Z-VEx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7qy-6N-rt5"/>
                     </view>
                     <navigationItem key="navigationItem" id="VbS-eq-6ek"/>
+                    <connections>
+                        <outlet property="carousel" destination="Akq-aR-j6u" id="Hbd-DQ-5kW"/>
+                        <outlet property="locationButton" destination="k8Y-9F-cy6" id="YCR-28-Efp"/>
+                        <outlet property="locationContainerView" destination="XHd-gc-2DH" id="Ya9-NT-hc4"/>
+                        <outlet property="locationImageView" destination="8VQ-Ff-cZ4" id="PD1-1q-q7N"/>
+                        <outlet property="mapView" destination="58I-l8-E14" id="zfR-lP-y29"/>
+                        <outlet property="whiteActivityIndicator" destination="enh-1E-ddQ" id="a9g-F8-N8E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbN-Qz-afZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="25" y="894"/>
+            <point key="canvasLocation" x="24.800000000000001" y="893.70314842578716"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="Log-iN-7LT">
@@ -563,4 +624,7 @@
             <point key="canvasLocation" x="840.79999999999995" y="124.58770614692655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="marker" width="18" height="18"/>
+    </resources>
 </document>

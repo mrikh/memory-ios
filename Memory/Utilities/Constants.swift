@@ -14,6 +14,10 @@ struct ValidationConstants{
     static let imageCountLimit = 10
 }
 
+struct APIKeys{
+    static let googleKey = "AIzaSyAz_ArHWhBwbKkUTp70dooETgqVJ33TSSQ"
+}
+
 struct DeviceInfo{
     
     static let deviceId = UIDevice.current.identifierForVendor?.uuidString

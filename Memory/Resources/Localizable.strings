@@ -37,6 +37,8 @@
 "enable_location_services" = "Enable location services or select a custom location.";
 "update_location" = "Update Location";
 "unable_fetch" = "Unable to fetch your location. You can set a custom location by tapping on the button above.";
+"no_idea" = "No idea";
+
 
 //event detail
 "looks_ok" = "Looks okay!";

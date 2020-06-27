@@ -6,7 +6,7 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
-import MapKit
+import GoogleMaps
 import UIKit
 
 protocol LocationViewControllerDelegate : AnyObject{

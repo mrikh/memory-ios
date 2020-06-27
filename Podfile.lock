@@ -9,6 +9,13 @@ PODS:
   - ESTabBarController-swift (2.8.0)
   - FlagKit (2.2)
   - FontAwesome.swift (1.9.0)
+  - GoogleMaps (3.9.0):
+    - GoogleMaps/Maps (= 3.9.0)
+  - GoogleMaps/Base (3.9.0)
+  - GoogleMaps/Maps (3.9.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.9.0):
+    - GoogleMaps/Base (= 3.9.0)
   - KMPlaceholderTextView (1.4.0)
   - MRRadioButton (0.0.4)
   - MXParallaxHeader (1.1.0)
@@ -26,6 +33,8 @@ DEPENDENCIES:
   - ESTabBarController-swift
   - FlagKit
   - FontAwesome.swift
+  - GoogleMaps
+  - GooglePlaces
   - KMPlaceholderTextView
   - MRRadioButton
   - MXParallaxHeader
@@ -43,6 +52,8 @@ SPEC REPOS:
     - ESTabBarController-swift
     - FlagKit
     - FontAwesome.swift
+    - GoogleMaps
+    - GooglePlaces
     - KMPlaceholderTextView
     - MRRadioButton
     - MXParallaxHeader
@@ -59,12 +70,14 @@ SPEC CHECKSUMS:
   ESTabBarController-swift: 05593a6ad64700b03c0eb60ff625916370aa4136
   FlagKit: eca7dc89064b0c986302ba9acefad1bf80a435b1
   FontAwesome.swift: a403b88cec950511745ba8f2decd1b6a07346d13
+  GoogleMaps: 4b5346bddfe6911bb89155d43c903020170523ac
+  GooglePlaces: 1634d019549b969d40fe0ccb0b9513055adebe01
   KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
   MRRadioButton: b337feb08d4ebadeb3a22947c47757d1992bd053
   MXParallaxHeader: de3c867e10ba46e8f6e20c8ee1f2a910372b3b94
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: a66b014eb6d03bfb97ab00188495f6f6810e3abe
+PODFILE CHECKSUM: abfa68e07c51b9d84ca6cbe75a31c347d6f677ce
 
 COCOAPODS: 1.8.4

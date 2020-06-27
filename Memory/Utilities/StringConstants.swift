@@ -41,6 +41,7 @@ struct StringConstants{
     static let enable_location_services = "enable_location_services"
     static let update_location = "update_location"
     static let unable_fetch = "unable_fetch"
+    static let no_idea = "no_idea"
 
     //event detail
     static let looks_ok = "looks_ok"
