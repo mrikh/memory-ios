@@ -7,6 +7,7 @@
 //
 
 import GoogleMaps
+import MapKit
 import UIKit
 
 protocol LocationViewControllerDelegate : AnyObject{
@@ -18,7 +19,7 @@ class LocationViewController: BaseViewController, KeyboardHandler {
 
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchTableView: UITableView!
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapView: GMSMapView!
 
     private var userDragged = false
     private var workItem : DispatchWorkItem?
@@ -34,7 +35,13 @@ class LocationViewController: BaseViewController, KeyboardHandler {
         let temp = UISearchBar()
         temp.delegate = self
         temp.showsCancelButton = true
-
+        if #available(iOS 13.0, *) {
+            temp.searchTextField.backgroundColor = Colors.white
+        } else {
+            temp.textField?.backgroundColor = Colors.white
+        }
+        temp.placeholder = StringConstants.search.localized
+        temp.isTranslucent = false
         return temp
     }()
 
@@ -56,8 +63,9 @@ class LocationViewController: BaseViewController, KeyboardHandler {
 
         super.viewWillAppear(animated)
         addKeyboardObservers()
+        navigationController?.navigationBar.isTranslucent = false
         navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.shadowImage = nil
+        navigationController?.navigationBar.addShadow(4.0)
     }
 
     override func viewDidLayoutSubviews() {
@@ -76,6 +84,10 @@ class LocationViewController: BaseViewController, KeyboardHandler {
     private func initialSetup(){
 
         navigationItem.largeTitleDisplayMode = .never
+
+        if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+            mapView.mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
+        }
 
         isLoading = false
         emptyDataSourceDelegate(tableView: searchTableView, message: StringConstants.no_search_result.localized)
@@ -101,16 +113,12 @@ class LocationViewController: BaseViewController, KeyboardHandler {
         searchCompleter.delegate = self
         searchTableView.isHidden = true
 
-        searchBar.searchBarStyle = .minimal
-
         mapView.delegate = self
-
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
-        pan.delegate = self
-        mapView.addGestureRecognizer(pan)
 
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDone))
         navigationItem.rightBarButtonItem = doneButton
+
+        mapView.animate(toZoom: 16.0)
     }
 
     @objc func handleDone(){
@@ -169,33 +177,24 @@ class LocationViewController: BaseViewController, KeyboardHandler {
     }
 
     private func show(coordinate : CLLocationCoordinate2D, title : String?, subTitle : String?){
-        let radius = 500.0
-        let coordinateRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: radius, longitudinalMeters: radius)
-        mapView.setRegion(coordinateRegion, animated: true)
+
+        mapView.animate(toLocation: coordinate)
         dropPin(coordinate: coordinate, title: title, subTitle: subTitle)
     }
 
     private func dropPin(coordinate : CLLocationCoordinate2D, title : String?, subTitle : String?){
 
-        mapView.removeAnnotations(mapView.annotations)
-        let annotation = Annotation(title: title, subTitle: subTitle, coordinate: coordinate)
-        mapView.addAnnotation(annotation)
+        mapView.clear()
+
+        let marker = GMSMarker(position: coordinate)
+        marker.appearAnimation = .pop
+        marker.title = title
+        marker.snippet = subTitle
+        marker.isDraggable = true
+        marker.map = mapView
     }
 }
 
-extension LocationViewController : UIGestureRecognizerDelegate{
-
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-
-    @objc func handlePan(_ gesture : UIPanGestureRecognizer){
-
-        if gesture.state == .ended{
-            userDragged = true
-        }
-    }
-}
 
 extension LocationViewController : LocationManagerDelegate{
 
@@ -295,16 +294,7 @@ extension LocationViewController : UITableViewDelegate, UITableViewDataSource{
     }
 }
 
-extension LocationViewController : MKMapViewDelegate{
+extension LocationViewController : GMSMapViewDelegate{
 
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-
-        let center = mapView.centerCoordinate
-        dropPin(coordinate: center, title: nil, subTitle: nil)
-
-        if userDragged{
-            reverseGeoCode(coordinate: center)
-            userDragged = false
-        }
-    }
+    
 }

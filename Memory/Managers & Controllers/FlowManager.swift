@@ -58,6 +58,7 @@ class FlowManager{
 
         let navigationBarAppearance = UINavigationBar.appearance()
 
+        navigationBarAppearance.backgroundColor = Colors.white
         navigationBarAppearance.tintColor = .black
         navigationBarAppearance.prefersLargeTitles = true
         navigationBarAppearance.titleTextAttributes = [.foregroundColor: Colors.bgColor, .font: CustomFonts.avenirHeavy.withSize(16.0)]

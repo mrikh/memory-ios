@@ -31,6 +31,7 @@ class ExploreViewController: BaseViewController {
 
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.navigationBar.isTranslucent = true
 
         if isFirstTime{
             isFirstTime = false

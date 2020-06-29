@@ -157,6 +157,7 @@ struct StringConstants{
     static let username_not_available = "username_not_available"
 
     //General
+    static let search = "search"
     static let one_or_more_fields = "one_or_more_fields"
     static let something_wrong = "something_wrong"
     static let sorry = "sorry"

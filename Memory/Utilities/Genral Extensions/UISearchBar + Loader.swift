@@ -10,7 +10,7 @@ import UIKit
 
 extension UISearchBar {
 
-    private var textField: UITextField? {
+    var textField: UITextField? {
         return subviews.first?.subviews.compactMap { $0 as? UITextField }.first
     }
 

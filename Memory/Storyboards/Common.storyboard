@@ -57,9 +57,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEZ-cE-M7X">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4wT-dM-lMC" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </mapView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Id8-q6-oAe">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -71,20 +72,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dEZ-cE-M7X" firstAttribute="top" secondItem="OL3-UP-7GH" secondAttribute="top" id="4dP-d9-Z9G"/>
-                            <constraint firstItem="OL3-UP-7GH" firstAttribute="bottom" secondItem="Id8-q6-oAe" secondAttribute="bottom" id="KNQ-HG-7bn"/>
-                            <constraint firstAttribute="bottom" secondItem="dEZ-cE-M7X" secondAttribute="bottom" id="OXe-Ff-acj"/>
+                            <constraint firstItem="4wT-dM-lMC" firstAttribute="leading" secondItem="kgC-Qe-55s" secondAttribute="leading" id="Clw-9f-Fod"/>
+                            <constraint firstItem="4wT-dM-lMC" firstAttribute="top" secondItem="kgC-Qe-55s" secondAttribute="top" id="Hj9-yV-VC8"/>
+                            <constraint firstAttribute="bottom" secondItem="4wT-dM-lMC" secondAttribute="bottom" id="IPe-0y-ofr"/>
+                            <constraint firstAttribute="bottom" secondItem="Id8-q6-oAe" secondAttribute="bottom" id="KNQ-HG-7bn"/>
                             <constraint firstItem="Id8-q6-oAe" firstAttribute="leading" secondItem="kgC-Qe-55s" secondAttribute="leading" id="PEN-Vl-TA3"/>
                             <constraint firstItem="Id8-q6-oAe" firstAttribute="top" secondItem="OL3-UP-7GH" secondAttribute="top" id="Pg4-uy-AhW"/>
                             <constraint firstAttribute="trailing" secondItem="Id8-q6-oAe" secondAttribute="trailing" id="a0Z-g3-XjI"/>
-                            <constraint firstAttribute="trailing" secondItem="dEZ-cE-M7X" secondAttribute="trailing" id="bAw-KQ-VBO"/>
-                            <constraint firstItem="dEZ-cE-M7X" firstAttribute="leading" secondItem="kgC-Qe-55s" secondAttribute="leading" id="xTt-I7-0Nd"/>
+                            <constraint firstAttribute="trailing" secondItem="4wT-dM-lMC" secondAttribute="trailing" id="gGs-xS-ERP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OL3-UP-7GH"/>
                     </view>
                     <connections>
                         <outlet property="bottomConstraint" destination="KNQ-HG-7bn" id="J7G-QW-SzS"/>
-                        <outlet property="mapView" destination="dEZ-cE-M7X" id="zZO-0z-IIn"/>
+                        <outlet property="mapView" destination="4wT-dM-lMC" id="5al-GG-AVh"/>
                         <outlet property="searchTableView" destination="Id8-q6-oAe" id="TaN-6K-kMF"/>
                     </connections>
                 </viewController>
