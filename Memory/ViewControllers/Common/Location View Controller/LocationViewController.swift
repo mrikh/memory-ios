@@ -110,6 +110,8 @@ class LocationViewController: BaseViewController, KeyboardHandler {
         navigationItem.titleView = searchBar
         searchBar.delegate = self
 
+        mapView.isMyLocationEnabled = true
+
         searchCompleter.delegate = self
         searchTableView.isHidden = true
 
@@ -165,21 +167,24 @@ class LocationViewController: BaseViewController, KeyboardHandler {
         }
     }
 
-    private func focus(coordinate : CLLocationCoordinate2D, title : String?, subTitle : String?){
+    private func focus(coordinate : CLLocationCoordinate2D, title : String?, subTitle : String?, dropPin : Bool = true){
 
         workItem?.cancel()
         let item = DispatchWorkItem{ [weak self] in
-            self?.show(coordinate : coordinate, title : title, subTitle : subTitle)
+            self?.show(coordinate : coordinate, title : title, subTitle : subTitle, dropPin : dropPin)
         }
 
         workItem = item
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: item)
     }
 
-    private func show(coordinate : CLLocationCoordinate2D, title : String?, subTitle : String?){
+    private func show(coordinate : CLLocationCoordinate2D, title : String?, subTitle : String?, dropPin : Bool){
 
         mapView.animate(toLocation: coordinate)
-        dropPin(coordinate: coordinate, title: title, subTitle: subTitle)
+
+        if dropPin{
+            self.dropPin(coordinate: coordinate, title: title, subTitle: subTitle)
+        }
     }
 
     private func dropPin(coordinate : CLLocationCoordinate2D, title : String?, subTitle : String?){
@@ -275,6 +280,7 @@ extension LocationViewController : UITableViewDelegate, UITableViewDataSource{
 
         request = MKLocalSearch.Request(completion: searchResult)
         indicator?.startAnimating()
+        
         let search = MKLocalSearch(request: request)
         search.start { [weak self] (response, error) in
 
@@ -296,5 +302,9 @@ extension LocationViewController : UITableViewDelegate, UITableViewDataSource{
 
 extension LocationViewController : GMSMapViewDelegate{
 
-    
+    func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
+
+        focus(coordinate: marker.position, title: nil, subTitle: nil, dropPin: false)
+        reverseGeoCode(coordinate: marker.position)
+    }
 }
