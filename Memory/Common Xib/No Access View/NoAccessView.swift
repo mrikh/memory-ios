@@ -11,6 +11,7 @@ import UIKit
 class NoAccessView: UIView {
 
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var mainButton: UIButton!
 
     private var action : (()->())?
@@ -20,12 +21,13 @@ class NoAccessView: UIView {
         super.awakeFromNib()
 
         infoLabel.font = CustomFonts.avenirMedium.withSize(16.0)
-        infoLabel.textColor = Colors.bgColor
+        infoLabel.textColor = Colors.inactiveButtonColor
     }
 
-    func configure(infoText : String?, with buttonText : String?, action : (()->())?){
+    func configure(infoText : String?, with buttonText : String?, image : UIImage? = nil, action : (()->())?){
 
         infoLabel.text = infoText
+        mainImageView.image = image
 
         if let text = buttonText{
             mainButton.isHidden = false

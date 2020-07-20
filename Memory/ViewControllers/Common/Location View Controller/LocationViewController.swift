@@ -21,13 +21,21 @@ class LocationViewController: BaseViewController, KeyboardHandler {
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var mapView: GMSMapView!
 
-    private var userDragged = false
     private var workItem : DispatchWorkItem?
     private var geocodeWorkItem : DispatchWorkItem?
+    private var marker : GMSMarker?
 
     var coordinate : CLLocationCoordinate2D?
-    var addressTitle : String?
-    var subTitle : String?
+    var addressTitle : String?{
+        didSet{
+            marker?.title = addressTitle
+        }
+    }
+    var subTitle : String?{
+        didSet{
+            marker?.snippet = subTitle
+        }
+    }
 
     weak var delegate : LocationViewControllerDelegate?
 
@@ -89,19 +97,21 @@ class LocationViewController: BaseViewController, KeyboardHandler {
             mapView.mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
         }
 
+        mapView.settings.myLocationButton = true
         isLoading = false
-        emptyDataSourceDelegate(tableView: searchTableView, message: StringConstants.no_search_result.localized)
+        emptyDataSourceDelegate(tableView: searchTableView, message: StringConstants.no_search_result.localized, image: #imageLiteral(resourceName: "location_unhappy"))
+        
         LocationManager.shared.delegate = self
 
         if let coordinate = self.coordinate{
             focus(coordinate: coordinate, title: nil, subTitle: nil)
-            reverseGeoCode(coordinate: coordinate)
+            geocode(coordinate: coordinate)
         }else{
             let locationStatus = LocationManager.shared.locationEnabled
             if locationStatus.granted{
                 if let current = LocationManager.shared.currentLocation{
                     focus(coordinate: current.coordinate, title: nil, subTitle: nil)
-                    reverseGeoCode(coordinate: current.coordinate)
+                    geocode(coordinate: current.coordinate)
                 }
             }
         }
@@ -189,14 +199,16 @@ class LocationViewController: BaseViewController, KeyboardHandler {
 
     private func dropPin(coordinate : CLLocationCoordinate2D, title : String?, subTitle : String?){
 
-        mapView.clear()
+        if let _ = marker{
+            marker?.position = coordinate
+        }else{
+            marker = GMSMarker(position: coordinate)
+            marker?.appearAnimation = .pop
+            marker?.map = mapView
+        }
 
-        let marker = GMSMarker(position: coordinate)
-        marker.appearAnimation = .pop
-        marker.title = title
-        marker.snippet = subTitle
-        marker.isDraggable = true
-        marker.map = mapView
+        marker?.title = title
+        marker?.snippet = subTitle
     }
 }
 
@@ -211,7 +223,7 @@ extension LocationViewController : LocationManagerDelegate{
 
         guard let current = LocationManager.shared.currentLocation else {return}
         focus(coordinate: current.coordinate, title: nil, subTitle: nil)
-        reverseGeoCode(coordinate: current.coordinate)
+        geocode(coordinate: current.coordinate)
     }
 
     func locationFetchError() {}
@@ -240,7 +252,6 @@ extension LocationViewController : UISearchBarDelegate {
         searchTableView.isHidden = true
     }
 }
-
 
 extension LocationViewController : MKLocalSearchCompleterDelegate{
 
@@ -302,9 +313,9 @@ extension LocationViewController : UITableViewDelegate, UITableViewDataSource{
 
 extension LocationViewController : GMSMapViewDelegate{
 
-    func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
 
-        focus(coordinate: marker.position, title: nil, subTitle: nil, dropPin: false)
-        reverseGeoCode(coordinate: marker.position)
+        marker?.position = position.target
+        geocode(coordinate: position.target)
     }
 }

@@ -14,6 +14,12 @@ class ExploreViewController: BaseViewController {
 
     private var isFirstTime = true
     private let viewModel = ExploreViewModel()
+    private var marker : GMSMarker?
+    private var heading : String?{
+        didSet{
+            marker?.title = heading
+        }
+    }
 
     @IBOutlet weak var locationImageView: UIImageView!
     @IBOutlet weak var locationContainerView: UIView!
@@ -62,6 +68,7 @@ class ExploreViewController: BaseViewController {
         search(start: true)
         locationButton.setTitleColor(Colors.black, for: .normal)
         locationButton.titleLabel?.font = CustomFonts.avenirMedium.withSize(14.0)
+        locationButton.setTitle(nil, for: .normal)
 
         mapView.isMyLocationEnabled = true
         mapView.camera = GMSCameraPosition.camera(withLatitude: 0.0, longitude: 0.0, zoom: 15.0)
@@ -90,6 +97,8 @@ extension ExploreViewController : ExploreViewModelDelegate{
 
     func reloadData() {
 
+        //if its empty, we dont want it to interfere with map actions
+        carousel.isUserInteractionEnabled = viewModel.rowCount != 0
     }
 
     func isFetchingLocation() {
@@ -100,12 +109,14 @@ extension ExploreViewController : ExploreViewModelDelegate{
     func doneFetchingLocation(name : String) {
 
         locationButton.setTitle(name, for: .normal)
+        heading = name
         search(start: false)
     }
 
     func locationUpdated(coordinate : CLLocationCoordinate2D) {
 
         mapView.animate(toLocation: coordinate)
+        dropPin(coordinate: coordinate, title: nil, subTitle: nil)
     }
 
     func deniedLocation() {
@@ -113,12 +124,26 @@ extension ExploreViewController : ExploreViewModelDelegate{
         locationButton.setTitle(StringConstants.update_location.localized, for: .normal)
         search(start: false)
     }
+
+    private func dropPin(coordinate : CLLocationCoordinate2D, title : String?, subTitle : String?){
+
+        if let _ = marker{
+            marker?.position = coordinate
+        }else{
+            marker = GMSMarker(position: coordinate)
+            marker?.appearAnimation = .pop
+            marker?.map = mapView
+        }
+
+        marker?.title = title
+        marker?.snippet = subTitle
+    }
 }
 
 extension ExploreViewController : LocationViewControllerDelegate{
 
     func userDidPickLocation(coordinate: CLLocationCoordinate2D, addressTitle: String, subtitle: String) {
 
-
+        
     }
 }

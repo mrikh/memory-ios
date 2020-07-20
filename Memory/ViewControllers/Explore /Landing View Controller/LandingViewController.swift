@@ -76,7 +76,10 @@ class LandingViewController: BaseViewController, TableViewHeaderFooterResizeProt
         addressSubtitleLabel.font = CustomFonts.avenirMedium.withSize(12.0)
         addressSubtitleLabel.textColor = Colors.bgColor
 
-        emptyDataSourceDelegate(tableView: mainTableView)
+        emptyDataSourceDelegate(tableView: mainTableView, message: StringConstants.enable_location_services.localized, buttonText: StringConstants.enable_location.localized){ [weak self] in
+            self?.showRedirectAlert(StringConstants.are_sure.localized, withMessage: StringConstants.redirect_location.localized)
+        }
+        
         addressLabelView.isHidden = true
         addressSubtitleView.isHidden = true
 
@@ -166,7 +169,6 @@ extension LandingViewController : LandingViewModelDelegate{
 
     func locationGranted() {
 
-        showEmptyView = false
         mainTableView.reloadData()
     }
 
@@ -181,11 +183,6 @@ extension LandingViewController : LandingViewModelDelegate{
 
     func enableLocationServices() {
 
-        configureEmptyView(infoText: StringConstants.enable_location_services.localized, with: StringConstants.enable_location.localized) { [weak self] in
-            self?.showRedirectAlert(StringConstants.are_sure.localized, withMessage: StringConstants.redirect_location.localized)
-        }
-
-        showEmptyView = true
         mainTableView.reloadData()
     }
 }

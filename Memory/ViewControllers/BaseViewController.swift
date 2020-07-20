@@ -22,7 +22,7 @@ class BaseViewController: UIViewController, AlertProtocol {
     private var action : (()->())?
     private var infoText : String?
     private var buttonText : String?
-    var showEmptyView = false
+    private var image : UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,43 +43,35 @@ class BaseViewController: UIViewController, AlertProtocol {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
-
-    func configureEmptyView(infoText : String?, with buttonText : String?, action : (()->())?){
-
-        self.action = action
-        self.infoText = infoText
-        self.buttonText = buttonText
-    }
 }
 
 extension BaseViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
     func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
 
-        if showEmptyView{
-            let noAccess = NoAccessView.nib.instantiate(withOwner: nil, options: nil)[0] as? NoAccessView
-            noAccess?.configure(infoText: infoText, with: buttonText, action: action)
-            return noAccess
-        }else{
-            return nil
-        }
+        let noAccess = NoAccessView.nib.instantiate(withOwner: nil, options: nil)[0] as? NoAccessView
+        noAccess?.configure(infoText: infoText, with: buttonText, image : image, action: action)
+        return noAccess
     }
 
-    func emptyDataSourceDelegate(tableView : UITableView, message : String? = nil) {
+    func emptyDataSourceDelegate(tableView : UITableView, message : String? = nil, image : UIImage? = nil, buttonText : String? = nil, action : (()->())? = nil) {
         tableView.emptyDataSetSource    = self
         tableView.emptyDataSetDelegate  = self
-        if let string = message {
-            self.emptyDataSetString = string
-        }
+
+        self.action = action
+        self.infoText = message ?? StringConstants.no_data_found.localized
+        self.buttonText = buttonText
+        self.image = image
     }
     
-    func emptyDataSourceDelegate(collectionView : UICollectionView, message : String? = nil) {
+    func emptyDataSourceDelegate(collectionView : UICollectionView, message : String? = nil, image : UIImage? = nil, buttonText : String? = nil, action : (()->())? = nil) {
         collectionView.emptyDataSetSource    = self
         collectionView.emptyDataSetDelegate  = self
         
-        if let string = message {
-            self.emptyDataSetString = string
-        }
+        self.action = action
+        self.infoText = message ?? StringConstants.no_data_found.localized
+        self.buttonText = buttonText
+        self.image = image
     }
 
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
@@ -96,7 +88,7 @@ extension BaseViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     }
     
     func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
-        return !self.isLoading || showEmptyView
+        return !self.isLoading
     }
 
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
