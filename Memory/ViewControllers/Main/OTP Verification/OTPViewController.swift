@@ -117,8 +117,7 @@ extension OTPViewController : OTPViewModelDelegate{
     func verificationSuccess(message : String) {
 
         showAlert(StringConstants.success.localized, withMessage: message) { [weak self] in
-            let viewController = CreatePageViewController.instantiate(fromAppStoryboard: .Create)
-            self?.navigationController?.setViewControllers([viewController], animated: true)
+            self?.dismiss(animated: true, completion: nil)
         }
     }
 

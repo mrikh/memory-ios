@@ -27,7 +27,7 @@ class CustomTabBarController: ESTabBarController {
 
         if let viewControllers = viewControllers{
 
-            if let navigationController = viewControllers[4] as? UINavigationController{
+            if !UserModel.isLoggedIn, let navigationController = viewControllers[4] as? UINavigationController{
                 let viewController = LoginToContinueViewController.instantiate(fromAppStoryboard: .Main)
                 navigationController.setViewControllers([viewController], animated: true)
             }
