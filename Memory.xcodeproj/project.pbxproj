@@ -70,6 +70,9 @@
 		4684C5B824A0111E0003753D /* CustomBackTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684C5B724A0111E0003753D /* CustomBackTextField.swift */; };
 		4684C5BA24A025460003753D /* VerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684C5B924A025460003753D /* VerifyEmailViewController.swift */; };
 		4684C5BC24A026460003753D /* OTPCodeStoryboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684C5BB24A026460003753D /* OTPCodeStoryboardView.swift */; };
+		469A95E524C661ED00C1D2A4 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 469A95E424C661EC00C1D2A4 /* Chat.storyboard */; };
+		469A95E924C6665400C1D2A4 /* CircularFadeOutAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469A95E724C6665300C1D2A4 /* CircularFadeOutAnimation.swift */; };
+		469A95EA24C6665400C1D2A4 /* CircleFadInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469A95E824C6665400C1D2A4 /* CircleFadInAnimator.swift */; };
 		46ACC09122D9C28E0003973D /* Double + VideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09022D9C28E0003973D /* Double + VideoTime.swift */; };
 		46ACC09322D9D4CD0003973D /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09222D9D4CD0003973D /* OTPViewModel.swift */; };
 		46ACC09822D9F5BF0003973D /* WhenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09722D9F5BF0003973D /* WhenViewController.swift */; };
@@ -203,6 +206,9 @@
 		4684C5B724A0111E0003753D /* CustomBackTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackTextField.swift; sourceTree = "<group>"; };
 		4684C5B924A025460003753D /* VerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewController.swift; sourceTree = "<group>"; };
 		4684C5BB24A026460003753D /* OTPCodeStoryboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPCodeStoryboardView.swift; sourceTree = "<group>"; };
+		469A95E424C661EC00C1D2A4 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		469A95E724C6665300C1D2A4 /* CircularFadeOutAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularFadeOutAnimation.swift; sourceTree = "<group>"; };
+		469A95E824C6665400C1D2A4 /* CircleFadInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleFadInAnimator.swift; sourceTree = "<group>"; };
 		46ACC09022D9C28E0003973D /* Double + VideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double + VideoTime.swift"; sourceTree = "<group>"; };
 		46ACC09222D9D4CD0003973D /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		46ACC09722D9F5BF0003973D /* WhenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhenViewController.swift; sourceTree = "<group>"; };
@@ -569,6 +575,15 @@
 			path = "OTP Code View";
 			sourceTree = "<group>";
 		};
+		469A95E624C6664B00C1D2A4 /* Animation Controller */ = {
+			isa = PBXGroup;
+			children = (
+				469A95E824C6665400C1D2A4 /* CircleFadInAnimator.swift */,
+				469A95E724C6665300C1D2A4 /* CircularFadeOutAnimation.swift */,
+			);
+			path = "Animation Controller";
+			sourceTree = "<group>";
+		};
 		46ACC09622D9F59D0003973D /* When View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,7 +624,6 @@
 				46BCE38322356D2100CEC9C1 /* AppDelegate.swift */,
 				46BCE3D522357A5100CEC9C1 /* Storyboards */,
 				46BCE3A222357A3100CEC9C1 /* Utilities */,
-				46BCE39D22357A2100CEC9C1 /* Managers & Controllers */,
 				464EEFA7223E971000C6A40D /* Common Xib */,
 				46BCE39A22357A0D00CEC9C1 /* Common Models */,
 				46BCE395223578BC00CEC9C1 /* ViewControllers */,
@@ -648,6 +662,7 @@
 		46BCE39D22357A2100CEC9C1 /* Managers & Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				469A95E624C6664B00C1D2A4 /* Animation Controller */,
 				465FFFEF22DCBED5009D222A /* LocationManager.swift */,
 				46BCE39E22357A2100CEC9C1 /* FlowManager.swift */,
 				465CB39022D207A3002D2B4B /* ImageUploadManager.swift */,
@@ -659,6 +674,7 @@
 		46BCE3A222357A3100CEC9C1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				46BCE39D22357A2100CEC9C1 /* Managers & Controllers */,
 				46592DE124A4C0FE00136C08 /* iCarousel */,
 				46CEB2242412CF5300CCE906 /* Pod-Helpers */,
 				46BCE3BA22357A3100CEC9C1 /* Custom Classes */,
@@ -746,6 +762,7 @@
 				465A47B522D350B900647EA6 /* Explore.storyboard */,
 				46DCDE8122DF62B700277AC1 /* Common.storyboard */,
 				467840F322FB05FA004D43E7 /* Profile.storyboard */,
+				469A95E424C661EC00C1D2A4 /* Chat.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -986,6 +1003,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				469A95E524C661ED00C1D2A4 /* Chat.storyboard in Resources */,
 				465A47C222D4742F00647EA6 /* CountryData.json in Resources */,
 				46BCE38E22356D2400CEC9C1 /* LaunchScreen.storyboard in Resources */,
 				465A47B422D34F5700647EA6 /* Create.storyboard in Resources */,
@@ -1089,6 +1107,7 @@
 				46DAA7A8249D80B300B71758 /* TutorialViewController.swift in Sources */,
 				465A47CA22D49E6300647EA6 /* CountryCodeModel.swift in Sources */,
 				46BCE3A022357A2100CEC9C1 /* FlowManager.swift in Sources */,
+				469A95EA24C6665400C1D2A4 /* CircleFadInAnimator.swift in Sources */,
 				46BCE3C622357A3100CEC9C1 /* Utilities.swift in Sources */,
 				46BCE404223B9EAB00CEC9C1 /* MRAnimatingButton.swift in Sources */,
 				46BCE3C722357A3100CEC9C1 /* StringConstants.swift in Sources */,
@@ -1125,6 +1144,7 @@
 				46BCE3C122357A3100CEC9C1 /* TableViewHeaderFooterResizeProtocol.swift in Sources */,
 				46BCE402223B9E6300CEC9C1 /* MRTextField.swift in Sources */,
 				46DCDEA922E3B93900277AC1 /* EventDetailModel.swift in Sources */,
+				469A95E924C6665400C1D2A4 /* CircularFadeOutAnimation.swift in Sources */,
 				46DCDE8822DF985C00277AC1 /* GalleryViewModel.swift in Sources */,
 				465CB39622D26C3C002D2B4B /* FriendsViewController.swift in Sources */,
 				465FFFEB22DB9FE3009D222A /* MRToolbar.swift in Sources */,

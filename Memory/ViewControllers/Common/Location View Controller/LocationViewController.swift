@@ -97,7 +97,9 @@ class LocationViewController: BaseViewController, KeyboardHandler {
             mapView.mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
         }
 
+        mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
+
         isLoading = false
         emptyDataSourceDelegate(tableView: searchTableView, message: StringConstants.no_search_result.localized, image: #imageLiteral(resourceName: "location_unhappy"))
         
@@ -120,8 +122,6 @@ class LocationViewController: BaseViewController, KeyboardHandler {
         navigationItem.titleView = searchBar
         searchBar.delegate = self
 
-        mapView.isMyLocationEnabled = true
-
         searchCompleter.delegate = self
         searchTableView.isHidden = true
 
@@ -130,7 +130,7 @@ class LocationViewController: BaseViewController, KeyboardHandler {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDone))
         navigationItem.rightBarButtonItem = doneButton
 
-        mapView.animate(toZoom: 16.0)
+        mapView.animate(toZoom: 15.0)
     }
 
     @objc func handleDone(){
@@ -210,6 +210,13 @@ class LocationViewController: BaseViewController, KeyboardHandler {
         marker?.title = title
         marker?.snippet = subTitle
     }
+
+    private func updateToUserLocation(){
+
+        guard let current = LocationManager.shared.currentLocation else {return}
+        focus(coordinate: current.coordinate, title: nil, subTitle: nil)
+        geocode(coordinate: current.coordinate)
+    }
 }
 
 
@@ -221,9 +228,7 @@ extension LocationViewController : LocationManagerDelegate{
 
     func didFetchLocation() {
 
-        guard let current = LocationManager.shared.currentLocation else {return}
-        focus(coordinate: current.coordinate, title: nil, subTitle: nil)
-        geocode(coordinate: current.coordinate)
+        updateToUserLocation()
     }
 
     func locationFetchError() {}
@@ -317,5 +322,29 @@ extension LocationViewController : GMSMapViewDelegate{
 
         marker?.position = position.target
         geocode(coordinate: position.target)
+    }
+
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+
+        if LocationManager.shared.locationEnabled.granted{
+            return false
+        }else{
+            let viewController = LocationReasonViewController.instantiate(fromAppStoryboard: .Common)
+            viewController.delegate = self
+            present(viewController, animated: true, completion: nil)
+            return true
+        }
+    }
+}
+
+extension LocationViewController : LocationReasonViewControllerDelegate{
+
+    func didGrantPermission() {
+
+        if LocationManager.shared.currentLocation == nil{
+            LocationManager.shared.delegate = self
+        }else{
+            updateToUserLocation()
+        }
     }
 }

@@ -10,6 +10,7 @@
 "allow" = "Allow";
 "location_permission_title" = "We need access to your location to show you nearby events!";
 "location_permission_info" = "If you don't want to allow this service, select the appropriate option after clicking the 'Allow' button below.";
+"location_permission_redirect" = "You have previously denied this service. Clicking the allow button to re-enable the location service.";
 
 //verify email
 "verify_email" = "Verify Your Email";

@@ -14,6 +14,7 @@ struct StringConstants{
     static let allow = "allow"
     static let location_permission_title = "location_permission_title"
     static let location_permission_info = "location_permission_info"
+    static let location_permission_redirect = "location_permission_redirect"
 
     //verify email
     static let verify_email = "verify_email"

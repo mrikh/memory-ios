@@ -65,13 +65,11 @@ class ExploreViewController: BaseViewController {
         carousel.type = .rotary
         viewModel.delegate = self
 
-        search(start: true)
         locationButton.setTitleColor(Colors.black, for: .normal)
         locationButton.titleLabel?.font = CustomFonts.avenirMedium.withSize(14.0)
-        locationButton.setTitle(nil, for: .normal)
+        locationButton.setTitle(StringConstants.update_location.localized, for: .normal)
 
-        mapView.isMyLocationEnabled = true
-        mapView.camera = GMSCameraPosition.camera(withLatitude: 0.0, longitude: 0.0, zoom: 15.0)
+        mapView.camera = GMSCameraPosition.camera(withLatitude: LocationConstants.defaultLat, longitude: LocationConstants.defaultLong, zoom: 15.0)
 
         locationContainerView.clipsToBounds = true
         locationContainerView.insertOnFullScreen(MRCustomBlur(effect: UIBlurEffect(style: .regular), intensity: 0.25), atIndex: 0)
@@ -92,6 +90,7 @@ extension ExploreViewController : ExploreViewModelDelegate{
     func locationPermissionNotAsked() {
 
         let viewController = LocationReasonViewController.instantiate(fromAppStoryboard: .Common)
+        viewController.delegate = self
         present(viewController, animated: true, completion: nil)
     }
 
@@ -144,6 +143,13 @@ extension ExploreViewController : LocationViewControllerDelegate{
 
     func userDidPickLocation(coordinate: CLLocationCoordinate2D, addressTitle: String, subtitle: String) {
 
-        
+    }
+}
+
+extension ExploreViewController : LocationReasonViewControllerDelegate{
+
+    func didGrantPermission() {
+
+        viewModel.startLocationFetch()
     }
 }

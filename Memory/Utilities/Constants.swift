@@ -43,3 +43,9 @@ struct NotificationKeys{
 
     static let eventCreated = "eventCreated"
 }
+
+struct LocationConstants{
+
+    static let defaultLat = 28.6139
+    static let defaultLong = 77.2090
+}

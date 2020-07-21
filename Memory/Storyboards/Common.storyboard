@@ -102,7 +102,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3lU-Kt-M6W">
-                                <rect key="frame" x="15" y="26.5" width="290" height="429.5"/>
+                                <rect key="frame" x="15" y="100" width="290" height="429.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_happy" translatesAutoresizingMaskIntoConstraints="NO" id="XWq-8H-c5O">
                                         <rect key="frame" x="49" y="11.5" width="192" height="192"/>
@@ -170,7 +170,7 @@
                             <constraint firstAttribute="trailing" secondItem="3lU-Kt-M6W" secondAttribute="trailing" constant="15" id="Pyr-Jf-jWq"/>
                             <constraint firstItem="XWq-8H-c5O" firstAttribute="width" secondItem="MoO-i2-aON" secondAttribute="width" multiplier="0.6" priority="999" id="S06-7r-ERX"/>
                             <constraint firstItem="3lU-Kt-M6W" firstAttribute="centerX" secondItem="MoO-i2-aON" secondAttribute="centerX" id="ZWE-eq-zr0"/>
-                            <constraint firstItem="3lU-Kt-M6W" firstAttribute="top" relation="greaterThanOrEqual" secondItem="F45-2r-ChN" secondAttribute="top" constant="15" id="rwk-42-ffR"/>
+                            <constraint firstItem="3lU-Kt-M6W" firstAttribute="top" relation="greaterThanOrEqual" secondItem="F45-2r-ChN" secondAttribute="top" constant="100" id="rwk-42-ffR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="F45-2r-ChN"/>
                     </view>

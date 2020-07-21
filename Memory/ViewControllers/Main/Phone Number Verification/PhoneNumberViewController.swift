@@ -37,10 +37,18 @@ class PhoneNumberViewController: BaseViewController {
         viewModel.startNumberVerification(number: phoneNumberTextField.text)
     }
 
+    @objc func handleCross(_ sender : UIBarButtonItem){
+
+        dismiss(animated: true, completion: nil)
+    }
+
     //MARK:- Private
     private func initialSetup(){
 
         navigationItem.title = StringConstants.phone_title.localized
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.fontAwesomeIcon(name: .times, style: .solid, textColor: Colors.bgColor, size: CGSize(width : 20.0, height : 20.0)), style: .plain, target: self, action: #selector(handleCross(_:)))
+
         navigationItem.largeTitleDisplayMode = .always
 
         infoLabel.text = StringConstants.phone_info.localized
