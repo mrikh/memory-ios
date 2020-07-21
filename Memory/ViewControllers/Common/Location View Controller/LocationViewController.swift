@@ -97,7 +97,11 @@ class LocationViewController: BaseViewController, KeyboardHandler {
             mapView.mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
         }
 
-        mapView.isMyLocationEnabled = true
+        //this check was added as enabling this button asked for location permission pop up but i want control of that. So only enable it if permission is granted
+        if LocationManager.shared.locationEnabled.granted{
+            mapView.isMyLocationEnabled = true
+        }
+
         mapView.settings.myLocationButton = true
 
         isLoading = false
@@ -343,6 +347,7 @@ extension LocationViewController : LocationReasonViewControllerDelegate{
 
         if LocationManager.shared.currentLocation == nil{
             LocationManager.shared.delegate = self
+            mapView.isMyLocationEnabled = true
         }else{
             updateToUserLocation()
         }
