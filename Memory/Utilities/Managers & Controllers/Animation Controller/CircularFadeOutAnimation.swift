@@ -50,7 +50,7 @@ class CircularFadeOutAnimation : UIViewController, UIViewControllerAnimatedTrans
         initialImageView.clipsToBounds = true
         initialImageView.center.x = imageContainer.bounds.width/2.0
 
-        let finalImageView = setupImageView(#imageLiteral(resourceName: "mic"), frame: initialImageView.frame)
+        let finalImageView = setupImageView(#imageLiteral(resourceName: "Tabbar Cross"), frame: initialImageView.frame)
         finalImageView.layer.cornerRadius = 25.0
         finalImageView.clipsToBounds = true
         finalImageView.backgroundColor = Colors.clear

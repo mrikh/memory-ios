@@ -57,7 +57,7 @@ class CircleFadeInAniamtor : UIViewController, UIViewControllerAnimatedTransitio
         background.backgroundColor = Colors.clear
         imageContainer.insertSubview(background, at: 0)
 
-        let finalImageView = setupImageView(#imageLiteral(resourceName: "cross"), frame: initialImageView.frame)
+        let finalImageView = setupImageView(#imageLiteral(resourceName: "Tabbar Cross"), frame: initialImageView.frame)
         finalImageView.layer.cornerRadius = 25.0
         finalImageView.backgroundColor = Colors.clear
         finalImageView.clipsToBounds = true
