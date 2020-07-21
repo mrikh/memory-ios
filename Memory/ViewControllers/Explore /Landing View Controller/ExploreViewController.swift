@@ -18,6 +18,7 @@ class ExploreViewController: BaseViewController {
     private var heading : String?{
         didSet{
             marker?.title = heading
+            locationButton.setTitle(heading, for: .normal)
         }
     }
 
@@ -56,6 +57,8 @@ class ExploreViewController: BaseViewController {
 
         let viewController = LocationViewController.instantiate(fromAppStoryboard: .Common)
         viewController.delegate = self
+        viewController.coordinate = marker?.position
+        viewController.addressTitle = marker?.title
         navigationController?.pushViewController(viewController, animated: true)
     }
 
@@ -81,7 +84,13 @@ class ExploreViewController: BaseViewController {
 
     private func search(start : Bool){
 
-        start ? whiteActivityIndicator.startAnimating() : whiteActivityIndicator.stopAnimating()
+        if start{
+            locationButton.setTitle(nil, for: .normal)
+            whiteActivityIndicator.startAnimating()
+        }else{
+            locationButton.setTitle(heading, for: .normal)
+            whiteActivityIndicator.stopAnimating()
+        }
     }
 }
 
@@ -107,7 +116,6 @@ extension ExploreViewController : ExploreViewModelDelegate{
 
     func doneFetchingLocation(name : String) {
 
-        locationButton.setTitle(name, for: .normal)
         heading = name
         search(start: false)
     }
@@ -120,7 +128,7 @@ extension ExploreViewController : ExploreViewModelDelegate{
 
     func deniedLocation() {
 
-        locationButton.setTitle(StringConstants.update_location.localized, for: .normal)
+        heading = StringConstants.update_location.localized
         search(start: false)
     }
 
@@ -143,6 +151,9 @@ extension ExploreViewController : LocationViewControllerDelegate{
 
     func userDidPickLocation(coordinate: CLLocationCoordinate2D, addressTitle: String, subtitle: String) {
 
+        heading = addressTitle
+        dropPin(coordinate: coordinate, title: addressTitle, subTitle: subtitle)
+        mapView.animate(toLocation: coordinate)
     }
 }
 

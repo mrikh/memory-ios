@@ -296,16 +296,30 @@
                                     <constraint firstAttribute="trailing" secondItem="Mbc-SX-1hu" secondAttribute="trailing" id="ZJ0-26-Qml"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4m-uL-WKp">
+                                <rect key="frame" x="15" y="15" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="a4m-uL-WKp" secondAttribute="height" multiplier="1:1" id="GVn-7L-6G9"/>
+                                    <constraint firstAttribute="height" constant="35" id="dAl-4T-N6Y"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="closeAction:" destination="Tuk-xd-t7x" eventType="touchUpInside" id="VB5-3I-CyT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="a4m-uL-WKp" firstAttribute="leading" secondItem="HBf-iN-5tv" secondAttribute="leading" constant="15" id="Gk5-bm-apj"/>
                             <constraint firstItem="SRq-1y-lAb" firstAttribute="leading" secondItem="HBf-iN-5tv" secondAttribute="leading" constant="25" id="S75-c6-r7r"/>
                             <constraint firstItem="SRq-1y-lAb" firstAttribute="centerY" secondItem="MOX-Wv-q7C" secondAttribute="centerY" id="TJN-Zb-W8u"/>
+                            <constraint firstItem="a4m-uL-WKp" firstAttribute="top" secondItem="HBf-iN-5tv" secondAttribute="top" constant="15" id="WUB-87-v4s"/>
                             <constraint firstItem="HBf-iN-5tv" firstAttribute="trailing" secondItem="SRq-1y-lAb" secondAttribute="trailing" constant="25" id="gxe-iq-999"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HBf-iN-5tv"/>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="a4m-uL-WKp" id="Wzx-o9-GzY"/>
                         <outlet property="doneButton" destination="BR8-ul-32N" id="0Gb-Tq-hxD"/>
                         <outlet property="infoLabel" destination="URW-Z6-KGG" id="vyg-pK-U2Z"/>
                         <outlet property="titleLabel" destination="7ny-kQ-fyz" id="Fvk-Lb-LpW"/>

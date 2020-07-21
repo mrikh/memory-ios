@@ -156,7 +156,7 @@ class LocationViewController: BaseViewController, KeyboardHandler {
         }
 
         geocodeWorkItem = item
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0, execute: item)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: item)
     }
 
     private func reverseGeoCode(coordinate : CLLocationCoordinate2D){
@@ -189,7 +189,7 @@ class LocationViewController: BaseViewController, KeyboardHandler {
         }
 
         workItem = item
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: item)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2, execute: item)
     }
 
     private func show(coordinate : CLLocationCoordinate2D, title : String?, subTitle : String?, dropPin : Bool){

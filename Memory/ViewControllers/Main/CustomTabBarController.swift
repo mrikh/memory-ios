@@ -55,6 +55,7 @@ extension CustomTabBarController : UITabBarControllerDelegate{
             if !UserModel.isLoggedIn{
 
                 let viewController = LoginToContinueViewController.instantiate(fromAppStoryboard: .Main)
+                viewController.showClose = true
                 let navigationController = FlowManager.createNavigationController(viewController)
                 present(navigationController, animated: true, completion: nil)
 
@@ -68,6 +69,8 @@ extension CustomTabBarController : UITabBarControllerDelegate{
                 //present create screen
 //                navigationController.transitioningDelegate = self
             }
+
+            return false
         }
 
         return true

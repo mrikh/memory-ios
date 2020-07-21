@@ -10,9 +10,12 @@ import UIKit
 
 class LoginToContinueViewController: BaseViewController {
 
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var doneButton: MRAnimatingButton!
+
+    var showClose = false
 
     override func viewDidLoad() {
 
@@ -28,6 +31,11 @@ class LoginToContinueViewController: BaseViewController {
     }
 
     //MARK:- IBAction
+    @IBAction func closeAction(_ sender: UIButton) {
+
+        dismiss(animated: true, completion: nil)
+    }
+
     @IBAction func doneAction(_ sender: MRAnimatingButton) {
         
         FlowManager.goToLogin()
@@ -45,5 +53,8 @@ class LoginToContinueViewController: BaseViewController {
         infoLabel.font = CustomFonts.avenirMedium.withSize(16.0)
 
         doneButton.setTitle(StringConstants.login.localized, for: .normal)
+
+        closeButton.isHidden = !showClose
+        closeButton.configureFontAwesome(name: .times, size: 20.0, style : .solid)
     }
 }
