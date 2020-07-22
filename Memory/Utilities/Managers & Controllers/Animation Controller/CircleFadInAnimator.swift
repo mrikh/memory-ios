@@ -47,21 +47,19 @@ class CircleFadeInAniamtor : UIViewController, UIViewControllerAnimatedTransitio
         imageContainer.isUserInteractionEnabled = false
 
         //hardcoded height after several trials and error to account for image height and the offset it produced inside the icon which was necessary to make it appear above the tabbar
-        let initialImageView = setupImageView(#imageLiteral(resourceName: "create_plus"), frame: CGRect(x: 0.0, y: 0.0, width : 49.0, height : 49.0))
+        let initialImageView = setupImageView(#imageLiteral(resourceName: "create_plus_animation"), frame: CGRect(x: 0.0, y: 3.0, width : 49.0, height : 49.0))
         initialImageView.layer.cornerRadius = 25.0
-        initialImageView.clipsToBounds = true
+        initialImageView.clipsToBounds = false
         initialImageView.center.x = imageContainer.bounds.width/2.0
+        initialImageView.contentMode = .center
 
-        let background = UIView(frame : initialImageView.frame)
-        background.layer.cornerRadius = 25.0
-        background.backgroundColor = Colors.clear
-        imageContainer.insertSubview(background, at: 0)
 
-        let finalImageView = setupImageView(#imageLiteral(resourceName: "Tabbar Cross"), frame: initialImageView.frame)
+        let finalImageView = setupImageView(#imageLiteral(resourceName: "Tabbar Cross Animation"), frame: initialImageView.frame)
         finalImageView.layer.cornerRadius = 25.0
         finalImageView.backgroundColor = Colors.clear
-        finalImageView.clipsToBounds = true
+        finalImageView.clipsToBounds = false
         finalImageView.alpha = 0.0
+        finalImageView.contentMode = .center
 
         containerView.addSubview(imageContainer)
         let initialPath = UIBezierPath(ovalIn: triggerFrame)
@@ -84,9 +82,13 @@ class CircleFadeInAniamtor : UIViewController, UIViewControllerAnimatedTransitio
         rotateAnimation(view: initialImageView, totalDuration : totalDuration)
         rotateAnimation(view: finalImageView, totalDuration : totalDuration)
 
-        UIView.animate(withDuration: totalDuration) {
+        UIView.animate(withDuration: totalDuration, animations: {
+
             initialImageView.alpha = 0.0
             finalImageView.alpha = 1.0
+
+        }) { (finished) in
+            toController.view.layer.mask = nil
         }
     }
 

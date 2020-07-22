@@ -73,6 +73,7 @@
 		469A95E524C661ED00C1D2A4 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 469A95E424C661EC00C1D2A4 /* Chat.storyboard */; };
 		469A95E924C6665400C1D2A4 /* CircularFadeOutAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469A95E724C6665300C1D2A4 /* CircularFadeOutAnimation.swift */; };
 		469A95EA24C6665400C1D2A4 /* CircleFadInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469A95E824C6665400C1D2A4 /* CircleFadInAnimator.swift */; };
+		469A95EC24C74ADB00C1D2A4 /* CreateRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469A95EB24C74ADA00C1D2A4 /* CreateRootViewController.swift */; };
 		46ACC09122D9C28E0003973D /* Double + VideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09022D9C28E0003973D /* Double + VideoTime.swift */; };
 		46ACC09322D9D4CD0003973D /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09222D9D4CD0003973D /* OTPViewModel.swift */; };
 		46ACC09822D9F5BF0003973D /* WhenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACC09722D9F5BF0003973D /* WhenViewController.swift */; };
@@ -209,6 +210,7 @@
 		469A95E424C661EC00C1D2A4 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		469A95E724C6665300C1D2A4 /* CircularFadeOutAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularFadeOutAnimation.swift; sourceTree = "<group>"; };
 		469A95E824C6665400C1D2A4 /* CircleFadInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleFadInAnimator.swift; sourceTree = "<group>"; };
+		469A95EB24C74ADA00C1D2A4 /* CreateRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRootViewController.swift; sourceTree = "<group>"; };
 		46ACC09022D9C28E0003973D /* Double + VideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double + VideoTime.swift"; sourceTree = "<group>"; };
 		46ACC09222D9D4CD0003973D /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		46ACC09722D9F5BF0003973D /* WhenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhenViewController.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				46ACC09D22DA1F350003973D /* Where View Controller */,
 				46ACC09622D9F59D0003973D /* When View Controller */,
 				46ACC09B22DA1B380003973D /* CreatePageViewController.swift */,
+				469A95EB24C74ADA00C1D2A4 /* CreateRootViewController.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -1189,6 +1192,7 @@
 				465CB38B22D1E9B2002D2B4B /* ProgressView.swift in Sources */,
 				46CEB2292412CF5400CCE906 /* ExampleBounceContentView.swift in Sources */,
 				464FAB3323043D2B00763FAD /* ExploreEventTableViewCell.swift in Sources */,
+				469A95EC24C74ADB00C1D2A4 /* CreateRootViewController.swift in Sources */,
 				46BCE38422356D2100CEC9C1 /* AppDelegate.swift in Sources */,
 				465A47BE22D3C7C800647EA6 /* LoginToContinueViewController.swift in Sources */,
 				46CEB2282412CF5400CCE906 /* ExampleIrregularityBasicContentView.swift in Sources */,
@@ -1349,7 +1353,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = NL38PKJFTM;
@@ -1375,7 +1379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NL38PKJFTM;
 				INFOPLIST_FILE = "$(SRCROOT)/Memory/Resources/Info.plist";

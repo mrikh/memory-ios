@@ -20,16 +20,6 @@ class CreatePageViewController: UIPageViewController, AlertProtocol{
         initialSetup()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-
-        super.viewWillAppear(animated)
-
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.barTintColor = Colors.white
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.shadowImage = UIImage()
-    }
-
     //MARK:- Private
     private func initialSetup(){
 

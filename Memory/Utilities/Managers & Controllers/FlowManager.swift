@@ -34,9 +34,9 @@ class FlowManager{
 
     static func gotToLandingScreen(){
 
-        let nav = createNavigationController(CustomTabBarController.instantiate(fromAppStoryboard: .Main))
+        let tabbar = CustomTabBarController.instantiate(fromAppStoryboard: .Main)
         let window = (UIApplication.shared.delegate as? AppDelegate)?.window
-        window?.rootViewController = nav
+        window?.rootViewController = tabbar
         window?.makeKeyAndVisible()
     }
     

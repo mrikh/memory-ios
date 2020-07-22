@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mqG-Hk-dRS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ai5-bn-2yk">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,23 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="Td9-bn-sfq">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="mqG-Hk-dRS" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zts-EW-vlH">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="U6l-55-0Nx" kind="relationship" relationship="rootViewController" id="42f-By-k7r"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bcZ-KQ-uRE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="242.0289855072464" y="115.84821428571428"/>
-        </scene>
         <!--When View Controller-->
         <scene sceneID="hC5-fh-Iz7">
             <objects>
@@ -163,6 +146,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ct1-I8-UG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="241" y="875"/>
+        </scene>
+        <!--Create Root View Controller-->
+        <scene sceneID="h0A-WH-UKl">
+            <objects>
+                <viewController storyboardIdentifier="CreateRootViewController" id="ai5-bn-2yk" customClass="CreateRootViewController" customModule="Memory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MrA-Z7-xl6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVh-mG-i7a">
+                                <rect key="frame" x="150" y="603.5" width="75" height="67"/>
+                                <state key="normal" image="Tabbar Cross"/>
+                                <connections>
+                                    <action selector="crossAction:" destination="ai5-bn-2yk" eventType="touchUpInside" id="dt7-yB-4Di"/>
+                                </connections>
+                            </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQU-KV-uMO">
+                                <rect key="frame" x="25" y="20" width="325" height="563.5"/>
+                                <connections>
+                                    <segue destination="U6l-55-0Nx" kind="embed" id="6DL-jt-gEv"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PQU-KV-uMO" firstAttribute="leading" secondItem="bPK-Lc-8hw" secondAttribute="leading" constant="25" id="2rd-ix-Inv"/>
+                            <constraint firstItem="wVh-mG-i7a" firstAttribute="bottom" secondItem="bPK-Lc-8hw" secondAttribute="bottom" constant="3.5" id="Dqu-0S-cEZ"/>
+                            <constraint firstItem="wVh-mG-i7a" firstAttribute="top" secondItem="PQU-KV-uMO" secondAttribute="bottom" constant="20" id="HNB-IJ-QSz"/>
+                            <constraint firstItem="wVh-mG-i7a" firstAttribute="centerX" secondItem="MrA-Z7-xl6" secondAttribute="centerX" id="LoK-Pf-35f"/>
+                            <constraint firstItem="bPK-Lc-8hw" firstAttribute="trailing" secondItem="PQU-KV-uMO" secondAttribute="trailing" constant="25" id="Q6b-Hp-dYU"/>
+                            <constraint firstItem="PQU-KV-uMO" firstAttribute="top" secondItem="bPK-Lc-8hw" secondAttribute="top" constant="20" id="tXM-Pm-maz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bPK-Lc-8hw"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xuY-dr-d6z"/>
+                    <connections>
+                        <outlet property="containerView" destination="PQU-KV-uMO" id="d2Z-cL-wOk"/>
+                        <outlet property="crossButton" destination="wVh-mG-i7a" id="ELI-C7-ppw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zPp-t0-a0j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1039" y="116"/>
         </scene>
         <!--Create Page View Controller-->
         <scene sceneID="4bb-cy-oEs">
@@ -812,4 +838,7 @@
             <point key="canvasLocation" x="-663" y="875"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Tabbar Cross" width="75" height="67"/>
+    </resources>
 </document>

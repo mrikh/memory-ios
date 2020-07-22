@@ -66,8 +66,12 @@ extension CustomTabBarController : UITabBarControllerDelegate{
                 present(navigationController, animated: true, completion: nil)
             }else{
 
-                //present create screen
-//                navigationController.transitioningDelegate = self
+                let viewController = CreateRootViewController.instantiate(fromAppStoryboard: .Create)
+                let navigationController = FlowManager.createNavigationController(viewController)
+                navigationController.transitioningDelegate = self
+                navigationController.modalPresentationStyle = .overCurrentContext
+                navigationController.definesPresentationContext = true
+                present(navigationController, animated: true, completion: nil)
             }
 
             return false
@@ -83,7 +87,8 @@ extension CustomTabBarController : UIViewControllerTransitioningDelegate{
 
         let animator = CircleFadeInAniamtor()
         let view = UIView(frame : self.view.frame)
-        let tabbarItem = tabBar.subviews[2]
+        //3 as 0 is the tabbar background so effectively counting starts from 1
+        let tabbarItem = tabBar.subviews[3]
         if let frame = tabbarItem.subviews.first?.frame{
             let convert = tabbarItem.convert(frame, to: view)
             animator.triggerFrame = convert
@@ -97,7 +102,7 @@ extension CustomTabBarController : UIViewControllerTransitioningDelegate{
 
         let animator = CircularFadeOutAnimation()
         let view = UIView(frame : self.view.frame)
-        let tabbarItem = tabBar.subviews[2]
+        let tabbarItem = tabBar.subviews[3]
         if let frame = tabbarItem.subviews.first?.frame{
             let convert = tabbarItem.convert(frame, to: view)
             animator.triggerFrame = convert

@@ -35,8 +35,6 @@ class CircularFadeOutAnimation : UIViewController, UIViewControllerAnimatedTrans
         let containerView = transitionContext.containerView
         let totalDuration = transitionDuration(using: transitionContext)
 
-        containerView.insertSubview(toController.view, belowSubview: fromController.view)
-
         imageContainer = UIView(frame: triggerFrame)
         imageContainer.layer.cornerRadius = imageContainer.bounds.height/2.0
         imageContainer.clipsToBounds = true
@@ -44,18 +42,20 @@ class CircularFadeOutAnimation : UIViewController, UIViewControllerAnimatedTrans
         imageContainer.isUserInteractionEnabled = false
 
         //hardcoded height after several trials and error to account for image height and the offset it produced inside the icon which was necessary to make it appear above the tabbar
-        let initialImageView = setupImageView(#imageLiteral(resourceName: "cross"), frame: CGRect(x: 0.0, y: 0.0, width : 49.0, height : 49.0))
+        let initialImageView = setupImageView(#imageLiteral(resourceName: "Tabbar Cross Animation"), frame: CGRect(x: 0.0, y: 3.0, width : 49.0, height : 49.0))
         initialImageView.layer.cornerRadius = 25.0
         initialImageView.backgroundColor = Colors.clear
-        initialImageView.clipsToBounds = true
+        initialImageView.clipsToBounds = false
         initialImageView.center.x = imageContainer.bounds.width/2.0
+        initialImageView.contentMode = .center
 
-        let finalImageView = setupImageView(#imageLiteral(resourceName: "Tabbar Cross"), frame: initialImageView.frame)
+        let finalImageView = setupImageView(#imageLiteral(resourceName: "create_plus_animation"), frame: initialImageView.frame)
         finalImageView.layer.cornerRadius = 25.0
-        finalImageView.clipsToBounds = true
+        finalImageView.clipsToBounds = false
         finalImageView.backgroundColor = Colors.clear
         finalImageView.center.x = imageContainer.bounds.width/2.0
         finalImageView.alpha = 0.0
+        finalImageView.contentMode = .center
         
         containerView.addSubview(imageContainer)
 
@@ -80,9 +80,13 @@ class CircularFadeOutAnimation : UIViewController, UIViewControllerAnimatedTrans
         rotateAnimation(view: initialImageView, totalDuration : totalDuration)
         rotateAnimation(view: finalImageView, totalDuration : totalDuration)
 
-        UIView.animate(withDuration: totalDuration) {
+        UIView.animate(withDuration: totalDuration, animations: {
+
             initialImageView.alpha = 0.0
             finalImageView.alpha = 1.0
+
+        }) { (finished) in
+            fromController.view.layer.mask = nil
         }
     }
 
