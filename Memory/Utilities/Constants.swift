@@ -10,7 +10,7 @@ import UIKit
 
 struct ValidationConstants{
 
-    static let eventNameLimit = 100
+    static let eventNameLimit = 30
     static let imageCountLimit = 10
 }
 

@@ -51,8 +51,9 @@ struct StringConstants{
     static let anyone_attend = "anyone_attend"
 
     //name
-    static let enter_name = "enter_name"
+    static let title = "title"
     static let name_question = "name_question"
+    static let name_info = "name_info"
 
     //additional info
     static let anyone_join = "anyone_join"

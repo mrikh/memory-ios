@@ -48,8 +48,9 @@
 "anyone_attend" = "Anyone can attend this party.";
 
 //name
-"enter_name" = "Enter the name";
-"name_question" = "What would you like to name the party? Make it catchy.";
+"title" = "Title";
+"name_question" = "What are you calling it?";
+"name_info" = "This will be the name of your event. Make it catchy!";
 
 //additional info
 "anyone_join" = "Allow anyone to join or only selected friends?";

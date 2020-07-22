@@ -15,11 +15,12 @@ protocol NameViewControllerDelegate : AnyObject{
 
 class NameViewController: BaseViewController {
 
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var characterCountLabel: UILabel!
     @IBOutlet weak var mainTextField: MRTextField!
-    @IBOutlet weak var nextButton: UIButton!
 
     var createModel : CreateModel?
     weak var delegate : NameViewControllerDelegate?
@@ -29,9 +30,20 @@ class NameViewController: BaseViewController {
 
         initialSetup()
     }
-    
+
+    override func viewDidLayoutSubviews() {
+
+        super.viewDidLayoutSubviews()
+        nextButton.layer.cornerRadius = nextButton.bounds.height/2.0
+    }
 
     //MARK:- IBAction
+
+    @IBAction func backgroundTapAction(_ sender: UIButton) {
+
+        view.endEditing(true)
+    }
+
     @IBAction func nextAction(_ sender: UIButton) {
 
         guard let text = mainTextField.text, !text.isEmpty else {
@@ -49,19 +61,23 @@ class NameViewController: BaseViewController {
     //MARK:- Private
     private func initialSetup(){
 
+        nextButton.backgroundColor = Colors.bgColor
+        nextButton.configureFontAwesome(name: .arrowRight, titleColor: Colors.white, size: 20.0, style: .solid)
+        nextButton.addShadow(3.0)
+
         questionLabel.text = StringConstants.name_question.localized
         questionLabel.textColor = Colors.bgColor
-        questionLabel.font = CustomFonts.avenirHeavy.withSize(18.0)
+        questionLabel.font = CustomFonts.avenirHeavy.withSize(22.0)
 
-        cardView.layer.cornerRadius = 10.0
-        cardView.addShadow(3.0, opacity: 0.3)
+        infoLabel.text = StringConstants.name_info.localized
+        infoLabel.textColor = Colors.bgColor
+        infoLabel.font = CustomFonts.avenirLight.withSize(14.0)
 
-        mainTextField.configure(with: StringConstants.enter_name.localized, text: createModel?.name, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
+        mainTextField.configure(with: StringConstants.title.localized, text: createModel?.name, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
 
-        nextButton.layer.cornerRadius = 5.0
-        nextButton.addShadow(3.0, opacity: 0.3)
-
-        nextButton.setAttributedTitle(NSAttributedString(string : StringConstants.go_next.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
+        characterCountLabel.text = "0/\(ValidationConstants.eventNameLimit)"
+        characterCountLabel.textColor = Colors.bgColor
+        characterCountLabel.font = CustomFonts.avenirMedium.withSize(12.0)
     }
 }
 
@@ -78,12 +94,13 @@ extension NameViewController : UITextFieldDelegate{
         let currentText = textField.text ?? ""
         let replacedText = (currentText as NSString).replacingCharacters(in: range, with: string)
 
-        if replacedText.count >= ValidationConstants.eventNameLimit { return false }
+        if replacedText.count > ValidationConstants.eventNameLimit { return false }
 
         mainTextField.hideErrorMessage(true)
         mainTextField.errorString = nil
         
         createModel?.name = replacedText
+        characterCountLabel.text = "\(replacedText.count)/\(ValidationConstants.eventNameLimit)"
         
         return true
     }
