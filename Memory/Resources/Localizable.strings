@@ -84,13 +84,15 @@
 "enter_address" = "Entering the address is compulsory man, how else will people find you?";
 
 //when
-"when_party" = "Yo, when are you planning the party for?";
-"start_time" = "Enter the Start Time";
-"end_time" = "Enter the End Time";
+"when_party" = "What is the date?";
+"start_time" = "Start Time:";
+"end_time" = "End Time:";
 "enter_location" = "Click here to enter the location!";
 "select_dates" = "Aye, you need to select both the dates";
 "not_same" = "Both the timings cannot be the same bro";
 "cannot_end_before" = "Party cannot end before it has begun!";
+"when_info" = "Set the expected duration of the party";
+"likely_weather" = "The weather is likely to be ";
 
 //create
 "created" = "Your party details have been uploaded.";

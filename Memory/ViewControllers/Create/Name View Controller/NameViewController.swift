@@ -61,9 +61,7 @@ class NameViewController: BaseViewController {
     //MARK:- Private
     private func initialSetup(){
 
-        nextButton.backgroundColor = Colors.bgColor
-        nextButton.configureFontAwesome(name: .arrowRight, titleColor: Colors.white, size: 20.0, style: .solid)
-        nextButton.addShadow(3.0)
+        nextButton.configureArrowButton(name: .arrowRight)
 
         questionLabel.text = StringConstants.name_question.localized
         questionLabel.textColor = Colors.bgColor

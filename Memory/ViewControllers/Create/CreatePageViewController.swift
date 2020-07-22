@@ -113,6 +113,14 @@ extension CreatePageViewController : WhenViewControllerDelegate{
         createViewControllers.append(whereVC)
         setViewControllers([whereVC], direction: .forward, animated: true, completion: nil)
     }
+
+    func goBackPreviousPage() {
+
+        if let position = createViewControllers.firstIndex(where: {$0 is NameViewController}){
+            setViewControllers([createViewControllers[position]], direction: .reverse, animated: true, completion: nil)
+            return
+        }
+    }
 }
 
 extension CreatePageViewController : WhereViewControllerDelegate{

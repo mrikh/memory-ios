@@ -39,7 +39,7 @@ class CircularFadeOutAnimation : UIViewController, UIViewControllerAnimatedTrans
         imageContainer.layer.cornerRadius = imageContainer.bounds.height/2.0
         imageContainer.clipsToBounds = true
         imageContainer.backgroundColor = Colors.clear
-        imageContainer.isUserInteractionEnabled = false
+        imageContainer.isUserInteractionEnabled = true
 
         //hardcoded height after several trials and error to account for image height and the offset it produced inside the icon which was necessary to make it appear above the tabbar
         let initialImageView = setupImageView(#imageLiteral(resourceName: "Tabbar Cross Animation"), frame: CGRect(x: 0.0, y: 3.0, width : 49.0, height : 49.0))

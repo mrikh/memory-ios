@@ -17,4 +17,10 @@ extension UIButton{
         setTitleColor(titleColor, for: .normal)
         titleLabel?.font = UIFont.fontAwesome(ofSize: size.getFontSize, style: style)
     }
+
+    func configureArrowButton(name : FontAwesome){
+        backgroundColor = Colors.bgColor
+        configureFontAwesome(name: name, titleColor: Colors.white, size: 20.0, style: .solid)
+        addShadow(3.0)
+    }
 }

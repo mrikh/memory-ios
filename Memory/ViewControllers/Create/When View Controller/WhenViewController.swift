@@ -11,24 +11,24 @@ import UIKit
 protocol WhenViewControllerDelegate : AnyObject{
 
     func userDidCompleteWhenForm()
+    func goBackPreviousPage()
 }
 
-class WhenViewController: BaseViewController, KeyboardHandler {
+class WhenViewController: BaseViewController {
 
+    @IBOutlet weak var weatherLabel: UILabel!
+    @IBOutlet weak var endDatePicker: UIDatePicker!
+    @IBOutlet weak var endDateLabel: UILabel!
+    @IBOutlet weak var startDatePicker: UIDatePicker!
+    @IBOutlet weak var startLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var startDateTextField: MRTextField!
-    @IBOutlet weak var endDateTextField: MRTextField!
+    @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
 
     weak var delegate : WhenViewControllerDelegate?
-    private var datePicker : MRDatePicker?
     var createModel : CreateModel?
-
-    var bottomConstraints: [NSLayoutConstraint]{
-        return [scrollViewBottomConstraint]
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,32 +36,24 @@ class WhenViewController: BaseViewController, KeyboardHandler {
         initialSetup()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-
-        super.viewWillAppear(animated)
-        addKeyboardObservers()
-    }
-
     override func viewDidLayoutSubviews() {
 
         super.viewDidLayoutSubviews()
-        //done as in case of iphone x there was extra padding when keyboard comes up and it was annoying me
-        extraPadding = view.safeAreaInsets.bottom
-    }
 
-    override func viewWillDisappear(_ animated: Bool) {
-
-        removeKeyboardObservers()
-        super.viewWillDisappear(animated)
+        nextButton.layer.cornerRadius = nextButton.bounds.height/2.0
+        previousButton.layer.cornerRadius = previousButton.bounds.height/2.0
     }
 
     //MARK:- IBAction
+    @IBAction func previousAction(_ sender: UIButton) {
+
+        delegate?.goBackPreviousPage()
+    }
+
     @IBAction func nextAction(_ sender: UIButton) {
 
-        guard let start = createModel?.startDate, let end = createModel?.endDate else {
-            showAlert(StringConstants.alert.localized, withMessage: StringConstants.select_dates.localized, withCompletion: nil)
-            return
-        }
+        let start = startDatePicker.date
+        let end = endDatePicker.date
 
         if start == end{
             showAlert(StringConstants.oops.localized, withMessage: StringConstants.not_same.localized, withCompletion: nil)
@@ -73,6 +65,9 @@ class WhenViewController: BaseViewController, KeyboardHandler {
             return
         }
 
+        createModel?.startDate = start
+        createModel?.endDate = end
+
         delegate?.userDidCompleteWhenForm()
     }
 
@@ -81,46 +76,31 @@ class WhenViewController: BaseViewController, KeyboardHandler {
 
         questionLabel.text = StringConstants.when_party.localized
         questionLabel.textColor = Colors.bgColor
-        questionLabel.font = CustomFonts.avenirHeavy.withSize(18.0)
+        questionLabel.font = CustomFonts.avenirHeavy.withSize(22.0)
 
-        cardView.layer.cornerRadius = 10.0
-        cardView.addShadow(3.0, opacity: 0.3)
+        startLabel.text = StringConstants.start_time.localized
+        startLabel.textColor = Colors.bgColor
+        startLabel.font = CustomFonts.avenirHeavy.withSize(14.0)
 
-        startDateTextField.configure(with: StringConstants.start_time.localized, text: createModel?.startDate?.dateString, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
-        endDateTextField.configure(with: StringConstants.end_time.localized, text: createModel?.endDate?.dateString, primaryColor: Colors.bgColor, unselectedBottomColor: Colors.bgColor.withAlphaComponent(0.25))
+        endDateLabel.text = StringConstants.end_time.localized
+        endDateLabel.textColor = Colors.bgColor
+        endDateLabel.font = CustomFonts.avenirHeavy.withSize(14.0)
 
-        nextButton.layer.cornerRadius = 5.0
-        nextButton.addShadow(3.0, opacity: 0.3)
+        infoLabel.text = StringConstants.when_info.localized
+        infoLabel.textColor = Colors.bgColor
+        infoLabel.font = CustomFonts.avenirLight.withSize(14.0)
 
-        nextButton.setAttributedTitle(NSAttributedString(string : StringConstants.enter_location.localized, attributes : [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirHeavy.withSize(15.0), .underlineStyle : NSUnderlineStyle.single.rawValue]), for: .normal)
+        previousButton.configureArrowButton(name: .arrowLeft)
+        nextButton.configureArrowButton(name: .arrowRight)
 
-        cardView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+        weatherLabel.text = StringConstants.likely_weather.localized
+        weatherLabel.textColor = Colors.bgColor
+        weatherLabel.font = CustomFonts.avenirLight.withSize(14.0)
 
-        datePicker = MRDatePicker(mode : .dateAndTime, doneAction: { [weak self] (date) in
+        startDatePicker.datePickerMode = .dateAndTime
+        endDatePicker.datePickerMode = .dateAndTime
 
-            let formatter = DateFormatter()
-            formatter.dateFormat = DateFormat.displayDateFormat
-            let string = formatter.string(from: date)
-
-            if let responder = self?.startDateTextField.isFirstResponder, responder{
-                self?.startDateTextField.text = string
-                self?.createModel?.startDate = date
-                self?.endDateTextField.becomeFirstResponder()
-            }else{
-            
-                self?.endDateTextField.text = string
-                self?.createModel?.endDate = date
-                self?.view.endEditing(true)
-            }
-        }, cancelAction: { [weak self] in
-
-            self?.view.endEditing(true)
-        })
-
-        startDateTextField.inputView = datePicker
-        endDateTextField.inputView = datePicker
-        startDateTextField.inputAccessoryView = datePicker?.toolbar
-        endDateTextField.inputAccessoryView = datePicker?.toolbar
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
 
     @objc func handleTap(){
