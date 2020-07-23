@@ -16,6 +16,7 @@ struct ValidationConstants{
 
 struct APIKeys{
     static let googleKey = "AIzaSyAz_ArHWhBwbKkUTp70dooETgqVJ33TSSQ"
+    static let openWeather = "157d003cf7a8fb8ed865b0ade9f8d134"
 }
 
 struct DeviceInfo{

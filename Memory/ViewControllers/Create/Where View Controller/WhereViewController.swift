@@ -13,6 +13,7 @@ import UIKit
 protocol WhereViewControllerDelegate : AnyObject{
 
     func userDidCompleteWhereForm()
+    func goBackPreviousPage()
 }
 
 class WhereViewController: BaseViewController, KeyboardHandler {

@@ -16,6 +16,7 @@ protocol WhenViewControllerDelegate : AnyObject{
 
 class WhenViewController: BaseViewController {
 
+    @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var endDatePicker: UIDatePicker!
     @IBOutlet weak var endDateLabel: UILabel!
@@ -42,6 +43,12 @@ class WhenViewController: BaseViewController {
 
         nextButton.layer.cornerRadius = nextButton.bounds.height/2.0
         previousButton.layer.cornerRadius = previousButton.bounds.height/2.0
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+
+        super.viewDidAppear(animated)
+        mainScrollView.flashScrollIndicators()
     }
 
     //MARK:- IBAction

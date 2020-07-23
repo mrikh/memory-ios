@@ -85,23 +85,6 @@ extension CreatePageViewController : NameViewControllerDelegate{
 
     func userDidComplete() {
 
-        if let position = createViewControllers.firstIndex(where: {$0 is WhenViewController}){
-            setViewControllers([createViewControllers[position]], direction: .forward, animated: true, completion: nil)
-            return
-        }
-
-        let when = WhenViewController.instantiate(fromAppStoryboard: .Create)
-        when.createModel = createModel
-        when.delegate = self
-        createViewControllers.append(when)
-        setViewControllers([when], direction: .forward, animated: true, completion: nil)
-    }
-}
-
-extension CreatePageViewController : WhenViewControllerDelegate{
-
-    func userDidCompleteWhenForm() {
-
         if let position = createViewControllers.firstIndex(where: {$0 is WhereViewController}){
             setViewControllers([createViewControllers[position]], direction: .forward, animated: true, completion: nil)
             return
@@ -113,6 +96,23 @@ extension CreatePageViewController : WhenViewControllerDelegate{
         createViewControllers.append(whereVC)
         setViewControllers([whereVC], direction: .forward, animated: true, completion: nil)
     }
+}
+
+extension CreatePageViewController : WhereViewControllerDelegate{
+
+    func userDidCompleteWhereForm(){
+
+        if let position = createViewControllers.firstIndex(where: {$0 is WhenViewController}){
+            setViewControllers([createViewControllers[position]], direction: .forward, animated: true, completion: nil)
+            return
+        }
+
+        let when = WhenViewController.instantiate(fromAppStoryboard: .Create)
+        when.delegate = self
+        when.createModel = createModel
+        createViewControllers.append(when)
+        setViewControllers([when], direction: .forward, animated: true, completion: nil)
+    }
 
     func goBackPreviousPage() {
 
@@ -123,20 +123,28 @@ extension CreatePageViewController : WhenViewControllerDelegate{
     }
 }
 
-extension CreatePageViewController : WhereViewControllerDelegate{
+extension CreatePageViewController : WhenViewControllerDelegate{
 
-    func userDidCompleteWhereForm(){
+    func userDidCompleteWhenForm() {
 
         if let position = createViewControllers.firstIndex(where: {$0 is PhotosSelectionViewController}){
             setViewControllers([createViewControllers[position]], direction: .forward, animated: true, completion: nil)
             return
         }
 
-        let photoVC = PhotosSelectionViewController.instantiate(fromAppStoryboard: .Create)
-        photoVC.delegate = self
-        photoVC.create = createModel
-        createViewControllers.append(photoVC)
-        setViewControllers([photoVC], direction: .forward, animated: true, completion: nil)
+        let photos = PhotosSelectionViewController.instantiate(fromAppStoryboard: .Create)
+        photos.create = createModel
+        photos.delegate = self
+        createViewControllers.append(photos)
+        setViewControllers([photos], direction: .forward, animated: true, completion: nil)
+    }
+
+    func goBackPreviousPage() {
+
+        if let position = createViewControllers.firstIndex(where: {$0 is WhereViewController}){
+            setViewControllers([createViewControllers[position]], direction: .reverse, animated: true, completion: nil)
+            return
+        }
     }
 }
 
