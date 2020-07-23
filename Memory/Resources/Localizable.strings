@@ -76,7 +76,8 @@
 "continue" = "Continue";
 
 //where
-"where_event" = "Where is the party being held?";
+"where_info" = "Where is your party located? Try to be as accurate as possible!";
+"where_event" = "Where is it happening?";
 "nearby_landmarks" = "Nearby Landmarks (optional)";
 "enter_location_where" = "Enter Location";
 "go_next" = "Click here to go to the next part!";

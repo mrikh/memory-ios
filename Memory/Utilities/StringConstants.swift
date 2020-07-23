@@ -80,6 +80,7 @@ struct StringConstants{
 
     //where
     static let location = "location"
+    static let where_info = "where_info"
     static let where_event = "where_event"
     static let nearby_landmarks = "nearby_landmarks"
     static let enter_location_where = "enter_location_where"
