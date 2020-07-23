@@ -104,8 +104,8 @@ class WhenViewController: BaseViewController {
         weatherLabel.textColor = Colors.bgColor
         weatherLabel.font = CustomFonts.avenirLight.withSize(14.0)
 
-        startDatePicker.datePickerMode = .dateAndTime
-        endDatePicker.datePickerMode = .dateAndTime
+        configure(picker: startDatePicker)
+        configure(picker: endDatePicker)
 
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
@@ -113,5 +113,13 @@ class WhenViewController: BaseViewController {
     @objc func handleTap(){
         
         view.endEditing(true)
+    }
+
+    private func configure(picker : UIDatePicker){
+
+        picker.datePickerMode = .dateAndTime
+        picker.minimumDate = Date()
+
+        #warning("Discuss 30 days max date?")
     }
 }
