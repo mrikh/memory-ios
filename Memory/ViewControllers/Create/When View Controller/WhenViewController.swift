@@ -6,6 +6,7 @@
 //  Copyright © 2019 Mayank Rikh. All rights reserved.
 //
 
+import SDWebImage
 import UIKit
 
 protocol WhenViewControllerDelegate : AnyObject{
@@ -103,7 +104,7 @@ class WhenViewController: BaseViewController {
 
         weatherLabel.text = nil
         weatherLabel.textColor = Colors.bgColor
-        weatherLabel.font = CustomFonts.avenirLight.withSize(14.0)
+        weatherLabel.font = CustomFonts.avenirLight.withSize(12.0)
 
         configure(picker: startDatePicker)
         configure(picker: endDatePicker)
@@ -136,8 +137,21 @@ class WhenViewController: BaseViewController {
         APIManager.openWeatherApi(lat: lat, long: long) { [weak self] (json, error) in
 
             if let tempJson = json, let value = tempJson["weather"].arrayValue.first?["description"].string{
+                self?.weatherLabel.attributedText = nil
                 self?.weatherLabel.text = "\(StringConstants.likely_weather.localized) \(value)"
+
+                //fetch image
+                if let icon = tempJson["weather"].arrayValue.first?["icon"].string{
+                    SDWebImageDownloader.shared.downloadImage(with: URL(string : "http://openweathermap.org/img/wn/\(icon)@2x.png")) { (image, _, _, _) in
+                        if let tempImage = image{
+                            self?.weatherLabel.text = nil
+                            self?.weatherLabel.attributedText = "\(StringConstants.likely_weather.localized) \(value)".addImageToLabel(tempImage, withWidth: 50.0, withHeight: 50.0)
+                        }
+                    }
+                }
+
             }else{
+                self?.weatherLabel.attributedText = nil
                 self?.weatherLabel.text = nil
             }
         }
