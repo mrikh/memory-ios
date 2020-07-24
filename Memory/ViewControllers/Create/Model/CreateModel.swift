@@ -32,6 +32,7 @@ class CreateModel{
     var nearby : String?
     var lat : Double?
     var long : Double?
+    var countryCode : String?
 
     var privacy : Privacy = .anyone
     var photos = [ImageModel]()

@@ -46,7 +46,7 @@ class NetworkingManager {
         request(URLString: endPoint.path, httpMethod: .patch, parameters: parameters, headers: headers, loader: loader, success: success, failure: failure)
     }
     
-    private static func request(URLString : String, httpMethod : HTTPMethod, parameters : [String : Any] = [:], encoding: ParameterEncoding = JSONEncoding.default, headers : HTTPHeaders = [:], loader : Bool = true, success : @escaping ([String : Any]) -> Void, failure : @escaping (Error) -> Void) {
+    static func request(URLString : String, httpMethod : HTTPMethod, parameters : [String : Any] = [:], encoding: ParameterEncoding = JSONEncoding.default, headers : HTTPHeaders = [:], loader : Bool = true, manuallyHandleResponse : Bool = false, success : @escaping ([String : Any]) -> Void, failure : @escaping (Error) -> Void) {
         
         DispatchQueue.main.async{
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -67,17 +67,22 @@ class NetworkingManager {
 
                 if let dict = value as? [String : Any]{
 
-                    if let code = dict["code"] as? Int, code == 200{
+                    if manuallyHandleResponse{
                         success(dict)
                     }else{
-                        let error = NSError(domain: "", code: dict["code"] as? Int ?? 600, userInfo: [NSLocalizedDescriptionKey : dict["message"] as? String ?? StringConstants.something_wrong.localized, "response": dict["data"] ?? ""])
-                        failure(error)
+                        if let code = dict["code"] as? Int, code == 200{
+                            success(dict)
+                        }else{
+                            let error = NSError(domain: "", code: dict["code"] as? Int ?? 600, userInfo: [NSLocalizedDescriptionKey : dict["message"] as? String ?? StringConstants.something_wrong.localized, "response": dict["data"] ?? ""])
+                            failure(error)
+                        }
                     }
                 }else{
                     let error = NSError(domain: "", code: 600, userInfo: [NSLocalizedDescriptionKey: StringConstants.something_wrong.localized, "response": ""])
                     failure(error)
                 }
             case .failure(let e):
+                print(e.localizedDescription)
                 failure(e)
             }
         }

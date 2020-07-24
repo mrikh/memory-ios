@@ -30,6 +30,7 @@ class WhereViewController: BaseViewController {
     weak var delegate : WhereViewControllerDelegate?
     var createModel : CreateModel?
     private var marker : GMSMarker?
+    private var firstTime = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,20 @@ class WhereViewController: BaseViewController {
         super.viewDidLayoutSubviews()
         nextButton.layer.cornerRadius = nextButton.bounds.height/2.0
         previousButton.layer.cornerRadius = previousButton.bounds.height/2.0
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+
+        super.viewDidAppear(animated)
+
+        if firstTime{
+            firstTime = false
+            if let coordinate = LocationManager.shared.currentLocation?.coordinate{
+                mapView.camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude, longitude: coordinate.longitude, zoom: 15.0)
+            }else{
+                mapView.camera = GMSCameraPosition.camera(withLatitude: LocationConstants.defaultLat, longitude: LocationConstants.defaultLong, zoom: 15.0)
+            }
+        }
     }
 
     //MARK:- IBAction
@@ -93,12 +108,6 @@ class WhereViewController: BaseViewController {
         topTextContainer.addShadow(3.0)
         mapView.isMyLocationEnabled = true
 
-        if let coordinate = LocationManager.shared.currentLocation?.coordinate{
-            mapView.camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude, longitude: coordinate.longitude, zoom: 15.0)
-        }else{
-            mapView.camera = GMSCameraPosition.camera(withLatitude: LocationConstants.defaultLat, longitude: LocationConstants.defaultLong, zoom: 15.0)
-        }
-
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
 
         if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
@@ -140,8 +149,10 @@ extension WhereViewController : LocationViewControllerDelegate{
         createModel?.long = coordinate.longitude
         createModel?.address = subtitle
 
-        dropPin(coordinate: coordinate, title: addressTitle, subTitle: subtitle)
-        mapView.animate(toLocation: coordinate)
+        DispatchQueue.main.async{ [weak self] in
+            self?.dropPin(coordinate: coordinate, title: addressTitle, subTitle: subtitle)
+            self?.mapView.animate(toLocation: coordinate)
+        }
         
         textField.text = addressTitle
     }

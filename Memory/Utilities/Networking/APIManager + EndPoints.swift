@@ -25,6 +25,8 @@ extension APIManager {
         case getEvents = "/event/list"
         case eventDetails = "/event/eventDetails"
         case attending = "/event/attending"
+
+
         #warning("Aggregate query for get events based on privacy status and if querying user is in invited array. Delete the invited key from results")
 
         #warning("add distance radius in profile")

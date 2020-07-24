@@ -135,4 +135,13 @@ class APIManager {
             completion?(nil, error)
         }
     }
+
+    static func openWeatherApi(lat : Double, long : Double, completion : ((JSON?, Error?)->())?){
+
+        NetworkingManager.request(URLString: "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(long)&appid=\(APIKeys.openWeather)", httpMethod: .get, encoding: URLEncoding.default, manuallyHandleResponse : true, success: { (dict) in
+            completion?(JSON(dict), nil)
+        }) { (error) in
+            completion?(nil, error)
+        }
+    }
 }

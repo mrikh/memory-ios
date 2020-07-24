@@ -49,6 +49,7 @@ class WhenViewController: BaseViewController {
 
         super.viewDidAppear(animated)
         mainScrollView.flashScrollIndicators()
+        fetchWeather()
     }
 
     //MARK:- IBAction
@@ -100,7 +101,7 @@ class WhenViewController: BaseViewController {
         previousButton.configureArrowButton(name: .arrowLeft)
         nextButton.configureArrowButton(name: .arrowRight)
 
-        weatherLabel.text = StringConstants.likely_weather.localized
+        weatherLabel.text = nil
         weatherLabel.textColor = Colors.bgColor
         weatherLabel.font = CustomFonts.avenirLight.withSize(14.0)
 
@@ -108,6 +109,12 @@ class WhenViewController: BaseViewController {
         configure(picker: endDatePicker)
 
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+
+        startDatePicker.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
+    }
+
+    @objc func valueChanged(){
+        fetchWeather()
     }
 
     @objc func handleTap(){
@@ -119,7 +126,20 @@ class WhenViewController: BaseViewController {
 
         picker.datePickerMode = .dateAndTime
         picker.minimumDate = Date()
+    }
 
-        #warning("Discuss 30 days max date?")
+    private func fetchWeather(){
+
+        guard let lat = createModel?.lat, let long = createModel?.long else {return}
+        guard Calendar.current.isDateInToday(startDatePicker.date) else {return}
+
+        APIManager.openWeatherApi(lat: lat, long: long) { [weak self] (json, error) in
+
+            if let tempJson = json, let value = tempJson["weather"].arrayValue.first?["description"].string{
+                self?.weatherLabel.text = "\(StringConstants.likely_weather.localized) \(value)"
+            }else{
+                self?.weatherLabel.text = nil
+            }
+        }
     }
 }
