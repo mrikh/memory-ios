@@ -50,7 +50,9 @@ class WhenViewController: BaseViewController {
 
         super.viewDidAppear(animated)
         mainScrollView.flashScrollIndicators()
-        fetchWeather()
+        if weatherLabel.text == nil{
+            fetchWeather()
+        }
     }
 
     //MARK:- IBAction
@@ -63,13 +65,12 @@ class WhenViewController: BaseViewController {
 
         let start = startDatePicker.date
         let end = endDatePicker.date
+        let result = Calendar.current.compare(start, to: end, toGranularity: .minute)
 
-        if start == end{
+        if result == .orderedSame{
             showAlert(StringConstants.oops.localized, withMessage: StringConstants.not_same.localized, withCompletion: nil)
             return
-        }
-
-        if start > end{
+        }else if result == .orderedDescending{
             showAlert(StringConstants.oops.localized, withMessage: StringConstants.cannot_end_before.localized, withCompletion: nil)
             return
         }
@@ -145,7 +146,7 @@ class WhenViewController: BaseViewController {
                     SDWebImageDownloader.shared.downloadImage(with: URL(string : "http://openweathermap.org/img/wn/\(icon)@2x.png")) { (image, _, _, _) in
                         if let tempImage = image{
                             self?.weatherLabel.text = nil
-                            self?.weatherLabel.attributedText = "\(StringConstants.likely_weather.localized) \(value)".addImageToLabel(tempImage, withWidth: 50.0, withHeight: 50.0)
+                            self?.weatherLabel.attributedText = "\(StringConstants.likely_weather.localized) \(value)".addImageToLabel(tempImage, withWidth: 50.0, withHeight: 50.0, yOffset: -15.0)
                         }
                     }
                 }

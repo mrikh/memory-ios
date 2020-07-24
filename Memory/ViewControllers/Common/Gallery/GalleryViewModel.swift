@@ -22,12 +22,15 @@ class GalleryViewModel{
     //total count taken seperately as per current logic when user clicks from camera, it doesnt have phasset object so selected assets wont contain it
     private var totalCount = 0
     private var preSelectedImages : [ImageModel]?
+    private var isFetching = false
 
     private lazy var cachingImageManager : PHCachingImageManager = {
-        return PHCachingImageManager()
+        let manager = PHCachingImageManager()
+        manager.allowsCachingHighQualityImages = false
+        return manager
     }()
 
-    private var assets : [PHAsset] = []
+    private var assets : PHFetchResult<PHAsset>?
     private lazy var selectedAssets : [PHAsset] = {
         return [PHAsset]()
     }()
@@ -35,7 +38,7 @@ class GalleryViewModel{
     weak var delegate : GalleryViewModelDelegate?
 
     var numberOfItems : Int{
-        return assets.count
+        return assets?.count ?? 0
     }
 
     var cellSize : CGSize{
@@ -55,15 +58,75 @@ class GalleryViewModel{
     }
 
     func isSelected(atPosition position : Int) -> Bool{
-        return selectedAssets.contains(assets[position])
+
+        if let item = assets?.object(at: position){
+            return selectedAssets.contains(item)
+        }
+
+        return false
     }
 
     func fetchImage(atPosition position : Int, completion:@escaping(UIImage?)->()){
 
-        cachingImageManager.requestImage(for: assets[position], targetSize: cellSize, contentMode: .aspectFill, options: PHImageRequestOptions()) { (image, nil) in
+        guard let image = assets?.object(at: position) else {return}
+
+        let options = PHImageRequestOptions()
+        options.isSynchronous = false
+        options.isNetworkAccessAllowed = false
+        cachingImageManager.requestImage(for: image, targetSize: cellSize, contentMode: .aspectFill, options: options) { (image, nil) in
             DispatchQueue.main.async{
                 completion(image)
             }
+        }
+    }
+
+
+    // Checks the authorization status of the Gallery and fetch the image assets
+    func fetchAssestsFromPhotoLibrary(){
+
+        let fetchOptions = PHFetchOptions()
+
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
+        let allPhotos = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+        self.assets = allPhotos
+
+        if allPhotos.count > 0{
+            delegate?.startLoader()
+        }
+
+        if let pre = preSelectedImages{
+            let idArray = pre.map({$0.localId ?? ""})
+            let temp = PHAsset.fetchAssets(withLocalIdentifiers: idArray, options: nil)
+            temp.enumerateObjects { [weak self] (asset, _, _) in
+                self?.selectedAssets.append(asset)
+            }
+        }
+
+        DispatchQueue.main.async { [weak self] in
+            self?.isFetching = false
+            self?.delegate?.stopLoader()
+            self?.reloadCollection?()
+        }
+    }
+
+    func select(atPosition position : Int){
+
+        guard let item = assets?.object(at: position) else {return}
+
+        if let index = selectedAssets.firstIndex(where: {$0 == item}){
+            totalCount -= 1
+            selectedAssets.remove(at: index)
+            delegate?.select(atPosition: position, select: false)
+        }else{
+
+            if totalCount >= ValidationConstants.imageCountLimit {
+                delegate?.errorOccurred(errorString: StringConstants.count_limit.localized)
+                return
+            }
+
+            totalCount += 1
+            selectedAssets.append(item)
+            delegate?.select(atPosition: position, select: true)
         }
     }
 
@@ -75,7 +138,7 @@ class GalleryViewModel{
         var tempImages = [ImageModel]()
 
         let options = PHImageRequestOptions()
-        //i dont want to handle icloud images for not atleast, possible feature
+        #warning("i dont want to handle icloud images for not atleast, possible feature")
         options.isNetworkAccessAllowed = false
         options.isSynchronous = true
 
@@ -98,70 +161,8 @@ class GalleryViewModel{
         }
     }
 
-    /// Checks the authorization status of the Gallery and fetch the image assets
-    func fetchAssestsFromPhotoLibrary(){
+    func stopCaching(){
 
-        let fetchOptions = PHFetchOptions()
-
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
-        guard let allPhotos = PHAsset.fetchAssets(with: .image, options: fetchOptions) as? PHFetchResult<AnyObject> else { return }
-
-        if allPhotos.count > 0{
-            delegate?.startLoader()
-        }
-
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-
-            allPhotos.enumerateObjects { [weak self] (object, _, _) in
-
-                if let phAsset = object as? PHAsset{
-                    self?.assets.append(phAsset)
-
-                    if let preSelected = self?.preSelectedImages{
-
-                        if let _ = preSelected.firstIndex(where: { (image) -> Bool in
-                            if let id = image.localId{
-                                return id == phAsset.localIdentifier
-                            }else{
-                                return false
-                            }
-                        }){
-                            self?.selectedAssets.append(phAsset)
-                        }
-                    }
-                }
-            }
-
-            if let tempAssets = self?.assets{
-                self?.cachingImageManager.startCachingImages(for: tempAssets, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: nil )
-            }
-
-            DispatchQueue.main.async {
-
-                self?.delegate?.stopLoader()
-                self?.reloadCollection?()
-            }
-        }
-    }
-
-    func select(atPosition position : Int){
-
-        let item = assets[position]
-
-        if let index = selectedAssets.firstIndex(where: {$0 == item}){
-            totalCount -= 1
-            selectedAssets.remove(at: index)
-            delegate?.select(atPosition: position, select: false)
-        }else{
-
-            if totalCount >= ValidationConstants.imageCountLimit {
-                delegate?.errorOccurred(errorString: StringConstants.count_limit.localized)
-                return
-            }
-
-            totalCount += 1
-            selectedAssets.append(item)
-            delegate?.select(atPosition: position, select: true)
-        }
+        cachingImageManager.stopCachingImagesForAllAssets()
     }
 }

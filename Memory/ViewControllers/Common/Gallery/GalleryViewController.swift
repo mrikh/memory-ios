@@ -60,6 +60,7 @@ class GalleryViewController: BaseViewController {
 
     @objc func backButtonTapped(_ sender : UIBarButtonItem){
 
+        viewModel.stopCaching()
         dismiss(animated: true, completion: nil)
     }
 
@@ -104,6 +105,7 @@ extension GalleryViewController : GalleryViewModelDelegate{
 
     func completed(with images: [ImageModel]) {
 
+        viewModel.stopCaching()
         delegate?.userDidSelect(images: images)
         dismiss(animated: true, completion: nil)
     }
