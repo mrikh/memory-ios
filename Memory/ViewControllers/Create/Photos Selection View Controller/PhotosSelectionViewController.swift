@@ -151,7 +151,8 @@ extension PhotosSelectionViewController : UICollectionViewDelegate, UICollection
                         let viewController = GalleryViewController.instantiate(fromAppStoryboard: .Common)
                         viewController.viewModel = GalleryViewModel(selectedImages: self?.viewModel.dataSource)
                         viewController.delegate = self
-                        self?.present(viewController, animated: true, completion: nil)
+                        let nav = FlowManager.createNavigationController(viewController)
+                        self?.present(nav, animated: true, completion: nil)
                     }else{
                         //dont show toast if permission was asked this time
                         if !authorizationRequested{
