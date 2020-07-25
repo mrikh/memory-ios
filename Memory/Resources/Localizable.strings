@@ -71,9 +71,12 @@
 "press_again" = "Press this to save any new images.";
 "image_upload_success" = "All images have been uploaded";
 "error_upload" = "There was an error when uploading some photos. Press continue to retry them again.";
-"select_venue_photos" = "Select photos to upload for the venue";
+"select_venue_photos" = "Any Photos?";
 "or_skip" = "or you can skip this one!";
 "continue" = "Continue";
+"info_photos" = "Upload photos you might want people to see.";
+"hint" = "Hint:";
+"awesome_setup" = "Put photos of the awesome setup you have!";
 
 //where
 "where_info" = "Where is your party located? Try to be as accurate as possible!";

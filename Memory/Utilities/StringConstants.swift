@@ -77,6 +77,9 @@ struct StringConstants{
     static let select_venue_photos = "select_venue_photos"
     static let or_skip = "or_skip"
     static let `continue` = "continue"
+    static let info_photos = "info_photos"
+    static let hint = "hint"
+    static let awesome_setup = "awesome_setup"
 
     //where
     static let location = "location"

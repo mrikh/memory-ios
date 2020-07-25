@@ -10,20 +10,30 @@ import FontAwesome_swift
 import UIKit
 
 class PhotoHeaderCollectionReusableView: UICollectionReusableView {
-        
-    @IBOutlet weak var galleryButton: UIButton!
 
-    var action : (()->())?
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var hintLabel: UILabel!
 
     override func awakeFromNib() {
 
         super.awakeFromNib()
 
-        galleryButton.configureFontAwesome(name: .cameraRetro, titleColor: Colors.bgColor, size: 42.0, style: FontAwesomeStyle.solid)
-    }
+        backgroundColor = Colors.white
 
-    @IBAction func galleryAction(_ sender: UIButton) {
+        questionLabel.text = StringConstants.select_venue_photos.localized
+        questionLabel.textColor = Colors.bgColor
+        questionLabel.font = CustomFonts.avenirHeavy.withSize(22.0)
 
-        action?()
+        infoLabel.text = StringConstants.info_photos.localized
+        infoLabel.textColor = Colors.bgColor
+        infoLabel.font = CustomFonts.avenirLight.withSize(14.0)
+
+        hintLabel.text = nil
+
+        let string = NSMutableAttributedString(string: "\(StringConstants.hint.localized) ", attributes: [.foregroundColor : Colors.bgColor, .font: CustomFonts.avenirMedium.withSize(14.0)])
+        string.append(NSAttributedString(string: StringConstants.awesome_setup.localized, attributes: [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirLight.withSize(14.0)]))
+
+        hintLabel.attributedText = string
     }
 }
