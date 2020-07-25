@@ -477,19 +477,16 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPd-jl-9wV">
                                                             <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2t7-ME-0s7">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rlP-Xy-vZf">
                                                                     <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="2t7-ME-0s7" secondAttribute="trailing" id="NdJ-jx-bWN"/>
-                                                                <constraint firstAttribute="bottom" secondItem="2t7-ME-0s7" secondAttribute="bottom" id="UkF-a4-Xu6"/>
-                                                                <constraint firstItem="2t7-ME-0s7" firstAttribute="top" secondItem="hPd-jl-9wV" secondAttribute="top" id="W7p-OA-3MJ"/>
-                                                                <constraint firstItem="2t7-ME-0s7" firstAttribute="leading" secondItem="hPd-jl-9wV" secondAttribute="leading" id="c9a-5i-7hl"/>
+                                                                <constraint firstItem="rlP-Xy-vZf" firstAttribute="leading" secondItem="hPd-jl-9wV" secondAttribute="leading" id="3ba-ot-T2a"/>
+                                                                <constraint firstItem="rlP-Xy-vZf" firstAttribute="top" secondItem="hPd-jl-9wV" secondAttribute="top" id="AAT-mT-B7L"/>
+                                                                <constraint firstAttribute="trailing" secondItem="rlP-Xy-vZf" secondAttribute="trailing" id="L4x-N7-DGH"/>
+                                                                <constraint firstAttribute="bottom" secondItem="rlP-Xy-vZf" secondAttribute="bottom" id="h2N-wi-tuI"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -502,7 +499,7 @@
                                                 </collectionViewCellContentView>
                                                 <connections>
                                                     <outlet property="containerView" destination="hPd-jl-9wV" id="ExC-rK-XC5"/>
-                                                    <outlet property="plusLabel" destination="2t7-ME-0s7" id="Dgh-y2-cXn"/>
+                                                    <outlet property="plusImageView" destination="rlP-Xy-vZf" id="gDr-6t-fq1"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -534,7 +531,7 @@
                                                 <constraint firstItem="4J0-gE-pab" firstAttribute="top" secondItem="wwJ-p7-LHd" secondAttribute="bottom" constant="7" id="9Lb-WG-Va2"/>
                                                 <constraint firstAttribute="trailing" secondItem="wwJ-p7-LHd" secondAttribute="trailing" constant="10" id="OQC-LB-D1W"/>
                                                 <constraint firstItem="QrC-Gd-HIz" firstAttribute="trailing" secondItem="4J0-gE-pab" secondAttribute="trailing" id="W41-eC-wmk"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QrC-Gd-HIz" secondAttribute="bottom" constant="10" id="W4W-CC-P4C"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QrC-Gd-HIz" secondAttribute="bottom" constant="15" id="W4W-CC-P4C"/>
                                                 <constraint firstItem="QrC-Gd-HIz" firstAttribute="top" secondItem="4J0-gE-pab" secondAttribute="bottom" constant="7" id="hES-lP-P5F"/>
                                                 <constraint firstItem="4J0-gE-pab" firstAttribute="trailing" secondItem="wwJ-p7-LHd" secondAttribute="trailing" id="hNm-aK-sJf"/>
                                                 <constraint firstItem="4J0-gE-pab" firstAttribute="leading" secondItem="wwJ-p7-LHd" secondAttribute="leading" id="lcz-jb-RVa"/>

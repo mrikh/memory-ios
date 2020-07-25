@@ -58,7 +58,6 @@ class PhotoSelectionViewModel{
         dataSource.append(contentsOf: images)
     }
 
-    
     func startUpload(){
 
         movedPast = true

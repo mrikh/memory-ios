@@ -37,6 +37,20 @@ class PhotosSelectionViewController: BaseViewController, ImagePickerProtocol {
         initialSetup()
     }
 
+    override func viewDidLayoutSubviews() {
+
+        super.viewDidLayoutSubviews()
+
+        if let header = mainCollectionView.supplementaryView(forElementKind: UICollectionView.elementKindSectionHeader, at: [0, 0]){
+            let headerHeight = header.frame.height
+            let rows = viewModel.dataSource.count/3 + 1
+            //as 10 is inter item/line spacing
+            let eachRowHeight = mainCollectionView.bounds.width/3.0 + 10
+
+            collectionViewHeightConstraint.constant = min(headerHeight + CGFloat(rows) * eachRowHeight, view.frame.size.height)
+        }
+    }
+
     //MARK:- Private
     private func initialSetup(){
 
@@ -52,13 +66,13 @@ extension PhotosSelectionViewController : UICollectionViewDelegate, UICollection
 
         let indexPath : IndexPath = [0, section]
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PhotoHeaderCollectionReusableView.identifier, for: indexPath)
-        return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.bounds.width, height: UIView.layoutFittingCompressedSize.height), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel) 
+        return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.bounds.width, height: UIView.layoutFittingCompressedSize.height), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         #warning("add mosaic layout")
-        let width = collectionView.bounds.width/3.0
+        let width = collectionView.bounds.width/3.0 - 10.0
         return CGSize(width: width, height: width)
     }
 

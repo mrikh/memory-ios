@@ -11,7 +11,7 @@ import UIKit
 
 class ButtonCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var plusLabel: UILabel!
+    @IBOutlet weak var plusImageView: UIImageView!
     @IBOutlet weak var containerView: UIView!
 
     override func awakeFromNib() {
@@ -21,8 +21,6 @@ class ButtonCollectionViewCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 10.0
         containerView.backgroundColor = Colors.textFieldBorderColor.withAlphaComponent(0.7)
 
-        plusLabel.text = String.fontAwesomeIcon(name: .plus)
-        plusLabel.textColor = Colors.white
-        plusLabel.font = CustomFonts.avenirHeavy.withSize(18.0)
+        plusImageView.image = UIImage.fontAwesomeIcon(name: .plus, style: .solid, textColor: Colors.white, size: CGSize(width : 25.0, height : 25.0))
     }
 }
