@@ -12,10 +12,13 @@ import UIKit
 protocol PhotoSelectionViewControllerDelegate : AnyObject {
 
     func userDidPressContinue()
+    func photosPreviousPage()
 }
 
 class PhotosSelectionViewController: BaseViewController, ImagePickerProtocol {
 
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var mainCollectionView: UICollectionView!
 
     var isUploading : Bool{
@@ -32,10 +35,32 @@ class PhotosSelectionViewController: BaseViewController, ImagePickerProtocol {
         initialSetup()
     }
 
+    override func viewDidLayoutSubviews() {
+
+        super.viewDidLayoutSubviews()
+        nextButton.layer.cornerRadius = nextButton.bounds.height/2.0
+        previousButton.layer.cornerRadius = previousButton.bounds.height/2.0
+    }
+
+    //MARK:- IBAction
+    @IBAction func nextAction(_ sender: UIButton) {
+
+        viewModel.startUpload()
+        delegate?.userDidPressContinue()
+    }
+
+    @IBAction func previousAction(_ sender: UIButton) {
+
+        delegate?.photosPreviousPage()
+    }
+
     //MARK:- Private
     private func initialSetup(){
 
         mainCollectionView.register(ImageCollectionViewCell.nib, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
+
+        previousButton.configureArrowButton(name: .arrowLeft)
+        nextButton.configureArrowButton(name: .arrowRight)
 
         viewModel.delegate = self
     }

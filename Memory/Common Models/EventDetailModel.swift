@@ -24,7 +24,7 @@ struct EventDetailModel{
     let nearby : String
     let privacy : CreateModel.Privacy
     let additionalInfo : String
-    let invited : [FriendModel]
+    
     let attendingCount : Int
     let otherDetails : String?
     var isAttending : Bool
@@ -45,7 +45,7 @@ struct EventDetailModel{
         nearby = create.nearby ?? ""
         privacy = create.privacy
         additionalInfo = create.otherDetails ?? ""
-        invited = create.invited
+        
         otherDetails = create.otherDetails
         attendingCount = 0
         isAttending = true
@@ -70,7 +70,7 @@ struct EventDetailModel{
         additionalInfo = json["additionalInfo"].stringValue
         privacy = CreateModel.Privacy(rawValue : json["privacy"].intValue) ?? .anyone
         nearby = json["nearby"].stringValue
-        invited = json["invited"].arrayValue.map({FriendModel(json : $0)})
+
         otherDetails = json["otherDetails"].stringValue
         attendingCount = json["attendingCount"].intValue
         isAttending = json["isAttending"].boolValue
@@ -92,7 +92,7 @@ struct EventDetailModel{
         nearby = ""
         privacy = CreateModel.Privacy.selectedFriends
         additionalInfo = ""
-        invited = [FriendModel]()
+
         otherDetails = nil
         isAttending = event.isAttending
     }
@@ -110,7 +110,7 @@ struct EventDetailModel{
         dict["lat"] = lat
         dict["long"] = long
         dict["privacy"] = privacy.rawValue
-        dict["invited"] = invited.map({$0.friendId})
+        
         dict["photos"] = photos
 
         return dict

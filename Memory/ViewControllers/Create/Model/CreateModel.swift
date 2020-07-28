@@ -37,7 +37,5 @@ class CreateModel{
     var privacy : Privacy = .anyone
     var photos = [ImageModel]()
 
-    var invited = [FriendModel]()
-
     var otherDetails : String?
 }

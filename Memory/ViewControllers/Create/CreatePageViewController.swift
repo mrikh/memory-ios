@@ -152,23 +152,6 @@ extension CreatePageViewController : PhotoSelectionViewControllerDelegate{
 
     func userDidPressContinue() {
 
-        if let position = createViewControllers.firstIndex(where: {$0 is InviteFriendsViewController}){
-            setViewControllers([createViewControllers[position]], direction: .forward, animated: true, completion: nil)
-            return
-        }
-
-        let invite = InviteFriendsViewController.instantiate(fromAppStoryboard: .Create)
-        invite.create = createModel
-        invite.delegate = self
-        createViewControllers.append(invite)
-        setViewControllers([invite], direction: .forward, animated: true, completion: nil)
-    }
-}
-
-extension CreatePageViewController : InviteFriendsViewControllerDelegate{
-
-    func didPressNext() {
-
         if let position = createViewControllers.firstIndex(where: {$0 is ExtraInfoViewController}){
             setViewControllers([createViewControllers[position]], direction: .forward, animated: true, completion: nil)
             return
@@ -179,6 +162,14 @@ extension CreatePageViewController : InviteFriendsViewControllerDelegate{
         extra.delegate = self
         createViewControllers.append(extra)
         setViewControllers([extra], direction: .forward, animated: true, completion: nil)
+    }
+
+    func photosPreviousPage(){
+
+        if let position = createViewControllers.firstIndex(where: {$0 is WhenViewController}){
+            setViewControllers([createViewControllers[position]], direction: .reverse, animated: true, completion: nil)
+            return
+        }
     }
 }
 

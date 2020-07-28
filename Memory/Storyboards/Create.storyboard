@@ -441,7 +441,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEa-Pm-CNQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13.6" y="874.81259370314854"/>
+            <point key="canvasLocation" x="124" y="875"/>
         </scene>
         <!--Photos Selection View Controller-->
         <scene sceneID="0aR-lf-Dwt">
@@ -455,7 +455,7 @@
                                 <rect key="frame" x="0.0" y="15" width="375" height="637"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bfB-ku-vcw">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="637"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="572"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Keb-6V-Ksf">
                                             <size key="itemSize" width="345" height="136"/>
@@ -547,13 +547,49 @@
                                             <outlet property="delegate" destination="PdH-5q-XJb" id="zfJ-3a-l7q"/>
                                         </connections>
                                     </collectionView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFE-la-ENR">
+                                        <rect key="frame" x="20" y="587" width="335" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHw-7G-fJw">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="9a1-6i-sHT"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="previousAction:" destination="PdH-5q-XJb" eventType="touchUpInside" id="GOR-Qh-X42"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Od-ny-g8F">
+                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="zlT-dq-7rO"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="nextAction:" destination="PdH-5q-XJb" eventType="touchUpInside" id="CNc-8V-dJa"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="4Od-ny-g8F" secondAttribute="trailing" id="5fM-Ka-Hht"/>
+                                            <constraint firstItem="AHw-7G-fJw" firstAttribute="top" secondItem="oFE-la-ENR" secondAttribute="top" id="89i-oK-uVM"/>
+                                            <constraint firstItem="4Od-ny-g8F" firstAttribute="centerY" secondItem="AHw-7G-fJw" secondAttribute="centerY" id="Lgl-5M-YIb"/>
+                                            <constraint firstItem="AHw-7G-fJw" firstAttribute="width" secondItem="AHw-7G-fJw" secondAttribute="height" multiplier="1:1" id="QYT-9w-qck"/>
+                                            <constraint firstItem="AHw-7G-fJw" firstAttribute="leading" secondItem="oFE-la-ENR" secondAttribute="leading" id="f3j-Kc-Bgx"/>
+                                            <constraint firstAttribute="bottom" secondItem="AHw-7G-fJw" secondAttribute="bottom" id="hEf-IM-Izb"/>
+                                            <constraint firstItem="4Od-ny-g8F" firstAttribute="width" secondItem="4Od-ny-g8F" secondAttribute="height" multiplier="1:1" id="l25-JU-Bg6"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="oFE-la-ENR" firstAttribute="top" secondItem="bfB-ku-vcw" secondAttribute="bottom" constant="15" id="LJx-SP-GBe"/>
                                     <constraint firstItem="bfB-ku-vcw" firstAttribute="top" secondItem="btn-MT-Duj" secondAttribute="top" id="X3P-jU-a2U"/>
                                     <constraint firstAttribute="trailing" secondItem="bfB-ku-vcw" secondAttribute="trailing" id="YZG-tf-CEf"/>
                                     <constraint firstItem="bfB-ku-vcw" firstAttribute="leading" secondItem="btn-MT-Duj" secondAttribute="leading" id="hNg-Jh-1Oj"/>
-                                    <constraint firstAttribute="bottom" secondItem="bfB-ku-vcw" secondAttribute="bottom" id="u5o-lP-0Xa"/>
+                                    <constraint firstItem="oFE-la-ENR" firstAttribute="leading" secondItem="btn-MT-Duj" secondAttribute="leading" constant="20" id="ixx-SQ-QqV"/>
+                                    <constraint firstAttribute="bottom" secondItem="oFE-la-ENR" secondAttribute="bottom" id="o9c-2V-a0N"/>
+                                    <constraint firstAttribute="trailing" secondItem="oFE-la-ENR" secondAttribute="trailing" constant="20" id="sAb-Rb-fwK"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -568,11 +604,13 @@
                     </view>
                     <connections>
                         <outlet property="mainCollectionView" destination="bfB-ku-vcw" id="rng-Ri-fyv"/>
+                        <outlet property="nextButton" destination="4Od-ny-g8F" id="Fil-YP-ZCz"/>
+                        <outlet property="previousButton" destination="AHw-7G-fJw" id="Oo1-lf-z5g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7q7-u1-PRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1877.5999999999999" y="874.81259370314854"/>
+            <point key="canvasLocation" x="1841" y="875"/>
         </scene>
         <!--Invite Friends View Controller-->
         <scene sceneID="vYg-3e-3dq">
