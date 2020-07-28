@@ -90,7 +90,7 @@ extension GalleryViewController : UICollectionViewDelegate, UICollectionViewData
             cell.mainImageView.image = image
         }
 
-        cell.configure(currentSelected: viewModel.isSelected(atPosition: indexPath.item), animated : false)
+        cell.configureSelectionCell(currentSelected: viewModel.isSelected(atPosition: indexPath.item), animated: false)
 
         return cell
     }
@@ -115,6 +115,6 @@ extension GalleryViewController : GalleryViewModelDelegate{
         enableButton()
 
         guard let cell = mainCollectionView.cellForItem(at: [0, position]) as? ImageCollectionViewCell else {return}
-        cell.configure(currentSelected: select, animated: true)
+        cell.configureSelectionCell(currentSelected: select, animated: true)
     }
 }

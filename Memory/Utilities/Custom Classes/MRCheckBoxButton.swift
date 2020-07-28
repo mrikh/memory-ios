@@ -60,6 +60,7 @@ class MRCheckBoxButton: UIButton {
 
         //initially it should be clear as did set gets called before and sets it to default color
         self.layer.backgroundColor = UIColor.clear.cgColor
+        setTitle(nil, for: .normal)
         createTick()
     }
 
@@ -72,7 +73,16 @@ class MRCheckBoxButton: UIButton {
         super.layoutSubviews()
     }
 
-    func createTick(){
+    func updateSelection(select : Bool, animated : Bool = false){
+
+        //dont update
+        if currentlySelected == select {return}
+        currentlySelected = select
+        currentlySelected ? fillColor(shouldAnimate : animated) : clearColor(animated : animated)
+    }
+
+    //MARK: Private
+    private func createTick(){
 
         let tickLayer = CAShapeLayer()
         tickLayer.path = calculatePath().cgPath;
@@ -85,16 +95,6 @@ class MRCheckBoxButton: UIButton {
         tickLayer.setValue(1005, forKey: "animationTag")
         layer.addSublayer(tickLayer)
     }
-
-    func updateSelection(select : Bool, animated : Bool = false){
-
-        //dont update
-        if currentlySelected == select {return}
-        currentlySelected = select
-        currentlySelected ? fillColor(shouldAnimate : animated) : clearColor(animated : animated)
-    }
-
-    //MARK: Private
 
     private func fillColor(shouldAnimate : Bool){
 
@@ -185,9 +185,9 @@ class MRCheckBoxButton: UIButton {
         let wholeButtonWidth = bounds.size.width
         let wholeButtonHeight = bounds.size.height
 
-        let firstPoint = CGPoint(x: wholeButtonWidth/2.0 - wholeButtonWidth/3.5, y: wholeButtonHeight/2.0)
-        let secondPoint = CGPoint(x:firstPoint.x + wholeButtonWidth/6.5, y: firstPoint.y + wholeButtonHeight/6.0)
-        let thirdPoint = CGPoint(x: secondPoint.x + wholeButtonWidth/2.5, y:secondPoint.y - wholeButtonHeight/2.5)
+        let firstPoint = CGPoint(x: wholeButtonWidth/2.0 - wholeButtonWidth/5.0, y: wholeButtonHeight/2.0)
+        let secondPoint = CGPoint(x:firstPoint.x + wholeButtonWidth/6.5, y: firstPoint.y + wholeButtonHeight/6.8)
+        let thirdPoint = CGPoint(x: secondPoint.x + wholeButtonWidth/3.5, y:secondPoint.y - wholeButtonHeight/4.0)
 
         path.move(to: firstPoint)
         path.addLine(to: secondPoint)

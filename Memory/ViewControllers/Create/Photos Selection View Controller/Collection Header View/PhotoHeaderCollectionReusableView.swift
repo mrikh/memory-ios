@@ -35,5 +35,7 @@ class PhotoHeaderCollectionReusableView: UICollectionReusableView {
         string.append(NSAttributedString(string: StringConstants.awesome_setup.localized, attributes: [.foregroundColor : Colors.bgColor, .font : CustomFonts.avenirLight.withSize(14.0)]))
 
         hintLabel.attributedText = string
+
+        addShadow(3.0)
     }
 }

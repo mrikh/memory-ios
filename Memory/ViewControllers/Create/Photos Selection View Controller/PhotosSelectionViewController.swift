@@ -18,11 +18,6 @@ class PhotosSelectionViewController: BaseViewController, ImagePickerProtocol {
 
     @IBOutlet weak var mainCollectionView: UICollectionView!
 
-    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var hintLabel: UILabel!
-    @IBOutlet weak var infoLabel: UILabel!
-    @IBOutlet weak var questionLabel: UILabel!
-
     var isUploading : Bool{
         return viewModel.isUploading
     }
@@ -35,20 +30,6 @@ class PhotosSelectionViewController: BaseViewController, ImagePickerProtocol {
         super.viewDidLoad()
 
         initialSetup()
-    }
-
-    override func viewDidLayoutSubviews() {
-
-        super.viewDidLayoutSubviews()
-
-        if let header = mainCollectionView.supplementaryView(forElementKind: UICollectionView.elementKindSectionHeader, at: [0, 0]){
-            let headerHeight = header.frame.height
-            let rows = viewModel.dataSource.count/3 + 1
-            //as 10 is inter item/line spacing
-            let eachRowHeight = mainCollectionView.bounds.width/3.0 + 10
-
-            collectionViewHeightConstraint.constant = min(headerHeight + CGFloat(rows) * eachRowHeight, view.frame.size.height)
-        }
     }
 
     //MARK:- Private
@@ -66,13 +47,13 @@ extension PhotosSelectionViewController : UICollectionViewDelegate, UICollection
 
         let indexPath : IndexPath = [0, section]
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PhotoHeaderCollectionReusableView.identifier, for: indexPath)
-        return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.bounds.width, height: UIView.layoutFittingCompressedSize.height), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+        return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.bounds.width, height: UIView.layoutFittingExpandedSize.height), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         #warning("add mosaic layout")
-        let width = collectionView.bounds.width/3.0 - 10.0
+        let width = collectionView.bounds.width/3.0
         return CGSize(width: width, height: width)
     }
 
@@ -98,24 +79,18 @@ extension PhotosSelectionViewController : UICollectionViewDelegate, UICollection
 
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as? ImageCollectionViewCell else { return UICollectionViewCell(frame: CGRect.zero) }
 
-            let image = viewModel.dataSource[indexPath.item]
-            cell.mainImageView.image = image.image
-            cell.updateLoader(animate: image.isUploading)
-            cell.deleteButton.isHidden = false
+            let image = viewModel.dataSource[indexPath.item - 1]
+            cell.updateDeleteLoaderCell(image : image.image, animate: image.isUploading)
 
             cell.deleteAction = { [weak self] in
 
-                self?.viewModel.delete(position: indexPath.item)
+                self?.viewModel.delete(position: indexPath.item - 1)
 
-                if let empty = self?.viewModel.isSelectedEmpty, empty{
+                collectionView.performBatchUpdates({
+                    collectionView.deleteItems(at: [indexPath])
+                }, completion: { (finished) in
                     collectionView.reloadData()
-                }else{
-                    collectionView.performBatchUpdates({
-                        collectionView.deleteItems(at: [indexPath])
-                    }, completion: { (finished) in
-                        collectionView.reloadData()
-                    })
-                }
+                })
 
                 if let tempString = image.urlString{
 

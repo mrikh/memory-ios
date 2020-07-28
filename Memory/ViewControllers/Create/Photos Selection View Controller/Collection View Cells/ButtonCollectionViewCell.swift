@@ -18,7 +18,6 @@ class ButtonCollectionViewCell: UICollectionViewCell {
 
         super.awakeFromNib()
 
-        containerView.layer.cornerRadius = 10.0
         containerView.backgroundColor = Colors.textFieldBorderColor.withAlphaComponent(0.7)
 
         plusImageView.image = UIImage.fontAwesomeIcon(name: .plus, style: .solid, textColor: Colors.white, size: CGSize(width : 25.0, height : 25.0))

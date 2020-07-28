@@ -59,8 +59,6 @@
 		465FFFF222DCFF13009D222A /* UISearchBar + Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFF122DCFF13009D222A /* UISearchBar + Loader.swift */; };
 		465FFFF422DD9BE2009D222A /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFF322DD9BE2009D222A /* Annotation.swift */; };
 		465FFFF722DE627B009D222A /* PhotosSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFF622DE627B009D222A /* PhotosSelectionViewController.swift */; };
-		467840E522FAC78B004D43E7 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467840E422FAC78B004D43E7 /* LandingViewController.swift */; };
-		467840E722FAC84A004D43E7 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467840E622FAC84A004D43E7 /* LandingViewModel.swift */; };
 		467840EF22FAF564004D43E7 /* NoAccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 467840EE22FAF564004D43E7 /* NoAccessView.xib */; };
 		467840F222FAF576004D43E7 /* NoAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467840F122FAF576004D43E7 /* NoAccessView.swift */; };
 		467840F422FB05FA004D43E7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 467840F322FB05FA004D43E7 /* Profile.storyboard */; };
@@ -196,8 +194,6 @@
 		465FFFF122DCFF13009D222A /* UISearchBar + Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar + Loader.swift"; sourceTree = "<group>"; };
 		465FFFF322DD9BE2009D222A /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		465FFFF622DE627B009D222A /* PhotosSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSelectionViewController.swift; sourceTree = "<group>"; };
-		467840E422FAC78B004D43E7 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
-		467840E622FAC84A004D43E7 /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
 		467840EE22FAF564004D43E7 /* NoAccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoAccessView.xib; sourceTree = "<group>"; };
 		467840F122FAF576004D43E7 /* NoAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAccessView.swift; sourceTree = "<group>"; };
 		467840F322FB05FA004D43E7 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -543,8 +539,6 @@
 			isa = PBXGroup;
 			children = (
 				464FAB3023043D1100763FAD /* Table View Cell */,
-				467840E422FAC78B004D43E7 /* LandingViewController.swift */,
-				467840E622FAC84A004D43E7 /* LandingViewModel.swift */,
 				46592DD824A2CE7B00136C08 /* ExploreViewController.swift */,
 				46592DDA24A2CE8500136C08 /* ExploreViewModel.swift */,
 			);
@@ -1135,7 +1129,6 @@
 				465FFFEE22DCB7B6009D222A /* LocationViewController.swift in Sources */,
 				4684C5B624A000C50003753D /* OTPCodeView.swift in Sources */,
 				464FAB38230473D200763FAD /* EventModel.swift in Sources */,
-				467840E522FAC78B004D43E7 /* LandingViewController.swift in Sources */,
 				46BCE3D022357A3100CEC9C1 /* UIViewController + General.swift in Sources */,
 				46DCDEB522E4E1C000277AC1 /* FSImageCollectionViewCell.swift in Sources */,
 				467840F222FAF576004D43E7 /* NoAccessView.swift in Sources */,
@@ -1158,7 +1151,6 @@
 				465CB38F22D205BC002D2B4B /* ProfilePhotoViewModel.swift in Sources */,
 				46BCE3C022357A3100CEC9C1 /* ImagePickerProtocol.swift in Sources */,
 				465CB39822D2811F002D2B4B /* LoginViewModel.swift in Sources */,
-				467840E722FAC84A004D43E7 /* LandingViewModel.swift in Sources */,
 				465FFFE722DB83FC009D222A /* Timeinterval + Date.swift in Sources */,
 				46592DDB24A2CE8500136C08 /* ExploreViewModel.swift in Sources */,
 				46BCE39C22357A0D00CEC9C1 /* UserModel.swift in Sources */,
