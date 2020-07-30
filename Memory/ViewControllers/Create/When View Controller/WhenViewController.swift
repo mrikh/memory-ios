@@ -32,6 +32,8 @@ class WhenViewController: BaseViewController {
     weak var delegate : WhenViewControllerDelegate?
     var createModel : CreateModel?
 
+    private var workItem : DispatchWorkItem?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -116,7 +118,15 @@ class WhenViewController: BaseViewController {
     }
 
     @objc func valueChanged(){
-        fetchWeather()
+
+        workItem?.cancel()
+
+        let item = DispatchWorkItem { [weak self] in
+            self?.fetchWeather()
+        }
+
+        workItem = item
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: item)
     }
 
     @objc func handleTap(){
@@ -132,25 +142,34 @@ class WhenViewController: BaseViewController {
 
     private func fetchWeather(){
 
+        #warning("Future weather prediction")
         guard let lat = createModel?.lat, let long = createModel?.long else {return}
-        guard Calendar.current.isDateInToday(startDatePicker.date) else {return}
+        guard Calendar.current.isDateInToday(startDatePicker.date) else {
+            weatherLabel.attributedText = nil
+            weatherLabel.text = nil
+            return
+        }
 
         APIManager.openWeatherApi(lat: lat, long: long) { [weak self] (json, error) in
 
-            if let tempJson = json, let value = tempJson["weather"].arrayValue.first?["description"].string{
+            if let tempJson = json, let temperature = tempJson["main"]["temp"].double{
                 self?.weatherLabel.attributedText = nil
-                self?.weatherLabel.text = "\(StringConstants.likely_weather.localized) \(value)"
+                self?.weatherLabel.text = "\(String(format: "%.0f", temperature - 273.15))°C"
 
-                //fetch image
-                if let icon = tempJson["weather"].arrayValue.first?["icon"].string{
-                    SDWebImageDownloader.shared.downloadImage(with: URL(string : "http://openweathermap.org/img/wn/\(icon)@2x.png")) { (image, _, _, _) in
-                        if let tempImage = image{
-                            self?.weatherLabel.text = nil
-                            self?.weatherLabel.attributedText = "\(StringConstants.likely_weather.localized) \(value)".addImageToLabel(tempImage, withWidth: 50.0, withHeight: 50.0, yOffset: -15.0)
+                if let labelText = self?.weatherLabel.text, let value = tempJson["weather"].arrayValue.first?["description"].string{
+
+                    self?.weatherLabel.text = "\(labelText). \(StringConstants.likely_weather.localized) \(value)"
+
+                    //fetch image
+                    if let textToUse = self?.weatherLabel.text, let icon = tempJson["weather"].arrayValue.first?["icon"].string{
+                        SDWebImageDownloader.shared.downloadImage(with: URL(string : "http://openweathermap.org/img/wn/\(icon)@2x.png")) { (image, _, _, _) in
+                            if let tempImage = image{
+                                self?.weatherLabel.text = nil
+                                self?.weatherLabel.attributedText = textToUse.addImageToLabel(tempImage, withWidth: 50.0, withHeight: 50.0, yOffset: -15.0)
+                            }
                         }
                     }
                 }
-
             }else{
                 self?.weatherLabel.attributedText = nil
                 self?.weatherLabel.text = nil

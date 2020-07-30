@@ -16,8 +16,8 @@ class CreateModel{
 
         var displayString : String{
             switch self{
-            case .selectedFriends: return StringConstants.people_selected_join.localized
-            case .anyone : return StringConstants.anyone_attend.localized
+            case .selectedFriends: return StringConstants.only_friends.localized
+            case .anyone : return StringConstants.everyone.localized
             }
         }
     }

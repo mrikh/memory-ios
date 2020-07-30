@@ -61,6 +61,13 @@ struct StringConstants{
     static let anyone = "anyone"
     static let anything_else_add = "anything_else_add"
     static let write_here = "write_here"
+    static let extra_title = "extra_title"
+    static let extra_hint = "extra_hint"
+    static let enter_desc = "enter_desc"
+    static let privacy_title = "privacy_title"
+    static let privacy_hint = "privacy_hint"
+    static let only_friends = "only_friends"
+    static let everyone = "everyone"
 
     //friend select create
     static let no_friends = "no_friends"
@@ -70,6 +77,7 @@ struct StringConstants{
     static let count_limit = "count_limit"
 
     //photo selection
+    static let atleast_one = "atleast_one"
     static let error_delete = "error_delete"
     static let press_again = "press_again"
     static let image_upload_success = "image_upload_success"

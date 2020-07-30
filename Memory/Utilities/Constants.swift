@@ -12,6 +12,7 @@ struct ValidationConstants{
 
     static let eventNameLimit = 30
     static let imageCountLimit = 10
+    static let additionalInfoTextLimit = 200
 }
 
 struct APIKeys{
@@ -28,9 +29,9 @@ struct DeviceInfo{
 
 struct AWSKeys{
 
-    static let pool_id = "ap-south-1:070613da-8801-4c0d-9fd5-bc60fb469cb5"
-    static let bucket_name = "memoryies-app"
-    static let s3BaseUrl = "https://s3.ap-south-1.amazonaws.com/"
+    static let pool_id = "eu-west-1:ac02e7b7-588d-4189-981c-2007e52009f9"
+    static let bucket_name = "memories-app-ios"
+    static let s3BaseUrl = "https://s3.eu-west-1.amazonaws.com/"
 }
 
 struct DateFormat{

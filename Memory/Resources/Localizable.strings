@@ -59,6 +59,15 @@
 "anything_else_add" = "Anything else you want to add?";
 "write_here" = "Write here";
 
+"extra_title" = "Extra Information?";
+"extra_hint" = "Anything else you want people to know? Just add it in the description!";
+"enter_desc" = "Enter Description";
+"privacy_title" = "Privacy?";
+"privacy_hint" = "Do you wanna invite everyone or just your friends?";
+"only_friends" = "Only Friends";
+"everyone" = "Everyone";
+
+
 //friend select create
 "no_friends" = "You don't seem to have any friends!";
 "select_friends" = "Anybody specific you wanna invite?";
@@ -77,6 +86,7 @@
 "info_photos" = "Upload photos you might want people to see.";
 "hint" = "Hint:";
 "awesome_setup" = "Put photos of the awesome setup you have!";
+"atleast_one" = "You should upload atleast one image!";
 
 //where
 "where_info" = "Where is your party located? Try to be as accurate as possible!";

@@ -51,11 +51,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setupAWS(){
 
         let credentialsProvider = AWSCognitoCredentialsProvider(
-            regionType: .APSouth1,
+            regionType: .EUWest1,
             identityPoolId: AWSKeys.pool_id)
 
         let configuration = AWSServiceConfiguration(
-            region: .APSouth1,
+            region: .EUWest1,
             credentialsProvider: credentialsProvider)
 
         AWSServiceManager.default().defaultServiceConfiguration = configuration

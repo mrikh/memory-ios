@@ -45,6 +45,11 @@ class PhotosSelectionViewController: BaseViewController, ImagePickerProtocol {
     //MARK:- IBAction
     @IBAction func nextAction(_ sender: UIButton) {
 
+        if viewModel.selectedCount == 0{
+            showAlert(StringConstants.alert.localized, withMessage: StringConstants.atleast_one.localized, withCompletion: nil)
+            return
+        }
+
         viewModel.startUpload()
         delegate?.userDidPressContinue()
     }

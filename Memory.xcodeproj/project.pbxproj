@@ -57,7 +57,6 @@
 		465FFFEE22DCB7B6009D222A /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFED22DCB7B6009D222A /* LocationViewController.swift */; };
 		465FFFF022DCBED5009D222A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFEF22DCBED5009D222A /* LocationManager.swift */; };
 		465FFFF222DCFF13009D222A /* UISearchBar + Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFF122DCFF13009D222A /* UISearchBar + Loader.swift */; };
-		465FFFF422DD9BE2009D222A /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFF322DD9BE2009D222A /* Annotation.swift */; };
 		465FFFF722DE627B009D222A /* PhotosSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465FFFF622DE627B009D222A /* PhotosSelectionViewController.swift */; };
 		467840EF22FAF564004D43E7 /* NoAccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 467840EE22FAF564004D43E7 /* NoAccessView.xib */; };
 		467840F222FAF576004D43E7 /* NoAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467840F122FAF576004D43E7 /* NoAccessView.swift */; };
@@ -191,7 +190,6 @@
 		465FFFED22DCB7B6009D222A /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		465FFFEF22DCBED5009D222A /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		465FFFF122DCFF13009D222A /* UISearchBar + Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar + Loader.swift"; sourceTree = "<group>"; };
-		465FFFF322DD9BE2009D222A /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		465FFFF622DE627B009D222A /* PhotosSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSelectionViewController.swift; sourceTree = "<group>"; };
 		467840EE22FAF564004D43E7 /* NoAccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoAccessView.xib; sourceTree = "<group>"; };
 		467840F122FAF576004D43E7 /* NoAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAccessView.swift; sourceTree = "<group>"; };
@@ -508,7 +506,6 @@
 			isa = PBXGroup;
 			children = (
 				465FFFE422DA5C36009D222A /* CreateModel.swift */,
-				465FFFF322DD9BE2009D222A /* Annotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1108,7 +1105,6 @@
 				46DCDEA222E38FC800277AC1 /* NameViewController.swift in Sources */,
 				464FAB3A2304B54E00763FAD /* MRRefreshControl.swift in Sources */,
 				4684C5BC24A026460003753D /* OTPCodeStoryboardView.swift in Sources */,
-				465FFFF422DD9BE2009D222A /* Annotation.swift in Sources */,
 				465A47C522D487B300647EA6 /* CountryCodeViewController.swift in Sources */,
 				464EEFAD223EB56D00C6A40D /* TextFieldCellViewModel.swift in Sources */,
 				46DCDE8E22E0784100277AC1 /* ImageCollectionViewCell.swift in Sources */,

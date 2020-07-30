@@ -189,4 +189,12 @@ extension CreatePageViewController : ExtraInfoViewControllerDelegate{
         viewController.viewModel = EventDetailViewModel(model: EventDetailModel(create: createModel), isDraft: true)
         navigationController?.pushViewController(viewController, animated: true)
     }
+
+    func extraPrevious() {
+
+        if let position = createViewControllers.firstIndex(where: {$0 is PhotosSelectionViewController}){
+            setViewControllers([createViewControllers[position]], direction: .reverse, animated: true, completion: nil)
+            return
+        }
+    }
 }
