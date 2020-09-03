@@ -53,7 +53,6 @@ class CircleFadeInAniamtor : UIViewController, UIViewControllerAnimatedTransitio
         initialImageView.center.x = imageContainer.bounds.width/2.0
         initialImageView.contentMode = .center
 
-
         let finalImageView = setupImageView(#imageLiteral(resourceName: "Tabbar Cross Animation"), frame: initialImageView.frame)
         finalImageView.layer.cornerRadius = 25.0
         finalImageView.backgroundColor = Colors.clear
@@ -83,10 +82,8 @@ class CircleFadeInAniamtor : UIViewController, UIViewControllerAnimatedTransitio
         rotateAnimation(view: finalImageView, totalDuration : totalDuration)
 
         UIView.animate(withDuration: totalDuration, animations: {
-
             initialImageView.alpha = 0.0
             finalImageView.alpha = 1.0
-
         }) { (finished) in
             toController.view.layer.mask = nil
         }
