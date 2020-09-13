@@ -1,3 +1,3 @@
 # memory-ios
 
-A project that i work on in my spare time.
+A project that I work on in my spare time.
